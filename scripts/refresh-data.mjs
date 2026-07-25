@@ -176,8 +176,12 @@ async function refreshTikTok(channel) {
     return;
   }
 
-  const token = process.env[channel.tiktokTokenEnv]?.trim();
-  if (!token) {
+  const vaultApiBase = process.env.VAULT_PULSE_TIKTOK_API_URL
+    ?.trim()
+    .replace(/\/+$/, "");
+  const vaultDataToken = process.env.VAULT_PULSE_DATA_TOKEN?.trim();
+  const legacyToken = process.env[channel.tiktokTokenEnv]?.trim();
+  if ((!vaultApiBase || !vaultDataToken) && !legacyToken) {
     channel.tiktok.connected = false;
     channel.tiktok.connectionLabel = "Access needed";
     refresh.skipped.push(`${channel.displayName} · TikTok access`);
@@ -185,34 +189,60 @@ async function refreshTikTok(channel) {
   }
 
   try {
-    const userUrl = new URL(
-      "https://open.tiktokapis.com/v2/user/info/",
-    );
-    userUrl.searchParams.set(
-      "fields",
-      "open_id,display_name,avatar_url,follower_count,following_count,likes_count,video_count",
-    );
-    const userPayload = await fetchJson(userUrl, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    validateTikTok(userPayload);
+    let userPayload;
+    let videoPayload;
 
-    const videoUrl = new URL(
-      "https://open.tiktokapis.com/v2/video/list/",
-    );
-    videoUrl.searchParams.set(
-      "fields",
-      "id,title,video_description,share_url,create_time,duration,view_count,like_count,comment_count,share_count",
-    );
-    const videoPayload = await fetchJson(videoUrl, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ max_count: 20 }),
-    });
-    validateTikTok(videoPayload);
+    if (vaultApiBase && vaultDataToken) {
+      const response = await fetch(
+        `${vaultApiBase}/${encodeURIComponent(channel.slug)}`,
+        {
+          headers: { Authorization: `Bearer ${vaultDataToken}` },
+        },
+      );
+      const payload = await response.json();
+      if (response.status === 409) {
+        channel.tiktok.connected = false;
+        channel.tiktok.connectionLabel = "Access needed";
+        refresh.skipped.push(`${channel.displayName} · TikTok access`);
+        return;
+      }
+      if (!response.ok) {
+        throw new Error(
+          payload.error || `${response.status} ${response.statusText}`,
+        );
+      }
+      userPayload = { data: { user: payload.user ?? {} } };
+      videoPayload = { data: { videos: payload.videos ?? [] } };
+    } else {
+      const userUrl = new URL(
+        "https://open.tiktokapis.com/v2/user/info/",
+      );
+      userUrl.searchParams.set(
+        "fields",
+        "open_id,display_name,avatar_url,follower_count,following_count,likes_count,video_count",
+      );
+      userPayload = await fetchJson(userUrl, {
+        headers: { Authorization: `Bearer ${legacyToken}` },
+      });
+      validateTikTok(userPayload);
+
+      const videoUrl = new URL(
+        "https://open.tiktokapis.com/v2/video/list/",
+      );
+      videoUrl.searchParams.set(
+        "fields",
+        "id,title,video_description,share_url,create_time,duration,view_count,like_count,comment_count,share_count",
+      );
+      videoPayload = await fetchJson(videoUrl, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${legacyToken}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ max_count: 20 }),
+      });
+      validateTikTok(videoPayload);
+    }
 
     const sourceVideos =
       videoPayload.data?.videos ?? videoPayload.data?.video_list ?? [];

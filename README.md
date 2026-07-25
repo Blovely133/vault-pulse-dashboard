@@ -15,8 +15,11 @@ The production site is deployed through GitHub Pages:
   hourly.
 - The Action stores a rolling 31-day history in
   `site/data/dashboard.json`.
-- API credentials stay in encrypted GitHub Actions secrets and are never
-  included in the website.
+- YouTube credentials stay in encrypted GitHub Actions secrets.
+- TikTok OAuth and refresh tokens stay encrypted on the existing Render
+  persistent disk. The Action receives only sanitized analytics through an
+  authenticated Vault Pulse endpoint.
+- No platform credential is included in the public website.
 
 ## Connected channel identities
 
@@ -40,12 +43,22 @@ Channel three is preloaded with:
 Add these Actions secrets under **Settings → Secrets and variables → Actions**:
 
 - `YOUTUBE_API_KEY`
-- `TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA`
-- `TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT`
-- `TIKTOK_ACCESS_TOKEN_KIDS_HISTORY`
+- `VAULT_PULSE_DATA_TOKEN`
 
 TikTok access needs the `user.info.basic`, `user.info.profile`,
 `user.info.stats`, and `video.list` scopes.
+
+The Render service uses these private environment values:
+
+- `TIKTOK_CLIENT_KEY`
+- `TIKTOK_CLIENT_SECRET`
+- `VAULT_PULSE_ADMIN_TOKEN`
+- `VAULT_PULSE_DATA_TOKEN`
+
+The OAuth callback is
+`https://testing-multiplayer-server.onrender.com/vault-pulse/tiktok/callback`.
+After the environment is configured, connect the three accounts through
+`https://testing-multiplayer-server.onrender.com/vault-pulse/setup`.
 
 All three YouTube channels share `YOUTUBE_API_KEY`. Channel identities are
 stored in `site/data/dashboard.json`.

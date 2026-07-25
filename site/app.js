@@ -3,6 +3,9 @@ const state = {
   data: null,
 };
 
+const tiktokSetupUrl =
+  "https://testing-multiplayer-server.onrender.com/vault-pulse/setup";
+
 const titles = {
   overview: "The whole network, one pulse.",
   videos: "Every post. Every signal.",
@@ -116,8 +119,8 @@ function overviewMarkup(data) {
                 <h2>Connect once. Watch every release move.</h2>
                 <p>
                   The GitHub-hosted dashboard and hourly refresh workflow are live.
-                  Add platform credentials to repository Secrets to replace the
-                  dashes with real performance.
+                  Connect each platform once to replace the dashes with real
+                  performance.
                 </p>
               </div>
               <button class="ghost-button" type="button" data-go-tab="connections">
@@ -259,11 +262,12 @@ function connectionsMarkup(data) {
       <section class="connection-hero">
         <div class="connection-hero-art" aria-hidden="true"></div>
         <div class="connection-hero-copy">
-          <p class="kicker">GitHub-powered network</p>
+          <p class="kicker">Secure connection layer</p>
           <h2>Your accounts stay connected backstage.</h2>
           <p>
-            GitHub Actions retrieves platform stats with encrypted repository
-            Secrets. No access key is stored in this website or sent to a browser.
+            YouTube access stays in encrypted GitHub Secrets. TikTok connections
+            and refresh tokens stay encrypted on the Render server. No platform
+            credential is stored in this website or sent to a browser.
           </p>
           <div class="connection-progress">
             <span>${connected} of ${total} sources connected</span>
@@ -282,8 +286,8 @@ function connectionsMarkup(data) {
           <strong>Automated by GitHub Actions</strong>
           <p>
             The dashboard checks each configured platform hourly and redeploys
-            this page with a new snapshot. Credentials are configured once in
-            repository Settings → Secrets and variables → Actions.
+            this page with a new snapshot. Use Secure setup once for each TikTok
+            account; automatic token refresh handles later updates.
           </p>
         </div>
       </section>
@@ -376,8 +380,8 @@ function connectionCardMarkup(channel) {
         }</strong>
       </div>
       <div class="connection-field">
-        <span>TikTok secret</span>
-        <strong><code>${escapeHtml(channel.tiktokTokenEnv)}</code></strong>
+        <span>TikTok connection</span>
+        <strong><a href="${escapeAttribute(tiktokSetupUrl)}" target="_blank" rel="noreferrer">Secure setup &#8599;</a></strong>
       </div>
     </article>
   `;
