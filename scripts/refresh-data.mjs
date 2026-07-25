@@ -102,7 +102,7 @@ async function refreshYouTube(channel) {
     const metric = {
       connected: true,
       connectionLabel: "Connected",
-      views: integer(statistics.viewCount),
+      views: Math.max(integer(statistics.viewCount), recentViews),
       audience: integer(statistics.subscriberCount),
       videos: integer(statistics.videoCount),
       likes: sum(videos, "likes"),
