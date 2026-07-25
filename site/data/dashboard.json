@@ -1,16 +1,16 @@
 {
-  "updatedAt": null,
-  "generatedAt": "2026-07-25T00:00:00.000Z",
-  "hasLiveData": false,
+  "updatedAt": "2026-07-25T16:41:26.942Z",
+  "generatedAt": "2026-07-25T16:41:26.942Z",
+  "hasLiveData": true,
   "totals": {
-    "views": null,
+    "views": 554,
     "sevenDayViews": null,
-    "audience": null,
-    "engagementRate": null
+    "audience": 8,
+    "engagementRate": 7.2202166064981945
   },
   "platformTotals": {
     "youtube": null,
-    "tiktok": null
+    "tiktok": 554
   },
   "channels": [
     {
@@ -34,13 +34,13 @@
         "engagementRate": null
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
-        "views": null,
-        "audience": null,
-        "videos": null,
-        "likes": null,
-        "engagementRate": null
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 237,
+        "audience": 3,
+        "videos": 3,
+        "likes": 15,
+        "engagementRate": 12.236286919831224
       }
     },
     {
@@ -64,13 +64,13 @@
         "engagementRate": null
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
-        "views": null,
-        "audience": null,
-        "videos": null,
-        "likes": null,
-        "engagementRate": null
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 317,
+        "audience": 2,
+        "videos": 2,
+        "likes": 4,
+        "engagementRate": 3.4700315457413247
       }
     },
     {
@@ -94,18 +94,185 @@
         "engagementRate": null
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
-        "views": null,
-        "audience": null,
-        "videos": null,
-        "likes": null,
-        "engagementRate": null
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 0,
+        "audience": 3,
+        "videos": 0,
+        "likes": 0,
+        "engagementRate": 0
       }
     }
   ],
-  "videos": [],
-  "snapshots": [],
+  "videos": [
+    {
+      "id": "tiktok:7666148056970185997",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "He got ARRESTED at his own wedding. Team Lola or Team Bianca? Comment below! #axolotl #axolotldrama #animation #telenovela #drama #aianimation #fyp",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7666148056970185997?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-25T16:00:00.000Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 32,
+      "engagementRate": 0
+    },
+    {
+      "id": "tiktok:7666216850333699359",
+      "channelId": 2,
+      "channelName": "Anime Countdown Vault",
+      "platform": "tiktok",
+      "title": "The five coldest anime entrances, ranked. Which entrance belongs at #1? #anime #animetiktok #animeedit #top5 #fyp",
+      "url": "https://www.tiktok.com/@animehype41/video/7666216850333699359?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-25T16:00:00.000Z",
+      "views": 1,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 60,
+      "engagementRate": 100
+    },
+    {
+      "id": "tiktok:7665651336976862478",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "Cheating Axlotyl #Axlotyl #cheatingboyfriend #cheatersgettingcaught #Cheaters",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7665651336976862478?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-25T09:40:00.000Z",
+      "views": 41,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 50,
+      "engagementRate": 0
+    },
+    {
+      "id": "tiktok:7666215462140792095",
+      "channelId": 2,
+      "channelName": "Anime Countdown Vault",
+      "platform": "tiktok",
+      "title": "The five coldest anime fights, ranked. What belongs at #1? #anime #animetiktok #animeedit #top5 #fyp",
+      "url": "https://www.tiktok.com/@animehype41/video/7666215462140792095?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-24T21:51:34.000Z",
+      "views": 316,
+      "likes": 3,
+      "comments": 5,
+      "shares": 2,
+      "durationSeconds": 55,
+      "engagementRate": 3.1645569620253164
+    },
+    {
+      "id": "tiktok:7666170049324944653",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "Pip smuggled cake into prison... and there was a NOTE inside. Who sent it? Comment your theory! #axolotl #axolotldrama #animation #telenovela #drama #aianimation #fyp",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7666170049324944653?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-24T18:55:17.000Z",
+      "views": 6,
+      "likes": 2,
+      "comments": 2,
+      "shares": 0,
+      "durationSeconds": 47,
+      "engagementRate": 66.66666666666666
+    },
+    {
+      "id": "tiktok:7666160510299147534",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "GUILTY... or FRAMED? Judge Coral has spoken. Comment your verdict! #axolotl #axolotldrama #animation #telenovela #drama #aianimation #fyp",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7666160510299147534?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-24T18:18:18.000Z",
+      "views": 5,
+      "likes": 2,
+      "comments": 1,
+      "shares": 0,
+      "durationSeconds": 42,
+      "engagementRate": 60
+    },
+    {
+      "id": "tiktok:7665651217699278094",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "Cheating Axlotyl #Axlotyl #cheatingboyfriend #cheatersgettingcaught #Cheaters",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7665651217699278094?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-23T14:55:00.000Z",
+      "views": 75,
+      "likes": 5,
+      "comments": 2,
+      "shares": 0,
+      "durationSeconds": 57,
+      "engagementRate": 9.333333333333334
+    },
+    {
+      "id": "tiktok:7665651057904684302",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "Cheating Axlotyl #Axlotyl #cheatingboyfriend #cheatersgettingcaught #Cheaters",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7665651057904684302?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-23T09:40:00.000Z",
+      "views": 95,
+      "likes": 3,
+      "comments": 4,
+      "shares": 0,
+      "durationSeconds": 50,
+      "engagementRate": 7.368421052631578
+    },
+    {
+      "id": "tiktok:7665637150771203341",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "Cheating Axlotyl #Axlotyl #cheatingboyfriend #cheatersgettingcaught #Cheaters",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7665637150771203341?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-23T08:28:02.000Z",
+      "views": 15,
+      "likes": 3,
+      "comments": 4,
+      "shares": 1,
+      "durationSeconds": 45,
+      "engagementRate": 53.333333333333336
+    }
+  ],
+  "snapshots": [
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:41:26.942Z",
+      "views": 237,
+      "audience": 3,
+      "videos": 3,
+      "likes": 15,
+      "engagementRate": 12.236286919831224
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:41:26.942Z",
+      "views": 317,
+      "audience": 2,
+      "videos": 2,
+      "likes": 4,
+      "engagementRate": 3.4700315457413247
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:41:26.942Z",
+      "views": 0,
+      "audience": 3,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": 0
+    }
+  ],
   "trend": [
     {
       "date": "2026-07-12",
@@ -189,25 +356,25 @@
       "date": "2026-07-25",
       "label": "Jul 25",
       "youtube": null,
-      "tiktok": null
+      "tiktok": 554
     }
   ],
   "connections": {
     "youtubeApiKey": false,
-    "connectedSources": 0,
+    "connectedSources": 3,
     "totalSources": 6
   },
   "refresh": {
-    "ok": [],
+    "ok": [
+      "Axolotl Drama · TikTok",
+      "Anime Countdown Vault · TikTok",
+      "Kids History · TikTok"
+    ],
     "skipped": [
       "Axolotl Drama · YouTube API key",
       "Anime Countdown Vault · YouTube channel ID",
       "Kids History · YouTube API key"
     ],
-    "errors": [
-      "Axolotl Drama · TikTok: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
-      "Anime Countdown Vault · TikTok: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
-      "Kids History · TikTok: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
-    ]
+    "errors": []
   }
 }
