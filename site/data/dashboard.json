@@ -1,0 +1,212 @@
+{
+  "updatedAt": null,
+  "generatedAt": "2026-07-25T00:00:00.000Z",
+  "hasLiveData": false,
+  "totals": {
+    "views": null,
+    "sevenDayViews": null,
+    "audience": null,
+    "engagementRate": null
+  },
+  "platformTotals": {
+    "youtube": null,
+    "tiktok": null
+  },
+  "channels": [
+    {
+      "id": 1,
+      "slot": 1,
+      "slug": "anime-countdown-vault",
+      "displayName": "Anime Countdown Vault",
+      "youtubeChannelId": "UCL0PybSo7k08IoLqtn4MIbg",
+      "youtubeHandle": "",
+      "tiktokUsername": "animehype41",
+      "tiktokTokenEnv": "TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT",
+      "accent": "#ff3d62",
+      "avatar": "./assets/vault-avatar.png",
+      "youtube": {
+        "connected": false,
+        "connectionLabel": "API key needed",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      },
+      "tiktok": {
+        "connected": false,
+        "connectionLabel": "Access needed",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      }
+    },
+    {
+      "id": 2,
+      "slot": 2,
+      "slug": "channel-two",
+      "displayName": "Channel 2",
+      "youtubeChannelId": "",
+      "youtubeHandle": "",
+      "tiktokUsername": "",
+      "tiktokTokenEnv": "TIKTOK_ACCESS_TOKEN_CHANNEL_2",
+      "accent": "#5be7c4",
+      "avatar": null,
+      "youtube": {
+        "connected": false,
+        "connectionLabel": "Channel ID needed",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      },
+      "tiktok": {
+        "connected": false,
+        "connectionLabel": "Username needed",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      }
+    },
+    {
+      "id": 3,
+      "slot": 3,
+      "slug": "channel-three",
+      "displayName": "Channel 3",
+      "youtubeChannelId": "",
+      "youtubeHandle": "",
+      "tiktokUsername": "",
+      "tiktokTokenEnv": "TIKTOK_ACCESS_TOKEN_CHANNEL_3",
+      "accent": "#8b7cff",
+      "avatar": null,
+      "youtube": {
+        "connected": false,
+        "connectionLabel": "Channel ID needed",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      },
+      "tiktok": {
+        "connected": false,
+        "connectionLabel": "Username needed",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      }
+    }
+  ],
+  "videos": [],
+  "snapshots": [],
+  "trend": [
+    {
+      "date": "2026-07-12",
+      "label": "Jul 12",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-13",
+      "label": "Jul 13",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-14",
+      "label": "Jul 14",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-15",
+      "label": "Jul 15",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-16",
+      "label": "Jul 16",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-17",
+      "label": "Jul 17",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-18",
+      "label": "Jul 18",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-19",
+      "label": "Jul 19",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-20",
+      "label": "Jul 20",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-21",
+      "label": "Jul 21",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-22",
+      "label": "Jul 22",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-23",
+      "label": "Jul 23",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-24",
+      "label": "Jul 24",
+      "youtube": null,
+      "tiktok": null
+    },
+    {
+      "date": "2026-07-25",
+      "label": "Jul 25",
+      "youtube": null,
+      "tiktok": null
+    }
+  ],
+  "connections": {
+    "youtubeApiKey": false,
+    "connectedSources": 0,
+    "totalSources": 6
+  },
+  "refresh": {
+    "ok": [],
+    "skipped": [
+      "Anime Countdown Vault · YouTube API key",
+      "Anime Countdown Vault · TikTok access",
+      "Channel 2 · YouTube channel ID",
+      "Channel 2 · TikTok username",
+      "Channel 3 · YouTube channel ID",
+      "Channel 3 · TikTok username"
+    ],
+    "errors": []
+  }
+}

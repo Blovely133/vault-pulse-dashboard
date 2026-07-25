@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080b12" />
+    <meta
+      name="description"
+      content="Vault Pulse brings YouTube and TikTok performance into one channel dashboard."
+    />
+    <meta property="og:title" content="Vault Pulse — Channel Analytics" />
+    <meta
+      property="og:description"
+      content="Three channels. Six data sources. One pulse."
+    />
+    <meta property="og:image" content="./assets/og.png" />
+    <title>Vault Pulse — Channel Analytics</title>
+    <link rel="icon" href="./assets/vault-avatar.png" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-mark">VP</div>
+      <p>Loading the network pulse…</p>
+    </div>
+
+    <main class="app-shell" id="app" hidden>
+      <aside class="sidebar" aria-label="Dashboard navigation">
+        <div class="brand-lockup">
+          <div class="brand-mark">VP</div>
+          <div class="brand-copy">
+            <strong>Vault Pulse</strong>
+            <span>Channel intelligence</span>
+          </div>
+        </div>
+
+        <nav class="nav-list">
+          <button class="nav-button active" type="button" data-tab="overview">
+            <span>01</span><strong>Overview</strong>
+          </button>
+          <button class="nav-button" type="button" data-tab="videos">
+            <span>02</span><strong>Video library</strong>
+          </button>
+          <button class="nav-button" type="button" data-tab="connections">
+            <span>03</span><strong>Connections</strong>
+          </button>
+        </nav>
+
+        <div class="sidebar-status">
+          <i class="pulse-dot" aria-hidden="true"></i>
+          <div>
+            <strong id="source-count">0/6 sources</strong>
+            <span id="source-status">Setup in progress</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="kicker">Cross-channel command center</p>
+            <h1 id="page-title">The whole network, one pulse.</h1>
+          </div>
+          <div class="topbar-actions">
+            <div class="last-sync">
+              <span>Last data sync</span>
+              <strong id="last-sync">Waiting for first refresh</strong>
+            </div>
+            <button class="primary-button" id="reload-button" type="button">
+              <span aria-hidden="true">↻</span>
+              Check latest
+            </button>
+          </div>
+        </header>
+
+        <div class="notice" id="notice" role="status" hidden>
+          <span id="notice-text"></span>
+          <button type="button" id="dismiss-notice">Dismiss</button>
+        </div>
+
+        <div id="view" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <noscript>
+      <p class="noscript">
+        Vault Pulse needs JavaScript enabled to display dashboard data.
+      </p>
+    </noscript>
+  </body>
+</html>
