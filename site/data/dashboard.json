@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-07-25T16:46:50.416Z",
-  "generatedAt": "2026-07-25T16:46:50.416Z",
+  "updatedAt": "2026-07-25T16:48:54.814Z",
+  "generatedAt": "2026-07-25T16:48:54.814Z",
   "hasLiveData": true,
   "totals": {
-    "views": 582,
+    "views": 622,
     "sevenDayViews": null,
-    "audience": 9,
+    "audience": 11,
     "engagementRate": 8.223684210526317
   },
   "platformTotals": {
-    "youtube": 28,
+    "youtube": 68,
     "tiktok": 554
   },
   "channels": [
@@ -27,7 +27,7 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 28,
+        "views": 30,
         "audience": 1,
         "videos": 7,
         "likes": 8,
@@ -85,13 +85,13 @@
       "accent": "#8b7cff",
       "avatar": "./assets/kids-history-avatar.jpg",
       "youtube": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
-        "views": null,
-        "audience": null,
-        "videos": null,
-        "likes": null,
-        "engagementRate": null
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 38,
+        "audience": 2,
+        "videos": 2,
+        "likes": 0,
+        "engagementRate": 0
       },
       "tiktok": {
         "connected": true,
@@ -416,6 +416,56 @@
       "videos": 0,
       "likes": 0,
       "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T16:48:54.814Z",
+      "views": 30,
+      "audience": 1,
+      "videos": 7,
+      "likes": 8,
+      "engagementRate": 18.51851851851852
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:48:54.814Z",
+      "views": 237,
+      "audience": 3,
+      "videos": 3,
+      "likes": 15,
+      "engagementRate": 12.236286919831224
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:48:54.814Z",
+      "views": 317,
+      "audience": 2,
+      "videos": 2,
+      "likes": 4,
+      "engagementRate": 3.4700315457413247
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T16:48:54.814Z",
+      "views": 38,
+      "audience": 2,
+      "videos": 2,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:48:54.814Z",
+      "views": 0,
+      "audience": 3,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": 0
     }
   ],
   "trend": [
@@ -500,13 +550,13 @@
     {
       "date": "2026-07-25",
       "label": "Jul 25",
-      "youtube": 28,
+      "youtube": 68,
       "tiktok": 554
     }
   ],
   "connections": {
     "youtubeApiKey": true,
-    "connectedSources": 4,
+    "connectedSources": 5,
     "totalSources": 6
   },
   "refresh": {
@@ -514,13 +564,12 @@
       "Axolotl Drama · YouTube",
       "Axolotl Drama · TikTok",
       "Anime Countdown Vault · TikTok",
+      "Kids History · YouTube",
       "Kids History · TikTok"
     ],
     "skipped": [
       "Anime Countdown Vault · YouTube channel ID"
     ],
-    "errors": [
-      "Kids History · YouTube: The playlist identified with the request's <code>playlistId</code> parameter cannot be found."
-    ]
+    "errors": []
   }
 }
