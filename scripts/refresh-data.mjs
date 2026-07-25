@@ -131,7 +131,11 @@ async function fetchYouTubeVideos(channel, uploadsPlaylist, apiKey) {
   playlistUrl.searchParams.set("playlistId", uploadsPlaylist);
   playlistUrl.searchParams.set("maxResults", "30");
   playlistUrl.searchParams.set("key", apiKey);
-  const playlistPayload = await fetchJson(playlistUrl);
+  const playlistPayload = await fetchJson(
+    playlistUrl,
+    {},
+    { allowNotFound: true },
+  );
   const videoIds = (playlistPayload.items ?? [])
     .map((item) => item.contentDetails?.videoId)
     .filter(Boolean);
@@ -439,7 +443,7 @@ function snapshot(channelId, platform, metric) {
   };
 }
 
-async function fetchJson(url, options = {}) {
+async function fetchJson(url, options = {}, { allowNotFound = false } = {}) {
   const response = await fetch(url, {
     ...options,
     headers: {
@@ -450,6 +454,9 @@ async function fetchJson(url, options = {}) {
   });
   const payload = await response.json();
   if (!response.ok) {
+    if (allowNotFound && response.status === 404) {
+      return { items: [] };
+    }
     const message =
       payload.error?.message ||
       payload.error_description ||
