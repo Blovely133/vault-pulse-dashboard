@@ -35,7 +35,7 @@
       },
       "tiktok": {
         "connected": false,
-        "connectionLabel": "Access needed",
+        "connectionLabel": "Refresh error",
         "views": null,
         "audience": null,
         "videos": null,
@@ -65,7 +65,7 @@
       },
       "tiktok": {
         "connected": false,
-        "connectionLabel": "Access needed",
+        "connectionLabel": "Refresh error",
         "views": null,
         "audience": null,
         "videos": null,
@@ -95,7 +95,7 @@
       },
       "tiktok": {
         "connected": false,
-        "connectionLabel": "Access needed",
+        "connectionLabel": "Refresh error",
         "views": null,
         "audience": null,
         "videos": null,
@@ -201,12 +201,13 @@
     "ok": [],
     "skipped": [
       "Axolotl Drama · YouTube API key",
-      "Axolotl Drama · TikTok access",
       "Anime Countdown Vault · YouTube channel ID",
-      "Anime Countdown Vault · TikTok access",
-      "Kids History · YouTube API key",
-      "Kids History · TikTok access"
+      "Kids History · YouTube API key"
     ],
-    "errors": []
+    "errors": [
+      "Axolotl Drama · TikTok: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "Anime Countdown Vault · TikTok: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON",
+      "Kids History · TikTok: Unexpected token '<', \"<!DOCTYPE \"... is not valid JSON"
+    ]
   }
 }
