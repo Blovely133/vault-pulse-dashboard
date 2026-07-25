@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-07-25T16:41:26.942Z",
-  "generatedAt": "2026-07-25T16:41:26.942Z",
+  "updatedAt": "2026-07-25T16:46:50.416Z",
+  "generatedAt": "2026-07-25T16:46:50.416Z",
   "hasLiveData": true,
   "totals": {
-    "views": 554,
+    "views": 582,
     "sevenDayViews": null,
-    "audience": 8,
-    "engagementRate": 7.2202166064981945
+    "audience": 9,
+    "engagementRate": 8.223684210526317
   },
   "platformTotals": {
-    "youtube": null,
+    "youtube": 28,
     "tiktok": 554
   },
   "channels": [
@@ -25,13 +25,13 @@
       "accent": "#5be7c4",
       "avatar": "./assets/axolotl-drama-avatar.jpg",
       "youtube": {
-        "connected": false,
-        "connectionLabel": "API key needed",
-        "views": null,
-        "audience": null,
-        "videos": null,
-        "likes": null,
-        "engagementRate": null
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 28,
+        "audience": 1,
+        "videos": 7,
+        "likes": 8,
+        "engagementRate": 18.51851851851852
       },
       "tiktok": {
         "connected": true,
@@ -86,7 +86,7 @@
       "avatar": "./assets/kids-history-avatar.jpg",
       "youtube": {
         "connected": false,
-        "connectionLabel": "API key needed",
+        "connectionLabel": "Refresh error",
         "views": null,
         "audience": null,
         "videos": null,
@@ -151,6 +151,36 @@
       "engagementRate": 0
     },
     {
+      "id": "youtube:X2KjN61LiNs",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "Cheating Axlotyl Again",
+      "url": "https://www.youtube.com/watch?v=X2KjN61LiNs",
+      "publishedAt": "2026-07-25T05:00:37Z",
+      "views": 6,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 61,
+      "engagementRate": 0
+    },
+    {
+      "id": "youtube:DQL9zbGnNi8",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "Axlotyl Battle",
+      "url": "https://www.youtube.com/watch?v=DQL9zbGnNi8",
+      "publishedAt": "2026-07-25T05:00:18Z",
+      "views": 6,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 51,
+      "engagementRate": 0
+    },
+    {
       "id": "tiktok:7666215462140792095",
       "channelId": 2,
       "channelName": "Anime Countdown Vault",
@@ -181,6 +211,21 @@
       "engagementRate": 66.66666666666666
     },
     {
+      "id": "youtube:35J_ApWvQcA",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "THE NOTE IN THE CAKE | Axolotl Drama Ep. 5",
+      "url": "https://www.youtube.com/watch?v=35J_ApWvQcA",
+      "publishedAt": "2026-07-24T18:53:46Z",
+      "views": 1,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 48,
+      "engagementRate": 100
+    },
+    {
       "id": "tiktok:7666160510299147534",
       "channelId": 1,
       "channelName": "Axolotl Drama",
@@ -196,6 +241,36 @@
       "engagementRate": 60
     },
     {
+      "id": "youtube:Tg1Pe-yaMxU",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "GUILTY OR FRAMED? The Verdict Is In | Axolotl Drama Ep. 4",
+      "url": "https://www.youtube.com/watch?v=Tg1Pe-yaMxU",
+      "publishedAt": "2026-07-24T18:14:44Z",
+      "views": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 43,
+      "engagementRate": 0
+    },
+    {
+      "id": "youtube:wrvGfQ8UYao",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "Cheating Tramp!",
+      "url": "https://www.youtube.com/watch?v=wrvGfQ8UYao",
+      "publishedAt": "2026-07-24T07:00:30Z",
+      "views": 10,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 51,
+      "engagementRate": 20
+    },
+    {
       "id": "tiktok:7665651217699278094",
       "channelId": 1,
       "channelName": "Axolotl Drama",
@@ -209,6 +284,21 @@
       "shares": 0,
       "durationSeconds": 57,
       "engagementRate": 9.333333333333334
+    },
+    {
+      "id": "youtube:yYSWGkWimNQ",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "Axlotyl Cheater!",
+      "url": "https://www.youtube.com/watch?v=yYSWGkWimNQ",
+      "publishedAt": "2026-07-23T14:00:31Z",
+      "views": 13,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 58,
+      "engagementRate": 15.384615384615385
     },
     {
       "id": "tiktok:7665651057904684302",
@@ -239,6 +329,21 @@
       "shares": 1,
       "durationSeconds": 45,
       "engagementRate": 53.333333333333336
+    },
+    {
+      "id": "youtube:UpReZWrLAIE",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "Axlotyl Betrayal",
+      "url": "https://www.youtube.com/watch?v=UpReZWrLAIE",
+      "publishedAt": "2026-07-23T08:27:13Z",
+      "views": 17,
+      "likes": 3,
+      "comments": 2,
+      "shares": 0,
+      "durationSeconds": 46,
+      "engagementRate": 29.411764705882355
     }
   ],
   "snapshots": [
@@ -266,6 +371,46 @@
       "channelId": 3,
       "platform": "tiktok",
       "capturedAt": "2026-07-25T16:41:26.942Z",
+      "views": 0,
+      "audience": 3,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T16:46:50.416Z",
+      "views": 28,
+      "audience": 1,
+      "videos": 7,
+      "likes": 8,
+      "engagementRate": 18.51851851851852
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:46:50.416Z",
+      "views": 237,
+      "audience": 3,
+      "videos": 3,
+      "likes": 15,
+      "engagementRate": 12.236286919831224
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:46:50.416Z",
+      "views": 317,
+      "audience": 2,
+      "videos": 2,
+      "likes": 4,
+      "engagementRate": 3.4700315457413247
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:46:50.416Z",
       "views": 0,
       "audience": 3,
       "videos": 0,
@@ -355,26 +500,27 @@
     {
       "date": "2026-07-25",
       "label": "Jul 25",
-      "youtube": null,
+      "youtube": 28,
       "tiktok": 554
     }
   ],
   "connections": {
-    "youtubeApiKey": false,
-    "connectedSources": 3,
+    "youtubeApiKey": true,
+    "connectedSources": 4,
     "totalSources": 6
   },
   "refresh": {
     "ok": [
+      "Axolotl Drama · YouTube",
       "Axolotl Drama · TikTok",
       "Anime Countdown Vault · TikTok",
       "Kids History · TikTok"
     ],
     "skipped": [
-      "Axolotl Drama · YouTube API key",
-      "Anime Countdown Vault · YouTube channel ID",
-      "Kids History · YouTube API key"
+      "Anime Countdown Vault · YouTube channel ID"
     ],
-    "errors": []
+    "errors": [
+      "Kids History · YouTube: The playlist identified with the request's <code>playlistId</code> parameter cannot be found."
+    ]
   }
 }
