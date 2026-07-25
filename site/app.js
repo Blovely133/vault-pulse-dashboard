@@ -1,5 +1,6 @@
 const state = {
   tab: "overview",
+  selectedChannelSlug: null,
   data: null,
 };
 
@@ -19,14 +20,11 @@ const noticeText = document.querySelector("#notice-text");
 
 document.querySelectorAll("[data-tab]").forEach((button) => {
   button.addEventListener("click", () => {
-    state.tab = button.dataset.tab;
-    document.querySelectorAll("[data-tab]").forEach((item) => {
-      item.classList.toggle("active", item === button);
-    });
-    document.querySelector("#page-title").textContent = titles[state.tab];
-    render();
+    navigateToTab(button.dataset.tab);
   });
 });
+
+window.addEventListener("hashchange", syncRoute);
 
 document.querySelector("#dismiss-notice").addEventListener("click", () => {
   notice.hidden = true;
@@ -53,7 +51,7 @@ async function loadData() {
   if (!response.ok) throw new Error(`Dashboard data returned ${response.status}`);
   state.data = await response.json();
   updateShell();
-  render();
+  syncRoute();
 }
 
 function updateShell() {
@@ -74,11 +72,72 @@ function render() {
   if (state.tab === "connections") {
     view.innerHTML = connectionsMarkup(state.data);
   }
+  if (state.tab === "channel") {
+    const channel = state.data.channels.find(
+      (item) => item.slug === state.selectedChannelSlug,
+    );
+    view.innerHTML = channel
+      ? channelDetailMarkup(state.data, channel)
+      : overviewMarkup(state.data);
+  }
   view.querySelectorAll("[data-go-tab]").forEach((button) => {
     button.addEventListener("click", () => {
-      document.querySelector(`[data-tab="${button.dataset.goTab}"]`).click();
+      navigateToTab(button.dataset.goTab);
     });
   });
+  view.querySelectorAll("[data-channel-slug]").forEach((button) => {
+    button.addEventListener("click", () => {
+      navigateToChannel(button.dataset.channelSlug);
+    });
+  });
+  view.querySelectorAll("[data-back-overview]").forEach((button) => {
+    button.addEventListener("click", () => navigateToTab("overview"));
+  });
+}
+
+function navigateToTab(tab) {
+  const nextHash = `#${titles[tab] ? tab : "overview"}`;
+  if (window.location.hash === nextHash) {
+    syncRoute();
+  } else {
+    window.location.hash = nextHash;
+  }
+}
+
+function navigateToChannel(slug) {
+  const nextHash = `#channel/${encodeURIComponent(slug)}`;
+  if (window.location.hash === nextHash) {
+    syncRoute();
+  } else {
+    window.location.hash = nextHash;
+  }
+}
+
+function syncRoute() {
+  const hash = window.location.hash.slice(1);
+  let route;
+  try {
+    route = decodeURIComponent(hash);
+  } catch {
+    route = "overview";
+  }
+
+  const channelSlug = route.startsWith("channel/")
+    ? route.slice("channel/".length)
+    : null;
+  const channel = state.data?.channels.find(
+    (item) => item.slug === channelSlug,
+  );
+  state.tab = channel ? "channel" : titles[route] ? route : "overview";
+  state.selectedChannelSlug = channel?.slug ?? null;
+
+  document.querySelectorAll("[data-tab]").forEach((button) => {
+    button.classList.toggle("active", button.dataset.tab === state.tab);
+  });
+  document.querySelector("#page-title").textContent = channel
+    ? `${channel.displayName} at a glance.`
+    : titles[state.tab];
+  render();
 }
 
 function overviewMarkup(data) {
@@ -295,12 +354,71 @@ function connectionsMarkup(data) {
   `;
 }
 
+function channelDetailMarkup(data, channel) {
+  const metrics = [channel.youtube, channel.tiktok];
+  const channelVideos = data.videos.filter(
+    (video) => video.channelId === channel.id,
+  );
+  const totalViews = totalPlatformMetric(metrics, "views");
+  const totalAudience = totalPlatformMetric(metrics, "audience");
+  const totalLikes = totalPlatformMetric(metrics, "likes");
+  const image = channel.avatar
+    ? `<img class="channel-detail-avatar" src="${escapeAttribute(channel.avatar)}" alt="" />`
+    : `<div class="channel-detail-avatar">${escapeHtml(channel.displayName.charAt(0) || "?")}</div>`;
+
+  return `
+    <div class="view-stack">
+      <section class="channel-detail-hero panel" style="--channel-accent:${escapeAttribute(channel.accent)}">
+        <button class="detail-back" type="button" data-back-overview>
+          <span aria-hidden="true">&larr;</span> All channels
+        </button>
+        <div class="channel-detail-identity">
+          ${image}
+          <div>
+            <p class="kicker">Channel ${String(channel.slot).padStart(2, "0")} report</p>
+            <h2>${escapeHtml(channel.displayName)}</h2>
+            <p>Views, audience, and likes across both connected platforms.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="metric-grid compact" aria-label="${escapeAttribute(channel.displayName)} totals">
+        ${compactMetric("Total views", formatMetric(totalViews), "YouTube + TikTok", "coral")}
+        ${compactMetric("Total audience", formatMetric(totalAudience), "Subscribers + followers", "mint")}
+        ${compactMetric("Total likes", formatMetric(totalLikes), "Reported by both platforms", "violet")}
+      </section>
+
+      <section class="platform-detail-grid">
+        ${platformDetailMarkup("youtube", channel.youtube, channel)}
+        ${platformDetailMarkup("tiktok", channel.tiktok, channel)}
+      </section>
+
+      <section class="panel table-panel full-table">
+        <div class="panel-heading">
+          <div>
+            <p class="kicker">Recent library</p>
+            <h2>${escapeHtml(channel.displayName)} videos</h2>
+          </div>
+          <span class="timezone">${channelVideos.length} tracked</span>
+        </div>
+        ${videoTableMarkup(channelVideos, "No videos reported for this channel yet")}
+      </section>
+    </div>
+  `;
+}
+
 function channelCardMarkup(channel) {
   const image = channel.avatar
     ? `<img class="channel-avatar" src="${escapeAttribute(channel.avatar)}" alt="" />`
     : `<div class="channel-avatar">${escapeHtml(channel.displayName.charAt(0) || "?")}</div>`;
   return `
-    <article class="channel-card" style="--channel-accent:${escapeAttribute(channel.accent)}">
+    <button
+      class="channel-card channel-card-button"
+      type="button"
+      data-channel-slug="${escapeAttribute(channel.slug)}"
+      style="--channel-accent:${escapeAttribute(channel.accent)}"
+      aria-label="Open ${escapeAttribute(channel.displayName)} report"
+    >
       <div class="channel-card-top">
         ${image}
         <div>
@@ -308,25 +426,17 @@ function channelCardMarkup(channel) {
           <h3>${escapeHtml(channel.displayName)}</h3>
         </div>
       </div>
-      ${platformLineMarkup("youtube", channel.youtube, channel)}
-      ${platformLineMarkup("tiktok", channel.tiktok, channel)}
-    </article>
+      ${platformLineMarkup("youtube", channel.youtube, channel, false)}
+      ${platformLineMarkup("tiktok", channel.tiktok, channel, false)}
+      <span class="channel-card-cta">Open channel report <span aria-hidden="true">&rarr;</span></span>
+    </button>
   `;
 }
 
-function platformLineMarkup(platform, metrics, channel) {
+function platformLineMarkup(platform, metrics, channel, linked = true) {
   const label = platform === "youtube" ? "YouTube" : "TikTok";
   const icon = platform === "youtube" ? "YT" : "TT";
-  const href =
-    platform === "youtube"
-      ? channel.youtubeChannelId
-        ? `https://www.youtube.com/channel/${channel.youtubeChannelId}`
-        : channel.youtubeHandle
-          ? `https://www.youtube.com/${channel.youtubeHandle.startsWith("@") ? channel.youtubeHandle : `@${channel.youtubeHandle}`}`
-          : ""
-      : channel.tiktokUsername
-        ? `https://www.tiktok.com/@${channel.tiktokUsername}`
-        : "";
+  const href = channelPlatformUrl(channel, platform);
   const statusClass = metrics.connected
     ? "status-live"
     : metrics.views != null
@@ -344,9 +454,82 @@ function platformLineMarkup(platform, metrics, channel) {
       </div>
       <i class="${statusClass}" aria-label="${escapeAttribute(metrics.connectionLabel)}"></i>
   `;
-  return href
+  return href && linked
     ? `<a class="platform-line linked" href="${escapeAttribute(href)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(channel.displayName)} on ${label}">${content}</a>`
     : `<div class="platform-line">${content}</div>`;
+}
+
+function platformDetailMarkup(platform, metrics, channel) {
+  const isYouTube = platform === "youtube";
+  const label = isYouTube ? "YouTube" : "TikTok";
+  const audienceLabel = isYouTube ? "Subscribers" : "Followers";
+  const likesNote = isYouTube ? "Recent public uploads" : "Profile total";
+  const url = channelPlatformUrl(channel, platform);
+  const statusClass = metrics.connected
+    ? "status-live"
+    : metrics.views != null
+      ? "status-stale"
+      : "status-offline";
+
+  return `
+    <article class="platform-detail panel ${platform}">
+      <div class="platform-detail-heading">
+        <div>
+          <span class="platform-icon ${platform}">${isYouTube ? "YT" : "TT"}</span>
+          <div>
+            <p class="kicker">${label} analytics</p>
+            <h3>${escapeHtml(metrics.connectionLabel)}</h3>
+          </div>
+          <i class="${statusClass}" aria-hidden="true"></i>
+        </div>
+        ${
+          url
+            ? `<a class="platform-open" href="${escapeAttribute(url)}" target="_blank" rel="noreferrer">Open ${label} &#8599;</a>`
+            : ""
+        }
+      </div>
+      <div class="platform-detail-stats">
+        ${detailStatMarkup("Views", metrics.views, "Platform total")}
+        ${detailStatMarkup(audienceLabel, metrics.audience, "Current audience")}
+        ${detailStatMarkup("Likes", metrics.likes, likesNote)}
+        ${detailStatMarkup("Videos", metrics.videos, "Published count")}
+      </div>
+    </article>
+  `;
+}
+
+function detailStatMarkup(label, value, note) {
+  return `
+    <div class="detail-stat">
+      <span>${escapeHtml(label)}</span>
+      <strong>${formatMetric(value)}</strong>
+      <small>${escapeHtml(note)}</small>
+    </div>
+  `;
+}
+
+function totalPlatformMetric(metrics, key) {
+  const values = metrics
+    .map((metric) => metric?.[key])
+    .filter((value) => value != null);
+  return values.length
+    ? values.reduce((total, value) => total + Number(value || 0), 0)
+    : null;
+}
+
+function channelPlatformUrl(channel, platform) {
+  if (platform === "youtube") {
+    if (channel.youtubeChannelId) {
+      return `https://www.youtube.com/channel/${channel.youtubeChannelId}`;
+    }
+    if (channel.youtubeHandle) {
+      return `https://www.youtube.com/${channel.youtubeHandle.startsWith("@") ? channel.youtubeHandle : `@${channel.youtubeHandle}`}`;
+    }
+    return "";
+  }
+  return channel.tiktokUsername
+    ? `https://www.tiktok.com/@${channel.tiktokUsername}`
+    : "";
 }
 
 function connectionCardMarkup(channel) {
