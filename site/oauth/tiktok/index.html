@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080b12" />
+    <meta name="robots" content="noindex" />
+    <title>TikTok Connection — Vault Pulse</title>
+    <link rel="icon" href="../../assets/vault-pulse-app-icon.png" />
+    <link rel="stylesheet" href="../../styles.css?v=3" />
+  </head>
+  <body class="legal-body">
+    <main class="legal-shell">
+      <a class="legal-brand" href="../../" aria-label="Return to Vault Pulse">
+        <span class="brand-mark">VP</span>
+        <span>
+          <strong>Vault Pulse</strong>
+          <small>Channel intelligence</small>
+        </span>
+      </a>
+
+      <article class="legal-card oauth-card">
+        <p class="kicker">TikTok connection</p>
+        <h1 id="oauth-title">Finishing authorization…</h1>
+        <p id="oauth-message">
+          Vault Pulse is checking the response from TikTok.
+        </p>
+        <div class="oauth-actions">
+          <button class="primary-button" id="copy-code" type="button" hidden>
+            Copy authorization code
+          </button>
+          <a class="ghost-button" href="../../">Return to dashboard</a>
+        </div>
+        <p class="oauth-detail" id="oauth-detail" hidden></p>
+      </article>
+
+      <footer class="legal-footer">
+        <a href="../../privacy/">Privacy Policy</a>
+        <a href="../../terms/">Terms of Service</a>
+      </footer>
+    </main>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const error = params.get("error");
+      const errorDescription = params.get("error_description");
+      const title = document.querySelector("#oauth-title");
+      const message = document.querySelector("#oauth-message");
+      const detail = document.querySelector("#oauth-detail");
+      const copyButton = document.querySelector("#copy-code");
+
+      if (code) {
+        title.textContent = "Authorization received";
+        message.textContent =
+          "TikTok returned permission to Vault Pulse. Keep this page open while the secure server-side connection is completed.";
+        copyButton.hidden = false;
+        copyButton.addEventListener("click", async () => {
+          await navigator.clipboard.writeText(code);
+          copyButton.textContent = "Authorization code copied";
+        });
+      } else if (error) {
+        title.textContent = "Connection wasn’t completed";
+        message.textContent =
+          "TikTok did not authorize the connection. You can return to the dashboard and try again.";
+        detail.hidden = false;
+        detail.textContent = errorDescription || error;
+      } else {
+        title.textContent = "No authorization response";
+        message.textContent =
+          "Open this page through the Vault Pulse TikTok connection flow.";
+      }
+    </script>
+  </body>
+</html>

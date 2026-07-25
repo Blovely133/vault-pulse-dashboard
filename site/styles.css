@@ -1361,3 +1361,137 @@ td a span {
     transition-duration: 0.001ms !important;
   }
 }
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 38px;
+  border-top: 1px solid var(--line);
+  color: var(--dim);
+  font-size: 0.68rem;
+  padding-top: 22px;
+}
+
+.site-footer nav,
+.legal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.site-footer a,
+.legal-card a,
+.legal-footer a {
+  color: var(--muted);
+  text-decoration-color: rgb(91 231 196 / 35%);
+  text-underline-offset: 3px;
+}
+
+.site-footer a:hover,
+.legal-card a:hover,
+.legal-footer a:hover {
+  color: var(--mint);
+}
+
+.legal-body {
+  padding: 40px 20px;
+}
+
+.legal-shell {
+  width: min(780px, 100%);
+  margin: 0 auto;
+}
+
+.legal-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.legal-brand > span:last-child,
+.legal-brand strong,
+.legal-brand small {
+  display: block;
+}
+
+.legal-brand small {
+  margin-top: 3px;
+  color: var(--dim);
+  font-size: 0.67rem;
+}
+
+.legal-card {
+  margin-top: 32px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgb(16 21 31 / 88%);
+  box-shadow: var(--shadow);
+  padding: clamp(26px, 6vw, 54px);
+}
+
+.legal-card h1 {
+  margin-bottom: 10px;
+}
+
+.legal-card h2 {
+  margin: 34px 0 10px;
+}
+
+.legal-card p {
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+.legal-card .legal-effective {
+  margin-bottom: 34px;
+  color: var(--dim);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.legal-footer {
+  justify-content: center;
+  padding: 28px 0 8px;
+  font-size: 0.72rem;
+}
+
+.oauth-card {
+  text-align: center;
+}
+
+.oauth-card h1 {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.oauth-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.oauth-detail {
+  margin-top: 24px;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.7rem !important;
+}
+
+@media (max-width: 650px) {
+  .site-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .legal-body {
+    padding: 24px 14px;
+  }
+}
