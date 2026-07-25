@@ -35,8 +35,8 @@ jobs:
       - name: Refresh platform data
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA: ${{ secrets.TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA }}
           TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT: ${{ secrets.TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT }}
-          TIKTOK_ACCESS_TOKEN_CHANNEL_2: ${{ secrets.TIKTOK_ACCESS_TOKEN_CHANNEL_2 }}
           TIKTOK_ACCESS_TOKEN_CHANNEL_3: ${{ secrets.TIKTOK_ACCESS_TOKEN_CHANNEL_3 }}
         run: node scripts/refresh-data.mjs
 

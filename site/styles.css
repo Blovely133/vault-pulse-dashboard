@@ -864,6 +864,19 @@ h2 {
   padding: 13px 0 0;
 }
 
+.platform-line.linked {
+  color: inherit;
+  text-decoration: none;
+  transition:
+    border-color 150ms ease,
+    transform 150ms ease;
+}
+
+.platform-line.linked:hover {
+  border-color: rgb(255 255 255 / 18%);
+  transform: translateX(2px);
+}
+
 .platform-line + .platform-line {
   margin-top: 12px;
 }
@@ -1150,6 +1163,15 @@ td a span {
   font-size: 0.6rem;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.connection-field a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.connection-field a:hover {
+  color: var(--mint);
 }
 
 .connection-field code {

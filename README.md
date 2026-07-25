@@ -1,7 +1,6 @@
 # Vault Pulse
 
-GitHub-hosted YouTube and TikTok analytics for the Anime Countdown Vault
-network.
+GitHub-hosted YouTube and TikTok analytics for the three-channel network.
 
 ## Live dashboard
 
@@ -19,26 +18,33 @@ The production site is deployed through GitHub Pages:
 - API credentials stay in encrypted GitHub Actions secrets and are never
   included in the website.
 
-## Connect the first channel
+## Connected channel identities
 
 Channel one is preloaded with:
 
+- Display name: `Axolotl Drama`
 - YouTube channel ID: `UCL0PybSo7k08IoLqtn4MIbg`
+- TikTok account: `@axlotyl2`
+
+Channel two is preloaded with:
+
+- Display name: `Anime Countdown Vault`
 - TikTok account: `@animehype41`
 
 Add these Actions secrets under **Settings → Secrets and variables → Actions**:
 
 - `YOUTUBE_API_KEY`
+- `TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA`
 - `TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT`
 
 TikTok access needs the `user.info.basic`, `user.info.profile`,
 `user.info.stats`, and `video.list` scopes.
 
-## Add channels two and three
+## Add the remaining channel identities
 
-Edit the channel records in `site/data/dashboard.json`, then add:
+Edit the channel records in `site/data/dashboard.json`. The third TikTok
+connection uses:
 
-- `TIKTOK_ACCESS_TOKEN_CHANNEL_2`
 - `TIKTOK_ACCESS_TOKEN_CHANNEL_3`
 
 All three YouTube channels share `YOUTUBE_API_KEY`.

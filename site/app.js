@@ -304,22 +304,31 @@ function channelCardMarkup(channel) {
           <h3>${escapeHtml(channel.displayName)}</h3>
         </div>
       </div>
-      ${platformLineMarkup("youtube", channel.youtube)}
-      ${platformLineMarkup("tiktok", channel.tiktok)}
+      ${platformLineMarkup("youtube", channel.youtube, channel)}
+      ${platformLineMarkup("tiktok", channel.tiktok, channel)}
     </article>
   `;
 }
 
-function platformLineMarkup(platform, metrics) {
+function platformLineMarkup(platform, metrics, channel) {
   const label = platform === "youtube" ? "YouTube" : "TikTok";
   const icon = platform === "youtube" ? "YT" : "TT";
+  const href =
+    platform === "youtube"
+      ? channel.youtubeChannelId
+        ? `https://www.youtube.com/channel/${channel.youtubeChannelId}`
+        : channel.youtubeHandle
+          ? `https://www.youtube.com/${channel.youtubeHandle.startsWith("@") ? channel.youtubeHandle : `@${channel.youtubeHandle}`}`
+          : ""
+      : channel.tiktokUsername
+        ? `https://www.tiktok.com/@${channel.tiktokUsername}`
+        : "";
   const statusClass = metrics.connected
     ? "status-live"
     : metrics.views != null
       ? "status-stale"
       : "status-offline";
-  return `
-    <div class="platform-line">
+  const content = `
       <span class="platform-icon ${platform}">${icon}</span>
       <div>
         <strong>${label}</strong>
@@ -330,11 +339,21 @@ function platformLineMarkup(platform, metrics) {
         <span>views</span>
       </div>
       <i class="${statusClass}" aria-label="${escapeAttribute(metrics.connectionLabel)}"></i>
-    </div>
   `;
+  return href
+    ? `<a class="platform-line linked" href="${escapeAttribute(href)}" target="_blank" rel="noreferrer" aria-label="Open ${escapeAttribute(channel.displayName)} on ${label}">${content}</a>`
+    : `<div class="platform-line">${content}</div>`;
 }
 
 function connectionCardMarkup(channel) {
+  const youtubeUrl = channel.youtubeChannelId
+    ? `https://www.youtube.com/channel/${channel.youtubeChannelId}`
+    : channel.youtubeHandle
+      ? `https://www.youtube.com/${channel.youtubeHandle.startsWith("@") ? channel.youtubeHandle : `@${channel.youtubeHandle}`}`
+      : "";
+  const tiktokUrl = channel.tiktokUsername
+    ? `https://www.tiktok.com/@${channel.tiktokUsername}`
+    : "";
   return `
     <article class="connection-card" style="--channel-accent:${escapeAttribute(channel.accent)}">
       <p class="kicker">Channel ${String(channel.slot).padStart(2, "0")}</p>
@@ -342,11 +361,19 @@ function connectionCardMarkup(channel) {
       <p>${escapeHtml(channel.slug)}</p>
       <div class="connection-field">
         <span>YouTube channel</span>
-        <strong>${escapeHtml(channel.youtubeChannelId || channel.youtubeHandle || "Not configured")}</strong>
+        <strong>${
+          youtubeUrl
+            ? `<a href="${escapeAttribute(youtubeUrl)}" target="_blank" rel="noreferrer">${escapeHtml(channel.youtubeChannelId || channel.youtubeHandle)} ↗</a>`
+            : "Not configured"
+        }</strong>
       </div>
       <div class="connection-field">
         <span>TikTok account</span>
-        <strong>${channel.tiktokUsername ? `@${escapeHtml(channel.tiktokUsername)}` : "Not configured"}</strong>
+        <strong>${
+          tiktokUrl
+            ? `<a href="${escapeAttribute(tiktokUrl)}" target="_blank" rel="noreferrer">@${escapeHtml(channel.tiktokUsername)} ↗</a>`
+            : "Not configured"
+        }</strong>
       </div>
       <div class="connection-field">
         <span>TikTok secret</span>
