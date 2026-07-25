@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-25T22:09:39.704Z",
-  "generatedAt": "2026-07-25T22:09:39.704Z",
+  "updatedAt": "2026-07-25T23:11:45.835Z",
+  "generatedAt": "2026-07-25T23:11:45.835Z",
   "hasLiveData": true,
   "totals": {
-    "views": 2558,
+    "views": 3108,
     "sevenDayViews": null,
-    "audience": 19,
+    "audience": 20,
     "engagementRate": 5.572021339656195
   },
   "platformTotals": {
-    "youtube": 1263,
-    "tiktok": 1295
+    "youtube": 1691,
+    "tiktok": 1417
   },
   "channels": [
     {
@@ -27,20 +27,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 68,
+        "views": 77,
         "audience": 1,
         "videos": 11,
         "likes": 14,
-        "engagementRate": 23.52941176470588
+        "engagementRate": 20.77922077922078
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 489,
+        "views": 560,
         "audience": 4,
         "videos": 4,
         "likes": 23,
-        "engagementRate": 8.1799591002045
+        "engagementRate": 7.142857142857142
       }
     },
     {
@@ -57,20 +57,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 552,
+        "views": 558,
         "audience": 2,
         "videos": 4,
         "likes": 12,
-        "engagementRate": 2.1739130434782608
+        "engagementRate": 2.1505376344086025
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 448,
+        "views": 449,
         "audience": 3,
         "videos": 3,
         "likes": 6,
-        "engagementRate": 3.3482142857142856
+        "engagementRate": 3.34075723830735
       }
     },
     {
@@ -87,24 +87,39 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 643,
-        "audience": 5,
+        "views": 1056,
+        "audience": 6,
         "videos": 2,
-        "likes": 35,
-        "engagementRate": 6.2208398133748055
+        "likes": 51,
+        "engagementRate": 5.3977272727272725
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 358,
+        "views": 408,
         "audience": 4,
         "videos": 2,
-        "likes": 14,
-        "engagementRate": 5.027932960893855
+        "likes": 17,
+        "engagementRate": 5.147058823529411
       }
     }
   ],
   "videos": [
+    {
+      "id": "tiktok:7666437117991456030",
+      "channelId": 2,
+      "channelName": "Anime Countdown Vault",
+      "platform": "tiktok",
+      "title": "Five anime kisses that made the whole fandom scream. Which couple owns #1? #anime #animecouples #romanceanime #animetiktok #top5 #fyp",
+      "url": "https://www.tiktok.com/@animehype41/video/7666437117991456030?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-25T23:00:00.000Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 60,
+      "engagementRate": 0
+    },
     {
       "id": "youtube:mbKQmz8bKZI",
       "channelId": 1,
@@ -1201,6 +1216,66 @@
       "videos": 2,
       "likes": 14,
       "engagementRate": 5.027932960893855
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T23:11:45.835Z",
+      "views": 77,
+      "audience": 1,
+      "videos": 11,
+      "likes": 14,
+      "engagementRate": 20.77922077922078
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T23:11:45.835Z",
+      "views": 560,
+      "audience": 4,
+      "videos": 4,
+      "likes": 23,
+      "engagementRate": 7.142857142857142
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T23:11:45.835Z",
+      "views": 558,
+      "audience": 2,
+      "videos": 4,
+      "likes": 12,
+      "engagementRate": 2.1505376344086025
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T23:11:45.835Z",
+      "views": 449,
+      "audience": 3,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.34075723830735
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T23:11:45.835Z",
+      "views": 1056,
+      "audience": 6,
+      "videos": 2,
+      "likes": 51,
+      "engagementRate": 5.3977272727272725
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T23:11:45.835Z",
+      "views": 408,
+      "audience": 4,
+      "videos": 2,
+      "likes": 17,
+      "engagementRate": 5.147058823529411
     }
   ],
   "trend": [
@@ -1285,8 +1360,8 @@
     {
       "date": "2026-07-25",
       "label": "Jul 25",
-      "youtube": 1263,
-      "tiktok": 1295
+      "youtube": 1691,
+      "tiktok": 1417
     }
   ],
   "connections": {
