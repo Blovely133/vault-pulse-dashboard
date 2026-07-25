@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-25T18:08:45.779Z",
-  "generatedAt": "2026-07-25T18:08:45.779Z",
+  "updatedAt": "2026-07-25T19:34:12.712Z",
+  "generatedAt": "2026-07-25T19:34:12.712Z",
   "hasLiveData": true,
   "totals": {
-    "views": 1252,
+    "views": 1602,
     "sevenDayViews": null,
-    "audience": 13,
-    "engagementRate": 5.364995602462621
+    "audience": 16,
+    "engagementRate": 5.459571527297857
   },
   "platformTotals": {
-    "youtube": 602,
-    "tiktok": 650
+    "youtube": 709,
+    "tiktok": 893
   },
   "channels": [
     {
@@ -27,20 +27,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 54,
+        "views": 61,
         "audience": 1,
-        "videos": 7,
-        "likes": 8,
-        "engagementRate": 18.51851851851852
+        "videos": 8,
+        "likes": 12,
+        "engagementRate": 22.950819672131146
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 238,
-        "audience": 3,
-        "videos": 3,
-        "likes": 15,
-        "engagementRate": 12.184873949579831
+        "views": 349,
+        "audience": 4,
+        "videos": 4,
+        "likes": 19,
+        "engagementRate": 9.455587392550143
       }
     },
     {
@@ -57,20 +57,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 510,
+        "views": 550,
         "audience": 2,
         "videos": 3,
         "likes": 11,
-        "engagementRate": 2.156862745098039
+        "engagementRate": 2
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 412,
-        "audience": 2,
+        "views": 438,
+        "audience": 3,
         "videos": 3,
-        "likes": 4,
-        "engagementRate": 2.669902912621359
+        "likes": 6,
+        "engagementRate": 3.4246575342465753
       }
     },
     {
@@ -87,24 +87,84 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 38,
+        "views": 98,
         "audience": 2,
-        "videos": 2,
-        "likes": 0,
-        "engagementRate": 0
+        "videos": 1,
+        "likes": 7,
+        "engagementRate": 8.16326530612245
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 0,
-        "audience": 3,
-        "videos": 0,
-        "likes": 0,
-        "engagementRate": 0
+        "views": 106,
+        "audience": 4,
+        "videos": 1,
+        "likes": 4,
+        "engagementRate": 6.60377358490566
       }
     }
   ],
   "videos": [
+    {
+      "id": "tiktok:7666538608232353054",
+      "channelId": 3,
+      "channelName": "Kids History",
+      "platform": "tiktok",
+      "title": "That Famous Titanic Footage Is the Wrong Ship Almost every moving image sold as \"the Titanic\" is her sister ship, RMS Olympic. The substitution started within days of the sinking, in 1912, and it never really stopped. #history #titanic #rmsolympic #mythbusting #archivalfootage #1912 #shipwreck #oceanliner #shorts",
+      "url": "https://www.tiktok.com/@sylva6806/video/7666538608232353054?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-25T18:45:41.000Z",
+      "views": 106,
+      "likes": 4,
+      "comments": 3,
+      "shares": 0,
+      "durationSeconds": 54,
+      "engagementRate": 6.60377358490566
+    },
+    {
+      "id": "youtube:4iwUdRzgZgs",
+      "channelId": 3,
+      "channelName": "Kids History",
+      "platform": "youtube",
+      "title": "That Famous Titanic Footage Is the Wrong Ship",
+      "url": "https://www.youtube.com/watch?v=4iwUdRzgZgs",
+      "publishedAt": "2026-07-25T18:44:56Z",
+      "views": 98,
+      "likes": 7,
+      "comments": 1,
+      "shares": 0,
+      "durationSeconds": 55,
+      "engagementRate": 8.16326530612245
+    },
+    {
+      "id": "tiktok:7666532692111969550",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "NEW EVENT SEASON: one hundred men (approximately) vs one bear. Her name is Barbara. She has not agreed to anything. COULD YOU BEAT A BEAR? #axolotl #axolotldrama #animation #telenovela #drama #aianimation #fyp",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7666532692111969550?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-25T18:22:51.000Z",
+      "views": 103,
+      "likes": 2,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 57,
+      "engagementRate": 1.9417475728155338
+    },
+    {
+      "id": "youtube:W4Y3ywnsMf0",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "COULD 100 MEN BEAT A BEAR? | 100 Men v. Bear Ep. 1",
+      "url": "https://www.youtube.com/watch?v=W4Y3ywnsMf0",
+      "publishedAt": "2026-07-25T18:10:37Z",
+      "views": 3,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 58,
+      "engagementRate": 33.33333333333333
+    },
     {
       "id": "youtube:1dRtnCclGHs",
       "channelId": 2,
@@ -841,6 +901,66 @@
       "videos": 0,
       "likes": 0,
       "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T19:34:12.712Z",
+      "views": 61,
+      "audience": 1,
+      "videos": 8,
+      "likes": 12,
+      "engagementRate": 22.950819672131146
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T19:34:12.712Z",
+      "views": 349,
+      "audience": 4,
+      "videos": 4,
+      "likes": 19,
+      "engagementRate": 9.455587392550143
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T19:34:12.712Z",
+      "views": 550,
+      "audience": 2,
+      "videos": 3,
+      "likes": 11,
+      "engagementRate": 2
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T19:34:12.712Z",
+      "views": 438,
+      "audience": 3,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.4246575342465753
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T19:34:12.712Z",
+      "views": 98,
+      "audience": 2,
+      "videos": 1,
+      "likes": 7,
+      "engagementRate": 8.16326530612245
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T19:34:12.712Z",
+      "views": 106,
+      "audience": 4,
+      "videos": 1,
+      "likes": 4,
+      "engagementRate": 6.60377358490566
     }
   ],
   "trend": [
@@ -925,8 +1045,8 @@
     {
       "date": "2026-07-25",
       "label": "Jul 25",
-      "youtube": 602,
-      "tiktok": 650
+      "youtube": 709,
+      "tiktok": 893
     }
   ],
   "connections": {
