@@ -37,7 +37,7 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA: ${{ secrets.TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA }}
           TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT: ${{ secrets.TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT }}
-          TIKTOK_ACCESS_TOKEN_CHANNEL_3: ${{ secrets.TIKTOK_ACCESS_TOKEN_CHANNEL_3 }}
+          TIKTOK_ACCESS_TOKEN_KIDS_HISTORY: ${{ secrets.TIKTOK_ACCESS_TOKEN_KIDS_HISTORY }}
         run: node scripts/refresh-data.mjs
 
       - name: Preserve refreshed snapshot

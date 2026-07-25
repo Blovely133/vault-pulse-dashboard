@@ -76,17 +76,17 @@
     {
       "id": 3,
       "slot": 3,
-      "slug": "channel-three",
-      "displayName": "Channel 3",
-      "youtubeChannelId": "",
+      "slug": "kids-history",
+      "displayName": "Kids History",
+      "youtubeChannelId": "UCUzrKvQc2Yud2WGJcFfl00g",
       "youtubeHandle": "",
-      "tiktokUsername": "",
-      "tiktokTokenEnv": "TIKTOK_ACCESS_TOKEN_CHANNEL_3",
+      "tiktokUsername": "sylva6806",
+      "tiktokTokenEnv": "TIKTOK_ACCESS_TOKEN_KIDS_HISTORY",
       "accent": "#8b7cff",
       "avatar": null,
       "youtube": {
         "connected": false,
-        "connectionLabel": "Channel ID needed",
+        "connectionLabel": "API key needed",
         "views": null,
         "audience": null,
         "videos": null,
@@ -95,7 +95,7 @@
       },
       "tiktok": {
         "connected": false,
-        "connectionLabel": "Username needed",
+        "connectionLabel": "Access needed",
         "views": null,
         "audience": null,
         "videos": null,
@@ -204,8 +204,8 @@
       "Axolotl Drama · TikTok access",
       "Anime Countdown Vault · YouTube channel ID",
       "Anime Countdown Vault · TikTok access",
-      "Channel 3 · YouTube channel ID",
-      "Channel 3 · TikTok username"
+      "Kids History · YouTube API key",
+      "Kids History · TikTok access"
     ],
     "errors": []
   }

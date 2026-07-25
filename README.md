@@ -31,23 +31,24 @@ Channel two is preloaded with:
 - Display name: `Anime Countdown Vault`
 - TikTok account: `@animehype41`
 
+Channel three is preloaded with:
+
+- Display name: `Kids History`
+- YouTube channel ID: `UCUzrKvQc2Yud2WGJcFfl00g`
+- TikTok account: `@sylva6806`
+
 Add these Actions secrets under **Settings → Secrets and variables → Actions**:
 
 - `YOUTUBE_API_KEY`
 - `TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA`
 - `TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT`
+- `TIKTOK_ACCESS_TOKEN_KIDS_HISTORY`
 
 TikTok access needs the `user.info.basic`, `user.info.profile`,
 `user.info.stats`, and `video.list` scopes.
 
-## Add the remaining channel identities
-
-Edit the channel records in `site/data/dashboard.json`. The third TikTok
-connection uses:
-
-- `TIKTOK_ACCESS_TOKEN_CHANNEL_3`
-
-All three YouTube channels share `YOUTUBE_API_KEY`.
+All three YouTube channels share `YOUTUBE_API_KEY`. Channel identities are
+stored in `site/data/dashboard.json`.
 
 ## Local preview
 
