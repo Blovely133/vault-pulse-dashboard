@@ -1,12 +1,12 @@
 {
-  "updatedAt": "2026-07-25T16:48:54.814Z",
-  "generatedAt": "2026-07-25T16:48:54.814Z",
+  "updatedAt": "2026-07-25T16:52:11.946Z",
+  "generatedAt": "2026-07-25T16:52:11.946Z",
   "hasLiveData": true,
   "totals": {
     "views": 622,
     "sevenDayViews": null,
-    "audience": 11,
-    "engagementRate": 8.223684210526317
+    "audience": 13,
+    "engagementRate": 5.451295799821269
   },
   "platformTotals": {
     "youtube": 68,
@@ -55,13 +55,13 @@
       "accent": "#ff3d62",
       "avatar": "./assets/vault-avatar.png",
       "youtube": {
-        "connected": false,
-        "connectionLabel": "Channel ID needed",
-        "views": null,
-        "audience": null,
-        "videos": null,
-        "likes": null,
-        "engagementRate": null
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 0,
+        "audience": 2,
+        "videos": 3,
+        "likes": 11,
+        "engagementRate": 2.152641878669276
       },
       "tiktok": {
         "connected": true,
@@ -136,6 +136,36 @@
       "engagementRate": 100
     },
     {
+      "id": "youtube:FNhUip31fGE",
+      "channelId": 2,
+      "channelName": "Anime Countdown Vault",
+      "platform": "youtube",
+      "title": "TOP 3 WORST ANIME RETCONS | Nika, Potara & Kaguya",
+      "url": "https://www.youtube.com/watch?v=FNhUip31fGE",
+      "publishedAt": "2026-07-25T13:51:44Z",
+      "views": 5,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 60,
+      "engagementRate": 20
+    },
+    {
+      "id": "youtube:w5YQUw3RhTg",
+      "channelId": 2,
+      "channelName": "Anime Countdown Vault",
+      "platform": "youtube",
+      "title": "TOP 5 ANIME SMOOCHES | Best Kisses Ranked",
+      "url": "https://www.youtube.com/watch?v=w5YQUw3RhTg",
+      "publishedAt": "2026-07-25T12:21:56Z",
+      "views": 2,
+      "likes": 1,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 60,
+      "engagementRate": 50
+    },
+    {
       "id": "tiktok:7665651336976862478",
       "channelId": 1,
       "channelName": "Axolotl Drama",
@@ -179,6 +209,21 @@
       "shares": 0,
       "durationSeconds": 51,
       "engagementRate": 0
+    },
+    {
+      "id": "youtube:MvZkVF-lxB4",
+      "channelId": 2,
+      "channelName": "Anime Countdown Vault",
+      "platform": "youtube",
+      "title": "TOP 5 ANIME FIGHTS | Ranked",
+      "url": "https://www.youtube.com/watch?v=MvZkVF-lxB4",
+      "publishedAt": "2026-07-24T21:57:27Z",
+      "views": 504,
+      "likes": 9,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 56,
+      "engagementRate": 1.7857142857142856
     },
     {
       "id": "tiktok:7666215462140792095",
@@ -466,6 +511,66 @@
       "videos": 0,
       "likes": 0,
       "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T16:52:11.946Z",
+      "views": 30,
+      "audience": 1,
+      "videos": 7,
+      "likes": 8,
+      "engagementRate": 18.51851851851852
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:52:11.946Z",
+      "views": 237,
+      "audience": 3,
+      "videos": 3,
+      "likes": 15,
+      "engagementRate": 12.236286919831224
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T16:52:11.946Z",
+      "views": 0,
+      "audience": 2,
+      "videos": 3,
+      "likes": 11,
+      "engagementRate": 2.152641878669276
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:52:11.946Z",
+      "views": 317,
+      "audience": 2,
+      "videos": 2,
+      "likes": 4,
+      "engagementRate": 3.4700315457413247
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-25T16:52:11.946Z",
+      "views": 38,
+      "audience": 2,
+      "videos": 2,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-25T16:52:11.946Z",
+      "views": 0,
+      "audience": 3,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": 0
     }
   ],
   "trend": [
@@ -556,20 +661,19 @@
   ],
   "connections": {
     "youtubeApiKey": true,
-    "connectedSources": 5,
+    "connectedSources": 6,
     "totalSources": 6
   },
   "refresh": {
     "ok": [
       "Axolotl Drama · YouTube",
       "Axolotl Drama · TikTok",
+      "Anime Countdown Vault · YouTube",
       "Anime Countdown Vault · TikTok",
       "Kids History · YouTube",
       "Kids History · TikTok"
     ],
-    "skipped": [
-      "Anime Countdown Vault · YouTube channel ID"
-    ],
+    "skipped": [],
     "errors": []
   }
 }
