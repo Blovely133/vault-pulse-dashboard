@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-26T10:00:20.131Z",
-  "generatedAt": "2026-07-26T10:00:20.131Z",
+  "updatedAt": "2026-07-26T10:15:28.498Z",
+  "generatedAt": "2026-07-26T10:15:28.498Z",
   "hasLiveData": true,
   "totals": {
     "views": 4592,
@@ -9,8 +9,8 @@
     "engagementRate": 4.546443332608223
   },
   "platformTotals": {
-    "youtube": 2734,
-    "tiktok": 1858
+    "youtube": 2733,
+    "tiktok": 1859
   },
   "channels": [
     {
@@ -87,20 +87,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1985,
+        "views": 1984,
         "audience": 7,
         "videos": 2,
         "likes": 72,
-        "engagementRate": 4.030226700251889
+        "engagementRate": 4.032258064516129
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 722,
+        "views": 723,
         "audience": 5,
         "videos": 2,
         "likes": 31,
-        "engagementRate": 4.847645429362881
+        "engagementRate": 4.840940525587829
       }
     }
   ],
@@ -278,12 +278,12 @@
       "title": "The Hindenburg, Filmed Before Its Last Flight Two Universal Newsreel releases, one year apart. #history #hindenburg #1937 #archivalfootage #airship #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666539745912163614?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T20:45:00.000Z",
-      "views": 325,
+      "views": 326,
       "likes": 12,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 4
+      "engagementRate": 3.9877300613496933
     },
     {
       "id": "youtube:tViPjATsORs",
@@ -368,12 +368,12 @@
       "title": "That Famous Titanic Footage Is the Wrong Ship",
       "url": "https://www.youtube.com/watch?v=4iwUdRzgZgs",
       "publishedAt": "2026-07-25T18:44:56Z",
-      "views": 943,
+      "views": 942,
       "likes": 32,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 3.923647932131495
+      "engagementRate": 3.9278131634819533
     },
     {
       "id": "tiktok:7666532692111969550",
@@ -413,12 +413,12 @@
       "title": "TOP 5 ANIME OF SUMMER 2026 | Ranked",
       "url": "https://www.youtube.com/watch?v=1dRtnCclGHs",
       "publishedAt": "2026-07-25T17:00:04Z",
-      "views": 19,
+      "views": 18,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 5.263157894736842
+      "engagementRate": 5.555555555555555
     },
     {
       "id": "tiktok:7666510585260952862",
@@ -548,12 +548,12 @@
       "title": "TOP 5 ANIME FIGHTS | Ranked",
       "url": "https://www.youtube.com/watch?v=MvZkVF-lxB4",
       "publishedAt": "2026-07-24T21:57:27Z",
-      "views": 629,
+      "views": 630,
       "likes": 11,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 1.7488076311605723
+      "engagementRate": 1.746031746031746
     },
     {
       "id": "tiktok:7666215462140792095",
@@ -2581,6 +2581,66 @@
       "videos": 2,
       "likes": 31,
       "engagementRate": 4.847645429362881
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:15:28.498Z",
+      "views": 95,
+      "audience": 2,
+      "videos": 14,
+      "likes": 19,
+      "engagementRate": 23.157894736842106
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:15:28.498Z",
+      "views": 659,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.373292867981791
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:15:28.498Z",
+      "views": 654,
+      "audience": 2,
+      "videos": 4,
+      "likes": 14,
+      "engagementRate": 2.1406727828746175
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:15:28.498Z",
+      "views": 477,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.1446540880503147
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:15:28.498Z",
+      "views": 1984,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.032258064516129
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:15:28.498Z",
+      "views": 723,
+      "audience": 5,
+      "videos": 2,
+      "likes": 31,
+      "engagementRate": 4.840940525587829
     }
   ],
   "trend": [
@@ -2665,8 +2725,8 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2734,
-      "tiktok": 1858
+      "youtube": 2733,
+      "tiktok": 1859
     }
   ],
   "connections": {
