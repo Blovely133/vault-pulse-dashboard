@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-26T13:15:16.563Z",
-  "generatedAt": "2026-07-26T13:15:16.563Z",
+  "updatedAt": "2026-07-26T13:30:14.744Z",
+  "generatedAt": "2026-07-26T13:30:14.744Z",
   "hasLiveData": true,
   "totals": {
-    "views": 4687,
+    "views": 4693,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.497016197783461
+    "engagementRate": 4.49127288207748
   },
   "platformTotals": {
-    "youtube": 2786,
-    "tiktok": 1901
+    "youtube": 2788,
+    "tiktok": 1905
   },
   "channels": [
     {
@@ -27,11 +27,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 95,
+        "views": 97,
         "audience": 2,
-        "videos": 14,
+        "videos": 15,
         "likes": 19,
-        "engagementRate": 23.157894736842106
+        "engagementRate": 22.68041237113402
       },
       "tiktok": {
         "connected": true,
@@ -66,11 +66,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 485,
+        "views": 487,
         "audience": 4,
         "videos": 3,
         "likes": 6,
-        "engagementRate": 3.0927835051546393
+        "engagementRate": 3.0800821355236137
       }
     },
     {
@@ -96,15 +96,45 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 754,
+        "views": 756,
         "audience": 5,
         "videos": 2,
         "likes": 33,
-        "engagementRate": 4.907161803713528
+        "engagementRate": 4.894179894179894
       }
     }
   ],
   "videos": [
+    {
+      "id": "youtube:_pGblDtgo8Q",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "KEVIN KNEW | 100 Men v. Bear Ep. 7",
+      "url": "https://www.youtube.com/watch?v=_pGblDtgo8Q",
+      "publishedAt": "2026-07-26T13:20:03Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 57,
+      "engagementRate": 0
+    },
+    {
+      "id": "tiktok:7666707947665345805",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "Kevin brought one sandwich and the only strategy that ever mattered. The contest ends at sunset. KEVIN KNEW. #axolotl #axolotldrama #animation #mockumentary #aianimation #fyp",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7666707947665345805?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-26T13:20:00.000Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 56,
+      "engagementRate": 0
+    },
     {
       "id": "tiktok:7665651286624210189",
       "channelId": 1,
@@ -188,12 +218,12 @@
       "title": "THE BEAR STOOD UP | 100 Men v. Bear Ep. 4",
       "url": "https://www.youtube.com/watch?v=XD4uyaI6AaY",
       "publishedAt": "2026-07-26T00:00:22Z",
-      "views": 6,
+      "views": 8,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 53,
-      "engagementRate": 16.666666666666664
+      "engagementRate": 12.5
     },
     {
       "id": "tiktok:7666534079331896590",
@@ -278,12 +308,12 @@
       "title": "The Hindenburg, Filmed Before Its Last Flight Two Universal Newsreel releases, one year apart. #history #hindenburg #1937 #archivalfootage #airship #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666539745912163614?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T20:45:00.000Z",
-      "views": 347,
+      "views": 349,
       "likes": 14,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 4.322766570605188
+      "engagementRate": 4.297994269340974
     },
     {
       "id": "youtube:tViPjATsORs",
@@ -428,12 +458,12 @@
       "title": "Top 5 anime of Summer 2026, ranked: Love Unseen, Mushoku Tensei Season 3, Jaadugar, Inept Villainess, and Tanya the Evil II. What’s your #1? #anime #summeranime #anime2026 #animetiktok #top5 #fyp",
       "url": "https://www.tiktok.com/@animehype41/video/7666510585260952862?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T16:56:54.000Z",
-      "views": 154,
+      "views": 156,
       "likes": 2,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 60,
-      "engagementRate": 1.948051948051948
+      "engagementRate": 1.9230769230769231
     },
     {
       "id": "tiktok:7666148056970185997",
@@ -3481,6 +3511,66 @@
       "videos": 2,
       "likes": 33,
       "engagementRate": 4.907161803713528
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T13:30:14.744Z",
+      "views": 97,
+      "audience": 2,
+      "videos": 15,
+      "likes": 19,
+      "engagementRate": 22.68041237113402
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T13:30:14.744Z",
+      "views": 662,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.3444108761329305
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T13:30:14.744Z",
+      "views": 695,
+      "audience": 2,
+      "videos": 4,
+      "likes": 14,
+      "engagementRate": 2.014388489208633
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T13:30:14.744Z",
+      "views": 487,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.0800821355236137
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T13:30:14.744Z",
+      "views": 1996,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.008016032064128
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T13:30:14.744Z",
+      "views": 756,
+      "audience": 5,
+      "videos": 2,
+      "likes": 33,
+      "engagementRate": 4.894179894179894
     }
   ],
   "trend": [
@@ -3565,8 +3655,8 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2786,
-      "tiktok": 1901
+      "youtube": 2788,
+      "tiktok": 1905
     }
   ],
   "connections": {
