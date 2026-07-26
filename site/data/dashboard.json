@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-26T09:47:50.387Z",
-  "generatedAt": "2026-07-26T09:47:50.387Z",
+  "updatedAt": "2026-07-26T10:00:20.131Z",
+  "generatedAt": "2026-07-26T10:00:20.131Z",
   "hasLiveData": true,
   "totals": {
-    "views": 4590,
+    "views": 4592,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.548422198041349
+    "engagementRate": 4.546443332608223
   },
   "platformTotals": {
     "youtube": 2734,
-    "tiktok": 1856
+    "tiktok": 1858
   },
   "channels": [
     {
@@ -66,11 +66,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 476,
+        "views": 477,
         "audience": 4,
         "videos": 3,
         "likes": 6,
-        "engagementRate": 3.1512605042016806
+        "engagementRate": 3.1446540880503147
       }
     },
     {
@@ -96,11 +96,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 721,
+        "views": 722,
         "audience": 5,
         "videos": 2,
         "likes": 31,
-        "engagementRate": 4.854368932038835
+        "engagementRate": 4.847645429362881
       }
     }
   ],
@@ -278,12 +278,12 @@
       "title": "The Hindenburg, Filmed Before Its Last Flight Two Universal Newsreel releases, one year apart. #history #hindenburg #1937 #archivalfootage #airship #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666539745912163614?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T20:45:00.000Z",
-      "views": 324,
+      "views": 325,
       "likes": 12,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 4.012345679012346
+      "engagementRate": 4
     },
     {
       "id": "youtube:tViPjATsORs",
@@ -428,12 +428,12 @@
       "title": "Top 5 anime of Summer 2026, ranked: Love Unseen, Mushoku Tensei Season 3, Jaadugar, Inept Villainess, and Tanya the Evil II. What’s your #1? #anime #summeranime #anime2026 #animetiktok #top5 #fyp",
       "url": "https://www.tiktok.com/@animehype41/video/7666510585260952862?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T16:56:54.000Z",
-      "views": 146,
+      "views": 147,
       "likes": 2,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 60,
-      "engagementRate": 2.054794520547945
+      "engagementRate": 2.0408163265306123
     },
     {
       "id": "tiktok:7666148056970185997",
@@ -2521,6 +2521,66 @@
       "videos": 2,
       "likes": 31,
       "engagementRate": 4.854368932038835
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:00:20.131Z",
+      "views": 95,
+      "audience": 2,
+      "videos": 14,
+      "likes": 19,
+      "engagementRate": 23.157894736842106
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:00:20.131Z",
+      "views": 659,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.373292867981791
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:00:20.131Z",
+      "views": 654,
+      "audience": 2,
+      "videos": 4,
+      "likes": 14,
+      "engagementRate": 2.1406727828746175
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:00:20.131Z",
+      "views": 477,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.1446540880503147
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:00:20.131Z",
+      "views": 1985,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.030226700251889
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:00:20.131Z",
+      "views": 722,
+      "audience": 5,
+      "videos": 2,
+      "likes": 31,
+      "engagementRate": 4.847645429362881
     }
   ],
   "trend": [
@@ -2606,7 +2666,7 @@
       "date": "2026-07-26",
       "label": "Jul 26",
       "youtube": 2734,
-      "tiktok": 1856
+      "tiktok": 1858
     }
   ],
   "connections": {
