@@ -32,6 +32,9 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Test dashboard refresh
+        run: node --test scripts/*.test.mjs
+
       - name: Refresh platform data
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}

@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { mergeVideos } from "./video-merge.mjs";
 
 const repositoryRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -20,16 +21,7 @@ for (const channel of data.channels) {
 }
 
 if (freshVideos.length) {
-  const byId = new Map(
-    [...freshVideos, ...(data.videos ?? [])].map((video) => [video.id, video]),
-  );
-  data.videos = [...byId.values()]
-    .sort(
-      (left, right) =>
-        new Date(right.publishedAt).getTime() -
-        new Date(left.publishedAt).getTime(),
-    )
-    .slice(0, 60);
+  data.videos = mergeVideos(data.videos ?? [], freshVideos);
 }
 
 if (freshSnapshots.length) {
