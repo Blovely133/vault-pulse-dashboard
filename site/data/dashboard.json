@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-07-26T07:45:17.695Z",
-  "generatedAt": "2026-07-26T07:45:17.695Z",
+  "updatedAt": "2026-07-26T07:47:31.940Z",
+  "generatedAt": "2026-07-26T07:47:31.940Z",
   "hasLiveData": true,
   "totals": {
-    "views": 4520,
+    "views": 4524,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.596685082872928
+    "engagementRate": 4.5926253035990285
   },
   "platformTotals": {
-    "youtube": 2682,
+    "youtube": 2686,
     "tiktok": 1838
   },
   "channels": [
@@ -27,11 +27,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 94,
+        "views": 92,
         "audience": 2,
         "videos": 13,
         "likes": 19,
-        "engagementRate": 23.404255319148938
+        "engagementRate": 23.91304347826087
       },
       "tiktok": {
         "connected": true,
@@ -57,11 +57,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 645,
+        "views": 651,
         "audience": 2,
         "videos": 4,
         "likes": 13,
-        "engagementRate": 2.0155038759689923
+        "engagementRate": 1.9969278033794162
       },
       "tiktok": {
         "connected": true,
@@ -143,12 +143,12 @@
       "title": "THE BEAR STOOD UP | 100 Men v. Bear Ep. 4",
       "url": "https://www.youtube.com/watch?v=XD4uyaI6AaY",
       "publishedAt": "2026-07-26T00:00:22Z",
-      "views": 6,
+      "views": 5,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 53,
-      "engagementRate": 16.666666666666664
+      "engagementRate": 20
     },
     {
       "id": "tiktok:7666534079331896590",
@@ -263,12 +263,12 @@
       "title": "SHE NAPPED ELEVEN OF THEM | 100 Men v. Bear Ep. 2",
       "url": "https://www.youtube.com/watch?v=RlEePnt3Qic",
       "publishedAt": "2026-07-25T20:00:31Z",
-      "views": 4,
+      "views": 3,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 41,
-      "engagementRate": 50
+      "engagementRate": 66.66666666666666
     },
     {
       "id": "youtube:_m5XPYTvuIA",
@@ -503,12 +503,12 @@
       "title": "TOP 5 ANIME FIGHTS | Ranked",
       "url": "https://www.youtube.com/watch?v=MvZkVF-lxB4",
       "publishedAt": "2026-07-24T21:57:27Z",
-      "views": 623,
+      "views": 629,
       "likes": 10,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 1.6051364365971106
+      "engagementRate": 1.5898251192368837
     },
     {
       "id": "tiktok:7666215462140792095",
@@ -1876,6 +1876,66 @@
       "videos": 2,
       "likes": 31,
       "engagementRate": 4.922644163150492
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T07:47:31.940Z",
+      "views": 92,
+      "audience": 2,
+      "videos": 13,
+      "likes": 19,
+      "engagementRate": 23.91304347826087
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T07:47:31.940Z",
+      "views": 658,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.382978723404255
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T07:47:31.940Z",
+      "views": 651,
+      "audience": 2,
+      "videos": 4,
+      "likes": 13,
+      "engagementRate": 1.9969278033794162
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T07:47:31.940Z",
+      "views": 469,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.1982942430703627
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T07:47:31.940Z",
+      "views": 1943,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.117344312918168
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T07:47:31.940Z",
+      "views": 711,
+      "audience": 5,
+      "videos": 2,
+      "likes": 31,
+      "engagementRate": 4.922644163150492
     }
   ],
   "trend": [
@@ -1960,7 +2020,7 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2682,
+      "youtube": 2686,
       "tiktok": 1838
     }
   ],
