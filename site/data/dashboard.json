@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-07-26T15:13:52.517Z",
-  "generatedAt": "2026-07-26T15:13:52.517Z",
+  "updatedAt": "2026-07-26T15:15:16.784Z",
+  "generatedAt": "2026-07-26T15:15:16.784Z",
   "hasLiveData": true,
   "totals": {
-    "views": 4963,
+    "views": 4973,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.549114331723027
+    "engagementRate": 4.539975893933307
   },
   "platformTotals": {
-    "youtube": 2900,
+    "youtube": 2910,
     "tiktok": 2063
   },
   "channels": [
@@ -87,11 +87,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2085,
+        "views": 2095,
         "audience": 7,
         "videos": 3,
         "likes": 76,
-        "engagementRate": 4.028776978417266
+        "engagementRate": 4.009546539379475
       },
       "tiktok": {
         "connected": true,
@@ -113,12 +113,12 @@
       "title": "The Only Video of Mark Twain That Exists",
       "url": "https://www.youtube.com/watch?v=JesbuJr4GtI",
       "publishedAt": "2026-07-26T14:00:17Z",
-      "views": 89,
+      "views": 98,
       "likes": 4,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 43,
-      "engagementRate": 4.49438202247191
+      "engagementRate": 4.081632653061225
     },
     {
       "id": "tiktok:7666543222574959902",
@@ -428,12 +428,12 @@
       "title": "That Famous Titanic Footage Is the Wrong Ship",
       "url": "https://www.youtube.com/watch?v=4iwUdRzgZgs",
       "publishedAt": "2026-07-25T18:44:56Z",
-      "views": 947,
+      "views": 948,
       "likes": 32,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 3.907074973600845
+      "engagementRate": 3.9029535864978904
     },
     {
       "id": "tiktok:7666532692111969550",
@@ -4081,6 +4081,66 @@
       "videos": 2,
       "likes": 37,
       "engagementRate": 4.575892857142857
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T15:15:16.784Z",
+      "views": 100,
+      "audience": 2,
+      "videos": 15,
+      "likes": 19,
+      "engagementRate": 22
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T15:15:16.784Z",
+      "views": 668,
+      "audience": 4,
+      "videos": 5,
+      "likes": 27,
+      "engagementRate": 7.18562874251497
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T15:15:16.784Z",
+      "views": 715,
+      "audience": 2,
+      "videos": 4,
+      "likes": 14,
+      "engagementRate": 1.9580419580419581
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T15:15:16.784Z",
+      "views": 499,
+      "audience": 4,
+      "videos": 3,
+      "likes": 7,
+      "engagementRate": 3.2064128256513023
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T15:15:16.784Z",
+      "views": 2095,
+      "audience": 7,
+      "videos": 3,
+      "likes": 76,
+      "engagementRate": 4.009546539379475
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T15:15:16.784Z",
+      "views": 896,
+      "audience": 5,
+      "videos": 2,
+      "likes": 37,
+      "engagementRate": 4.575892857142857
     }
   ],
   "trend": [
@@ -4165,7 +4225,7 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2900,
+      "youtube": 2910,
       "tiktok": 2063
     }
   ],
