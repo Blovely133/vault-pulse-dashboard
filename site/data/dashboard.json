@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-07-26T07:47:31.940Z",
-  "generatedAt": "2026-07-26T07:47:31.940Z",
+  "updatedAt": "2026-07-26T08:00:14.837Z",
+  "generatedAt": "2026-07-26T08:00:14.837Z",
   "hasLiveData": true,
   "totals": {
-    "views": 4524,
+    "views": 4521,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.5926253035990285
+    "engagementRate": 4.595669465311533
   },
   "platformTotals": {
-    "youtube": 2686,
+    "youtube": 2683,
     "tiktok": 1838
   },
   "channels": [
@@ -57,11 +57,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 651,
+        "views": 648,
         "audience": 2,
         "videos": 4,
         "likes": 13,
-        "engagementRate": 1.9969278033794162
+        "engagementRate": 2.006172839506173
       },
       "tiktok": {
         "connected": true,
@@ -368,12 +368,12 @@
       "title": "TOP 5 ANIME OF SUMMER 2026 | Ranked",
       "url": "https://www.youtube.com/watch?v=1dRtnCclGHs",
       "publishedAt": "2026-07-25T17:00:04Z",
-      "views": 16,
+      "views": 18,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 6.25
+      "engagementRate": 5.555555555555555
     },
     {
       "id": "tiktok:7666510585260952862",
@@ -503,12 +503,12 @@
       "title": "TOP 5 ANIME FIGHTS | Ranked",
       "url": "https://www.youtube.com/watch?v=MvZkVF-lxB4",
       "publishedAt": "2026-07-24T21:57:27Z",
-      "views": 629,
+      "views": 624,
       "likes": 10,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 1.5898251192368837
+      "engagementRate": 1.6025641025641024
     },
     {
       "id": "tiktok:7666215462140792095",
@@ -1936,6 +1936,66 @@
       "videos": 2,
       "likes": 31,
       "engagementRate": 4.922644163150492
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T08:00:14.837Z",
+      "views": 92,
+      "audience": 2,
+      "videos": 13,
+      "likes": 19,
+      "engagementRate": 23.91304347826087
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T08:00:14.837Z",
+      "views": 658,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.382978723404255
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T08:00:14.837Z",
+      "views": 648,
+      "audience": 2,
+      "videos": 4,
+      "likes": 13,
+      "engagementRate": 2.006172839506173
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T08:00:14.837Z",
+      "views": 469,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.1982942430703627
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T08:00:14.837Z",
+      "views": 1943,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.117344312918168
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T08:00:14.837Z",
+      "views": 711,
+      "audience": 5,
+      "videos": 2,
+      "likes": 31,
+      "engagementRate": 4.922644163150492
     }
   ],
   "trend": [
@@ -2020,7 +2080,7 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2686,
+      "youtube": 2683,
       "tiktok": 1838
     }
   ],
