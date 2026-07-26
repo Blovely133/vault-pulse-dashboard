@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-07-26T08:30:18.621Z",
-  "generatedAt": "2026-07-26T08:30:18.621Z",
+  "updatedAt": "2026-07-26T08:45:24.729Z",
+  "generatedAt": "2026-07-26T08:45:24.729Z",
   "hasLiveData": true,
   "totals": {
-    "views": 4529,
+    "views": 4543,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.609616232906926
+    "engagementRate": 4.59542656112577
   },
   "platformTotals": {
-    "youtube": 2686,
+    "youtube": 2700,
     "tiktok": 1843
   },
   "channels": [
@@ -27,11 +27,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 89,
+        "views": 94,
         "audience": 2,
         "videos": 13,
         "likes": 19,
-        "engagementRate": 24.719101123595504
+        "engagementRate": 23.404255319148938
       },
       "tiktok": {
         "connected": true,
@@ -87,11 +87,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1943,
+        "views": 1952,
         "audience": 7,
         "videos": 2,
         "likes": 72,
-        "engagementRate": 4.117344312918168
+        "engagementRate": 4.098360655737705
       },
       "tiktok": {
         "connected": true,
@@ -143,12 +143,12 @@
       "title": "THE BEAR STOOD UP | 100 Men v. Bear Ep. 4",
       "url": "https://www.youtube.com/watch?v=XD4uyaI6AaY",
       "publishedAt": "2026-07-26T00:00:22Z",
-      "views": 1,
+      "views": 5,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 53,
-      "engagementRate": 100
+      "engagementRate": 20
     },
     {
       "id": "tiktok:7666534079331896590",
@@ -218,12 +218,12 @@
       "title": "The Hindenburg, Filmed Before Its Last Flight",
       "url": "https://www.youtube.com/watch?v=D1N2DSu2DBk",
       "publishedAt": "2026-07-25T20:45:06Z",
-      "views": 1033,
+      "views": 1042,
       "likes": 40,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 4.162633107454018
+      "engagementRate": 4.126679462571977
     },
     {
       "id": "tiktok:7666539745912163614",
@@ -263,12 +263,12 @@
       "title": "SHE NAPPED ELEVEN OF THEM | 100 Men v. Bear Ep. 2",
       "url": "https://www.youtube.com/watch?v=RlEePnt3Qic",
       "publishedAt": "2026-07-25T20:00:31Z",
-      "views": 4,
+      "views": 5,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 41,
-      "engagementRate": 50
+      "engagementRate": 40
     },
     {
       "id": "youtube:_m5XPYTvuIA",
@@ -2116,6 +2116,66 @@
       "videos": 2,
       "likes": 31,
       "engagementRate": 4.895104895104895
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T08:45:24.729Z",
+      "views": 94,
+      "audience": 2,
+      "videos": 13,
+      "likes": 19,
+      "engagementRate": 23.404255319148938
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T08:45:24.729Z",
+      "views": 658,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.382978723404255
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T08:45:24.729Z",
+      "views": 654,
+      "audience": 2,
+      "videos": 4,
+      "likes": 14,
+      "engagementRate": 2.1406727828746175
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T08:45:24.729Z",
+      "views": 470,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.1914893617021276
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T08:45:24.729Z",
+      "views": 1952,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.098360655737705
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T08:45:24.729Z",
+      "views": 715,
+      "audience": 5,
+      "videos": 2,
+      "likes": 31,
+      "engagementRate": 4.895104895104895
     }
   ],
   "trend": [
@@ -2200,7 +2260,7 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2686,
+      "youtube": 2700,
       "tiktok": 1843
     }
   ],
