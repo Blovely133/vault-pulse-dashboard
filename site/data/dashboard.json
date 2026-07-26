@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-26T10:15:28.498Z",
-  "generatedAt": "2026-07-26T10:15:28.498Z",
+  "updatedAt": "2026-07-26T10:30:17.538Z",
+  "generatedAt": "2026-07-26T10:30:17.538Z",
   "hasLiveData": true,
   "totals": {
-    "views": 4592,
+    "views": 4595,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.546443332608223
+    "engagementRate": 4.5434782608695645
   },
   "platformTotals": {
     "youtube": 2733,
-    "tiktok": 1859
+    "tiktok": 1862
   },
   "channels": [
     {
@@ -36,11 +36,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 659,
+        "views": 661,
         "audience": 4,
         "videos": 5,
         "likes": 24,
-        "engagementRate": 6.373292867981791
+        "engagementRate": 6.354009077155824
       }
     },
     {
@@ -96,11 +96,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 723,
+        "views": 724,
         "audience": 5,
         "videos": 2,
         "likes": 31,
-        "engagementRate": 4.840940525587829
+        "engagementRate": 4.834254143646409
       }
     }
   ],
@@ -278,12 +278,12 @@
       "title": "The Hindenburg, Filmed Before Its Last Flight Two Universal Newsreel releases, one year apart. #history #hindenburg #1937 #archivalfootage #airship #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666539745912163614?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T20:45:00.000Z",
-      "views": 326,
+      "views": 327,
       "likes": 12,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 3.9877300613496933
+      "engagementRate": 3.9755351681957185
     },
     {
       "id": "youtube:tViPjATsORs",
@@ -383,12 +383,12 @@
       "title": "NEW EVENT SEASON: one hundred men (approximately) vs one bear. Her name is Barbara. She has not agreed to anything. COULD YOU BEAT A BEAR? #axolotl #axolotldrama #animation #telenovela #drama #aianimation #fyp",
       "url": "https://www.tiktok.com/@axlotyl2/video/7666532692111969550?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T18:22:51.000Z",
-      "views": 122,
+      "views": 124,
       "likes": 3,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 57,
-      "engagementRate": 2.459016393442623
+      "engagementRate": 2.4193548387096775
     },
     {
       "id": "youtube:W4Y3ywnsMf0",
@@ -2641,6 +2641,66 @@
       "videos": 2,
       "likes": 31,
       "engagementRate": 4.840940525587829
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:30:17.538Z",
+      "views": 95,
+      "audience": 2,
+      "videos": 14,
+      "likes": 19,
+      "engagementRate": 23.157894736842106
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:30:17.538Z",
+      "views": 661,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.354009077155824
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:30:17.538Z",
+      "views": 654,
+      "audience": 2,
+      "videos": 4,
+      "likes": 14,
+      "engagementRate": 2.1406727828746175
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:30:17.538Z",
+      "views": 477,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.1446540880503147
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T10:30:17.538Z",
+      "views": 1984,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.032258064516129
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T10:30:17.538Z",
+      "views": 724,
+      "audience": 5,
+      "videos": 2,
+      "likes": 31,
+      "engagementRate": 4.834254143646409
     }
   ],
   "trend": [
@@ -2726,7 +2786,7 @@
       "date": "2026-07-26",
       "label": "Jul 26",
       "youtube": 2733,
-      "tiktok": 1859
+      "tiktok": 1862
     }
   ],
   "connections": {
