@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-26T05:16:09.116Z",
-  "generatedAt": "2026-07-26T05:16:09.116Z",
+  "updatedAt": "2026-07-26T05:43:38.172Z",
+  "generatedAt": "2026-07-26T05:43:38.172Z",
   "hasLiveData": true,
   "totals": {
     "views": 4467,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.584078711985689
+    "engagementRate": 4.561717352415027
   },
   "platformTotals": {
-    "youtube": 2658,
-    "tiktok": 1809
+    "youtube": 2651,
+    "tiktok": 1816
   },
   "channels": [
     {
@@ -27,20 +27,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 87,
+        "views": 84,
         "audience": 2,
-        "videos": 12,
-        "likes": 18,
-        "engagementRate": 24.137931034482758
+        "videos": 13,
+        "likes": 16,
+        "engagementRate": 22.61904761904762
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 655,
+        "views": 656,
         "audience": 4,
-        "videos": 4,
+        "videos": 5,
         "likes": 24,
-        "engagementRate": 6.412213740458015
+        "engagementRate": 6.402439024390244
       }
     },
     {
@@ -57,20 +57,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 632,
+        "views": 624,
         "audience": 2,
         "videos": 4,
         "likes": 12,
-        "engagementRate": 1.89873417721519
+        "engagementRate": 1.9230769230769231
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 466,
+        "views": 468,
         "audience": 4,
         "videos": 3,
         "likes": 6,
-        "engagementRate": 3.2188841201716736
+        "engagementRate": 3.205128205128205
       }
     },
     {
@@ -87,24 +87,54 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1939,
+        "views": 1943,
         "audience": 7,
         "videos": 2,
-        "likes": 71,
-        "engagementRate": 4.074265085095409
+        "likes": 72,
+        "engagementRate": 4.117344312918168
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 688,
+        "views": 692,
         "audience": 5,
         "videos": 2,
         "likes": 31,
-        "engagementRate": 5.087209302325581
+        "engagementRate": 5.057803468208093
       }
     }
   ],
   "videos": [
+    {
+      "id": "tiktok:7666704370075061517",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "Six thousand uncounted berries. A river that yields. One utterly unbothered bear. Barbara remains undefeated. #axolotl #axolotldrama #animation #mockumentary #aianimation #fyp",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7666704370075061517?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-26T05:29:02.000Z",
+      "views": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 53,
+      "engagementRate": 0
+    },
+    {
+      "id": "youtube:9t2clPk7trE",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "BARBARA | 100 Men v. Bear Ep. 5",
+      "url": "https://www.youtube.com/watch?v=9t2clPk7trE",
+      "publishedAt": "2026-07-26T05:21:05Z",
+      "views": 1,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 54,
+      "engagementRate": 0
+    },
     {
       "id": "youtube:XD4uyaI6AaY",
       "channelId": 1,
@@ -158,12 +188,12 @@
       "title": "THE PLAN IS A PYRAMID | 100 Men v. Bear Ep. 3",
       "url": "https://www.youtube.com/watch?v=mbKQmz8bKZI",
       "publishedAt": "2026-07-25T22:00:13Z",
-      "views": 2,
-      "likes": 1,
+      "views": 1,
+      "likes": 0,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 52,
-      "engagementRate": 50
+      "engagementRate": 0
     },
     {
       "id": "tiktok:7666534022608129293",
@@ -188,12 +218,12 @@
       "title": "The Hindenburg, Filmed Before Its Last Flight",
       "url": "https://www.youtube.com/watch?v=D1N2DSu2DBk",
       "publishedAt": "2026-07-25T20:45:06Z",
-      "views": 1031,
-      "likes": 39,
+      "views": 1033,
+      "likes": 40,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 4.073714839961203
+      "engagementRate": 4.162633107454018
     },
     {
       "id": "tiktok:7666539745912163614",
@@ -203,12 +233,12 @@
       "title": "The Hindenburg, Filmed Before Its Last Flight Two Universal Newsreel releases, one year apart. #history #hindenburg #1937 #archivalfootage #airship #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666539745912163614?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T20:45:00.000Z",
-      "views": 299,
+      "views": 302,
       "likes": 12,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 4.3478260869565215
+      "engagementRate": 4.304635761589404
     },
     {
       "id": "youtube:tViPjATsORs",
@@ -218,12 +248,12 @@
       "title": "ARRESTED AT HIS OWN WEDDING | Axolotl Drama Ep. 3",
       "url": "https://www.youtube.com/watch?v=tViPjATsORs",
       "publishedAt": "2026-07-25T20:00:32Z",
-      "views": 6,
-      "likes": 2,
+      "views": 4,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 33,
-      "engagementRate": 33.33333333333333
+      "engagementRate": 25
     },
     {
       "id": "youtube:RlEePnt3Qic",
@@ -233,12 +263,12 @@
       "title": "SHE NAPPED ELEVEN OF THEM | 100 Men v. Bear Ep. 2",
       "url": "https://www.youtube.com/watch?v=RlEePnt3Qic",
       "publishedAt": "2026-07-25T20:00:31Z",
-      "views": 4,
+      "views": 3,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 41,
-      "engagementRate": 50
+      "engagementRate": 66.66666666666666
     },
     {
       "id": "youtube:_m5XPYTvuIA",
@@ -278,12 +308,12 @@
       "title": "That Famous Titanic Footage Is the Wrong Ship Almost every moving image sold as \"the Titanic\" is her sister ship, RMS Olympic. The substitution started within days of the sinking, in 1912, and it never really stopped. #history #titanic #rmsolympic #mythbusting #archivalfootage #1912 #shipwreck #oceanliner #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666538608232353054?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T18:45:41.000Z",
-      "views": 389,
+      "views": 390,
       "likes": 19,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 54,
-      "engagementRate": 5.655526992287918
+      "engagementRate": 5.641025641025641
     },
     {
       "id": "youtube:4iwUdRzgZgs",
@@ -293,12 +323,12 @@
       "title": "That Famous Titanic Footage Is the Wrong Ship",
       "url": "https://www.youtube.com/watch?v=4iwUdRzgZgs",
       "publishedAt": "2026-07-25T18:44:56Z",
-      "views": 908,
+      "views": 910,
       "likes": 32,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 4.074889867841409
+      "engagementRate": 4.065934065934066
     },
     {
       "id": "tiktok:7666532692111969550",
@@ -353,12 +383,12 @@
       "title": "Top 5 anime of Summer 2026, ranked: Love Unseen, Mushoku Tensei Season 3, Jaadugar, Inept Villainess, and Tanya the Evil II. What’s your #1? #anime #summeranime #anime2026 #animetiktok #top5 #fyp",
       "url": "https://www.tiktok.com/@animehype41/video/7666510585260952862?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T16:56:54.000Z",
-      "views": 136,
+      "views": 138,
       "likes": 2,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 60,
-      "engagementRate": 2.2058823529411766
+      "engagementRate": 2.1739130434782608
     },
     {
       "id": "tiktok:7666148056970185997",
@@ -473,12 +503,12 @@
       "title": "TOP 5 ANIME FIGHTS | Ranked",
       "url": "https://www.youtube.com/watch?v=MvZkVF-lxB4",
       "publishedAt": "2026-07-24T21:57:27Z",
-      "views": 612,
+      "views": 604,
       "likes": 9,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 1.4705882352941175
+      "engagementRate": 1.490066225165563
     },
     {
       "id": "tiktok:7666215462140792095",
@@ -1546,6 +1576,66 @@
       "videos": 2,
       "likes": 31,
       "engagementRate": 5.087209302325581
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T05:43:38.172Z",
+      "views": 84,
+      "audience": 2,
+      "videos": 13,
+      "likes": 16,
+      "engagementRate": 22.61904761904762
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T05:43:38.172Z",
+      "views": 656,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.402439024390244
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T05:43:38.172Z",
+      "views": 624,
+      "audience": 2,
+      "videos": 4,
+      "likes": 12,
+      "engagementRate": 1.9230769230769231
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T05:43:38.172Z",
+      "views": 468,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.205128205128205
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T05:43:38.172Z",
+      "views": 1943,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.117344312918168
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T05:43:38.172Z",
+      "views": 692,
+      "audience": 5,
+      "videos": 2,
+      "likes": 31,
+      "engagementRate": 5.057803468208093
     }
   ],
   "trend": [
@@ -1630,8 +1720,8 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2658,
-      "tiktok": 1809
+      "youtube": 2651,
+      "tiktok": 1816
     }
   ],
   "connections": {
