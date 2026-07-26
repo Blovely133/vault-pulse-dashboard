@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-26T09:00:21.285Z",
-  "generatedAt": "2026-07-26T09:00:21.285Z",
+  "updatedAt": "2026-07-26T09:15:18.273Z",
+  "generatedAt": "2026-07-26T09:15:18.273Z",
   "hasLiveData": true,
   "totals": {
-    "views": 4570,
+    "views": 4584,
     "sevenDayViews": null,
     "audience": 24,
-    "engagementRate": 4.5683060109289615
+    "engagementRate": 4.554369143604271
   },
   "platformTotals": {
-    "youtube": 2723,
-    "tiktok": 1847
+    "youtube": 2733,
+    "tiktok": 1851
   },
   "channels": [
     {
@@ -66,11 +66,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 472,
+        "views": 476,
         "audience": 4,
         "videos": 3,
         "likes": 6,
-        "engagementRate": 3.1779661016949152
+        "engagementRate": 3.1512605042016806
       }
     },
     {
@@ -87,11 +87,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1975,
+        "views": 1985,
         "audience": 7,
         "videos": 2,
         "likes": 72,
-        "engagementRate": 4.050632911392405
+        "engagementRate": 4.030226700251889
       },
       "tiktok": {
         "connected": true,
@@ -218,12 +218,12 @@
       "title": "The Hindenburg, Filmed Before Its Last Flight",
       "url": "https://www.youtube.com/watch?v=D1N2DSu2DBk",
       "publishedAt": "2026-07-25T20:45:06Z",
-      "views": 1033,
+      "views": 1042,
       "likes": 40,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 4.162633107454018
+      "engagementRate": 4.126679462571977
     },
     {
       "id": "tiktok:7666539745912163614",
@@ -323,12 +323,12 @@
       "title": "That Famous Titanic Footage Is the Wrong Ship",
       "url": "https://www.youtube.com/watch?v=4iwUdRzgZgs",
       "publishedAt": "2026-07-25T18:44:56Z",
-      "views": 942,
+      "views": 943,
       "likes": 32,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 3.9278131634819533
+      "engagementRate": 3.923647932131495
     },
     {
       "id": "tiktok:7666532692111969550",
@@ -383,12 +383,12 @@
       "title": "Top 5 anime of Summer 2026, ranked: Love Unseen, Mushoku Tensei Season 3, Jaadugar, Inept Villainess, and Tanya the Evil II. What’s your #1? #anime #summeranime #anime2026 #animetiktok #top5 #fyp",
       "url": "https://www.tiktok.com/@animehype41/video/7666510585260952862?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T16:56:54.000Z",
-      "views": 142,
+      "views": 146,
       "likes": 2,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 60,
-      "engagementRate": 2.112676056338028
+      "engagementRate": 2.054794520547945
     },
     {
       "id": "tiktok:7666148056970185997",
@@ -2236,6 +2236,66 @@
       "videos": 2,
       "likes": 31,
       "engagementRate": 4.881450488145049
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T09:15:18.273Z",
+      "views": 94,
+      "audience": 2,
+      "videos": 13,
+      "likes": 19,
+      "engagementRate": 23.404255319148938
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T09:15:18.273Z",
+      "views": 658,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 6.382978723404255
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T09:15:18.273Z",
+      "views": 654,
+      "audience": 2,
+      "videos": 4,
+      "likes": 14,
+      "engagementRate": 2.1406727828746175
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T09:15:18.273Z",
+      "views": 476,
+      "audience": 4,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.1512605042016806
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T09:15:18.273Z",
+      "views": 1985,
+      "audience": 7,
+      "videos": 2,
+      "likes": 72,
+      "engagementRate": 4.030226700251889
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T09:15:18.273Z",
+      "views": 717,
+      "audience": 5,
+      "videos": 2,
+      "likes": 31,
+      "engagementRate": 4.881450488145049
     }
   ],
   "trend": [
@@ -2320,8 +2380,8 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2723,
-      "tiktok": 1847
+      "youtube": 2733,
+      "tiktok": 1851
     }
   ],
   "connections": {
