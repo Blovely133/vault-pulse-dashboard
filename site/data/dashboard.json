@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-25T23:11:45.835Z",
-  "generatedAt": "2026-07-25T23:11:45.835Z",
+  "updatedAt": "2026-07-26T00:12:57.836Z",
+  "generatedAt": "2026-07-26T00:12:57.836Z",
   "hasLiveData": true,
   "totals": {
-    "views": 3108,
+    "views": 3667,
     "sevenDayViews": null,
-    "audience": 20,
-    "engagementRate": 5.572021339656195
+    "audience": 21,
+    "engagementRate": 5.506736965436438
   },
   "platformTotals": {
-    "youtube": 1691,
-    "tiktok": 1417
+    "youtube": 2160,
+    "tiktok": 1507
   },
   "channels": [
     {
@@ -29,18 +29,18 @@
         "connectionLabel": "Connected",
         "views": 77,
         "audience": 1,
-        "videos": 11,
+        "videos": 12,
         "likes": 14,
         "engagementRate": 20.77922077922078
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 560,
+        "views": 584,
         "audience": 4,
         "videos": 4,
         "likes": 23,
-        "engagementRate": 7.142857142857142
+        "engagementRate": 6.8493150684931505
       }
     },
     {
@@ -57,20 +57,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 558,
+        "views": 588,
         "audience": 2,
         "videos": 4,
         "likes": 12,
-        "engagementRate": 2.1505376344086025
+        "engagementRate": 2.0408163265306123
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 449,
+        "views": 452,
         "audience": 3,
         "videos": 3,
         "likes": 6,
-        "engagementRate": 3.34075723830735
+        "engagementRate": 3.3185840707964607
       }
     },
     {
@@ -87,24 +87,54 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1056,
-        "audience": 6,
+        "views": 1495,
+        "audience": 7,
         "videos": 2,
-        "likes": 51,
-        "engagementRate": 5.3977272727272725
+        "likes": 66,
+        "engagementRate": 4.949832775919733
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 408,
+        "views": 471,
         "audience": 4,
         "videos": 2,
-        "likes": 17,
-        "engagementRate": 5.147058823529411
+        "likes": 21,
+        "engagementRate": 5.3078556263269645
       }
     }
   ],
   "videos": [
+    {
+      "id": "youtube:XD4uyaI6AaY",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "THE BEAR STOOD UP | 100 Men v. Bear Ep. 4",
+      "url": "https://www.youtube.com/watch?v=XD4uyaI6AaY",
+      "publishedAt": "2026-07-26T00:00:22Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 53,
+      "engagementRate": 0
+    },
+    {
+      "id": "tiktok:7666534079331896590",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "tiktok",
+      "title": "Barbara stood up. 39 men retired immediately with personal-best sprints. The tree unit learned bears climb. By dusk: 61 remain. Barbara has taken one step. #axolotl #axolotldrama #animation #telenovela #drama #aianimation #fyp",
+      "url": "https://www.tiktok.com/@axlotyl2/video/7666534079331896590?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-26T00:00:00.000Z",
+      "views": 20,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 52,
+      "engagementRate": 0
+    },
     {
       "id": "tiktok:7666437117991456030",
       "channelId": 2,
@@ -1276,15 +1306,69 @@
       "videos": 2,
       "likes": 17,
       "engagementRate": 5.147058823529411
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T00:12:57.836Z",
+      "views": 77,
+      "audience": 1,
+      "videos": 12,
+      "likes": 14,
+      "engagementRate": 20.77922077922078
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T00:12:57.836Z",
+      "views": 584,
+      "audience": 4,
+      "videos": 4,
+      "likes": 23,
+      "engagementRate": 6.8493150684931505
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T00:12:57.836Z",
+      "views": 588,
+      "audience": 2,
+      "videos": 4,
+      "likes": 12,
+      "engagementRate": 2.0408163265306123
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T00:12:57.836Z",
+      "views": 452,
+      "audience": 3,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.3185840707964607
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T00:12:57.836Z",
+      "views": 1495,
+      "audience": 7,
+      "videos": 2,
+      "likes": 66,
+      "engagementRate": 4.949832775919733
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T00:12:57.836Z",
+      "views": 471,
+      "audience": 4,
+      "videos": 2,
+      "likes": 21,
+      "engagementRate": 5.3078556263269645
     }
   ],
   "trend": [
-    {
-      "date": "2026-07-12",
-      "label": "Jul 12",
-      "youtube": null,
-      "tiktok": null
-    },
     {
       "date": "2026-07-13",
       "label": "Jul 13",
@@ -1362,6 +1446,12 @@
       "label": "Jul 25",
       "youtube": 1691,
       "tiktok": 1417
+    },
+    {
+      "date": "2026-07-26",
+      "label": "Jul 26",
+      "youtube": 2160,
+      "tiktok": 1507
     }
   ],
   "connections": {
