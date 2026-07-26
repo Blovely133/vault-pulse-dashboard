@@ -4,6 +4,11 @@ const state = {
   data: null,
 };
 
+const autoRefreshIntervalMs = 5 * 60 * 1000;
+const minimumRefreshGapMs = 60 * 1000;
+let dataLoadPromise = null;
+let lastDataCheckAt = 0;
+
 const tiktokSetupUrl =
   "https://testing-multiplayer-server.onrender.com/vault-pulse/setup";
 
@@ -25,6 +30,9 @@ document.querySelectorAll("[data-tab]").forEach((button) => {
 });
 
 window.addEventListener("hashchange", syncRoute);
+document.addEventListener("visibilitychange", () => {
+  if (!document.hidden) refreshSilently();
+});
 
 document.querySelector("#dismiss-notice").addEventListener("click", () => {
   notice.hidden = true;
@@ -45,13 +53,40 @@ reloadButton.addEventListener("click", async () => {
 });
 
 async function loadData() {
-  const response = await fetch(`./data/dashboard.json?t=${Date.now()}`, {
-    cache: "no-store",
-  });
-  if (!response.ok) throw new Error(`Dashboard data returned ${response.status}`);
-  state.data = await response.json();
-  updateShell();
-  syncRoute();
+  if (dataLoadPromise) return dataLoadPromise;
+
+  dataLoadPromise = (async () => {
+    const response = await fetch(`./data/dashboard.json?t=${Date.now()}`, {
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      throw new Error(`Dashboard data returned ${response.status}`);
+    }
+
+    const nextData = await response.json();
+    lastDataCheckAt = Date.now();
+    if (state.data?.generatedAt === nextData.generatedAt) return;
+
+    state.data = nextData;
+    updateShell();
+    syncRoute();
+  })();
+
+  try {
+    await dataLoadPromise;
+  } finally {
+    dataLoadPromise = null;
+  }
+}
+
+function refreshSilently() {
+  if (
+    document.hidden ||
+    Date.now() - lastDataCheckAt < minimumRefreshGapMs
+  ) {
+    return;
+  }
+  loadData().catch(() => {});
 }
 
 function updateShell() {
@@ -177,7 +212,7 @@ function overviewMarkup(data) {
                 <p class="kicker">GitHub tracker ready</p>
                 <h2>Connect once. Watch every release move.</h2>
                 <p>
-                  The GitHub-hosted dashboard and hourly refresh workflow are live.
+                  The GitHub-hosted dashboard and 15-minute refresh workflow are live.
                   Connect each platform once to replace the dashes with real
                   performance.
                 </p>
@@ -344,9 +379,9 @@ function connectionsMarkup(data) {
         <div>
           <strong>Automated by GitHub Actions</strong>
           <p>
-            The dashboard checks each configured platform hourly and redeploys
-            this page with a new snapshot. Use Secure setup once for each TikTok
-            account; automatic token refresh handles later updates.
+            The dashboard checks each configured platform every 15 minutes and
+            redeploys this page with a new snapshot. Use Secure setup once for
+            each TikTok account; automatic token refresh handles later updates.
           </p>
         </div>
       </section>
@@ -748,5 +783,6 @@ loadData()
     if (state.data) {
       document.querySelector("#loading-screen").hidden = true;
       document.querySelector("#app").hidden = false;
+      window.setInterval(refreshSilently, autoRefreshIntervalMs);
     }
   });

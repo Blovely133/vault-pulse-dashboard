@@ -12,7 +12,9 @@ The production site is deployed through GitHub Pages:
 
 - The browser loads a static dashboard from GitHub Pages.
 - A scheduled GitHub Action checks configured YouTube and TikTok accounts
-  hourly.
+  every 15 minutes.
+- An open dashboard quietly checks for a newly deployed snapshot every five
+  minutes and whenever its browser tab becomes visible again.
 - The Action stores a rolling 31-day history in
   `site/data/dashboard.json`.
 - YouTube credentials stay in encrypted GitHub Actions secrets.
@@ -76,4 +78,4 @@ Then open <http://localhost:4173/>.
 ## Manual refresh
 
 Run the **Refresh and deploy Vault Pulse** workflow from the repository's
-Actions tab. Its scheduled run starts at minute 17 of every hour.
+Actions tab. Scheduled runs start at minutes 7, 22, 37, and 52 of every hour.
