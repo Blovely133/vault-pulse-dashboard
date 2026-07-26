@@ -1,0 +1,28 @@
+name: Guard scheduled Vault Pulse refreshes
+
+on:
+  schedule:
+    - cron: "12/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  check-freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Check snapshot age
+        id: freshness
+        shell: bash
+        run: echo "stale=$(node scripts/check-freshness.mjs 18)" >> "$GITHUB_OUTPUT"
+
+      - name: Recover a missed refresh
+        if: steps.freshness.outputs.stale == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref main

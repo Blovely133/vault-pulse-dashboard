@@ -13,6 +13,8 @@ The production site is deployed through GitHub Pages:
 - The browser loads a static dashboard from GitHub Pages.
 - A scheduled GitHub Action checks configured YouTube and TikTok accounts
   every 15 minutes.
+- An independent watchdog checks five minutes later and starts a recovery
+  refresh when GitHub skipped the primary schedule.
 - An open dashboard quietly checks for a newly deployed snapshot every five
   minutes and whenever its browser tab becomes visible again.
 - The Action stores a rolling 31-day history in
