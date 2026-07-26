@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-26T00:12:57.836Z",
-  "generatedAt": "2026-07-26T00:12:57.836Z",
+  "updatedAt": "2026-07-26T03:26:22.911Z",
+  "generatedAt": "2026-07-26T03:26:22.911Z",
   "hasLiveData": true,
   "totals": {
-    "views": 3667,
+    "views": 4350,
     "sevenDayViews": null,
-    "audience": 21,
+    "audience": 22,
     "engagementRate": 5.506736965436438
   },
   "platformTotals": {
-    "youtube": 2160,
-    "tiktok": 1507
+    "youtube": 2610,
+    "tiktok": 1740
   },
   "channels": [
     {
@@ -27,20 +27,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 77,
+        "views": 83,
         "audience": 1,
         "videos": 12,
-        "likes": 14,
-        "engagementRate": 20.77922077922078
+        "likes": 15,
+        "engagementRate": 21.686746987951807
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 584,
+        "views": 637,
         "audience": 4,
         "videos": 4,
-        "likes": 23,
-        "engagementRate": 6.8493150684931505
+        "likes": 24,
+        "engagementRate": 6.593406593406594
       }
     },
     {
@@ -57,20 +57,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 588,
+        "views": 624,
         "audience": 2,
         "videos": 4,
         "likes": 12,
-        "engagementRate": 2.0408163265306123
+        "engagementRate": 1.9230769230769231
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 452,
+        "views": 461,
         "audience": 3,
         "videos": 3,
         "likes": 6,
-        "engagementRate": 3.3185840707964607
+        "engagementRate": 3.2537960954446854
       }
     },
     {
@@ -87,20 +87,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1495,
+        "views": 1903,
         "audience": 7,
         "videos": 2,
-        "likes": 66,
-        "engagementRate": 4.949832775919733
+        "likes": 70,
+        "engagementRate": 4.098791382028376
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 471,
-        "audience": 4,
+        "views": 642,
+        "audience": 5,
         "videos": 2,
-        "likes": 21,
-        "engagementRate": 5.3078556263269645
+        "likes": 29,
+        "engagementRate": 5.14018691588785
       }
     }
   ],
@@ -1366,6 +1366,66 @@
       "videos": 2,
       "likes": 21,
       "engagementRate": 5.3078556263269645
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T03:26:22.911Z",
+      "views": 83,
+      "audience": 1,
+      "videos": 12,
+      "likes": 15,
+      "engagementRate": 21.686746987951807
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T03:26:22.911Z",
+      "views": 637,
+      "audience": 4,
+      "videos": 4,
+      "likes": 24,
+      "engagementRate": 6.593406593406594
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T03:26:22.911Z",
+      "views": 624,
+      "audience": 2,
+      "videos": 4,
+      "likes": 12,
+      "engagementRate": 1.9230769230769231
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T03:26:22.911Z",
+      "views": 461,
+      "audience": 3,
+      "videos": 3,
+      "likes": 6,
+      "engagementRate": 3.2537960954446854
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-26T03:26:22.911Z",
+      "views": 1903,
+      "audience": 7,
+      "videos": 2,
+      "likes": 70,
+      "engagementRate": 4.098791382028376
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-26T03:26:22.911Z",
+      "views": 642,
+      "audience": 5,
+      "videos": 2,
+      "likes": 29,
+      "engagementRate": 5.14018691588785
     }
   ],
   "trend": [
@@ -1450,8 +1510,8 @@
     {
       "date": "2026-07-26",
       "label": "Jul 26",
-      "youtube": 2160,
-      "tiktok": 1507
+      "youtube": 2610,
+      "tiktok": 1740
     }
   ],
   "connections": {
