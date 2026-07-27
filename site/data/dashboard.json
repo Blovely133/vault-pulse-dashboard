@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-07-27T04:57:41.789Z",
-  "generatedAt": "2026-07-27T04:57:41.789Z",
+  "updatedAt": "2026-07-27T05:00:24.491Z",
+  "generatedAt": "2026-07-27T05:00:24.491Z",
   "hasLiveData": true,
   "totals": {
     "views": 7715,
@@ -29,7 +29,7 @@
         "connectionLabel": "Connected",
         "views": 127,
         "audience": 2,
-        "videos": 19,
+        "videos": 20,
         "likes": 23,
         "engagementRate": 20.47244094488189
       },
@@ -105,6 +105,21 @@
     }
   ],
   "videos": [
+    {
+      "id": "youtube:KIJkhPEffC0",
+      "channelId": 1,
+      "channelName": "Axolotl Drama",
+      "platform": "youtube",
+      "title": "Axlotyl Karma",
+      "url": "https://www.youtube.com/watch?v=KIJkhPEffC0",
+      "publishedAt": "2026-07-27T05:00:07Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 46,
+      "engagementRate": 0
+    },
     {
       "id": "youtube:0cuUD9ny9qE",
       "channelId": 1,
@@ -8126,6 +8141,66 @@
       "channelId": 3,
       "platform": "tiktok",
       "capturedAt": "2026-07-27T04:57:41.789Z",
+      "views": 1561,
+      "audience": 6,
+      "videos": 2,
+      "likes": 95,
+      "engagementRate": 6.8545803971812935
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T05:00:24.491Z",
+      "views": 127,
+      "audience": 2,
+      "videos": 20,
+      "likes": 23,
+      "engagementRate": 20.47244094488189
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T05:00:24.491Z",
+      "views": 702,
+      "audience": 4,
+      "videos": 6,
+      "likes": 35,
+      "engagementRate": 8.404558404558404
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T05:00:24.491Z",
+      "views": 1194,
+      "audience": 3,
+      "videos": 7,
+      "likes": 35,
+      "engagementRate": 3.2663316582914574
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T05:00:24.491Z",
+      "views": 1207,
+      "audience": 5,
+      "videos": 7,
+      "likes": 25,
+      "engagementRate": 3.3140016570008286
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T05:00:24.491Z",
+      "views": 2924,
+      "audience": 9,
+      "videos": 4,
+      "likes": 116,
+      "engagementRate": 4.377564979480164
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T05:00:24.491Z",
       "views": 1561,
       "audience": 6,
       "videos": 2,
