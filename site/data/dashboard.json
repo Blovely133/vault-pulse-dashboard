@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-27T23:00:28.726Z",
-  "generatedAt": "2026-07-27T23:00:28.726Z",
+  "updatedAt": "2026-07-27T23:15:23.510Z",
+  "generatedAt": "2026-07-27T23:15:23.510Z",
   "hasLiveData": true,
   "totals": {
-    "views": 11180,
+    "views": 11272,
     "sevenDayViews": null,
-    "audience": 37,
-    "engagementRate": 4.60538362937191
+    "audience": 39,
+    "engagementRate": 4.839357429718875
   },
   "platformTotals": {
-    "youtube": 5574,
-    "tiktok": 5606
+    "youtube": 5613,
+    "tiktok": 5659
   },
   "channels": [
     {
@@ -85,18 +85,18 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1522,
+        "views": 1528,
         "audience": 3,
         "videos": 8,
         "likes": 43,
-        "engagementRate": 3.088042049934297
+        "engagementRate": 3.0759162303664924
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
         "views": 1328,
         "audience": 5,
-        "videos": 7,
+        "videos": 9,
         "likes": 30,
         "engagementRate": 3.38855421686747
       },
@@ -143,20 +143,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3905,
-        "audience": 10,
-        "videos": 5,
-        "likes": 162,
-        "engagementRate": 4.507042253521127
+        "views": 3938,
+        "audience": 11,
+        "videos": 6,
+        "likes": 161,
+        "engagementRate": 4.443880142204164
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3476,
-        "audience": 13,
-        "videos": 4,
-        "likes": 164,
-        "engagementRate": 5.350978135788263
+        "views": 3529,
+        "audience": 14,
+        "videos": 5,
+        "likes": 167,
+        "engagementRate": 5.355624822896004
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -189,6 +189,51 @@
     }
   ],
   "videos": [
+    {
+      "id": "youtube:UmMi1v-gxg0",
+      "channelId": 3,
+      "channelName": "Kids History",
+      "platform": "youtube",
+      "title": "What New York Actually Sounded Like in 1911",
+      "url": "https://www.youtube.com/watch?v=UmMi1v-gxg0",
+      "publishedAt": "2026-07-27T23:00:34Z",
+      "views": 2,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 57,
+      "engagementRate": 0
+    },
+    {
+      "id": "tiktok:7667333111302065438",
+      "channelId": 2,
+      "channelName": "Anime Countdown Vault",
+      "platform": "tiktok",
+      "title": "Three Mushoku Tensei fights that prove this world does not play fair. Eris vs Nina, the Manatite Hydra, or Orsted—what takes #1? #anime #mushokutensei #joblessreincarnation #eris #orsted #animetiktok #top3 #fyp",
+      "url": "https://www.tiktok.com/@animehype41/video/7667333111302065438?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-27T23:00:00.000Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 60,
+      "engagementRate": 0
+    },
+    {
+      "id": "tiktok:7666544347952762143",
+      "channelId": 3,
+      "channelName": "Kids History",
+      "platform": "tiktok",
+      "title": "What New York Actually Sounded Like in 1911 New York City, filmed in 1911 by a camera team from the Swedish studio Svenska Biografteatern: the harbor and the Lower Manhattan skyline, the paddle steamer Rosedale, the elevated railway at Park Row, Fifth Avenue at the Flatiron Building, and the crowds in City Hall Park. #history #newyorkcity #1911 #archivalfootage #nyc #vintage #sounddesign #shorts",
+      "url": "https://www.tiktok.com/@thearchivelives/video/7666544347952762143?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-27T23:00:00.000Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 56,
+      "engagementRate": 0
+    },
     {
       "id": "youtube:wk3_H6PoOUQ",
       "channelId": 1,
@@ -272,12 +317,12 @@
       "title": "This Was Filmed 4 Days Before San Francisco Burned",
       "url": "https://www.youtube.com/watch?v=HLscwKyYAZ8",
       "publishedAt": "2026-07-27T14:00:23Z",
-      "views": 861,
+      "views": 902,
       "likes": 40,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 50,
-      "engagementRate": 4.878048780487805
+      "engagementRate": 4.656319290465632
     },
     {
       "id": "tiktok:7666544278889336094",
@@ -377,12 +422,12 @@
       "title": "TOP 3 MODERN ANIME TRANSFORMATIONS | Denji, Kafka & Okarun",
       "url": "https://www.youtube.com/watch?v=EVbb_sYNPGA",
       "publishedAt": "2026-07-27T01:00:36Z",
-      "views": 606,
+      "views": 612,
       "likes": 21,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 3.4653465346534658
+      "engagementRate": 3.431372549019608
     },
     {
       "id": "youtube:DE6nBJSqoNQ",
@@ -422,12 +467,12 @@
       "title": "The First Video Ever Recorded — And The Man Who Filmed It Vanished The oldest surviving film in the world: two seconds shot on 14 October 1888 in the garden of Oakwood Grange in Roundhay, Leeds, England — seven years before the Lumière brothers held their first public screening in Paris. The four people walking in circles are Adolphe Le Prince, Harriet Hartley, Joseph Whitley, and Sarah Whitley. Sarah, in the dark dress, died ten days later, on 24 October 1888 — the first person ever captured on film to die. #history #film #truecrime #unsolved #archivalfootage #1888 #cinema #mystery #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666647112146308382?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T23:00:00.000Z",
-      "views": 2161,
-      "likes": 90,
+      "views": 2213,
+      "likes": 93,
       "comments": 6,
       "shares": 5,
       "durationSeconds": 58,
-      "engagementRate": 4.673762147154095
+      "engagementRate": 4.699502937189336
     },
     {
       "id": "youtube:CVCcBHFdGqY",
@@ -572,12 +617,12 @@
       "title": "The Only Video of Mark Twain That Exists",
       "url": "https://www.youtube.com/watch?v=JesbuJr4GtI",
       "publishedAt": "2026-07-26T14:00:17Z",
-      "views": 984,
-      "likes": 46,
+      "views": 974,
+      "likes": 45,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 43,
-      "engagementRate": 4.979674796747967
+      "engagementRate": 4.9281314168377826
     },
     {
       "id": "tiktok:7666543222574959902",
@@ -872,12 +917,12 @@
       "title": "That Famous Titanic Footage Is the Wrong Ship Almost every moving image sold as \"the Titanic\" is her sister ship, RMS Olympic. The substitution started within days of the sinking, in 1912, and it never really stopped. #history #titanic #rmsolympic #mythbusting #archivalfootage #1912 #shipwreck #oceanliner #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666538608232353054?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-25T18:45:41.000Z",
-      "views": 462,
+      "views": 463,
       "likes": 21,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 54,
-      "engagementRate": 5.194805194805195
+      "engagementRate": 5.183585313174946
     },
     {
       "id": "youtube:4iwUdRzgZgs",
@@ -1043,51 +1088,6 @@
       "shares": 0,
       "durationSeconds": 61,
       "engagementRate": 11.11111111111111
-    },
-    {
-      "id": "youtube:DQL9zbGnNi8",
-      "channelId": 1,
-      "channelName": "Axolotl Drama",
-      "platform": "youtube",
-      "title": "Axlotyl Battle",
-      "url": "https://www.youtube.com/watch?v=DQL9zbGnNi8",
-      "publishedAt": "2026-07-25T05:00:18Z",
-      "views": 8,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "durationSeconds": 51,
-      "engagementRate": 12.5
-    },
-    {
-      "id": "youtube:MvZkVF-lxB4",
-      "channelId": 2,
-      "channelName": "Anime Countdown Vault",
-      "platform": "youtube",
-      "title": "TOP 5 ANIME FIGHTS | Ranked",
-      "url": "https://www.youtube.com/watch?v=MvZkVF-lxB4",
-      "publishedAt": "2026-07-24T21:57:27Z",
-      "views": 719,
-      "likes": 11,
-      "comments": 0,
-      "shares": 0,
-      "durationSeconds": 56,
-      "engagementRate": 1.52990264255911
-    },
-    {
-      "id": "tiktok:7666215462140792095",
-      "channelId": 2,
-      "channelName": "Anime Countdown Vault",
-      "platform": "tiktok",
-      "title": "The five coldest anime fights, ranked. What belongs at #1? #anime #animetiktok #animeedit #top5 #fyp",
-      "url": "https://www.tiktok.com/@animehype41/video/7666215462140792095?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
-      "publishedAt": "2026-07-24T21:51:34.000Z",
-      "views": 327,
-      "likes": 4,
-      "comments": 5,
-      "shares": 2,
-      "durationSeconds": 55,
-      "engagementRate": 3.3639143730886847
     }
   ],
   "snapshots": [
@@ -12310,6 +12310,66 @@
       "videos": 4,
       "likes": 164,
       "engagementRate": 5.350978135788263
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T23:15:23.510Z",
+      "views": 147,
+      "audience": 2,
+      "videos": 25,
+      "likes": 25,
+      "engagementRate": 19.047619047619047
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T23:15:23.510Z",
+      "views": 802,
+      "audience": 4,
+      "videos": 6,
+      "likes": 37,
+      "engagementRate": 7.855361596009976
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T23:15:23.510Z",
+      "views": 1528,
+      "audience": 3,
+      "videos": 8,
+      "likes": 43,
+      "engagementRate": 3.0759162303664924
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T23:15:23.510Z",
+      "views": 1328,
+      "audience": 5,
+      "videos": 9,
+      "likes": 30,
+      "engagementRate": 3.38855421686747
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T23:15:23.510Z",
+      "views": 3938,
+      "audience": 11,
+      "videos": 6,
+      "likes": 161,
+      "engagementRate": 4.443880142204164
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T23:15:23.510Z",
+      "views": 3529,
+      "audience": 14,
+      "videos": 5,
+      "likes": 167,
+      "engagementRate": 5.355624822896004
     }
   ],
   "trend": [
@@ -12394,8 +12454,8 @@
     {
       "date": "2026-07-27",
       "label": "Jul 27",
-      "youtube": 5574,
-      "tiktok": 5606
+      "youtube": 5613,
+      "tiktok": 5659
     }
   ],
   "connections": {
