@@ -394,6 +394,7 @@ function channelDetailMarkup(data, channel) {
   const channelVideos = data.videos.filter(
     (video) => video.channelId === channel.id,
   );
+  const insights = channelInsightMetrics(data, channel, channelVideos);
   const totalViews = totalPlatformMetric(metrics, "views");
   const totalAudience = totalPlatformMetric(metrics, "audience");
   const totalLikes = totalPlatformMetric(metrics, "likes");
@@ -412,20 +413,136 @@ function channelDetailMarkup(data, channel) {
           <div>
             <p class="kicker">Channel ${String(channel.slot).padStart(2, "0")} report</p>
             <h2>${escapeHtml(channel.displayName)}</h2>
-            <p>Views, audience, and likes across both connected platforms.</p>
+            <p>Performance, publishing health, and cross-platform alignment.</p>
           </div>
         </div>
       </section>
 
-      <section class="metric-grid compact" aria-label="${escapeAttribute(channel.displayName)} totals">
+      <section class="metric-grid" aria-label="${escapeAttribute(channel.displayName)} totals">
         ${compactMetric("Total views", formatMetric(totalViews), "YouTube + TikTok", "coral")}
         ${compactMetric("Total audience", formatMetric(totalAudience), "Subscribers + followers", "mint")}
         ${compactMetric("Total likes", formatMetric(totalLikes), "Reported by both platforms", "violet")}
+        ${compactMetric(
+          "7-day views",
+          insights.sevenDayViews == null
+            ? "—"
+            : `+${formatMetric(insights.sevenDayViews)}`,
+          insights.sevenDayViews == null
+            ? "Building a 7-day snapshot"
+            : "Lift across both platforms",
+          "blue",
+        )}
       </section>
 
       <section class="platform-detail-grid">
         ${platformDetailMarkup("youtube", channel.youtube, channel)}
         ${platformDetailMarkup("tiktok", channel.tiktok, channel)}
+      </section>
+
+      <section class="insight-section" aria-labelledby="shorts-performance-heading">
+        <div class="section-heading">
+          <div>
+            <p class="kicker">Shorts performance</p>
+            <h2 id="shorts-performance-heading">Attention and audience quality</h2>
+          </div>
+          <span class="timezone">YouTube Studio metrics</span>
+        </div>
+        <div class="insight-grid">
+          ${feedDecisionMarkup(insights.choseToViewRate, insights.swipeAwayRate)}
+          ${insightMetricMarkup(
+            "Average % viewed",
+            formatPercent(insights.averagePercentageViewed),
+            "Completion",
+            metricAvailabilityNote(
+              insights.averagePercentageViewed,
+              "Average watched per Short",
+            ),
+            "violet",
+          )}
+          ${insightMetricMarkup(
+            "Subs / 1K engaged",
+            formatPerThousand(insights.subscribersPerThousandEngagedViews),
+            "Conversion",
+            metricAvailabilityNote(
+              insights.subscribersPerThousandEngagedViews,
+              "Subscribers gained per 1,000 engaged views",
+            ),
+            "mint",
+          )}
+          ${insightMetricMarkup(
+            "Engagement / 1K",
+            formatPerThousand(insights.engagementPerThousandViews),
+            "Interaction",
+            "Likes, comments, and shares per 1,000 views",
+            "coral",
+          )}
+          ${insightMetricMarkup(
+            "First 24h vs baseline",
+            formatSignedPercent(insights.twentyFourHourVsBaseline),
+            "Velocity",
+            metricAvailabilityNote(
+              insights.twentyFourHourVsBaseline,
+              "First-day views against channel baseline",
+            ),
+            "blue",
+          )}
+          ${insightMetricMarkup(
+            "Returning viewers",
+            formatMetric(insights.returningViewers),
+            "Loyalty",
+            metricAvailabilityNote(
+              insights.returningViewers,
+              "People who came back in the selected period",
+            ),
+            "violet",
+          )}
+        </div>
+        ${
+          insights.privateAnalyticsComplete
+            ? ""
+            : `<p class="data-note"><i aria-hidden="true"></i>Public channel data is live. Chose-to-view, swipe-away, completion, subscriber conversion, 24-hour velocity, and returning viewers need a private YouTube Analytics connection.</p>`
+        }
+      </section>
+
+      <section class="panel operations-panel" aria-labelledby="publishing-health-heading">
+        <div class="panel-heading">
+          <div>
+            <p class="kicker">Publishing operations</p>
+            <h2 id="publishing-health-heading">Runway, parity, and cadence</h2>
+          </div>
+          <span class="timezone">Target: 2 posts / platform / day</span>
+        </div>
+        <div class="operations-grid">
+          ${operationMetricMarkup(
+            "Schedule runway",
+            insights.scheduleRunway,
+            insights.scheduleRunway === "—"
+              ? "Schedule feed not connected"
+              : `Scheduled through ${formatDate(channel.publishing?.scheduledThrough)}`,
+          )}
+          ${operationMetricMarkup(
+            "Ready to review",
+            formatMetric(insights.readyToReview),
+            insights.readyToReview == null
+              ? "Repository queue not connected"
+              : "Finished videos awaiting approval",
+          )}
+          ${operationMetricMarkup(
+            "Platform parity",
+            formatPercent(insights.platformParity),
+            insights.platformParity == null
+              ? "No posts tracked in the last 7 days"
+              : `${insights.youtubeSevenDayPosts} YT · ${insights.tiktokSevenDayPosts} TT in 7 days`,
+          )}
+          ${operationMetricMarkup(
+            "Cadence adherence",
+            formatPercent(insights.cadenceAdherence),
+            insights.cadenceAdherence == null
+              ? "No recent publishing data"
+              : `${insights.totalSevenDayPosts} of 28 target posts`,
+          )}
+        </div>
+        ${pipelineMarkup(channel.publishing?.pipeline)}
       </section>
 
       <section class="panel table-panel full-table">
@@ -541,6 +658,299 @@ function detailStatMarkup(label, value, note) {
       <small>${escapeHtml(note)}</small>
     </div>
   `;
+}
+
+function channelInsightMetrics(data, channel, videos) {
+  const shorts = channel.shortsAnalytics ?? {};
+  const publishing = channel.publishing ?? {};
+  const choseToViewRate = percentValue(shorts.choseToViewRate);
+  const engagedViews = numericValue(shorts.engagedViews);
+  const subscribersGained = numericValue(shorts.subscribersGained);
+  const recentPosts = recentVideos(
+    videos,
+    data.updatedAt ?? data.generatedAt,
+    7,
+  );
+  const youtubeSevenDayPosts = recentPosts.filter(
+    (video) => video.platform === "youtube",
+  ).length;
+  const tiktokSevenDayPosts = recentPosts.filter(
+    (video) => video.platform === "tiktok",
+  ).length;
+  const totalSevenDayPosts = youtubeSevenDayPosts + tiktokSevenDayPosts;
+  const largestPlatformCount = Math.max(
+    youtubeSevenDayPosts,
+    tiktokSevenDayPosts,
+  );
+  const recentViews = videos.reduce(
+    (total, video) => total + Math.max(0, numericValue(video.views) ?? 0),
+    0,
+  );
+  const recentInteractions = videos.reduce(
+    (total, video) =>
+      total +
+      Math.max(0, numericValue(video.likes) ?? 0) +
+      Math.max(0, numericValue(video.comments) ?? 0) +
+      Math.max(0, numericValue(video.shares) ?? 0),
+    0,
+  );
+
+  return {
+    privateAnalyticsComplete: [
+      choseToViewRate,
+      shorts.averagePercentageViewed,
+      shorts.engagedViews,
+      shorts.subscribersGained,
+      shorts.returningViewers,
+      shorts.twentyFourHourVsBaseline,
+    ].every((value) => numericValue(value) != null),
+    sevenDayViews: channelSevenDayViews(data, channel),
+    choseToViewRate,
+    swipeAwayRate:
+      choseToViewRate == null
+        ? null
+        : Math.max(0, Math.min(100, 100 - choseToViewRate)),
+    averagePercentageViewed: percentValue(
+      shorts.averagePercentageViewed,
+      false,
+    ),
+    subscribersPerThousandEngagedViews:
+      numericValue(shorts.subscribersPerThousandEngagedViews) ??
+      (engagedViews > 0 && subscribersGained != null
+        ? (subscribersGained / engagedViews) * 1000
+        : null),
+    engagementPerThousandViews:
+      recentViews > 0 ? (recentInteractions / recentViews) * 1000 : null,
+    twentyFourHourVsBaseline: numericValue(
+      shorts.twentyFourHourVsBaseline,
+    ),
+    returningViewers: numericValue(shorts.returningViewers),
+    scheduleRunway: scheduleRunway(
+      publishing.scheduledThrough,
+      data.updatedAt ?? data.generatedAt,
+    ),
+    readyToReview: numericValue(publishing.readyToReview),
+    platformParity:
+      largestPlatformCount > 0
+        ? (Math.min(youtubeSevenDayPosts, tiktokSevenDayPosts) /
+            largestPlatformCount) *
+          100
+        : null,
+    cadenceAdherence:
+      totalSevenDayPosts > 0
+        ? Math.min(100, (totalSevenDayPosts / 28) * 100)
+        : null,
+    youtubeSevenDayPosts,
+    tiktokSevenDayPosts,
+    totalSevenDayPosts,
+  };
+}
+
+function feedDecisionMarkup(choseToViewRate, swipeAwayRate) {
+  const hasData = choseToViewRate != null && swipeAwayRate != null;
+  return `
+    <article class="feed-decision-card">
+      <div class="insight-card-heading">
+        <div>
+          <span>Shorts feed decision</span>
+          <small>Hook strength</small>
+        </div>
+        <span class="source-chip">YT</span>
+      </div>
+      <div class="feed-decision-values">
+        <div>
+          <strong>${formatPercent(choseToViewRate)}</strong>
+          <span>Chose to view</span>
+        </div>
+        <div>
+          <strong>${formatPercent(swipeAwayRate)}</strong>
+          <span>Swiped away</span>
+        </div>
+      </div>
+      <div class="feed-decision-bar${hasData ? "" : " is-empty"}" aria-label="${
+        hasData
+          ? `${formatPercent(choseToViewRate)} chose to view and ${formatPercent(swipeAwayRate)} swiped away`
+          : "YouTube Analytics connection needed"
+      }">
+        <i style="width:${hasData ? choseToViewRate : 50}%"></i>
+      </div>
+      <p>${hasData ? "Swipe-away is 100% minus chose-to-view." : "YouTube Analytics access needed"}</p>
+    </article>
+  `;
+}
+
+function insightMetricMarkup(label, value, eyebrow, note, accent) {
+  return `
+    <article class="insight-card ${accent}">
+      <div class="insight-card-heading">
+        <div>
+          <span>${escapeHtml(label)}</span>
+          <small>${escapeHtml(eyebrow)}</small>
+        </div>
+        <i aria-hidden="true"></i>
+      </div>
+      <strong>${escapeHtml(value)}</strong>
+      <p>${escapeHtml(note)}</p>
+    </article>
+  `;
+}
+
+function operationMetricMarkup(label, value, note) {
+  return `
+    <div class="operation-metric">
+      <span>${escapeHtml(label)}</span>
+      <strong>${escapeHtml(String(value))}</strong>
+      <small>${escapeHtml(note)}</small>
+    </div>
+  `;
+}
+
+function pipelineMarkup(pipeline = {}) {
+  const stages = [
+    ["Planned", pipeline?.planned],
+    ["Editing", pipeline?.editing],
+    ["Review", pipeline?.review],
+    ["Scheduled", pipeline?.scheduled],
+    ["Published", pipeline?.publishedThisWeek],
+  ];
+  return `
+    <div class="pipeline-block">
+      <div class="pipeline-heading">
+        <div>
+          <span>Content pipeline</span>
+          <small>Repository workflow</small>
+        </div>
+        <span>${stages.some(([, value]) => numericValue(value) != null) ? "Live counts" : "Repository queue not connected"}</span>
+      </div>
+      <div class="pipeline-grid">
+        ${stages
+          .map(
+            ([label, value], index) => `
+              <div class="pipeline-stage">
+                <span>${String(index + 1).padStart(2, "0")}</span>
+                <strong>${formatMetric(numericValue(value))}</strong>
+                <small>${escapeHtml(label)}</small>
+              </div>
+            `,
+          )
+          .join("")}
+      </div>
+    </div>
+  `;
+}
+
+function metricAvailabilityNote(value, availableNote) {
+  return value == null ? "YouTube Analytics access needed" : availableNote;
+}
+
+function recentVideos(videos, referenceValue, days) {
+  const reference = new Date(referenceValue);
+  if (Number.isNaN(reference.getTime())) return [];
+  const cutoff = reference.getTime() - days * 24 * 60 * 60 * 1000;
+  return videos.filter((video) => {
+    const publishedAt = new Date(video.publishedAt).getTime();
+    return (
+      Number.isFinite(publishedAt) &&
+      publishedAt >= cutoff &&
+      publishedAt <= reference.getTime()
+    );
+  });
+}
+
+function channelSevenDayViews(data, channel) {
+  const snapshots = data.snapshots ?? [];
+  const reference = new Date(data.updatedAt ?? data.generatedAt);
+  if (Number.isNaN(reference.getTime())) return null;
+  const target = reference.getTime() - 7 * 24 * 60 * 60 * 1000;
+  const latestByPlatform = new Map();
+
+  for (const snapshot of snapshots) {
+    if (snapshot.channelId !== channel.id) continue;
+    const capturedAt = new Date(snapshot.capturedAt).getTime();
+    if (!Number.isFinite(capturedAt) || capturedAt > target) continue;
+    const current = latestByPlatform.get(snapshot.platform);
+    if (
+      !current ||
+      new Date(current.capturedAt).getTime() < capturedAt
+    ) {
+      latestByPlatform.set(snapshot.platform, snapshot);
+    }
+  }
+
+  if (!latestByPlatform.size) return null;
+  const availablePlatforms = [
+    ["youtube", channel.youtube],
+    ["tiktok", channel.tiktok],
+  ]
+    .filter(([, metric]) => metric?.views != null)
+    .map(([platform]) => platform);
+  if (
+    !availablePlatforms.every((platform) =>
+      latestByPlatform.has(platform),
+    )
+  ) {
+    return null;
+  }
+  const previousViews = [...latestByPlatform.values()].reduce(
+    (total, snapshot) => total + Math.max(0, numericValue(snapshot.views) ?? 0),
+    0,
+  );
+  const currentViews = totalPlatformMetric(
+    [channel.youtube, channel.tiktok],
+    "views",
+  );
+  return currentViews == null
+    ? null
+    : Math.max(0, currentViews - previousViews);
+}
+
+function scheduleRunway(scheduledThroughValue, referenceValue) {
+  if (!scheduledThroughValue) return "—";
+  const scheduledThrough = new Date(scheduledThroughValue);
+  const reference = new Date(referenceValue);
+  if (
+    Number.isNaN(scheduledThrough.getTime()) ||
+    Number.isNaN(reference.getTime())
+  ) {
+    return "—";
+  }
+  const hours = Math.max(
+    0,
+    (scheduledThrough.getTime() - reference.getTime()) / (60 * 60 * 1000),
+  );
+  return hours < 24 ? `${Math.round(hours)}h` : `${Math.ceil(hours / 24)}d`;
+}
+
+function numericValue(value) {
+  if (value == null || value === "") return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function percentValue(value, clamp = true) {
+  const parsed = numericValue(value);
+  if (parsed == null) return null;
+  return clamp ? Math.max(0, Math.min(100, parsed)) : Math.max(0, parsed);
+}
+
+function formatPercent(value) {
+  const parsed = numericValue(value);
+  return parsed == null ? "—" : `${parsed.toFixed(1)}%`;
+}
+
+function formatSignedPercent(value) {
+  const parsed = numericValue(value);
+  if (parsed == null) return "—";
+  return `${parsed > 0 ? "+" : ""}${parsed.toFixed(1)}%`;
+}
+
+function formatPerThousand(value) {
+  const parsed = numericValue(value);
+  return parsed == null
+    ? "—"
+    : new Intl.NumberFormat("en-US", {
+        maximumFractionDigits: 1,
+      }).format(parsed);
 }
 
 function totalPlatformMetric(metrics, key) {

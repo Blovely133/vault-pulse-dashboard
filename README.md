@@ -67,6 +67,48 @@ After the environment is configured, connect the three accounts through
 All three YouTube channels share `YOUTUBE_API_KEY`. Channel identities are
 stored in `site/data/dashboard.json`.
 
+## Channel report metrics
+
+Each channel report combines live public platform data with optional private
+analytics and publishing-workflow data:
+
+- Live public data: views, audience, likes, videos, engagement per 1,000
+  views, 7-day post-count parity, and cadence adherence.
+- YouTube Analytics data: chose-to-view, swipe-away (calculated as
+  `100 - choseToViewRate`), average percentage viewed, engaged views,
+  subscriber conversion, first-24-hour performance, and returning viewers.
+- Publishing data: scheduled-through date, ready-to-review count, and
+  pipeline counts.
+
+Private and publishing fields are optional. Missing values render as a dash
+with a connection note instead of being estimated. Add them to a channel in
+`site/data/dashboard.json` with this shape:
+
+```json
+{
+  "shortsAnalytics": {
+    "choseToViewRate": null,
+    "averagePercentageViewed": null,
+    "engagedViews": null,
+    "subscribersGained": null,
+    "subscribersPerThousandEngagedViews": null,
+    "twentyFourHourVsBaseline": null,
+    "returningViewers": null
+  },
+  "publishing": {
+    "scheduledThrough": null,
+    "readyToReview": null,
+    "pipeline": {
+      "planned": null,
+      "editing": null,
+      "review": null,
+      "scheduled": null,
+      "publishedThisWeek": null
+    }
+  }
+}
+```
+
 ## Local preview
 
 From the repository root:
