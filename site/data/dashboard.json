@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-27T08:45:26.246Z",
-  "generatedAt": "2026-07-27T08:45:26.246Z",
+  "updatedAt": "2026-07-27T09:00:19.393Z",
+  "generatedAt": "2026-07-27T09:00:19.393Z",
   "hasLiveData": true,
   "totals": {
-    "views": 8001,
+    "views": 8016,
     "sevenDayViews": null,
     "audience": 29,
-    "engagementRate": 5.020658570176536
+    "engagementRate": 4.998750312421894
   },
   "platformTotals": {
-    "youtube": 4471,
-    "tiktok": 3530
+    "youtube": 4482,
+    "tiktok": 3534
   },
   "channels": [
     {
@@ -27,11 +27,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 131,
+        "views": 130,
         "audience": 2,
         "videos": 21,
         "likes": 23,
-        "engagementRate": 19.84732824427481
+        "engagementRate": 20
       },
       "tiktok": {
         "connected": true,
@@ -57,11 +57,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1376,
+        "views": 1388,
         "audience": 3,
         "videos": 7,
-        "likes": 40,
-        "engagementRate": 3.1976744186046515
+        "likes": 39,
+        "engagementRate": 3.0979827089337175
       },
       "tiktok": {
         "connected": true,
@@ -96,11 +96,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1591,
+        "views": 1595,
         "audience": 6,
         "videos": 2,
         "likes": 96,
-        "engagementRate": 6.78818353236958
+        "engagementRate": 6.77115987460815
       }
     }
   ],
@@ -158,12 +158,12 @@
       "title": "TOP 3 MODERN ANIME TRANSFORMATIONS | Denji, Kafka & Okarun",
       "url": "https://www.youtube.com/watch?v=EVbb_sYNPGA",
       "publishedAt": "2026-07-27T01:00:36Z",
-      "views": 477,
-      "likes": 20,
+      "views": 489,
+      "likes": 19,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 4.1928721174004195
+      "engagementRate": 3.885480572597137
     },
     {
       "id": "youtube:DE6nBJSqoNQ",
@@ -203,12 +203,12 @@
       "title": "The First Video Ever Recorded — And The Man Who Filmed It Vanished The oldest surviving film in the world: two seconds shot on 14 October 1888 in the garden of Oakwood Grange in Roundhay, Leeds, England — seven years before the Lumière brothers held their first public screening in Paris. The four people walking in circles are Adolphe Le Prince, Harriet Hartley, Joseph Whitley, and Sarah Whitley. Sarah, in the dark dress, died ten days later, on 24 October 1888 — the first person ever captured on film to die. #history #film #truecrime #unsolved #archivalfootage #1888 #cinema #mystery #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666647112146308382?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T23:00:00.000Z",
-      "views": 334,
+      "views": 338,
       "likes": 25,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 58,
-      "engagementRate": 8.08383233532934
+      "engagementRate": 7.988165680473373
     },
     {
       "id": "youtube:CVCcBHFdGqY",
@@ -533,12 +533,12 @@
       "title": "THE PLAN IS A PYRAMID | 100 Men v. Bear Ep. 3",
       "url": "https://www.youtube.com/watch?v=mbKQmz8bKZI",
       "publishedAt": "2026-07-25T22:00:13Z",
-      "views": 4,
+      "views": 3,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 52,
-      "engagementRate": 25
+      "engagementRate": 33.33333333333333
     },
     {
       "id": "tiktok:7666534022608129293",
@@ -9166,6 +9166,66 @@
       "videos": 2,
       "likes": 96,
       "engagementRate": 6.78818353236958
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T09:00:19.393Z",
+      "views": 130,
+      "audience": 2,
+      "videos": 21,
+      "likes": 23,
+      "engagementRate": 20
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T09:00:19.393Z",
+      "views": 703,
+      "audience": 4,
+      "videos": 6,
+      "likes": 35,
+      "engagementRate": 8.392603129445234
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T09:00:19.393Z",
+      "views": 1388,
+      "audience": 3,
+      "videos": 7,
+      "likes": 39,
+      "engagementRate": 3.0979827089337175
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T09:00:19.393Z",
+      "views": 1236,
+      "audience": 5,
+      "videos": 7,
+      "likes": 25,
+      "engagementRate": 3.2362459546925564
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T09:00:19.393Z",
+      "views": 2964,
+      "audience": 9,
+      "videos": 4,
+      "likes": 116,
+      "engagementRate": 4.318488529014845
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T09:00:19.393Z",
+      "views": 1595,
+      "audience": 6,
+      "videos": 2,
+      "likes": 96,
+      "engagementRate": 6.77115987460815
     }
   ],
   "trend": [
@@ -9250,8 +9310,8 @@
     {
       "date": "2026-07-27",
       "label": "Jul 27",
-      "youtube": 4471,
-      "tiktok": 3530
+      "youtube": 4482,
+      "tiktok": 3534
     }
   ],
   "connections": {
