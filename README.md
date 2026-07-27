@@ -109,6 +109,28 @@ with a connection note instead of being estimated. Add them to a channel in
 }
 ```
 
+The channel report also exposes a stable set of report fields for imports and
+future OAuth-backed refreshes. Values supplied here override equivalent legacy
+fields while missing values continue to render as a dash:
+
+```json
+{
+  "reportMetrics": {
+    "cadenceAdherence": null,
+    "swipeAwayRate": null,
+    "completionRate": null,
+    "conversionPerThousand": null,
+    "velocityRate": null,
+    "returningViewers": null
+  }
+}
+```
+
+Percent fields use percentage points (`35.7` means `35.7%`). Conversion is
+subscribers gained per 1,000 engaged views, velocity is the first-24-hour
+percentage difference from the channel baseline, and returning viewers is a
+count for the selected report period.
+
 ## Local preview
 
 From the repository root:

@@ -497,6 +497,7 @@ function channelDetailMarkup(data, channel) {
             "violet",
           )}
         </div>
+        ${analyticsColumnsMarkup(insights)}
         ${
           insights.privateAnalyticsComplete
             ? ""
@@ -663,9 +664,36 @@ function detailStatMarkup(label, value, note) {
 function channelInsightMetrics(data, channel, videos) {
   const shorts = channel.shortsAnalytics ?? {};
   const publishing = channel.publishing ?? {};
-  const choseToViewRate = percentValue(shorts.choseToViewRate);
+  const reportMetrics = channel.reportMetrics ?? {};
+  const configuredSwipeAwayRate = percentValue(
+    reportMetrics.swipeAwayRate ?? shorts.swipeAwayRate,
+  );
+  const choseToViewRate =
+    percentValue(shorts.choseToViewRate) ??
+    (configuredSwipeAwayRate == null ? null : 100 - configuredSwipeAwayRate);
+  const swipeAwayRate =
+    configuredSwipeAwayRate ??
+    (choseToViewRate == null
+      ? null
+      : Math.max(0, Math.min(100, 100 - choseToViewRate)));
   const engagedViews = numericValue(shorts.engagedViews);
   const subscribersGained = numericValue(shorts.subscribersGained);
+  const completionRate = percentValue(
+    reportMetrics.completionRate ?? shorts.averagePercentageViewed,
+    false,
+  );
+  const conversionPerThousand =
+    numericValue(reportMetrics.conversionPerThousand) ??
+    numericValue(shorts.subscribersPerThousandEngagedViews) ??
+    (engagedViews > 0 && subscribersGained != null
+      ? (subscribersGained / engagedViews) * 1000
+      : null);
+  const velocityRate = numericValue(
+    reportMetrics.velocityRate ?? shorts.twentyFourHourVsBaseline,
+  );
+  const returningViewers = numericValue(
+    reportMetrics.returningViewers ?? shorts.returningViewers,
+  );
   const recentPosts = recentVideos(
     videos,
     data.updatedAt ?? data.generatedAt,
@@ -682,6 +710,13 @@ function channelInsightMetrics(data, channel, videos) {
     youtubeSevenDayPosts,
     tiktokSevenDayPosts,
   );
+  const derivedCadenceAdherence =
+    totalSevenDayPosts > 0
+      ? Math.min(100, (totalSevenDayPosts / 28) * 100)
+      : null;
+  const cadenceAdherence =
+    percentValue(reportMetrics.cadenceAdherence) ??
+    derivedCadenceAdherence;
   const recentViews = videos.reduce(
     (total, video) => total + Math.max(0, numericValue(video.views) ?? 0),
     0,
@@ -698,33 +733,21 @@ function channelInsightMetrics(data, channel, videos) {
   return {
     privateAnalyticsComplete: [
       choseToViewRate,
-      shorts.averagePercentageViewed,
-      shorts.engagedViews,
-      shorts.subscribersGained,
-      shorts.returningViewers,
-      shorts.twentyFourHourVsBaseline,
+      swipeAwayRate,
+      completionRate,
+      conversionPerThousand,
+      velocityRate,
+      returningViewers,
     ].every((value) => numericValue(value) != null),
     sevenDayViews: channelSevenDayViews(data, channel),
     choseToViewRate,
-    swipeAwayRate:
-      choseToViewRate == null
-        ? null
-        : Math.max(0, Math.min(100, 100 - choseToViewRate)),
-    averagePercentageViewed: percentValue(
-      shorts.averagePercentageViewed,
-      false,
-    ),
-    subscribersPerThousandEngagedViews:
-      numericValue(shorts.subscribersPerThousandEngagedViews) ??
-      (engagedViews > 0 && subscribersGained != null
-        ? (subscribersGained / engagedViews) * 1000
-        : null),
+    swipeAwayRate,
+    averagePercentageViewed: completionRate,
+    subscribersPerThousandEngagedViews: conversionPerThousand,
     engagementPerThousandViews:
       recentViews > 0 ? (recentInteractions / recentViews) * 1000 : null,
-    twentyFourHourVsBaseline: numericValue(
-      shorts.twentyFourHourVsBaseline,
-    ),
-    returningViewers: numericValue(shorts.returningViewers),
+    twentyFourHourVsBaseline: velocityRate,
+    returningViewers,
     scheduleRunway: scheduleRunway(
       publishing.scheduledThrough,
       data.updatedAt ?? data.generatedAt,
@@ -736,14 +759,72 @@ function channelInsightMetrics(data, channel, videos) {
             largestPlatformCount) *
           100
         : null,
-    cadenceAdherence:
-      totalSevenDayPosts > 0
-        ? Math.min(100, (totalSevenDayPosts / 28) * 100)
-        : null,
+    cadenceAdherence,
     youtubeSevenDayPosts,
     tiktokSevenDayPosts,
     totalSevenDayPosts,
   };
+}
+
+function analyticsColumnsMarkup(insights) {
+  const columns = [
+    [
+      "Cadence adherence",
+      formatPercent(insights.cadenceAdherence),
+      "28-post weekly target",
+    ],
+    [
+      "Swiped away",
+      formatPercent(insights.swipeAwayRate),
+      "Shorts feed decision",
+    ],
+    [
+      "Completion",
+      formatPercent(insights.averagePercentageViewed),
+      "Average % viewed",
+    ],
+    [
+      "Conversion",
+      formatPerThousand(insights.subscribersPerThousandEngagedViews),
+      "Subs / 1K engaged",
+    ],
+    [
+      "Velocity",
+      formatSignedPercent(insights.twentyFourHourVsBaseline),
+      "First 24h vs baseline",
+    ],
+    [
+      "Returning viewers",
+      formatMetric(insights.returningViewers),
+      "Selected report period",
+    ],
+  ];
+
+  return `
+    <div class="analytics-columns-wrap" aria-label="Channel report metric fields">
+      <table class="analytics-columns">
+        <thead>
+          <tr>
+            ${columns.map(([label]) => `<th>${escapeHtml(label)}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            ${columns
+              .map(
+                ([, value, note]) => `
+                  <td>
+                    <strong>${escapeHtml(value)}</strong>
+                    <small>${escapeHtml(note)}</small>
+                  </td>
+                `,
+              )
+              .join("")}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
 }
 
 function feedDecisionMarkup(choseToViewRate, swipeAwayRate) {

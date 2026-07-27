@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { ensureReportMetricFields } from "./report-metrics.mjs";
 import { mergeVideos } from "./video-merge.mjs";
 
 const repositoryRoot = path.resolve(
@@ -16,6 +17,7 @@ const freshVideos = [];
 const freshSnapshots = [];
 
 for (const channel of data.channels) {
+  ensureReportMetricFields(channel);
   await refreshYouTube(channel);
   await refreshTikTok(channel);
 }

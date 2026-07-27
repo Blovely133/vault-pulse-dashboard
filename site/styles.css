@@ -1291,6 +1291,56 @@ h2 {
   display: none;
 }
 
+.analytics-columns-wrap {
+  overflow-x: auto;
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgb(255 255 255 / 2%);
+}
+
+.analytics-columns {
+  min-width: 900px;
+}
+
+.analytics-columns th,
+.analytics-columns td {
+  min-width: 150px;
+  padding-left: 14px;
+}
+
+.analytics-columns th:first-child,
+.analytics-columns td:first-child {
+  min-width: 150px;
+}
+
+.analytics-columns th {
+  padding-top: 13px;
+}
+
+.analytics-columns td {
+  border-bottom: 0;
+  padding-bottom: 14px;
+}
+
+.analytics-columns td strong,
+.analytics-columns td small {
+  display: block;
+}
+
+.analytics-columns td strong {
+  max-width: none;
+  font-size: 0.78rem;
+  white-space: normal;
+}
+
+.analytics-columns td small {
+  margin-top: 5px;
+  color: var(--dim);
+  font-size: 0.45rem;
+  line-height: 1.4;
+}
+
 .data-note {
   display: flex;
   align-items: flex-start;
