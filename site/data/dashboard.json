@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-27T16:00:16.344Z",
-  "generatedAt": "2026-07-27T16:00:16.344Z",
+  "updatedAt": "2026-07-27T16:08:35.214Z",
+  "generatedAt": "2026-07-27T16:08:35.214Z",
   "hasLiveData": true,
   "totals": {
-    "views": 8907,
+    "views": 8939,
     "sevenDayViews": null,
     "audience": 31,
-    "engagementRate": 4.849671696809123
+    "engagementRate": 4.8385243075508555
   },
   "platformTotals": {
-    "youtube": 4834,
-    "tiktok": 4073
+    "youtube": 4837,
+    "tiktok": 4102
   },
   "channels": [
     {
@@ -61,6 +61,14 @@
           "scheduled": null,
           "publishedThisWeek": null
         }
+      },
+      "reportMetrics": {
+        "cadenceAdherence": null,
+        "swipeAwayRate": null,
+        "completionRate": null,
+        "conversionPerThousand": null,
+        "velocityRate": null,
+        "returningViewers": null
       }
     },
     {
@@ -86,11 +94,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1273,
+        "views": 1275,
         "audience": 5,
-        "videos": 6,
-        "likes": 25,
-        "engagementRate": 3.1421838177533385
+        "videos": 7,
+        "likes": 26,
+        "engagementRate": 3.215686274509804
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -111,6 +119,14 @@
           "scheduled": null,
           "publishedThisWeek": null
         }
+      },
+      "reportMetrics": {
+        "cadenceAdherence": null,
+        "swipeAwayRate": null,
+        "completionRate": null,
+        "conversionPerThousand": null,
+        "velocityRate": null,
+        "returningViewers": null
       }
     },
     {
@@ -127,20 +143,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3205,
+        "views": 3208,
         "audience": 9,
         "videos": 5,
-        "likes": 132,
-        "engagementRate": 4.5241809672386895
+        "likes": 133,
+        "engagementRate": 4.551122194513716
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2093,
+        "views": 2120,
         "audience": 8,
-        "videos": 2,
+        "videos": 5,
         "likes": 119,
-        "engagementRate": 6.354515050167224
+        "engagementRate": 6.273584905660377
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -161,10 +177,33 @@
           "scheduled": null,
           "publishedThisWeek": null
         }
+      },
+      "reportMetrics": {
+        "cadenceAdherence": null,
+        "swipeAwayRate": null,
+        "completionRate": null,
+        "conversionPerThousand": null,
+        "velocityRate": null,
+        "returningViewers": null
       }
     }
   ],
   "videos": [
+    {
+      "id": "tiktok:7666235467003677983",
+      "channelId": 2,
+      "channelName": "Anime Countdown Vault",
+      "platform": "tiktok",
+      "title": "The five greatest anime last stands, ranked. Which one belongs at #1? #anime #animetiktok #animeedit #top5 #fyp",
+      "url": "https://www.tiktok.com/@animehype41/video/7666235467003677983?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-27T16:00:00.000Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 60,
+      "engagementRate": 0
+    },
     {
       "id": "youtube:HLscwKyYAZ8",
       "channelId": 3,
@@ -173,12 +212,12 @@
       "title": "This Was Filmed 4 Days Before San Francisco Burned",
       "url": "https://www.youtube.com/watch?v=HLscwKyYAZ8",
       "publishedAt": "2026-07-27T14:00:23Z",
-      "views": 205,
-      "likes": 13,
+      "views": 208,
+      "likes": 14,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 50,
-      "engagementRate": 6.829268292682928
+      "engagementRate": 7.211538461538461
     },
     {
       "id": "tiktok:7666544278889336094",
@@ -263,7 +302,7 @@
       "title": "MUSK VS. BEZOS | Billionaire Bracket EP3",
       "url": "https://www.youtube.com/watch?v=0cuUD9ny9qE",
       "publishedAt": "2026-07-27T01:45:17Z",
-      "views": 0,
+      "views": 1,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -323,12 +362,12 @@
       "title": "The First Video Ever Recorded — And The Man Who Filmed It Vanished The oldest surviving film in the world: two seconds shot on 14 October 1888 in the garden of Oakwood Grange in Roundhay, Leeds, England — seven years before the Lumière brothers held their first public screening in Paris. The four people walking in circles are Adolphe Le Prince, Harriet Hartley, Joseph Whitley, and Sarah Whitley. Sarah, in the dark dress, died ten days later, on 24 October 1888 — the first person ever captured on film to die. #history #film #truecrime #unsolved #archivalfootage #1888 #cinema #mystery #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666647112146308382?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T23:00:00.000Z",
-      "views": 812,
+      "views": 839,
       "likes": 45,
       "comments": 2,
       "shares": 1,
       "durationSeconds": 58,
-      "engagementRate": 5.911330049261084
+      "engagementRate": 5.721096543504172
     },
     {
       "id": "youtube:CVCcBHFdGqY",
@@ -368,12 +407,12 @@
       "title": "Kakashi understood. Naruto said it best: NO MURK 🥛😂 Cereal with the canned murk, powdered murk… no murk. #NoMurk #CerealNoMurk #MurkMilk #Finesse2Tymes #Naruto #NarutoShippuden #Kakashi #Sasuke #Boruto #AnimeMeme #AnimeEdit #AnimeTikTok #fyp",
       "url": "https://www.tiktok.com/@animehype41/video/7666943434229353759?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T20:56:36.000Z",
-      "views": 350,
-      "likes": 8,
+      "views": 352,
+      "likes": 9,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 49,
-      "engagementRate": 3.1428571428571432
+      "engagementRate": 3.4090909090909087
     },
     {
       "id": "youtube:hH2rACfz9F8",
@@ -398,12 +437,12 @@
       "title": "MUSK VS. ZUCKERBERG | Billionaire Bracket EP1",
       "url": "https://www.youtube.com/watch?v=smCIWnqIKKQ",
       "publishedAt": "2026-07-26T17:42:47Z",
-      "views": 17,
+      "views": 16,
       "likes": 2,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 59,
-      "engagementRate": 11.76470588235294
+      "engagementRate": 12.5
     },
     {
       "id": "tiktok:7666892898851392781",
@@ -1049,21 +1088,6 @@
       "shares": 0,
       "durationSeconds": 43,
       "engagementRate": 75
-    },
-    {
-      "id": "youtube:wrvGfQ8UYao",
-      "channelId": 1,
-      "channelName": "Axolotl Drama",
-      "platform": "youtube",
-      "title": "Cheating Tramp!",
-      "url": "https://www.youtube.com/watch?v=wrvGfQ8UYao",
-      "publishedAt": "2026-07-24T07:00:30Z",
-      "views": 12,
-      "likes": 2,
-      "comments": 0,
-      "shares": 0,
-      "durationSeconds": 51,
-      "engagementRate": 16.666666666666664
     }
   ],
   "snapshots": [
@@ -11086,6 +11110,66 @@
       "videos": 2,
       "likes": 119,
       "engagementRate": 6.354515050167224
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T16:08:35.214Z",
+      "views": 138,
+      "audience": 2,
+      "videos": 23,
+      "likes": 25,
+      "engagementRate": 20.28985507246377
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T16:08:35.214Z",
+      "views": 707,
+      "audience": 4,
+      "videos": 6,
+      "likes": 36,
+      "engagementRate": 8.628005657708627
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T16:08:35.214Z",
+      "views": 1491,
+      "audience": 3,
+      "videos": 7,
+      "likes": 39,
+      "engagementRate": 2.8839704896042924
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T16:08:35.214Z",
+      "views": 1275,
+      "audience": 5,
+      "videos": 7,
+      "likes": 26,
+      "engagementRate": 3.215686274509804
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-27T16:08:35.214Z",
+      "views": 3208,
+      "audience": 9,
+      "videos": 5,
+      "likes": 133,
+      "engagementRate": 4.551122194513716
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-27T16:08:35.214Z",
+      "views": 2120,
+      "audience": 8,
+      "videos": 5,
+      "likes": 119,
+      "engagementRate": 6.273584905660377
     }
   ],
   "trend": [
@@ -11170,8 +11254,8 @@
     {
       "date": "2026-07-27",
       "label": "Jul 27",
-      "youtube": 4834,
-      "tiktok": 4073
+      "youtube": 4837,
+      "tiktok": 4102
     }
   ],
   "connections": {
