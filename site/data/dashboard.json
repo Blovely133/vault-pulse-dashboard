@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-28T07:30:21.123Z",
-  "generatedAt": "2026-07-28T07:30:21.123Z",
+  "updatedAt": "2026-07-28T07:45:22.867Z",
+  "generatedAt": "2026-07-28T07:45:22.867Z",
   "hasLiveData": true,
   "totals": {
-    "views": 14295,
+    "views": 14324,
     "sevenDayViews": null,
     "audience": 49,
-    "engagementRate": 4.513431911434544
+    "engagementRate": 4.511045882898192
   },
   "platformTotals": {
-    "youtube": 6264,
-    "tiktok": 8031
+    "youtube": 6267,
+    "tiktok": 8057
   },
   "channels": [
     {
@@ -27,11 +27,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 154,
+        "views": 155,
         "audience": 2,
         "videos": 27,
         "likes": 25,
-        "engagementRate": 18.181818181818183
+        "engagementRate": 18.064516129032256
       },
       "tiktok": {
         "connected": true,
@@ -143,20 +143,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 4061,
+        "views": 4063,
         "audience": 11,
         "videos": 6,
         "likes": 167,
-        "engagementRate": 4.4570302881063775
+        "engagementRate": 4.454836327836574
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 5789,
+        "views": 5815,
         "audience": 22,
         "videos": 6,
-        "likes": 241,
-        "engagementRate": 4.646743824494731
+        "likes": 242,
+        "engagementRate": 4.643164230438521
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -302,7 +302,7 @@
       "title": "THE WINNER VS. BARBARA | Billionaire Bracket EP8 Finale",
       "url": "https://www.youtube.com/watch?v=wk3_H6PoOUQ",
       "publishedAt": "2026-07-27T21:45:30Z",
-      "views": 0,
+      "views": 1,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -527,12 +527,12 @@
       "title": "The First Video Ever Recorded — And The Man Who Filmed It Vanished The oldest surviving film in the world: two seconds shot on 14 October 1888 in the garden of Oakwood Grange in Roundhay, Leeds, England — seven years before the Lumière brothers held their first public screening in Paris. The four people walking in circles are Adolphe Le Prince, Harriet Hartley, Joseph Whitley, and Sarah Whitley. Sarah, in the dark dress, died ten days later, on 24 October 1888 — the first person ever captured on film to die. #history #film #truecrime #unsolved #archivalfootage #1888 #cinema #mystery #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666647112146308382?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T23:00:00.000Z",
-      "views": 4395,
-      "likes": 163,
+      "views": 4421,
+      "likes": 164,
       "comments": 9,
       "shares": 8,
       "durationSeconds": 58,
-      "engagementRate": 4.09556313993174
+      "engagementRate": 4.094096358289979
     },
     {
       "id": "youtube:CVCcBHFdGqY",
@@ -992,12 +992,12 @@
       "title": "That Famous Titanic Footage Is the Wrong Ship",
       "url": "https://www.youtube.com/watch?v=4iwUdRzgZgs",
       "publishedAt": "2026-07-25T18:44:56Z",
-      "views": 993,
+      "views": 995,
       "likes": 34,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 3.927492447129909
+      "engagementRate": 3.919597989949749
     },
     {
       "id": "tiktok:7666532692111969550",
@@ -14590,6 +14590,66 @@
       "videos": 6,
       "likes": 241,
       "engagementRate": 4.646743824494731
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T07:45:22.867Z",
+      "views": 155,
+      "audience": 2,
+      "videos": 27,
+      "likes": 25,
+      "engagementRate": 18.064516129032256
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T07:45:22.867Z",
+      "views": 905,
+      "audience": 4,
+      "videos": 6,
+      "likes": 38,
+      "engagementRate": 7.18232044198895
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T07:45:22.867Z",
+      "views": 2049,
+      "audience": 5,
+      "videos": 9,
+      "likes": 60,
+      "engagementRate": 3.1234748657881894
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T07:45:22.867Z",
+      "views": 1337,
+      "audience": 5,
+      "videos": 9,
+      "likes": 30,
+      "engagementRate": 3.3657442034405385
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T07:45:22.867Z",
+      "views": 4063,
+      "audience": 11,
+      "videos": 6,
+      "likes": 167,
+      "engagementRate": 4.454836327836574
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T07:45:22.867Z",
+      "views": 5815,
+      "audience": 22,
+      "videos": 6,
+      "likes": 242,
+      "engagementRate": 4.643164230438521
     }
   ],
   "trend": [
@@ -14674,8 +14734,8 @@
     {
       "date": "2026-07-28",
       "label": "Jul 28",
-      "youtube": 6264,
-      "tiktok": 8031
+      "youtube": 6267,
+      "tiktok": 8057
     }
   ],
   "connections": {
