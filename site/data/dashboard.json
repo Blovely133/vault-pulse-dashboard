@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-28T12:45:23.807Z",
-  "generatedAt": "2026-07-28T12:45:23.807Z",
+  "updatedAt": "2026-07-28T13:00:21.232Z",
+  "generatedAt": "2026-07-28T13:00:21.232Z",
   "hasLiveData": true,
   "totals": {
-    "views": 15370,
+    "views": 15404,
     "sevenDayViews": null,
     "audience": 48,
-    "engagementRate": 4.345340194396798
+    "engagementRate": 4.334806787394839
   },
   "platformTotals": {
-    "youtube": 6415,
-    "tiktok": 8955
+    "youtube": 6419,
+    "tiktok": 8985
   },
   "channels": [
     {
@@ -85,11 +85,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2193,
+        "views": 2197,
         "audience": 4,
         "videos": 9,
         "likes": 61,
-        "engagementRate": 2.9639762881896945
+        "engagementRate": 2.9585798816568047
       },
       "tiktok": {
         "connected": true,
@@ -152,11 +152,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 6706,
+        "views": 6736,
         "audience": 22,
         "videos": 6,
         "likes": 261,
-        "engagementRate": 4.354309573516254
+        "engagementRate": 4.334916864608076
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -482,12 +482,12 @@
       "title": "TOP 3 MODERN ANIME TRANSFORMATIONS | Denji, Kafka & Okarun",
       "url": "https://www.youtube.com/watch?v=EVbb_sYNPGA",
       "publishedAt": "2026-07-27T01:00:36Z",
-      "views": 976,
+      "views": 979,
       "likes": 34,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 3.483606557377049
+      "engagementRate": 3.472931562819203
     },
     {
       "id": "youtube:DE6nBJSqoNQ",
@@ -527,12 +527,12 @@
       "title": "The First Video Ever Recorded — And The Man Who Filmed It Vanished The oldest surviving film in the world: two seconds shot on 14 October 1888 in the garden of Oakwood Grange in Roundhay, Leeds, England — seven years before the Lumière brothers held their first public screening in Paris. The four people walking in circles are Adolphe Le Prince, Harriet Hartley, Joseph Whitley, and Sarah Whitley. Sarah, in the dark dress, died ten days later, on 24 October 1888 — the first person ever captured on film to die. #history #film #truecrime #unsolved #archivalfootage #1888 #cinema #mystery #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666647112146308382?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T23:00:00.000Z",
-      "views": 5292,
+      "views": 5322,
       "likes": 182,
       "comments": 10,
       "shares": 10,
       "durationSeconds": 58,
-      "engagementRate": 3.8170823885109595
+      "engagementRate": 3.7955655768508083
     },
     {
       "id": "youtube:CVCcBHFdGqY",
@@ -587,12 +587,12 @@
       "title": "TOP 5 ANIME SIGNATURE MOVES | Ranked",
       "url": "https://www.youtube.com/watch?v=hH2rACfz9F8",
       "publishedAt": "2026-07-26T20:00:00Z",
-      "views": 143,
+      "views": 144,
       "likes": 4,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 54,
-      "engagementRate": 4.195804195804196
+      "engagementRate": 4.166666666666666
     },
     {
       "id": "youtube:smCIWnqIKKQ",
@@ -15970,6 +15970,66 @@
       "videos": 6,
       "likes": 261,
       "engagementRate": 4.354309573516254
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T13:00:21.232Z",
+      "views": 155,
+      "audience": 2,
+      "videos": 27,
+      "likes": 25,
+      "engagementRate": 18.064516129032256
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T13:00:21.232Z",
+      "views": 908,
+      "audience": 4,
+      "videos": 6,
+      "likes": 38,
+      "engagementRate": 7.158590308370044
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T13:00:21.232Z",
+      "views": 2197,
+      "audience": 4,
+      "videos": 9,
+      "likes": 61,
+      "engagementRate": 2.9585798816568047
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T13:00:21.232Z",
+      "views": 1341,
+      "audience": 5,
+      "videos": 9,
+      "likes": 30,
+      "engagementRate": 3.3557046979865772
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T13:00:21.232Z",
+      "views": 4067,
+      "audience": 11,
+      "videos": 6,
+      "likes": 168,
+      "engagementRate": 4.475043029259897
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T13:00:21.232Z",
+      "views": 6736,
+      "audience": 22,
+      "videos": 6,
+      "likes": 261,
+      "engagementRate": 4.334916864608076
     }
   ],
   "trend": [
@@ -16054,8 +16114,8 @@
     {
       "date": "2026-07-28",
       "label": "Jul 28",
-      "youtube": 6415,
-      "tiktok": 8955
+      "youtube": 6419,
+      "tiktok": 8985
     }
   ],
   "connections": {
