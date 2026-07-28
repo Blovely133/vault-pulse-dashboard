@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-28T12:15:15.042Z",
-  "generatedAt": "2026-07-28T12:15:15.042Z",
+  "updatedAt": "2026-07-28T12:30:24.238Z",
+  "generatedAt": "2026-07-28T12:30:24.238Z",
   "hasLiveData": true,
   "totals": {
-    "views": 15293,
+    "views": 15337,
     "sevenDayViews": null,
     "audience": 48,
-    "engagementRate": 4.3621990657563785
+    "engagementRate": 4.355612866251164
   },
   "platformTotals": {
-    "youtube": 6413,
-    "tiktok": 8880
+    "youtube": 6415,
+    "tiktok": 8922
   },
   "channels": [
     {
@@ -85,11 +85,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2191,
+        "views": 2193,
         "audience": 4,
         "videos": 9,
         "likes": 61,
-        "engagementRate": 2.9666818804198996
+        "engagementRate": 2.9639762881896945
       },
       "tiktok": {
         "connected": true,
@@ -152,11 +152,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 6632,
+        "views": 6674,
         "audience": 22,
         "videos": 6,
-        "likes": 260,
-        "engagementRate": 4.387816646562123
+        "likes": 261,
+        "engagementRate": 4.375187293976626
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -212,12 +212,12 @@
       "title": "TOP 3 MUSHOKU TENSEI FIGHTS | Orsted, Hydra & Eris",
       "url": "https://www.youtube.com/watch?v=Ovd4YjdUW-A",
       "publishedAt": "2026-07-28T01:00:21Z",
-      "views": 287,
+      "views": 289,
       "likes": 5,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 1.7421602787456445
+      "engagementRate": 1.7301038062283738
     },
     {
       "id": "youtube:ikvKaSibjtQ",
@@ -527,12 +527,12 @@
       "title": "The First Video Ever Recorded — And The Man Who Filmed It Vanished The oldest surviving film in the world: two seconds shot on 14 October 1888 in the garden of Oakwood Grange in Roundhay, Leeds, England — seven years before the Lumière brothers held their first public screening in Paris. The four people walking in circles are Adolphe Le Prince, Harriet Hartley, Joseph Whitley, and Sarah Whitley. Sarah, in the dark dress, died ten days later, on 24 October 1888 — the first person ever captured on film to die. #history #film #truecrime #unsolved #archivalfootage #1888 #cinema #mystery #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666647112146308382?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T23:00:00.000Z",
-      "views": 5220,
-      "likes": 181,
+      "views": 5262,
+      "likes": 182,
       "comments": 10,
       "shares": 10,
       "durationSeconds": 58,
-      "engagementRate": 3.8505747126436782
+      "engagementRate": 3.838844545800076
     },
     {
       "id": "youtube:CVCcBHFdGqY",
@@ -15850,6 +15850,66 @@
       "videos": 6,
       "likes": 260,
       "engagementRate": 4.387816646562123
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T12:30:24.238Z",
+      "views": 155,
+      "audience": 2,
+      "videos": 27,
+      "likes": 25,
+      "engagementRate": 18.064516129032256
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T12:30:24.238Z",
+      "views": 907,
+      "audience": 4,
+      "videos": 6,
+      "likes": 38,
+      "engagementRate": 7.166482910694598
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T12:30:24.238Z",
+      "views": 2193,
+      "audience": 4,
+      "videos": 9,
+      "likes": 61,
+      "engagementRate": 2.9639762881896945
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T12:30:24.238Z",
+      "views": 1341,
+      "audience": 5,
+      "videos": 9,
+      "likes": 30,
+      "engagementRate": 3.3557046979865772
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T12:30:24.238Z",
+      "views": 4067,
+      "audience": 11,
+      "videos": 6,
+      "likes": 168,
+      "engagementRate": 4.475043029259897
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T12:30:24.238Z",
+      "views": 6674,
+      "audience": 22,
+      "videos": 6,
+      "likes": 261,
+      "engagementRate": 4.375187293976626
     }
   ],
   "trend": [
@@ -15934,8 +15994,8 @@
     {
       "date": "2026-07-28",
       "label": "Jul 28",
-      "youtube": 6413,
-      "tiktok": 8880
+      "youtube": 6415,
+      "tiktok": 8922
     }
   ],
   "connections": {
