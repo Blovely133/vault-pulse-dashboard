@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-28T02:00:17.395Z",
-  "generatedAt": "2026-07-28T02:00:17.395Z",
+  "updatedAt": "2026-07-28T02:15:14.240Z",
+  "generatedAt": "2026-07-28T02:15:14.240Z",
   "hasLiveData": true,
   "totals": {
-    "views": 12364,
+    "views": 12472,
     "sevenDayViews": null,
     "audience": 42,
-    "engagementRate": 4.676128093158661
+    "engagementRate": 4.648648648648648
   },
   "platformTotals": {
-    "youtube": 5911,
-    "tiktok": 6453
+    "youtube": 5914,
+    "tiktok": 6558
   },
   "channels": [
     {
@@ -143,20 +143,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 4038,
+        "views": 4041,
         "audience": 11,
         "videos": 6,
-        "likes": 165,
-        "engagementRate": 4.4328875681030215
+        "likes": 166,
+        "engagementRate": 4.4543429844097995
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 4225,
+        "views": 4330,
         "audience": 17,
         "videos": 5,
-        "likes": 189,
-        "engagementRate": 5.041420118343195
+        "likes": 190,
+        "engagementRate": 4.9422632794457275
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -242,12 +242,12 @@
       "title": "What New York Actually Sounded Like in 1911",
       "url": "https://www.youtube.com/watch?v=UmMi1v-gxg0",
       "publishedAt": "2026-07-27T23:00:34Z",
-      "views": 4,
-      "likes": 1,
+      "views": 7,
+      "likes": 2,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 57,
-      "engagementRate": 25
+      "engagementRate": 28.57142857142857
     },
     {
       "id": "tiktok:7667333111302065438",
@@ -512,12 +512,12 @@
       "title": "The First Video Ever Recorded — And The Man Who Filmed It Vanished The oldest surviving film in the world: two seconds shot on 14 October 1888 in the garden of Oakwood Grange in Roundhay, Leeds, England — seven years before the Lumière brothers held their first public screening in Paris. The four people walking in circles are Adolphe Le Prince, Harriet Hartley, Joseph Whitley, and Sarah Whitley. Sarah, in the dark dress, died ten days later, on 24 October 1888 — the first person ever captured on film to die. #history #film #truecrime #unsolved #archivalfootage #1888 #cinema #mystery #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666647112146308382?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T23:00:00.000Z",
-      "views": 2896,
-      "likes": 113,
+      "views": 3000,
+      "likes": 114,
       "comments": 7,
       "shares": 6,
       "durationSeconds": 58,
-      "engagementRate": 4.350828729281768
+      "engagementRate": 4.233333333333333
     },
     {
       "id": "youtube:CVCcBHFdGqY",
@@ -677,12 +677,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 467,
+      "views": 468,
       "likes": 36,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 42,
-      "engagementRate": 8.779443254817988
+      "engagementRate": 8.76068376068376
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -13150,6 +13150,66 @@
       "videos": 5,
       "likes": 189,
       "engagementRate": 5.041420118343195
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T02:15:14.240Z",
+      "views": 151,
+      "audience": 2,
+      "videos": 26,
+      "likes": 25,
+      "engagementRate": 18.543046357615893
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T02:15:14.240Z",
+      "views": 897,
+      "audience": 4,
+      "videos": 6,
+      "likes": 38,
+      "engagementRate": 7.246376811594203
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T02:15:14.240Z",
+      "views": 1722,
+      "audience": 3,
+      "videos": 9,
+      "likes": 48,
+      "engagementRate": 3.0197444831591174
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T02:15:14.240Z",
+      "views": 1331,
+      "audience": 5,
+      "videos": 9,
+      "likes": 30,
+      "engagementRate": 3.3809166040571
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T02:15:14.240Z",
+      "views": 4041,
+      "audience": 11,
+      "videos": 6,
+      "likes": 166,
+      "engagementRate": 4.4543429844097995
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T02:15:14.240Z",
+      "views": 4330,
+      "audience": 17,
+      "videos": 5,
+      "likes": 190,
+      "engagementRate": 4.9422632794457275
     }
   ],
   "trend": [
@@ -13234,8 +13294,8 @@
     {
       "date": "2026-07-28",
       "label": "Jul 28",
-      "youtube": 5911,
-      "tiktok": 6453
+      "youtube": 5914,
+      "tiktok": 6558
     }
   ],
   "connections": {
