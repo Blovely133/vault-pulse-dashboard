@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-28T13:45:21.119Z",
-  "generatedAt": "2026-07-28T13:45:21.119Z",
+  "updatedAt": "2026-07-28T14:00:16.885Z",
+  "generatedAt": "2026-07-28T14:00:16.885Z",
   "hasLiveData": true,
   "totals": {
-    "views": 15488,
+    "views": 15522,
     "sevenDayViews": null,
     "audience": 49,
-    "engagementRate": 4.337349397590361
+    "engagementRate": 4.326923076923077
   },
   "platformTotals": {
-    "youtube": 6418,
-    "tiktok": 9070
+    "youtube": 6420,
+    "tiktok": 9102
   },
   "channels": [
     {
@@ -143,20 +143,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 4067,
+        "views": 4069,
         "audience": 11,
         "videos": 6,
         "likes": 168,
-        "engagementRate": 4.475043029259897
+        "engagementRate": 4.472843450479233
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 6821,
+        "views": 6853,
         "audience": 23,
-        "videos": 6,
+        "videos": 5,
         "likes": 265,
-        "engagementRate": 4.339539656941797
+        "engagementRate": 4.319276229388589
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -527,12 +527,12 @@
       "title": "The First Video Ever Recorded — And The Man Who Filmed It Vanished The oldest surviving film in the world: two seconds shot on 14 October 1888 in the garden of Oakwood Grange in Roundhay, Leeds, England — seven years before the Lumière brothers held their first public screening in Paris. The four people walking in circles are Adolphe Le Prince, Harriet Hartley, Joseph Whitley, and Sarah Whitley. Sarah, in the dark dress, died ten days later, on 24 October 1888 — the first person ever captured on film to die. #history #film #truecrime #unsolved #archivalfootage #1888 #cinema #mystery #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666647112146308382?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T23:00:00.000Z",
-      "views": 5402,
+      "views": 5430,
       "likes": 186,
       "comments": 10,
       "shares": 10,
       "durationSeconds": 58,
-      "engagementRate": 3.81340244353943
+      "engagementRate": 3.7937384898710866
     },
     {
       "id": "youtube:CVCcBHFdGqY",
@@ -692,12 +692,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 501,
+      "views": 505,
       "likes": 39,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 42,
-      "engagementRate": 8.78243512974052
+      "engagementRate": 8.712871287128712
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -992,12 +992,12 @@
       "title": "That Famous Titanic Footage Is the Wrong Ship",
       "url": "https://www.youtube.com/watch?v=4iwUdRzgZgs",
       "publishedAt": "2026-07-25T18:44:56Z",
-      "views": 998,
+      "views": 1000,
       "likes": 35,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 4.008016032064128
+      "engagementRate": 4
     },
     {
       "id": "tiktok:7666532692111969550",
@@ -16210,6 +16210,66 @@
       "videos": 6,
       "likes": 265,
       "engagementRate": 4.339539656941797
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T14:00:16.885Z",
+      "views": 157,
+      "audience": 2,
+      "videos": 27,
+      "likes": 25,
+      "engagementRate": 17.8343949044586
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T14:00:16.885Z",
+      "views": 908,
+      "audience": 4,
+      "videos": 6,
+      "likes": 38,
+      "engagementRate": 7.158590308370044
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T14:00:16.885Z",
+      "views": 2194,
+      "audience": 4,
+      "videos": 9,
+      "likes": 61,
+      "engagementRate": 2.962625341841386
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T14:00:16.885Z",
+      "views": 1341,
+      "audience": 5,
+      "videos": 9,
+      "likes": 30,
+      "engagementRate": 3.3557046979865772
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-28T14:00:16.885Z",
+      "views": 4069,
+      "audience": 11,
+      "videos": 6,
+      "likes": 168,
+      "engagementRate": 4.472843450479233
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-28T14:00:16.885Z",
+      "views": 6853,
+      "audience": 23,
+      "videos": 5,
+      "likes": 265,
+      "engagementRate": 4.319276229388589
     }
   ],
   "trend": [
@@ -16294,8 +16354,8 @@
     {
       "date": "2026-07-28",
       "label": "Jul 28",
-      "youtube": 6418,
-      "tiktok": 9070
+      "youtube": 6420,
+      "tiktok": 9102
     }
   ],
   "connections": {
