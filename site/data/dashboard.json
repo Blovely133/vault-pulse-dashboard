@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-29T19:19:49.875Z",
-  "generatedAt": "2026-07-29T19:19:49.875Z",
+  "updatedAt": "2026-07-29T19:21:11.515Z",
+  "generatedAt": "2026-07-29T19:21:11.515Z",
   "hasLiveData": true,
   "totals": {
-    "views": 12877,
+    "views": 12884,
     "sevenDayViews": null,
     "audience": 70,
-    "engagementRate": 3.92135019216844
+    "engagementRate": 3.9198218262806237
   },
   "platformTotals": {
-    "youtube": 7939,
-    "tiktok": 4595,
+    "youtube": 7944,
+    "tiktok": 4597,
     "instagram": 343
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.875Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.515Z"
     },
     {
       "id": 2,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.875Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.515Z"
     },
     {
       "id": 3,
@@ -185,20 +185,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 5413,
+        "views": 5418,
         "audience": 18,
         "videos": 9,
         "likes": 236,
-        "engagementRate": 4.65545907999261
+        "engagementRate": 4.651162790697675
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3225,
+        "views": 3227,
         "audience": 41,
         "videos": 5,
         "likes": 155,
-        "engagementRate": 5.51937984496124,
+        "engagementRate": 5.5159590951348,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 3
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.875Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.515Z"
     },
     {
       "id": 4,
@@ -285,13 +285,14 @@
         "engagementRate": 0
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
+        "connected": true,
+        "connectionLabel": "Connected",
         "views": null,
-        "audience": null,
-        "videos": null,
-        "likes": null,
-        "engagementRate": null
+        "audience": 0,
+        "videos": 0,
+        "likes": 0,
+        "engagementRate": null,
+        "source": "direct"
       },
       "instagram": {
         "connected": true,
@@ -352,8 +353,8 @@
         "sharesPerThousandReach": null,
         "interactionsPerReel": null
       },
-      "tiktokSource": "render-proxy",
-      "tiktokAuthExpiresAt": null
+      "tiktokSource": "direct",
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:24.515Z"
     },
     {
       "id": 5,
@@ -377,13 +378,14 @@
         "engagementRate": 0
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
+        "connected": true,
+        "connectionLabel": "Connected",
         "views": null,
-        "audience": null,
-        "videos": null,
-        "likes": null,
-        "engagementRate": null
+        "audience": 0,
+        "videos": 0,
+        "likes": 0,
+        "engagementRate": null,
+        "source": "direct"
       },
       "instagram": {
         "connected": true,
@@ -444,8 +446,8 @@
         "sharesPerThousandReach": null,
         "interactionsPerReel": null
       },
-      "tiktokSource": "render-proxy",
-      "tiktokAuthExpiresAt": null
+      "tiktokSource": "direct",
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:33.515Z"
     }
   ],
   "videos": [
@@ -507,12 +509,12 @@
       "title": "The Oldest Surviving Footage of New York City",
       "url": "https://www.youtube.com/watch?v=Hz39AJS0ixE",
       "publishedAt": "2026-07-29T14:00:27Z",
-      "views": 341,
+      "views": 346,
       "likes": 26,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 52,
-      "engagementRate": 8.211143695014663
+      "engagementRate": 8.092485549132949
     },
     {
       "id": "tiktok:7666544577871990046",
@@ -1287,12 +1289,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 2073,
+      "views": 2075,
       "likes": 98,
       "comments": 5,
       "shares": 11,
       "durationSeconds": 42,
-      "engagementRate": 5.499276410998553
+      "engagementRate": 5.493975903614458
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -27082,6 +27084,150 @@
       "likes": 0,
       "reach": 0,
       "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 146,
+      "audience": 2,
+      "videos": 6,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": null,
+      "audience": 4,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 2380,
+      "audience": 4,
+      "videos": 11,
+      "likes": 66,
+      "engagementRate": 2.941176470588235
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 1370,
+      "audience": 5,
+      "videos": 9,
+      "likes": 31,
+      "engagementRate": 3.43065693430657
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 1,
+      "audience": null,
+      "videos": 1,
+      "likes": 0,
+      "reach": 1,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 5418,
+      "audience": 18,
+      "videos": 9,
+      "likes": 236,
+      "engagementRate": 4.651162790697675
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 3227,
+      "audience": 41,
+      "videos": 5,
+      "likes": 155,
+      "engagementRate": 5.5159590951348
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 342,
+      "audience": null,
+      "videos": 3,
+      "likes": 7,
+      "reach": 308,
+      "engagementRate": 2.922077922077922
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 0,
+      "audience": 0,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": null,
+      "audience": 0,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 0,
+      "audience": null,
+      "videos": 0,
+      "likes": 0,
+      "reach": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 0,
+      "audience": 0,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": null,
+      "audience": 0,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T19:21:11.515Z",
+      "views": 0,
+      "audience": null,
+      "videos": 0,
+      "likes": 0,
+      "reach": 0,
+      "engagementRate": 0
     }
   ],
   "trend": [
@@ -27166,8 +27312,8 @@
     {
       "date": "2026-07-29",
       "label": "Jul 29",
-      "youtube": 7939,
-      "tiktok": 4595
+      "youtube": 7944,
+      "tiktok": 4597
     }
   ],
   "connections": {
@@ -27176,11 +27322,11 @@
       "axolotl-drama": "direct",
       "anime-countdown-vault": "direct",
       "kids-history": "direct",
-      "sylvas-mysteries": "render-proxy",
-      "fixed-fights": "render-proxy"
+      "sylvas-mysteries": "direct",
+      "fixed-fights": "direct"
     },
     "instagramFeed": true,
-    "connectedSources": 12,
+    "connectedSources": 14,
     "totalSources": 14
   },
   "refresh": {
@@ -27198,17 +27344,16 @@
       "Kids History Â· Instagram",
       "Sylva's Mysteries · YouTube",
       "Sylva's Mysteries · YouTube Analytics",
+      "Sylva's Mysteries · TikTok (direct)",
       "Sylva's Mysteries Â· Instagram",
       "Fixed Fights · YouTube",
       "Fixed Fights · YouTube Analytics",
+      "Fixed Fights · TikTok (direct)",
       "Fixed Fights Â· Instagram"
     ],
     "skipped": [],
     "warnings": [],
-    "errors": [
-      "Sylva's Mysteries · TikTok (render-proxy): Unknown channel.",
-      "Fixed Fights · TikTok (render-proxy): Unknown channel."
-    ]
+    "errors": []
   },
   "instagram": {
     "version": 1,
