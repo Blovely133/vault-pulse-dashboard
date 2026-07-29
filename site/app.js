@@ -360,14 +360,46 @@ function videosMarkup(data) {
 }
 
 function instagramMarkup(data) {
-  const channel = data.channels.find((item) => item.instagramUsername);
+  const channels = data.channels.filter((item) => item.instagramUsername);
+  if (!channels.length) {
+    return `
+      <div class="view-stack">
+        <section class="setup-banner">
+          <div>
+            <p class="kicker">Instagram</p>
+            <h2>No Instagram accounts are configured yet.</h2>
+          </div>
+        </section>
+      </div>
+    `;
+  }
+  return `
+    <div class="view-stack">
+      ${channels
+        .map((channel) => instagramAccountMarkup(data, channel))
+        .join("")}
+    </div>
+  `;
+}
+
+function instagramAccountMarkup(data, channel) {
   const instagram = channel?.instagram ?? {};
-  const feed = data.instagram ?? {};
+  const feeds = Array.isArray(data.instagramFeeds)
+    ? data.instagramFeeds
+    : data.instagram
+      ? [data.instagram]
+      : [];
+  const feed =
+    feeds.find((item) => item.channelId === channel.id) ??
+    (data.instagram?.channelId === channel.id ? data.instagram : {});
   const account = feed.account ?? {};
   const totals = feed.totals ?? instagram;
   const reels = Array.isArray(feed.reels)
     ? feed.reels
-    : data.videos.filter((video) => video.platform === "instagram");
+    : data.videos.filter(
+        (video) =>
+          video.platform === "instagram" && video.channelId === channel.id,
+      );
   const username =
     account.username || channel?.instagramUsername || "sylvasblessing";
   const profileUrl =
@@ -380,13 +412,12 @@ function instagramMarkup(data) {
   const errors = Array.isArray(feed.errors) ? feed.errors.length : 0;
 
   return `
-    <div class="view-stack">
-      <section class="instagram-hero panel">
+      <section class="instagram-hero panel" aria-labelledby="instagram-${escapeAttribute(channel.slug)}">
         <div class="instagram-identity">
           <span class="instagram-mark" aria-hidden="true">IG</span>
           <div>
             <p class="kicker">${escapeHtml(channel?.displayName || "Kids History")} distribution</p>
-            <h2>@${escapeHtml(username)}</h2>
+            <h2 id="instagram-${escapeAttribute(channel.slug)}">@${escapeHtml(username)}</h2>
             <p>
               Reel reach, retention, and interaction data from the live
               Instagram professional account.
@@ -479,7 +510,6 @@ function instagramMarkup(data) {
             : ""
         }
       </section>
-    </div>
   `;
 }
 

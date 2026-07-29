@@ -308,7 +308,12 @@ async function refreshTikTok(channel) {
 async function refreshInstagram(channel) {
   if (!channel.instagramUsername) return;
 
-  const analyticsUrl = process.env.VAULT_PULSE_INSTAGRAM_API_URL?.trim();
+  const analyticsUrl = (
+    (channel.instagramFeedEnv
+      ? process.env[channel.instagramFeedEnv]
+      : undefined) ??
+    process.env.VAULT_PULSE_INSTAGRAM_API_URL
+  )?.trim();
   if (!analyticsUrl) {
     channel.instagram = {
       ...(channel.instagram ?? {}),
@@ -324,7 +329,15 @@ async function refreshInstagram(channel) {
     const payload = await fetchJson(new URL(analyticsUrl));
     const normalized = normalizeInstagramFeed(channel, payload, capturedAt);
     channel.instagram = normalized.metric;
-    data.instagram = normalized.feed;
+    data.instagramFeeds = upsertInstagramFeed(
+      data.instagramFeeds,
+      normalized.feed,
+    );
+    // Keep the original history feed key during the transition to multiple
+    // Instagram accounts so older dashboard clients still render correctly.
+    if (!data.instagram || channel.id === data.instagram.channelId) {
+      data.instagram = normalized.feed;
+    }
     freshVideos.push(...normalized.videos);
     freshSnapshots.push(normalized.snapshot);
     refresh.ok.push(`${channel.displayName} Â· Instagram`);
@@ -335,11 +348,25 @@ async function refreshInstagram(channel) {
       connectionLabel:
         channel.instagram?.views != null ? "Snapshot stale" : "Refresh error",
     };
-    if (data.instagram) data.instagram.stale = true;
+    const staleFeed = data.instagramFeeds?.find(
+      (feed) => feed.channelId === channel.id,
+    );
+    if (staleFeed) staleFeed.stale = true;
+    if (data.instagram?.channelId === channel.id) data.instagram.stale = true;
     refresh.errors.push(
       `${channel.displayName} Â· Instagram: ${errorMessage(error)}`,
     );
   }
+}
+
+function upsertInstagramFeed(feeds, nextFeed) {
+  const nextFeeds = Array.isArray(feeds) ? [...feeds] : [];
+  const index = nextFeeds.findIndex(
+    (feed) => feed.channelId === nextFeed.channelId,
+  );
+  if (index >= 0) nextFeeds[index] = nextFeed;
+  else nextFeeds.push(nextFeed);
+  return nextFeeds.sort((left, right) => left.channelId - right.channelId);
 }
 
 function recalculateDashboard(dashboard, referenceDate) {

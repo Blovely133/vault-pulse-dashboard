@@ -81,6 +81,8 @@
       "youtubeHandle": "",
       "tiktokUsername": "animehype41",
       "tiktokTokenEnv": "TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT",
+      "instagramUsername": "animehype1338",
+      "instagramFeedEnv": "VAULT_PULSE_INSTAGRAM_API_URL_ANIME",
       "accent": "#ff3d62",
       "avatar": "./assets/vault-avatar.png",
       "youtube": {
@@ -100,6 +102,25 @@
         "videos": 9,
         "likes": 31,
         "engagementRate": 3.4482758620689653
+      },
+      "instagram": {
+        "connected": false,
+        "connectionLabel": "First refresh pending",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "reach": null,
+        "comments": null,
+        "saves": null,
+        "shares": null,
+        "totalInteractions": null,
+        "averageWatchTimeMs": null,
+        "totalWatchTimeMs": null,
+        "engagementRate": null,
+        "viewToReachRatio": null,
+        "profileUrl": "https://www.instagram.com/animehype1338/",
+        "generatedAt": null
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -140,6 +161,7 @@
       "tiktokUsername": "sylva6806",
       "tiktokTokenEnv": "TIKTOK_ACCESS_TOKEN_KIDS_HISTORY",
       "instagramUsername": "sylvasblessing",
+      "instagramFeedEnv": "VAULT_PULSE_INSTAGRAM_API_URL_HISTORY",
       "accent": "#8b7cff",
       "avatar": "./assets/kids-history-avatar.jpg",
       "youtube": {
