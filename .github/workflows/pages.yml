@@ -74,7 +74,10 @@ jobs:
               exit 0
             fi
             echo "push rejected (attempt $attempt) - rebasing onto origin/main"
-            git pull --rebase --quiet origin main || exit 1
+            # --autostash is required, not cosmetic: the refresh also writes
+            # site/data/authorized-analytics.json, which is intentionally never
+            # committed, so it sits unstaged and git refuses to rebase over it.
+            git pull --rebase --autostash --quiet origin main || exit 1
           done
           exit 1
 
