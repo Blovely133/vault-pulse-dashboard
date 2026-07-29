@@ -1,0 +1,120 @@
+name: YouTube delete tool
+
+# Permanently delete videos from a channel that has granted OAuth access.
+#
+# DELETION IS IRREVERSIBLE. There is no trash and no undo on the API path, so
+# this workflow is deliberately awkward:
+#
+#   - ids must be listed explicitly. No "all", no filter, no pattern. A loop
+#     that selects its own targets is how five posts got deleted instead of two
+#     on 2026-07-28 (see docs/browser-profiles.md).
+#   - confirm must be the literal string DELETE.
+#   - every id is read back first and its title, privacy and OWNING CHANNEL are
+#     printed. An id that belongs to another channel is skipped, not deleted.
+#
+# Use for pulling back an upload that has not published yet. For anything that
+# is already public, stop and ask a human first.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Channel ID the videos must belong to
+        required: true
+      ids:
+        description: Comma-separated video IDs to delete (explicit, no wildcards)
+        required: true
+      confirm:
+        description: Type DELETE to confirm
+        required: true
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  delete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          IDS: ${{ inputs.ids }}
+          CONFIRM: ${{ inputs.confirm }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+        run: |
+          cat > /tmp/yt-delete.mjs <<'SCRIPT'
+          const tokenEndpoint = "https://oauth2.googleapis.com/token";
+          const api = "https://www.googleapis.com/youtube/v3";
+
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+          };
+
+          if ((process.env.CONFIRM || "").trim() !== "DELETE") {
+            console.log("YTD_ABORT confirm was not the literal string DELETE");
+            process.exit(1);
+          }
+
+          const channel = process.env.CHANNEL;
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          const refreshToken = process.env[refreshEnv];
+          if (!refreshToken) throw new Error(`${refreshEnv} is empty`);
+
+          const ids = (process.env.IDS || "").split(",").map(s => s.trim()).filter(Boolean);
+          if (!ids.length) throw new Error("no ids given");
+          if (ids.some(i => !/^[A-Za-z0-9_-]{11}$/.test(i))) throw new Error("an id is not a video id");
+
+          const body = new URLSearchParams({
+            client_id: process.env.YT_CLIENT_ID,
+            client_secret: process.env.YT_CLIENT_SECRET,
+            refresh_token: refreshToken,
+            grant_type: "refresh_token",
+          });
+          const tRes = await fetch(tokenEndpoint, { method: "POST", body });
+          const tJson = await tRes.json();
+          if (!tRes.ok) throw new Error(`token: ${tRes.status} ${JSON.stringify(tJson)}`);
+          const auth = { Authorization: `Bearer ${tJson.access_token}` };
+
+          // Read every target back BEFORE deleting anything.
+          const url = new URL(`${api}/videos`);
+          url.searchParams.set("part", "snippet,status");
+          url.searchParams.set("id", ids.join(","));
+          const lRes = await fetch(url, { headers: auth });
+          const lJson = await lRes.json();
+          if (!lRes.ok) throw new Error(`list: ${lRes.status} ${JSON.stringify(lJson)}`);
+          const found = new Map((lJson.items ?? []).map(v => [v.id, v]));
+
+          for (const id of ids) {
+            const v = found.get(id);
+            if (!v) { console.log(`YTD_SKIP ${id} not found (already gone?)`); continue; }
+            if (v.snippet.channelId !== channel) {
+              console.log(`YTD_SKIP ${id} belongs to ${v.snippet.channelId}, not ${channel}`);
+              continue;
+            }
+            console.log(`YTD_TARGET ${id} [${v.status.privacyStatus}] ${v.snippet.title.slice(0, 60)}`);
+            const dRes = await fetch(`${api}/videos?id=${id}`, { method: "DELETE", headers: auth });
+            if (dRes.status === 204) console.log(`YTD_DELETED ${id}`);
+            else console.log(`YTD_FAIL ${id} ${dRes.status} ${(await dRes.text()).slice(0, 200)}`);
+          }
+
+          // Show what is left so the result is verified, not assumed.
+          const cRes = await fetch(`${api}/channels?part=contentDetails&id=${channel}`, { headers: auth });
+          const cJson = await cRes.json();
+          const uploads = cJson.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+          const pRes = await fetch(`${api}/playlistItems?part=contentDetails&maxResults=50&playlistId=${uploads}`, { headers: auth });
+          const pJson = await pRes.json();
+          console.log(`YTD_REMAINING ${(pJson.items ?? []).length}`);
+          SCRIPT
+          node /tmp/yt-delete.mjs
