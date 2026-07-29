@@ -12,6 +12,11 @@ import {
   refreshTokenEnvForChannel,
   unavailableChannelAnalytics,
 } from "./youtube-analytics.mjs";
+import {
+  fetchChannelTikTok,
+  refreshTokenEnvForSlug,
+  refreshTokenExpiresAt,
+} from "./tiktok-direct.mjs";
 
 const repositoryRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -28,7 +33,7 @@ const data = JSON.parse(await readFile(dataPath, "utf8"));
 const now = new Date();
 const capturedAt = now.toISOString();
 const authorizedWindow = analyticsWindow(now);
-const refresh = { ok: [], skipped: [], errors: [] };
+const refresh = { ok: [], skipped: [], warnings: [], errors: [] };
 const freshVideos = [];
 const freshSnapshots = [];
 const authorizedChannels = [];
@@ -80,7 +85,7 @@ await writeFile(
 );
 
 console.log(
-  `Vault Pulse refresh: ${refresh.ok.length} updated, ${refresh.skipped.length} skipped, ${refresh.errors.length} errors.`,
+  `Vault Pulse refresh: ${refresh.ok.length} updated, ${refresh.skipped.length} skipped, ${refresh.warnings.length} warnings, ${refresh.errors.length} errors.`,
 );
 
 async function refreshYouTube(channel) {
@@ -248,20 +253,99 @@ async function refreshAuthorizedAnalytics(channel) {
   }
 }
 
+// Picks the TikTok reader for this channel and records which one it was.
+// `tiktokSource` is the whole point of the direct path: it is how a reader can
+// see, per channel, whether the Render proxy still served this run.
 async function refreshTikTok(channel) {
   if (!channel.tiktokUsername) {
+    channel.tiktokSource = null;
     channel.tiktok.connected = false;
     channel.tiktok.connectionLabel = "Username needed";
     refresh.skipped.push(`${channel.displayName} · TikTok username`);
     return;
   }
 
+  const tokenEnv = refreshTokenEnvForSlug(channel.slug);
+  const refreshToken = tokenEnv ? process.env[tokenEnv]?.trim() : "";
+  const clientKey = process.env.TT_CLIENT_KEY?.trim();
+  const clientSecret = process.env.TT_CLIENT_SECRET?.trim();
+  if (clientKey && clientSecret && refreshToken) {
+    await refreshTikTokDirect(channel, {
+      clientKey,
+      clientSecret,
+      refreshToken,
+    });
+    return;
+  }
+
+  await refreshTikTokProxy(channel);
+}
+
+// TikTok does not rotate refresh tokens -- the refresh call returns the same
+// token it was sent -- so running this every 15 minutes off a static Actions
+// secret does not consume anything. See scripts/tiktok-direct.mjs for the probe
+// that established that.
+async function refreshTikTokDirect(channel, credentials) {
+  channel.tiktokSource = "direct";
+
+  try {
+    const result = await fetchChannelTikTok({
+      channelId: channel.id,
+      channelName: channel.displayName,
+      username: channel.tiktokUsername,
+      capturedAt,
+      ...credentials,
+    });
+
+    // The API is authoritative on the handle, so a renamed account stops
+    // pointing the profile link at a name that no longer exists.
+    if (result.user.username) channel.tiktokUsername = result.user.username;
+    channel.tiktok = result.metric;
+    // refresh_expires_in counts down from the original grant and refreshing
+    // does not extend it, so this date is a real deadline for a manual
+    // re-authorization rather than a rolling window.
+    channel.tiktokAuthExpiresAt = refreshTokenExpiresAt(
+      result.refreshExpiresInSeconds,
+      now,
+    );
+    if (result.expiryWarning) {
+      refresh.warnings.push(
+        `${channel.displayName} · TikTok: ${result.expiryWarning}`,
+      );
+    }
+    freshVideos.push(...result.videos);
+    freshSnapshots.push(snapshot(channel.id, "tiktok", result.metric));
+    refresh.ok.push(`${channel.displayName} · TikTok (direct)`);
+  } catch (error) {
+    // Deliberately no automatic fall back to the proxy. Silently covering for
+    // a broken direct path would hide exactly the signal this change exists to
+    // produce, and the channel would look healthy while its tokens rotted.
+    channel.tiktok.connected = false;
+    channel.tiktok.connectionLabel = "Refresh error";
+    refresh.errors.push(
+      `${channel.displayName} · TikTok (direct): ${errorMessage(error)}`,
+    );
+  }
+}
+
+// The pre-existing reader, kept until the direct path has been confirmed at
+// parity on every channel. A silent regression would be worse than a slow
+// migration.
+async function refreshTikTokProxy(channel) {
   const vaultApiBase = process.env.VAULT_PULSE_TIKTOK_API_URL
     ?.trim()
     .replace(/\/+$/, "");
   const vaultDataToken = process.env.VAULT_PULSE_DATA_TOKEN?.trim();
   const legacyToken = process.env[channel.tiktokTokenEnv]?.trim();
-  if ((!vaultApiBase || !vaultDataToken) && !legacyToken) {
+  const usesProxy = Boolean(vaultApiBase && vaultDataToken);
+  // The legacy branch calls TikTok itself, but off a bare stored access token
+  // that nothing can renew, so it is not the same thing as the direct path.
+  channel.tiktokSource = usesProxy
+    ? "render-proxy"
+    : legacyToken
+      ? "legacy-access-token"
+      : null;
+  if (!usesProxy && !legacyToken) {
     channel.tiktok.connected = false;
     channel.tiktok.connectionLabel = "Access needed";
     refresh.skipped.push(`${channel.displayName} · TikTok access`);
@@ -272,7 +356,7 @@ async function refreshTikTok(channel) {
     let userPayload;
     let videoPayload;
 
-    if (vaultApiBase && vaultDataToken) {
+    if (usesProxy) {
       const response = await fetch(
         `${vaultApiBase}/${encodeURIComponent(channel.slug)}`,
         {
@@ -370,17 +454,21 @@ async function refreshTikTok(channel) {
       videos: integer(user.video_count),
       likes: integer(user.likes_count),
       engagementRate: views > 0 ? (interactions / views) * 100 : 0,
+      // Same key the direct reader sets, so both sources land in one shape.
+      source: channel.tiktokSource,
     };
 
     channel.tiktok = metric;
     freshVideos.push(...videos);
     freshSnapshots.push(snapshot(channel.id, "tiktok", metric));
-    refresh.ok.push(`${channel.displayName} · TikTok`);
+    refresh.ok.push(
+      `${channel.displayName} · TikTok (${channel.tiktokSource})`,
+    );
   } catch (error) {
     channel.tiktok.connected = false;
     channel.tiktok.connectionLabel = "Refresh error";
     refresh.errors.push(
-      `${channel.displayName} · TikTok: ${errorMessage(error)}`,
+      `${channel.displayName} · TikTok (${channel.tiktokSource}): ${errorMessage(error)}`,
     );
   }
 }
@@ -504,6 +592,13 @@ function recalculateDashboard(dashboard, referenceDate) {
   dashboard.trend = buildTrend(dashboard.snapshots ?? [], referenceDate);
   dashboard.connections = {
     youtubeApiKey: Boolean(process.env.YOUTUBE_API_KEY?.trim()),
+    // One-glance answer to "is the Render proxy still in the loop?".
+    tiktokSources: Object.fromEntries(
+      dashboard.channels.map((channel) => [
+        channel.slug,
+        channel.tiktokSource ?? null,
+      ]),
+    ),
     instagramFeed: platformMetrics.some(
       ({ platform, metric }) => platform === "instagram" && metric.connected,
     ),

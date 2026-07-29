@@ -45,6 +45,17 @@ jobs:
           YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
           YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
           YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          # Direct TikTok read. Present these and a channel bypasses the Render
+          # proxy below; TikTok does not rotate refresh tokens, so re-using one
+          # static secret every run consumes nothing.
+          TT_CLIENT_KEY: ${{ secrets.TT_CLIENT_KEY }}
+          TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
+          TT_REFRESH_AXOLOTL2: ${{ secrets.TT_REFRESH_AXOLOTL2 }}
+          TT_REFRESH_ANIMEHYPE41: ${{ secrets.TT_REFRESH_ANIMEHYPE41 }}
+          TT_REFRESH_THEARCHIVELIVES: ${{ secrets.TT_REFRESH_THEARCHIVELIVES }}
+          # Kept as the fallback until the direct path is confirmed at parity on
+          # every channel. Each channel reports which one served it as
+          # channel.tiktokSource in site/data/dashboard.json.
           VAULT_PULSE_TIKTOK_API_URL: https://testing-multiplayer-server.onrender.com/vault-pulse/api/tiktok
           VAULT_PULSE_INSTAGRAM_API_URL_HISTORY: https://instagram-media.sylvasblessing.com/analytics/v1
           VAULT_PULSE_INSTAGRAM_API_URL_ANIME: https://instagram-media.sylvasblessing.com/anime/analytics/v1
