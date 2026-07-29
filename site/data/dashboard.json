@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-29T16:15:24.097Z",
-  "generatedAt": "2026-07-29T16:15:24.097Z",
+  "updatedAt": "2026-07-29T16:30:25.114Z",
+  "generatedAt": "2026-07-29T16:30:25.114Z",
   "hasLiveData": true,
   "totals": {
-    "views": 12248,
+    "views": 12302,
     "sevenDayViews": null,
-    "audience": 69,
-    "engagementRate": 3.8381742738589213
+    "audience": 70,
+    "engagementRate": 3.838418663448831
   },
   "platformTotals": {
-    "youtube": 7755,
-    "tiktok": 4248,
+    "youtube": 7790,
+    "tiktok": 4267,
     "instagram": 245
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.097Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.114Z"
     },
     {
       "id": 2,
@@ -91,11 +91,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2357,
+        "views": 2362,
         "audience": 4,
         "videos": 11,
         "likes": 65,
-        "engagementRate": 2.9274501484938478
+        "engagementRate": 2.9212531752751905
       },
       "tiktok": {
         "connected": true,
@@ -124,7 +124,7 @@
         "engagementRate": 0,
         "viewToReachRatio": 0,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-07-29T16:15:32+00:00"
+        "generatedAt": "2026-07-29T16:30:29+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.097Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.114Z"
     },
     {
       "id": 3,
@@ -185,20 +185,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 5252,
-        "audience": 17,
+        "views": 5282,
+        "audience": 18,
         "videos": 9,
-        "likes": 221,
-        "engagementRate": 4.493526275704494
+        "likes": 225,
+        "engagementRate": 4.543733434305188
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2881,
+        "views": 2900,
         "audience": 41,
         "videos": 5,
-        "likes": 137,
-        "engagementRate": 5.518917042693509,
+        "likes": 138,
+        "engagementRate": 5.517241379310345,
         "source": "direct"
       },
       "instagram": {
@@ -206,7 +206,7 @@
         "connectionLabel": "Connected",
         "views": 245,
         "audience": null,
-        "videos": 2,
+        "videos": 3,
         "likes": 1,
         "reach": 231,
         "comments": 0,
@@ -218,7 +218,7 @@
         "engagementRate": 1.2987012987012987,
         "viewToReachRatio": 1.0606060606060606,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-07-29T16:15:34+00:00"
+        "generatedAt": "2026-07-29T16:30:32+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -251,20 +251,40 @@
       "instagramPerformance": {
         "views": 245,
         "reach": 231,
-        "reels": 2,
+        "reels": 3,
         "totalInteractions": 3,
         "averageWatchTimeMs": 7838,
         "viewsPerReachedAccount": 1.0606060606060606,
         "engagementPerThousandReach": 12.987012987012989,
         "savesPerThousandReach": 4.329004329004329,
         "sharesPerThousandReach": 4.329004329004329,
-        "interactionsPerReel": 1.5
+        "interactionsPerReel": 1
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:53.097Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.114Z"
     }
   ],
   "videos": [
+    {
+      "id": "instagram:18015527303873477",
+      "channelId": 3,
+      "channelName": "Kids History",
+      "platform": "instagram",
+      "title": "The Hindenburg, Filmed Before Its Last Flight Two Universal Newsreel releases, one year apart. #h...",
+      "url": "https://www.instagram.com/reel/DbYh83DlFDb/",
+      "publishedAt": "2026-07-29T16:21:11+0000",
+      "views": 0,
+      "reach": 0,
+      "likes": 0,
+      "comments": 0,
+      "saves": 0,
+      "shares": 0,
+      "totalInteractions": 0,
+      "averageWatchTimeMs": 0,
+      "totalWatchTimeMs": 0,
+      "engagementRate": 0,
+      "viewToReachRatio": 0
+    },
     {
       "id": "tiktok:7667343066381978910",
       "channelId": 2,
@@ -303,12 +323,12 @@
       "title": "The Oldest Surviving Footage of New York City",
       "url": "https://www.youtube.com/watch?v=Hz39AJS0ixE",
       "publishedAt": "2026-07-29T14:00:27Z",
-      "views": 185,
-      "likes": 11,
+      "views": 217,
+      "likes": 15,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 52,
-      "engagementRate": 6.486486486486487
+      "engagementRate": 7.373271889400922
     },
     {
       "id": "tiktok:7666544577871990046",
@@ -368,7 +388,7 @@
       "title": "TOP 5 ANIME BETRAYALS | The Backstabs That Broke Us",
       "url": "https://www.youtube.com/watch?v=B9YHLIlgYCc",
       "publishedAt": "2026-07-29T01:00:20Z",
-      "views": 38,
+      "views": 43,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -1083,12 +1103,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 1756,
-      "likes": 81,
+      "views": 1774,
+      "likes": 82,
       "comments": 5,
       "shares": 10,
       "durationSeconds": 42,
-      "engagementRate": 5.466970387243736
+      "engagementRate": 5.467869222096956
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -1164,21 +1184,6 @@
       "shares": 0,
       "durationSeconds": 48,
       "engagementRate": 40
-    },
-    {
-      "id": "tiktok:7666704370075061517",
-      "channelId": 1,
-      "channelName": "Axolotl Drama",
-      "platform": "tiktok",
-      "title": "Six thousand uncounted berries. A river that yields. One utterly unbothered bear. Barbara remains undefeated. #axolotl #axolotldrama #animation #mockumentary #aianimation #fyp",
-      "url": "https://www.tiktok.com/@axlotyl2/video/7666704370075061517?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
-      "publishedAt": "2026-07-26T05:29:02.000Z",
-      "views": 4,
-      "likes": 2,
-      "comments": 1,
-      "shares": 0,
-      "durationSeconds": 53,
-      "engagementRate": 75
     }
   ],
   "snapshots": [
@@ -24816,6 +24821,88 @@
       "likes": 1,
       "reach": 231,
       "engagementRate": 1.2987012987012987
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T16:30:25.114Z",
+      "views": 146,
+      "audience": 2,
+      "videos": 6,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T16:30:25.114Z",
+      "views": null,
+      "audience": 4,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T16:30:25.114Z",
+      "views": 2362,
+      "audience": 4,
+      "videos": 11,
+      "likes": 65,
+      "engagementRate": 2.9212531752751905
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T16:30:25.114Z",
+      "views": 1367,
+      "audience": 5,
+      "videos": 9,
+      "likes": 31,
+      "engagementRate": 3.4381858083394294
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T16:30:25.114Z",
+      "views": 0,
+      "audience": null,
+      "videos": 1,
+      "likes": 0,
+      "reach": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T16:30:25.114Z",
+      "views": 5282,
+      "audience": 18,
+      "videos": 9,
+      "likes": 225,
+      "engagementRate": 4.543733434305188
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T16:30:25.114Z",
+      "views": 2900,
+      "audience": 41,
+      "videos": 5,
+      "likes": 138,
+      "engagementRate": 5.517241379310345
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T16:30:25.114Z",
+      "views": 245,
+      "audience": null,
+      "videos": 3,
+      "likes": 1,
+      "reach": 231,
+      "engagementRate": 1.2987012987012987
     }
   ],
   "trend": [
@@ -24900,8 +24987,8 @@
     {
       "date": "2026-07-29",
       "label": "Jul 29",
-      "youtube": 7755,
-      "tiktok": 4248
+      "youtube": 7790,
+      "tiktok": 4267
     }
   ],
   "connections": {
@@ -24935,14 +25022,14 @@
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-07-29T16:15:34+00:00",
+    "generatedAt": "2026-07-29T16:30:32+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
       "id": "27621863550813655",
       "username": "sylvasblessing",
       "accountType": "BUSINESS",
-      "mediaCount": 2,
+      "mediaCount": 3,
       "profileUrl": "https://www.instagram.com/sylvasblessing/",
       "connected": true
     },
@@ -24955,12 +25042,29 @@
       "shares": 1,
       "totalInteractions": 3,
       "totalWatchTimeMs": 1920351,
-      "reels": 2,
+      "reels": 3,
       "averageWatchTimeMs": 7838,
       "engagementRate": 1.2987012987012987,
       "viewToReachRatio": 1.0606060606060606
     },
     "reels": [
+      {
+        "id": "18015527303873477",
+        "title": "The Hindenburg, Filmed Before Its Last Flight Two Universal Newsreel releases, one year apart. #h...",
+        "url": "https://www.instagram.com/reel/DbYh83DlFDb/",
+        "publishedAt": "2026-07-29T16:21:11+0000",
+        "views": 0,
+        "reach": 0,
+        "likes": 0,
+        "comments": 0,
+        "saves": 0,
+        "shares": 0,
+        "totalInteractions": 0,
+        "averageWatchTimeMs": 0,
+        "totalWatchTimeMs": 0,
+        "engagementRate": 0,
+        "viewToReachRatio": 0
+      },
       {
         "id": "18609846856023289",
         "title": "That Famous Titanic Footage Is the Wrong Ship Almost every moving image sold as \"the Titanic\" is ...",
@@ -25003,7 +25107,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-07-29T16:15:32+00:00",
+      "generatedAt": "2026-07-29T16:30:29+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -25053,14 +25157,14 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-07-29T16:15:34+00:00",
+      "generatedAt": "2026-07-29T16:30:32+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
         "id": "27621863550813655",
         "username": "sylvasblessing",
         "accountType": "BUSINESS",
-        "mediaCount": 2,
+        "mediaCount": 3,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
         "connected": true
       },
@@ -25073,12 +25177,29 @@
         "shares": 1,
         "totalInteractions": 3,
         "totalWatchTimeMs": 1920351,
-        "reels": 2,
+        "reels": 3,
         "averageWatchTimeMs": 7838,
         "engagementRate": 1.2987012987012987,
         "viewToReachRatio": 1.0606060606060606
       },
       "reels": [
+        {
+          "id": "18015527303873477",
+          "title": "The Hindenburg, Filmed Before Its Last Flight Two Universal Newsreel releases, one year apart. #h...",
+          "url": "https://www.instagram.com/reel/DbYh83DlFDb/",
+          "publishedAt": "2026-07-29T16:21:11+0000",
+          "views": 0,
+          "reach": 0,
+          "likes": 0,
+          "comments": 0,
+          "saves": 0,
+          "shares": 0,
+          "totalInteractions": 0,
+          "averageWatchTimeMs": 0,
+          "totalWatchTimeMs": 0,
+          "engagementRate": 0,
+          "viewToReachRatio": 0
+        },
         {
           "id": "18609846856023289",
           "title": "That Famous Titanic Footage Is the Wrong Ship Almost every moving image sold as \"the Titanic\" is ...",
