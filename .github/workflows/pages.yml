@@ -73,11 +73,21 @@ jobs:
             if git push; then
               exit 0
             fi
-            echo "push rejected (attempt $attempt) - rebasing onto origin/main"
-            # --autostash is required, not cosmetic: the refresh also writes
-            # site/data/authorized-analytics.json, which is intentionally never
-            # committed, so it sits unstaged and git refuses to rebase over it.
-            git pull --rebase --autostash --quiet origin main || exit 1
+            echo "push rejected (attempt $attempt) - replaying snapshot onto origin/main"
+            git fetch --quiet origin main
+            # Do NOT rebase. Every run rewrites dashboard.json in full, so
+            # replaying one complete rewrite onto another conflicts every time.
+            # This file is a snapshot, not a patch: the newest read wins.
+            # --mixed moves HEAD and the index to origin/main but leaves the
+            # working tree alone, so the freshly-refreshed file is still on disk
+            # and simply gets re-staged against the new base.
+            git reset --quiet --mixed origin/main
+            git add site/data/dashboard.json
+            if git diff --cached --quiet; then
+              echo "identical to origin/main - nothing to push"
+              exit 0
+            fi
+            git commit --quiet -m "Refresh channel analytics"
           done
           exit 1
 
