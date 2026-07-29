@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ensureReportMetricFields } from "./report-metrics.mjs";
 import { normalizeInstagramFeed } from "./instagram-data.mjs";
+import { summarizeInstagramPerformance } from "./instagram-performance.mjs";
 import { mergeVideos } from "./video-merge.mjs";
 import {
   analyticsWindow,
@@ -408,6 +409,9 @@ async function refreshInstagram(channel) {
     const payload = await fetchJson(new URL(analyticsUrl));
     const normalized = normalizeInstagramFeed(channel, payload, capturedAt);
     channel.instagram = normalized.metric;
+    channel.instagramPerformance = summarizeInstagramPerformance(
+      normalized.metric,
+    );
     data.instagramFeeds = upsertInstagramFeed(
       data.instagramFeeds,
       normalized.feed,

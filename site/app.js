@@ -749,6 +749,12 @@ function channelDetailMarkup(data, channel) {
         }
       </section>
 
+      ${
+        channel.instagramUsername
+          ? instagramPerformanceSectionMarkup(channel)
+          : ""
+      }
+
       <section class="panel operations-panel" aria-labelledby="publishing-health-heading">
         <div class="panel-heading">
           <div>
@@ -1091,6 +1097,169 @@ function analyticsColumnsMarkup(insights) {
   `;
 }
 
+function instagramPerformanceSectionMarkup(channel) {
+  const performance = instagramPerformanceMetrics(channel);
+  const headingId = `instagram-performance-${channel.slug}`;
+
+  return `
+    <section class="insight-section instagram-performance-section" aria-labelledby="${escapeAttribute(headingId)}">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">Instagram performance</p>
+          <h2 id="${escapeAttribute(headingId)}">Reel attention and interaction quality</h2>
+        </div>
+        <span class="timezone">Instagram Graph API</span>
+      </div>
+      <div class="insight-grid">
+        ${insightMetricMarkup(
+          "Views / reached account",
+          formatMultiplier(performance.viewsPerReachedAccount),
+          "Repeat depth",
+          performance.viewsPerReachedAccount == null
+            ? "Waiting for Instagram to report reach"
+            : "Views divided by unique accounts reached",
+          "coral",
+        )}
+        ${insightMetricMarkup(
+          "Average watch time",
+          formatWatchTime(performance.averageWatchTimeMs),
+          "Attention",
+          "Weighted average across tracked Reels",
+          "violet",
+        )}
+        ${insightMetricMarkup(
+          "Interactions / 1K reach",
+          formatPerThousand(performance.engagementPerThousandReach),
+          "Engagement",
+          "Likes, comments, saves, and shares per 1,000 reached",
+          "mint",
+        )}
+        ${insightMetricMarkup(
+          "Saves / 1K reach",
+          formatPerThousand(performance.savesPerThousandReach),
+          "Intent",
+          "People keeping the content per 1,000 reached",
+          "violet",
+        )}
+        ${insightMetricMarkup(
+          "Shares / 1K reach",
+          formatPerThousand(performance.sharesPerThousandReach),
+          "Distribution",
+          "Direct sharing per 1,000 reached",
+          "blue",
+        )}
+        ${insightMetricMarkup(
+          "Interactions / Reel",
+          formatDecimal(performance.interactionsPerReel),
+          "Consistency",
+          "Average interactions across tracked Reels",
+          "coral",
+        )}
+      </div>
+      ${instagramPerformanceColumnsMarkup(channel, performance)}
+      <p class="data-note instagram-data-note"><i aria-hidden="true"></i>Live Reel performance refreshes with the rest of Pulse. Rate metrics stay blank until Instagram reports reach.</p>
+    </section>
+  `;
+}
+
+function instagramPerformanceMetrics(channel) {
+  const metric = channel.instagram ?? {};
+  const stored = channel.instagramPerformance ?? {};
+  const views = numericValue(stored.views ?? metric.views);
+  const reach = numericValue(stored.reach ?? metric.reach);
+  const reels = numericValue(stored.reels ?? metric.videos);
+  const totalInteractions = numericValue(
+    stored.totalInteractions ?? metric.totalInteractions,
+  );
+
+  return {
+    views,
+    reach,
+    reels,
+    totalInteractions,
+    averageWatchTimeMs: numericValue(
+      stored.averageWatchTimeMs ?? metric.averageWatchTimeMs,
+    ),
+    viewsPerReachedAccount:
+      numericValue(stored.viewsPerReachedAccount) ??
+      (views != null && reach > 0 ? views / reach : null),
+    engagementPerThousandReach:
+      numericValue(stored.engagementPerThousandReach) ??
+      (totalInteractions != null && reach > 0
+        ? (totalInteractions / reach) * 1000
+        : null),
+    savesPerThousandReach:
+      numericValue(stored.savesPerThousandReach) ??
+      ratePerThousand(metric.saves, reach),
+    sharesPerThousandReach:
+      numericValue(stored.sharesPerThousandReach) ??
+      ratePerThousand(metric.shares, reach),
+    interactionsPerReel:
+      numericValue(stored.interactionsPerReel) ??
+      (totalInteractions != null && reels > 0
+        ? totalInteractions / reels
+        : null),
+  };
+}
+
+function instagramPerformanceColumnsMarkup(channel, performance) {
+  const metric = channel.instagram ?? {};
+  const columns = [
+    ["Reel views", formatMetric(performance.views), "Tracked plays"],
+    ["Reach", formatMetric(performance.reach), "Unique accounts"],
+    [
+      "Repeat depth",
+      formatMultiplier(performance.viewsPerReachedAccount),
+      "Views / reach",
+    ],
+    [
+      "Avg. watch time",
+      formatWatchTime(performance.averageWatchTimeMs),
+      "Per tracked view",
+    ],
+    [
+      "Interactions",
+      formatMetric(performance.totalInteractions),
+      "Total actions",
+    ],
+    ["Saves", formatMetric(metric.saves), "Intent signal"],
+    ["Shares", formatMetric(metric.shares), "Distribution signal"],
+  ];
+
+  return `
+    <div class="analytics-columns-wrap instagram-performance-columns" aria-label="Instagram performance metric fields">
+      <table class="analytics-columns">
+        <thead>
+          <tr>
+            ${columns.map(([label]) => `<th>${escapeHtml(label)}</th>`).join("")}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            ${columns
+              .map(
+                ([, value, note]) => `
+                  <td>
+                    <strong>${escapeHtml(value)}</strong>
+                    <small>${escapeHtml(note)}</small>
+                  </td>
+                `,
+              )
+              .join("")}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function ratePerThousand(value, denominator) {
+  const numerator = numericValue(value);
+  return numerator != null && denominator > 0
+    ? (numerator / denominator) * 1000
+    : null;
+}
+
 function feedDecisionMarkup(choseToViewRate, swipeAwayRate) {
   const hasData = choseToViewRate != null && swipeAwayRate != null;
   return `
@@ -1293,6 +1462,20 @@ function formatSignedPercent(value) {
 }
 
 function formatPerThousand(value) {
+  const parsed = numericValue(value);
+  return parsed == null
+    ? "—"
+    : new Intl.NumberFormat("en-US", {
+        maximumFractionDigits: 1,
+      }).format(parsed);
+}
+
+function formatMultiplier(value) {
+  const parsed = numericValue(value);
+  return parsed == null ? "—" : `${parsed.toFixed(2)}x`;
+}
+
+function formatDecimal(value) {
   const parsed = numericValue(value);
   return parsed == null
     ? "—"
