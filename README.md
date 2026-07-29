@@ -1,6 +1,7 @@
 # Vault Pulse
 
-GitHub-hosted YouTube and TikTok analytics for the three-channel network.
+GitHub-hosted YouTube, TikTok, and Instagram analytics for the three-channel
+network.
 
 ## Live dashboard
 
@@ -11,7 +12,8 @@ The production site is deployed through GitHub Pages:
 ## How it works
 
 - The browser loads a static dashboard from GitHub Pages.
-- A scheduled GitHub Action checks configured YouTube and TikTok accounts
+- A scheduled GitHub Action checks configured YouTube, TikTok, and Instagram
+  accounts
   every 15 minutes.
 - An independent watchdog checks five minutes later and starts a recovery
   refresh when GitHub skipped the primary schedule.
@@ -23,6 +25,9 @@ The production site is deployed through GitHub Pages:
 - TikTok OAuth and refresh tokens stay encrypted on the existing Render
   persistent disk. The Action receives only sanitized analytics through an
   authenticated Vault Pulse endpoint.
+- The Instagram token stays on the AWS publisher, where it is refreshed
+  automatically. Vault Pulse receives only a cached, token-free Reel analytics
+  feed through the existing Cloudflare Tunnel.
 - No platform credential is included in the public website.
 
 ## Connected channel identities
@@ -43,6 +48,7 @@ Channel three is preloaded with:
 - Display name: `Kids History`
 - YouTube channel ID: `UCUzrKvQc2Yud2WGJcFfl00g`
 - TikTok account: `@sylva6806`
+- Instagram account: `@sylvasblessing`
 
 Add these Actions secrets under **Settings → Secrets and variables → Actions**:
 
