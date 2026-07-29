@@ -64,7 +64,19 @@ jobs:
           git config user.email "vault-pulse-bot@users.noreply.github.com"
           git add site/data/dashboard.json
           git commit -m "Refresh channel analytics"
-          git push
+          # The concurrency group queues runs rather than cancelling them, so a
+          # waiting run resumes with a checkout that is already behind whatever
+          # the run ahead of it pushed. A bare `git push` then fails and takes
+          # the whole deploy down with it. Rebase onto the newer snapshot and
+          # retry -- these commits only ever touch dashboard.json.
+          for attempt in 1 2 3; do
+            if git push; then
+              exit 0
+            fi
+            echo "push rejected (attempt $attempt) - rebasing onto origin/main"
+            git pull --rebase --quiet origin main || exit 1
+          done
+          exit 1
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
