@@ -21,6 +21,8 @@ export const channelRefreshTokenEnv = Object.freeze({
   UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
   // Quoted: this id contains a hyphen, which is not a valid bare key.
   "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+  UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+  UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
 });
 
 export const authorizedAnalyticsDefaults = Object.freeze({

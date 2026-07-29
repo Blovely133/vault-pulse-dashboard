@@ -43,6 +43,8 @@ jobs:
           YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
           YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
           YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
           VAULT_PULSE_TIKTOK_API_URL: https://testing-multiplayer-server.onrender.com/vault-pulse/api/tiktok
           VAULT_PULSE_INSTAGRAM_API_URL_HISTORY: https://instagram-media.sylvasblessing.com/analytics/v1
           VAULT_PULSE_INSTAGRAM_API_URL_ANIME: https://instagram-media.sylvasblessing.com/anime/analytics/v1

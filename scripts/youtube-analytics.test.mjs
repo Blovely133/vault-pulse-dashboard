@@ -100,7 +100,9 @@ test("a channel without a refresh token has no analytics", () => {
     refreshTokenEnvForChannel("UCUzrKvQc2Yud2WGJcFfl00g"),
     "YT_REFRESH_THEARCHIVELIVES",
   );
-  assert.equal(refreshTokenEnvForChannel("UCL0PybSo7k08IoLqtn4MIbg"), null);
+  // Deliberately not a real channel: every real one is now granted, and using a
+  // live id here made this test fail the moment that channel was authorised.
+  assert.equal(refreshTokenEnvForChannel("UCnotarealchannelid00000"), null);
   assert.equal(refreshTokenEnvForChannel(undefined), null);
 
   const analytics = unavailableChannelAnalytics("Authorization needed");
