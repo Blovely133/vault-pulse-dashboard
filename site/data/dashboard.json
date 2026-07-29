@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-29T14:30:41.790Z",
-  "generatedAt": "2026-07-29T14:30:41.790Z",
+  "updatedAt": "2026-07-29T14:32:42.890Z",
+  "generatedAt": "2026-07-29T14:32:42.890Z",
   "hasLiveData": true,
   "totals": {
-    "views": 12860,
+    "views": 12864,
     "sevenDayViews": null,
     "audience": 72,
-    "engagementRate": 3.865979381443299
+    "engagementRate": 3.8655265315684666
   },
   "platformTotals": {
     "youtube": 7646,
-    "tiktok": 4970,
+    "tiktok": 4974,
     "instagram": 244
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.790Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.890Z"
     },
     {
       "id": 2,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.790Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.890Z"
     },
     {
       "id": 3,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2705,
+        "views": 2709,
         "audience": 41,
         "videos": 5,
         "likes": 135,
-        "engagementRate": 5.730129390018484,
+        "engagementRate": 5.721668512366187,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 1.5
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.790Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.890Z"
     }
   ],
   "videos": [
@@ -528,12 +528,12 @@
       "title": "The President Filmed the Day Before He Was Shot",
       "url": "https://www.youtube.com/watch?v=EvRs0igHY9A",
       "publishedAt": "2026-07-28T14:00:16Z",
-      "views": 907,
+      "views": 905,
       "likes": 36,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 3.9691289966923926
+      "engagementRate": 3.9779005524861875
     },
     {
       "id": "tiktok:7666648750676364575",
@@ -1053,12 +1053,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 1599,
+      "views": 1603,
       "likes": 79,
       "comments": 5,
       "shares": 8,
       "durationSeconds": 42,
-      "engagementRate": 5.7535959974984365
+      "engagementRate": 5.7392389270118525
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -24078,6 +24078,88 @@
       "likes": 1,
       "reach": 230,
       "engagementRate": 1.3043478260869565
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T14:32:42.890Z",
+      "views": 166,
+      "audience": 2,
+      "videos": 29,
+      "likes": 26,
+      "engagementRate": 17.46987951807229
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T14:32:42.890Z",
+      "views": 899,
+      "audience": 4,
+      "videos": 7,
+      "likes": 39,
+      "engagementRate": 5.672969966629588
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T14:32:42.890Z",
+      "views": 2349,
+      "audience": 4,
+      "videos": 11,
+      "likes": 65,
+      "engagementRate": 2.937420178799489
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T14:32:42.890Z",
+      "views": 1366,
+      "audience": 5,
+      "videos": 9,
+      "likes": 31,
+      "engagementRate": 3.4407027818448026
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T14:32:42.890Z",
+      "views": 0,
+      "audience": null,
+      "videos": 1,
+      "likes": 0,
+      "reach": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T14:32:42.890Z",
+      "views": 5131,
+      "audience": 16,
+      "videos": 9,
+      "likes": 218,
+      "engagementRate": 4.541025141297992
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T14:32:42.890Z",
+      "views": 2709,
+      "audience": 41,
+      "videos": 5,
+      "likes": 135,
+      "engagementRate": 5.721668512366187
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T14:32:42.890Z",
+      "views": 244,
+      "audience": null,
+      "videos": 2,
+      "likes": 1,
+      "reach": 230,
+      "engagementRate": 1.3043478260869565
     }
   ],
   "trend": [
@@ -24163,7 +24245,7 @@
       "date": "2026-07-29",
       "label": "Jul 29",
       "youtube": 7646,
-      "tiktok": 4970
+      "tiktok": 4974
     }
   ],
   "connections": {
