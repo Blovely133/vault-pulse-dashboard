@@ -1371,6 +1371,25 @@ h2 {
   box-shadow: 0 0 9px rgb(220 183 92 / 45%);
 }
 
+.instagram-performance-section {
+  position: relative;
+  border-top: 1px solid rgb(255 95 162 / 12%);
+  padding-top: 6px;
+}
+
+.instagram-performance-section .insight-card {
+  border-color: rgb(255 95 162 / 14%);
+}
+
+.instagram-performance-columns {
+  border-color: rgb(255 95 162 / 16%);
+}
+
+.instagram-data-note i {
+  background: var(--instagram);
+  box-shadow: 0 0 9px rgb(255 95 162 / 45%);
+}
+
 .instagram-hero {
   position: relative;
   display: flex;

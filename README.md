@@ -83,6 +83,9 @@ analytics and publishing-workflow data:
 - YouTube Analytics data: chose-to-view, swipe-away (calculated as
   `100 - choseToViewRate`), average percentage viewed, engaged views,
   subscriber conversion, first-24-hour performance, and returning viewers.
+- Instagram performance data: views per reached account, average watch time,
+  interactions per 1,000 reached accounts, saves and shares per 1,000 reached,
+  and average interactions per Reel.
 - Publishing data: scheduled-through date, ready-to-review count, and
   pipeline counts.
 
