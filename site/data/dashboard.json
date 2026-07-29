@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-07-29T12:23:56.955Z",
-  "generatedAt": "2026-07-29T12:23:56.955Z",
+  "updatedAt": "2026-07-29T12:26:40.808Z",
+  "generatedAt": "2026-07-29T12:26:40.808Z",
   "hasLiveData": true,
   "totals": {
-    "views": 21586,
+    "views": 21837,
     "sevenDayViews": null,
     "audience": 72,
-    "engagementRate": 3.8983719227085794
+    "engagementRate": 3.850038619214544
   },
   "platformTotals": {
-    "youtube": 7571,
-    "tiktok": 14015,
-    "instagram": null
+    "youtube": 7572,
+    "tiktok": 14021,
+    "instagram": 244
   },
   "channels": [
     {
@@ -86,11 +86,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2345,
+        "views": 2346,
         "audience": 4,
         "videos": 11,
         "likes": 65,
-        "engagementRate": 2.9424307036247335
+        "engagementRate": 2.941176470588235
       },
       "tiktok": {
         "connected": true,
@@ -154,29 +154,30 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 11753,
+        "views": 11759,
         "audience": 41,
         "videos": 6,
         "likes": 410,
-        "engagementRate": 3.854335063388071
+        "engagementRate": 3.852368398673357
       },
       "instagram": {
-        "connected": false,
-        "connectionLabel": "First refresh pending",
-        "views": null,
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 244,
         "audience": null,
-        "videos": null,
-        "likes": null,
-        "reach": null,
-        "comments": null,
-        "saves": null,
-        "shares": null,
-        "totalInteractions": null,
-        "averageWatchTimeMs": null,
-        "totalWatchTimeMs": null,
-        "engagementRate": null,
-        "viewToReachRatio": null,
-        "profileUrl": "https://www.instagram.com/sylvasblessing/"
+        "videos": 2,
+        "likes": 1,
+        "reach": 230,
+        "comments": 0,
+        "saves": 1,
+        "shares": 1,
+        "totalInteractions": 3,
+        "averageWatchTimeMs": 7868,
+        "totalWatchTimeMs": 1919705,
+        "engagementRate": 1.3043478260869565,
+        "viewToReachRatio": 1.0608695652173914,
+        "profileUrl": "https://www.instagram.com/sylvasblessing/",
+        "generatedAt": "2026-07-29T12:24:51+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -232,7 +233,7 @@
       "title": "TOP 5 ANIME BETRAYALS | The Backstabs That Broke Us",
       "url": "https://www.youtube.com/watch?v=B9YHLIlgYCc",
       "publishedAt": "2026-07-29T01:00:20Z",
-      "views": 37,
+      "views": 38,
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -313,6 +314,46 @@
       "shares": 0,
       "durationSeconds": 47,
       "engagementRate": 0
+    },
+    {
+      "id": "instagram:18609846856023289",
+      "channelId": 3,
+      "channelName": "Kids History",
+      "platform": "instagram",
+      "title": "That Famous Titanic Footage Is the Wrong Ship Almost every moving image sold as \"the Titanic\" is ...",
+      "url": "https://www.instagram.com/reel/DbWlw1xjy0W/",
+      "publishedAt": "2026-07-28T22:15:56+0000",
+      "views": 111,
+      "reach": 100,
+      "likes": 0,
+      "comments": 0,
+      "saves": 0,
+      "shares": 0,
+      "totalInteractions": 0,
+      "averageWatchTimeMs": 12459,
+      "totalWatchTimeMs": 1245926,
+      "engagementRate": 0,
+      "viewToReachRatio": 1.11
+    },
+    {
+      "id": "instagram:17856694302695129",
+      "channelId": 3,
+      "channelName": "Kids History",
+      "platform": "instagram",
+      "title": "The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding...",
+      "url": "https://www.instagram.com/reel/DbWbLIjRVrl/",
+      "publishedAt": "2026-07-28T20:43:37+0000",
+      "views": 133,
+      "reach": 130,
+      "likes": 1,
+      "comments": 0,
+      "saves": 1,
+      "shares": 1,
+      "totalInteractions": 3,
+      "averageWatchTimeMs": 5182,
+      "totalWatchTimeMs": 673779,
+      "engagementRate": 2.307692307692308,
+      "viewToReachRatio": 1.023076923076923
     },
     {
       "id": "youtube:ZnB7okNToQg",
@@ -907,12 +948,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 1350,
+      "views": 1356,
       "likes": 75,
       "comments": 5,
       "shares": 5,
       "durationSeconds": 42,
-      "engagementRate": 6.296296296296296
+      "engagementRate": 6.268436578171091
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -1078,36 +1119,6 @@
       "shares": 0,
       "durationSeconds": 52,
       "engagementRate": 33.33333333333333
-    },
-    {
-      "id": "tiktok:7666534022608129293",
-      "channelId": 1,
-      "channelName": "Axolotl Drama",
-      "platform": "tiktok",
-      "title": "Dave has a whiteboard. The plan is a pyramid. Kevin suggested befriending her and got laughed at for four minutes. REMEMBER KEVIN. Team Dave or Team Kevin? #axolotl #axolotldrama #animation #telenovela #drama #aianimation #fyp",
-      "url": "https://www.tiktok.com/@axlotyl2/video/7666534022608129293?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
-      "publishedAt": "2026-07-25T22:00:00.000Z",
-      "views": 103,
-      "likes": 1,
-      "comments": 0,
-      "shares": 0,
-      "durationSeconds": 51,
-      "engagementRate": 0.9708737864077669
-    },
-    {
-      "id": "youtube:D1N2DSu2DBk",
-      "channelId": 3,
-      "channelName": "Kids History",
-      "platform": "youtube",
-      "title": "The Hindenburg, Filmed Before Its Last Flight",
-      "url": "https://www.youtube.com/watch?v=D1N2DSu2DBk",
-      "publishedAt": "2026-07-25T20:45:06Z",
-      "views": 1068,
-      "likes": 42,
-      "comments": 4,
-      "shares": 0,
-      "durationSeconds": 56,
-      "engagementRate": 4.307116104868914
     }
   ],
   "snapshots": [
@@ -22400,6 +22411,77 @@
       "videos": 6,
       "likes": 410,
       "engagementRate": 3.854335063388071
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T12:26:40.808Z",
+      "views": 166,
+      "audience": 2,
+      "videos": 29,
+      "likes": 26,
+      "engagementRate": 17.46987951807229
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T12:26:40.808Z",
+      "views": 899,
+      "audience": 4,
+      "videos": 7,
+      "likes": 39,
+      "engagementRate": 5.672969966629588
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T12:26:40.808Z",
+      "views": 2346,
+      "audience": 4,
+      "videos": 11,
+      "likes": 65,
+      "engagementRate": 2.941176470588235
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T12:26:40.808Z",
+      "views": 1363,
+      "audience": 5,
+      "videos": 9,
+      "likes": 31,
+      "engagementRate": 3.4482758620689653
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T12:26:40.808Z",
+      "views": 5060,
+      "audience": 16,
+      "videos": 8,
+      "likes": 210,
+      "engagementRate": 4.426877470355731
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T12:26:40.808Z",
+      "views": 11759,
+      "audience": 41,
+      "videos": 6,
+      "likes": 410,
+      "engagementRate": 3.852368398673357
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T12:26:40.808Z",
+      "views": 244,
+      "audience": null,
+      "videos": 2,
+      "likes": 1,
+      "reach": 230,
+      "engagementRate": 1.3043478260869565
     }
   ],
   "trend": [
@@ -22484,14 +22566,14 @@
     {
       "date": "2026-07-29",
       "label": "Jul 29",
-      "youtube": 7571,
-      "tiktok": 14015
+      "youtube": 7572,
+      "tiktok": 14021
     }
   ],
   "connections": {
     "youtubeApiKey": true,
-    "instagramFeed": false,
-    "connectedSources": 6,
+    "instagramFeed": true,
+    "connectedSources": 7,
     "totalSources": 7
   },
   "refresh": {
@@ -22501,9 +22583,77 @@
       "Anime Countdown Vault · YouTube",
       "Anime Countdown Vault · TikTok",
       "Kids History · YouTube",
-      "Kids History · TikTok"
+      "Kids History · TikTok",
+      "Kids History Â· Instagram"
     ],
     "skipped": [],
     "errors": []
+  },
+  "instagram": {
+    "version": 1,
+    "generatedAt": "2026-07-29T12:24:51+00:00",
+    "source": "Instagram Graph API",
+    "stale": false,
+    "account": {
+      "id": "27621863550813655",
+      "username": "sylvasblessing",
+      "accountType": "BUSINESS",
+      "mediaCount": 2,
+      "profileUrl": "https://www.instagram.com/sylvasblessing/",
+      "connected": true
+    },
+    "totals": {
+      "views": 244,
+      "reach": 230,
+      "likes": 1,
+      "comments": 0,
+      "saves": 1,
+      "shares": 1,
+      "totalInteractions": 3,
+      "totalWatchTimeMs": 1919705,
+      "reels": 2,
+      "averageWatchTimeMs": 7868,
+      "engagementRate": 1.3043478260869565,
+      "viewToReachRatio": 1.0608695652173914
+    },
+    "reels": [
+      {
+        "id": "18609846856023289",
+        "title": "That Famous Titanic Footage Is the Wrong Ship Almost every moving image sold as \"the Titanic\" is ...",
+        "url": "https://www.instagram.com/reel/DbWlw1xjy0W/",
+        "publishedAt": "2026-07-28T22:15:56+0000",
+        "views": 111,
+        "reach": 100,
+        "likes": 0,
+        "comments": 0,
+        "saves": 0,
+        "shares": 0,
+        "totalInteractions": 0,
+        "averageWatchTimeMs": 12459,
+        "totalWatchTimeMs": 1245926,
+        "engagementRate": 0,
+        "viewToReachRatio": 1.11
+      },
+      {
+        "id": "17856694302695129",
+        "title": "The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding...",
+        "url": "https://www.instagram.com/reel/DbWbLIjRVrl/",
+        "publishedAt": "2026-07-28T20:43:37+0000",
+        "views": 133,
+        "reach": 130,
+        "likes": 1,
+        "comments": 0,
+        "saves": 1,
+        "shares": 1,
+        "totalInteractions": 3,
+        "averageWatchTimeMs": 5182,
+        "totalWatchTimeMs": 673779,
+        "engagementRate": 2.307692307692308,
+        "viewToReachRatio": 1.023076923076923
+      }
+    ],
+    "errors": [],
+    "channelId": 3,
+    "channelName": "Kids History"
   }
 }
