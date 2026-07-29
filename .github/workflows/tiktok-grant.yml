@@ -1,0 +1,115 @@
+name: TikTok grant helper
+
+# Helper to mint a TikTok refresh token for a NEW account (the one-time OAuth
+# grant described in TestingMultiplayer docs/vault-pulse-tiktok.md, done via
+# GitHub instead of the Render setup page so the token lands in this repo's
+# Actions secrets for the direct reader).
+#
+# Never prints a token. The authorize URL travels as an artifact (the client
+# key is a secret, and printing it would be masked anyway). The refresh token
+# leaves the job only encrypted to the dispatcher's RSA public key.
+
+on:
+  workflow_dispatch:
+    inputs:
+      step:
+        description: "'url' to emit the authorize URL, 'exchange' to trade a code for tokens"
+        required: true
+      redirect_uri:
+        description: "Exact redirect URI (must be registered on the TikTok app; same value at both steps)"
+        required: true
+      code:
+        description: "Authorization code from the redirect (exchange step; single-use, expires in minutes)"
+        required: false
+        default: ""
+      pubkey_b64:
+        description: "base64 RSA public key PEM the refresh token is encrypted to (exchange step)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  grant:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build authorize URL
+        if: inputs.step == 'url'
+        env:
+          KEY: ${{ secrets.TT_CLIENT_KEY }}
+          RURI: ${{ inputs.redirect_uri }}
+        shell: bash
+        run: |
+          mkdir -p out
+          python3 - <<'EOF'
+          import os, secrets, urllib.parse
+          q = urllib.parse.urlencode({
+              "client_key": os.environ["KEY"],
+              "scope": "user.info.basic,user.info.profile,user.info.stats,video.list",
+              "response_type": "code",
+              "redirect_uri": os.environ["RURI"],
+              "state": "grant-" + secrets.token_hex(8),
+          })
+          with open("out/authorize-url.txt", "w") as f:
+              f.write("https://www.tiktok.com/v2/auth/authorize/?" + q)
+          print("authorize URL written to artifact (not printed: contains client key)")
+          EOF
+
+      - name: Exchange code for tokens
+        if: inputs.step == 'exchange'
+        env:
+          KEY: ${{ secrets.TT_CLIENT_KEY }}
+          SECRET: ${{ secrets.TT_CLIENT_SECRET }}
+          CODE: ${{ inputs.code }}
+          RURI: ${{ inputs.redirect_uri }}
+          PUB: ${{ inputs.pubkey_b64 }}
+        shell: bash
+        run: |
+          mkdir -p out
+          node <<'EOF'
+          const crypto = require('node:crypto');
+          const fs = require('node:fs');
+          const fp = s => s ? crypto.createHash('sha256').update(String(s)).digest('hex').slice(0, 12) : 'NONE';
+          (async () => {
+            const body = new URLSearchParams({
+              client_key: process.env.KEY,
+              client_secret: process.env.SECRET,
+              code: process.env.CODE,
+              grant_type: 'authorization_code',
+              redirect_uri: process.env.RURI,
+            });
+            const res = await fetch('https://open.tiktokapis.com/v2/oauth/token/', {
+              method: 'POST',
+              headers: { 'content-type': 'application/x-www-form-urlencoded' },
+              body,
+            });
+            const j = await res.json().catch(() => null);
+            console.log('http_status:', res.status);
+            if (!j || !j.access_token) {
+              console.log('FAILED:', JSON.stringify({ error: j && j.error, desc: j && j.error_description }));
+              process.exit(1);
+            }
+            console.log('scope:', j.scope);
+            console.log('refresh_expires_in_days:', Math.floor((j.refresh_expires_in || 0) / 86400));
+            console.log('refresh_sha256_12:', fp(j.refresh_token));
+            const ui = await fetch('https://open.tiktokapis.com/v2/user/info/?fields=display_name,username,follower_count,video_count', {
+              headers: { Authorization: `Bearer ${j.access_token}` },
+            });
+            const u = (await ui.json())?.data?.user || {};
+            console.log('GRANTED_ACCOUNT username:', u.username, '| display_name:', u.display_name, '| videos:', u.video_count);
+            const pub = Buffer.from(process.env.PUB, 'base64').toString('utf8');
+            const enc = crypto.publicEncrypt(
+              { key: pub, padding: crypto.constants.RSA_PKCS1_OAEP_PADDING, oaepHash: 'sha256' },
+              Buffer.from(j.refresh_token, 'utf8'),
+            );
+            fs.writeFileSync('out/refresh-token.enc.b64', enc.toString('base64'));
+            console.log('refresh token written to artifact, encrypted to dispatcher pubkey');
+          })();
+          EOF
+
+      - name: Upload output
+        uses: actions/upload-artifact@v4
+        with:
+          name: grant-out
+          path: out/
