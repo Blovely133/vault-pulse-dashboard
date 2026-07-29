@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-29T17:45:18.623Z",
-  "generatedAt": "2026-07-29T17:45:18.623Z",
+  "updatedAt": "2026-07-29T17:47:40.895Z",
+  "generatedAt": "2026-07-29T17:47:40.895Z",
   "hasLiveData": true,
   "totals": {
-    "views": 12553,
+    "views": 12571,
     "sevenDayViews": null,
     "audience": 70,
-    "engagementRate": 3.870784924907906
+    "engagementRate": 3.8781633924021968
   },
   "platformTotals": {
-    "youtube": 7859,
-    "tiktok": 4398,
+    "youtube": 7868,
+    "tiktok": 4407,
     "instagram": 296
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.623Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.895Z"
     },
     {
       "id": 2,
@@ -91,11 +91,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2359,
+        "views": 2368,
         "audience": 4,
         "videos": 11,
-        "likes": 65,
-        "engagementRate": 2.924968206867317
+        "likes": 66,
+        "engagementRate": 2.956081081081081
       },
       "tiktok": {
         "connected": true,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.623Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.895Z"
     },
     {
       "id": 3,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3030,
+        "views": 3039,
         "audience": 41,
         "videos": 5,
-        "likes": 143,
-        "engagementRate": 5.478547854785479,
+        "likes": 144,
+        "engagementRate": 5.495228693649227,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 2.3333333333333335
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:55.623Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.895Z"
     }
   ],
   "videos": [
@@ -388,12 +388,12 @@
       "title": "TOP 5 ANIME BETRAYALS | The Backstabs That Broke Us",
       "url": "https://www.youtube.com/watch?v=B9YHLIlgYCc",
       "publishedAt": "2026-07-29T01:00:20Z",
-      "views": 41,
-      "likes": 0,
+      "views": 49,
+      "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 60,
-      "engagementRate": 0
+      "engagementRate": 2.0408163265306123
     },
     {
       "id": "youtube:WJsDz_g7AUQ",
@@ -623,12 +623,12 @@
       "title": "TOP 3 MUSHOKU TENSEI FIGHTS | Orsted, Hydra & Eris",
       "url": "https://www.youtube.com/watch?v=Ovd4YjdUW-A",
       "publishedAt": "2026-07-28T01:00:21Z",
-      "views": 384,
+      "views": 385,
       "likes": 8,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 2.083333333333333
+      "engagementRate": 2.0779220779220777
     },
     {
       "id": "youtube:ikvKaSibjtQ",
@@ -1103,12 +1103,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 1898,
-      "likes": 87,
+      "views": 1907,
+      "likes": 88,
       "comments": 5,
       "shares": 11,
       "durationSeconds": 42,
-      "engagementRate": 5.426765015806112
+      "engagementRate": 5.453592029365495
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -25395,6 +25395,88 @@
       "likes": 5,
       "reach": 266,
       "engagementRate": 2.631578947368421
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T17:47:40.895Z",
+      "views": 146,
+      "audience": 2,
+      "videos": 6,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T17:47:40.895Z",
+      "views": null,
+      "audience": 4,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T17:47:40.895Z",
+      "views": 2368,
+      "audience": 4,
+      "videos": 11,
+      "likes": 66,
+      "engagementRate": 2.956081081081081
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T17:47:40.895Z",
+      "views": 1368,
+      "audience": 5,
+      "videos": 9,
+      "likes": 31,
+      "engagementRate": 3.435672514619883
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T17:47:40.895Z",
+      "views": 0,
+      "audience": null,
+      "videos": 1,
+      "likes": 0,
+      "reach": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T17:47:40.895Z",
+      "views": 5354,
+      "audience": 18,
+      "videos": 9,
+      "likes": 230,
+      "engagementRate": 4.576017930519238
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T17:47:40.895Z",
+      "views": 3039,
+      "audience": 41,
+      "videos": 5,
+      "likes": 144,
+      "engagementRate": 5.495228693649227
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T17:47:40.895Z",
+      "views": 296,
+      "audience": null,
+      "videos": 3,
+      "likes": 5,
+      "reach": 266,
+      "engagementRate": 2.631578947368421
     }
   ],
   "trend": [
@@ -25479,8 +25561,8 @@
     {
       "date": "2026-07-29",
       "label": "Jul 29",
-      "youtube": 7859,
-      "tiktok": 4398
+      "youtube": 7868,
+      "tiktok": 4407
     }
   ],
   "connections": {
