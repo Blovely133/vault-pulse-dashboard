@@ -108,7 +108,7 @@ jobs:
           const videos = [];
           for (let i = 0; i < ids.length; i += 50) {
             const page = await get("videos", {
-              part: "snippet,status",
+              part: "snippet,status,statistics",
               id: ids.slice(i, i + 50).join(","),
             });
             videos.push(...(page.items ?? []));
@@ -125,6 +125,7 @@ jobs:
                 privacy: v.status.privacyStatus,
                 publishAt: v.status.publishAt ?? null,
                 published: v.snippet.publishedAt,
+                views: Number(v.statistics?.viewCount ?? 0),
               }),
             );
           }
