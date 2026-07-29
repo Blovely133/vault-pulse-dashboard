@@ -1,0 +1,160 @@
+name: TEMP - TikTok refresh-token rotation probe
+
+# Temporary, manual-only diagnostic. Answers one question:
+# after exchanging a TikTok refresh token, is the ORIGINAL token still usable?
+# Prints ONLY sha256 prefixes, booleans, and TikTok error codes. Never a token.
+# Delete this workflow once the answer is recorded.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Write probe script (not committed)
+        shell: bash
+        run: |
+          mkdir -p /tmp/probe
+          cat > /tmp/probe/probe.mjs <<'EOF'
+          import crypto from 'node:crypto';
+
+          const TOKEN_URL = 'https://open.tiktokapis.com/v2/oauth/token/';
+          const USERINFO_URL = 'https://open.tiktokapis.com/v2/user/info/?fields=open_id,display_name,username,follower_count,likes_count,video_count';
+
+          const KEY = process.env.TT_CLIENT_KEY || '';
+          const SECRET = process.env.TT_CLIENT_SECRET || '';
+          const ORIGINAL = process.env.TT_REFRESH || '';
+
+          // 12-char sha256 prefix. Never the value.
+          const fp = (s) => (s ? crypto.createHash('sha256').update(String(s)).digest('hex').slice(0, 12) : 'NONE');
+
+          if (!KEY || !SECRET || !ORIGINAL) {
+            console.log('FATAL: missing client key/secret/refresh input');
+            process.exit(1);
+          }
+
+          const SECRET_FIELDS = new Set(['access_token', 'refresh_token', 'code', 'open_id']);
+
+          // Build a printable summary of a token response with all sensitive fields hashed.
+          function safeSummary(j) {
+            if (!j || typeof j !== 'object') return { parsed: false };
+            const out = {};
+            for (const [k, v] of Object.entries(j)) {
+              if (SECRET_FIELDS.has(k)) out[k + '_sha256_12'] = fp(v);
+              else if (v && typeof v === 'object') out[k] = safeSummary(v);
+              else out[k] = v;
+            }
+            return out;
+          }
+
+          async function refresh(token, label) {
+            const body = new URLSearchParams({
+              client_key: KEY,
+              client_secret: SECRET,
+              grant_type: 'refresh_token',
+              refresh_token: token,
+            });
+            const res = await fetch(TOKEN_URL, {
+              method: 'POST',
+              headers: {
+                'content-type': 'application/x-www-form-urlencoded',
+                'Cache-Control': 'no-cache',
+              },
+              body,
+            });
+            const text = await res.text();
+            let json = null;
+            try { json = JSON.parse(text); } catch { /* non-JSON */ }
+
+            // A refresh is only a real success if an access_token came back.
+            const ok = res.ok && !!json && !!json.access_token;
+
+            console.log(`\n--- REFRESH ${label} ---`);
+            console.log('http_status      :', res.status);
+            console.log('success          :', ok);
+            console.log('sent_refresh_sha :', fp(token));
+            if (json) {
+              console.log('returned_refresh_sha :', fp(json.refresh_token));
+              console.log('token_changed        :', json.refresh_token ? (json.refresh_token !== token) : 'N/A');
+              console.log('error                :', JSON.stringify(json.error ?? null));
+              console.log('error_description    :', JSON.stringify(json.error_description ?? null));
+              console.log('body_summary         :', JSON.stringify(safeSummary(json)));
+            } else {
+              // Non-JSON body: print a short slice. Tokens only appear in JSON bodies,
+              // and GitHub masks secret values regardless.
+              console.log('non_json_body_head   :', text.slice(0, 200));
+            }
+            return { ok, status: res.status, json };
+          }
+
+          async function userInfo(accessToken, label) {
+            const res = await fetch(USERINFO_URL, {
+              method: 'GET',
+              headers: { Authorization: `Bearer ${accessToken}` },
+            });
+            const text = await res.text();
+            let json = null;
+            try { json = JSON.parse(text); } catch { /* non-JSON */ }
+            console.log(`\n--- USER INFO (${label}) ---`);
+            console.log('http_status :', res.status);
+            const u = json?.data?.user;
+            if (u) {
+              console.log('username       :', u.username);
+              console.log('display_name   :', u.display_name);
+              console.log('follower_count :', u.follower_count);
+              console.log('likes_count    :', u.likes_count);
+              console.log('video_count    :', u.video_count);
+              console.log('open_id_sha    :', fp(u.open_id));
+              console.log('DATA_ACCESS_WORKS: true');
+            } else {
+              console.log('error :', JSON.stringify(json?.error ?? null));
+              console.log('DATA_ACCESS_WORKS: false');
+            }
+          }
+
+          const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+          (async () => {
+            console.log('=== TikTok refresh-token rotation probe (account: axolotl2) ===');
+            console.log('original_refresh_sha :', fp(ORIGINAL));
+
+            // 1. Exchange the original refresh token.
+            const first = await refresh(ORIGINAL, '#1 (original token)');
+
+            // 1b. Prove the resulting access token actually reads data.
+            if (first.ok) {
+              await userInfo(first.json.access_token, 'access token from refresh #1');
+            }
+
+            // 2. Wait, then replay the SAME ORIGINAL token.
+            console.log('\nwaiting 5s before replay...');
+            await sleep(5000);
+            const second = await refresh(ORIGINAL, '#2 (SAME original token, replayed)');
+
+            const rotated = first.ok && first.json.refresh_token && first.json.refresh_token !== ORIGINAL;
+
+            console.log('\n=== VERDICT ===');
+            console.log('refresh_1_success     :', first.ok);
+            console.log('refresh_2_success     :', second.ok);
+            console.log('refresh_token_rotated :', rotated);
+            if (second.ok) {
+              console.log('VERDICT: REUSABLE  (original refresh token still worked on replay)');
+            } else {
+              console.log('VERDICT: SINGLE_USE (original refresh token rejected on replay)');
+            }
+          })().catch((e) => {
+            console.log('PROBE THREW:', e && e.message);
+            process.exit(1);
+          });
+          EOF
+
+      - name: Run probe
+        env:
+          TT_CLIENT_KEY: ${{ secrets.TT_CLIENT_KEY }}
+          TT_CLIENT_SECRET: ${{ secrets.TT_CLIENT_SECRET }}
+          TT_REFRESH: ${{ secrets.TT_REFRESH_AXOLOTL2 }}
+        run: node /tmp/probe/probe.mjs
