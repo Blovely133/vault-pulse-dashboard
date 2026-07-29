@@ -4,22 +4,38 @@ import { fileURLToPath } from "node:url";
 import { ensureReportMetricFields } from "./report-metrics.mjs";
 import { normalizeInstagramFeed } from "./instagram-data.mjs";
 import { mergeVideos } from "./video-merge.mjs";
+import {
+  analyticsWindow,
+  buildAuthorizedAnalytics,
+  fetchChannelShortsAnalytics,
+  refreshTokenEnvForChannel,
+  unavailableChannelAnalytics,
+} from "./youtube-analytics.mjs";
 
 const repositoryRoot = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   "..",
 );
 const dataPath = path.join(repositoryRoot, "site", "data", "dashboard.json");
+const authorizedDataPath = path.join(
+  repositoryRoot,
+  "site",
+  "data",
+  "authorized-analytics.json",
+);
 const data = JSON.parse(await readFile(dataPath, "utf8"));
 const now = new Date();
 const capturedAt = now.toISOString();
+const authorizedWindow = analyticsWindow(now);
 const refresh = { ok: [], skipped: [], errors: [] };
 const freshVideos = [];
 const freshSnapshots = [];
+const authorizedChannels = [];
 
 for (const channel of data.channels) {
   ensureReportMetricFields(channel);
   await refreshYouTube(channel);
+  await refreshAuthorizedAnalytics(channel);
   await refreshTikTok(channel);
   await refreshInstagram(channel);
 }
@@ -41,6 +57,26 @@ recalculateDashboard(data, now);
 data.refresh = refresh;
 
 await writeFile(dataPath, `${JSON.stringify(data, null, 2)}\n`, "utf8");
+
+// OAuth-sourced metrics are restricted to the authorising user by YouTube
+// Developer Policy III.E.3.b, so they live in their own file instead of
+// dashboard.json and the planned sign-in gate becomes a path-gating change.
+// This file is rewritten from the current run every time and is never read
+// back in, unlike dashboard.json, so a channel that loses its token drops
+// back to null instead of keeping a stale value that still looks fresh.
+await writeFile(
+  authorizedDataPath,
+  `${JSON.stringify(
+    buildAuthorizedAnalytics({
+      capturedAt,
+      window: authorizedWindow,
+      channels: authorizedChannels,
+    }),
+    null,
+    2,
+  )}\n`,
+  "utf8",
+);
 
 console.log(
   `Vault Pulse refresh: ${refresh.ok.length} updated, ${refresh.skipped.length} skipped, ${refresh.errors.length} errors.`,
@@ -166,6 +202,49 @@ async function fetchYouTubeVideos(channel, uploadsPlaylist, apiKey) {
       engagementRate: views > 0 ? ((likes + comments) / views) * 100 : 0,
     };
   });
+}
+
+async function refreshAuthorizedAnalytics(channel) {
+  const entry = {
+    channelId: channel.id,
+    slug: channel.slug,
+    displayName: channel.displayName,
+    youtubeChannelId: channel.youtubeChannelId ?? "",
+  };
+  const tokenEnv = refreshTokenEnvForChannel(channel.youtubeChannelId);
+  const refreshToken = tokenEnv ? process.env[tokenEnv]?.trim() : "";
+  const clientId = process.env.YT_CLIENT_ID?.trim();
+  const clientSecret = process.env.YT_CLIENT_SECRET?.trim();
+  if (!refreshToken || !clientId || !clientSecret) {
+    authorizedChannels.push({
+      ...entry,
+      analytics: unavailableChannelAnalytics("Authorization needed"),
+    });
+    refresh.skipped.push(`${channel.displayName} · YouTube Analytics access`);
+    return;
+  }
+
+  try {
+    authorizedChannels.push({
+      ...entry,
+      analytics: await fetchChannelShortsAnalytics({
+        channelId: channel.youtubeChannelId,
+        clientId,
+        clientSecret,
+        refreshToken,
+        window: authorizedWindow,
+      }),
+    });
+    refresh.ok.push(`${channel.displayName} · YouTube Analytics`);
+  } catch (error) {
+    authorizedChannels.push({
+      ...entry,
+      analytics: unavailableChannelAnalytics("Refresh error"),
+    });
+    refresh.errors.push(
+      `${channel.displayName} · YouTube Analytics: ${errorMessage(error)}`,
+    );
+  }
 }
 
 async function refreshTikTok(channel) {

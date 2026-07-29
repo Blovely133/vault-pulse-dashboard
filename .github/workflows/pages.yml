@@ -38,6 +38,11 @@ jobs:
       - name: Refresh platform data
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
           VAULT_PULSE_TIKTOK_API_URL: https://testing-multiplayer-server.onrender.com/vault-pulse/api/tiktok
           VAULT_PULSE_INSTAGRAM_API_URL_HISTORY: https://instagram-media.sylvasblessing.com/analytics/v1
           VAULT_PULSE_INSTAGRAM_API_URL_ANIME: https://instagram-media.sylvasblessing.com/anime/analytics/v1
