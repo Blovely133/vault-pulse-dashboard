@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-29T14:32:42.890Z",
-  "generatedAt": "2026-07-29T14:32:42.890Z",
+  "updatedAt": "2026-07-29T14:45:15.839Z",
+  "generatedAt": "2026-07-29T14:45:15.839Z",
   "hasLiveData": true,
   "totals": {
-    "views": 12864,
+    "views": 12865,
     "sevenDayViews": null,
     "audience": 72,
-    "engagementRate": 3.8655265315684666
+    "engagementRate": 3.86055217594759
   },
   "platformTotals": {
-    "youtube": 7646,
-    "tiktok": 4974,
+    "youtube": 7628,
+    "tiktok": 4993,
     "instagram": 244
   },
   "channels": [
@@ -28,11 +28,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 166,
+        "views": 146,
         "audience": 2,
-        "videos": 29,
-        "likes": 26,
-        "engagementRate": 17.46987951807229
+        "videos": 6,
+        "likes": 0,
+        "engagementRate": 0
       },
       "tiktok": {
         "connected": true,
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.890Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.839Z"
     },
     {
       "id": 2,
@@ -124,7 +124,7 @@
         "engagementRate": 0,
         "viewToReachRatio": 0,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-07-29T14:30:24+00:00"
+        "generatedAt": "2026-07-29T14:45:20+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.890Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.839Z"
     },
     {
       "id": 3,
@@ -185,20 +185,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 5131,
+        "views": 5133,
         "audience": 16,
         "videos": 9,
         "likes": 218,
-        "engagementRate": 4.541025141297992
+        "engagementRate": 4.539255795830898
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2709,
+        "views": 2728,
         "audience": 41,
         "videos": 5,
         "likes": 135,
-        "engagementRate": 5.721668512366187,
+        "engagementRate": 5.681818181818182,
         "source": "direct"
       },
       "instagram": {
@@ -218,7 +218,7 @@
         "engagementRate": 1.3043478260869565,
         "viewToReachRatio": 1.0608695652173914,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-07-29T14:30:26+00:00"
+        "generatedAt": "2026-07-29T14:45:22+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 1.5
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.890Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:55.839Z"
     }
   ],
   "videos": [
@@ -273,12 +273,12 @@
       "title": "The Oldest Surviving Footage of New York City",
       "url": "https://www.youtube.com/watch?v=Hz39AJS0ixE",
       "publishedAt": "2026-07-29T14:00:27Z",
-      "views": 68,
+      "views": 72,
       "likes": 8,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 52,
-      "engagementRate": 13.23529411764706
+      "engagementRate": 12.5
     },
     {
       "id": "tiktok:7666544577871990046",
@@ -1053,12 +1053,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 1603,
+      "views": 1621,
       "likes": 79,
       "comments": 5,
       "shares": 8,
       "durationSeconds": 42,
-      "engagementRate": 5.7392389270118525
+      "engagementRate": 5.67550894509562
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -24160,6 +24160,88 @@
       "likes": 1,
       "reach": 230,
       "engagementRate": 1.3043478260869565
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T14:45:15.839Z",
+      "views": 146,
+      "audience": 2,
+      "videos": 6,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T14:45:15.839Z",
+      "views": 899,
+      "audience": 4,
+      "videos": 7,
+      "likes": 39,
+      "engagementRate": 5.672969966629588
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T14:45:15.839Z",
+      "views": 2349,
+      "audience": 4,
+      "videos": 11,
+      "likes": 65,
+      "engagementRate": 2.937420178799489
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T14:45:15.839Z",
+      "views": 1366,
+      "audience": 5,
+      "videos": 9,
+      "likes": 31,
+      "engagementRate": 3.4407027818448026
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T14:45:15.839Z",
+      "views": 0,
+      "audience": null,
+      "videos": 1,
+      "likes": 0,
+      "reach": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T14:45:15.839Z",
+      "views": 5133,
+      "audience": 16,
+      "videos": 9,
+      "likes": 218,
+      "engagementRate": 4.539255795830898
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T14:45:15.839Z",
+      "views": 2728,
+      "audience": 41,
+      "videos": 5,
+      "likes": 135,
+      "engagementRate": 5.681818181818182
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-07-29T14:45:15.839Z",
+      "views": 244,
+      "audience": null,
+      "videos": 2,
+      "likes": 1,
+      "reach": 230,
+      "engagementRate": 1.3043478260869565
     }
   ],
   "trend": [
@@ -24244,8 +24326,8 @@
     {
       "date": "2026-07-29",
       "label": "Jul 29",
-      "youtube": 7646,
-      "tiktok": 4974
+      "youtube": 7628,
+      "tiktok": 4993
     }
   ],
   "connections": {
@@ -24279,7 +24361,7 @@
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-07-29T14:30:26+00:00",
+    "generatedAt": "2026-07-29T14:45:22+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
@@ -24347,7 +24429,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-07-29T14:30:24+00:00",
+      "generatedAt": "2026-07-29T14:45:20+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -24397,7 +24479,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-07-29T14:30:26+00:00",
+      "generatedAt": "2026-07-29T14:45:22+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
