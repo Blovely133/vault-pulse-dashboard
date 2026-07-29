@@ -53,6 +53,8 @@ jobs:
           TT_REFRESH_AXOLOTL2: ${{ secrets.TT_REFRESH_AXOLOTL2 }}
           TT_REFRESH_ANIMEHYPE41: ${{ secrets.TT_REFRESH_ANIMEHYPE41 }}
           TT_REFRESH_THEARCHIVELIVES: ${{ secrets.TT_REFRESH_THEARCHIVELIVES }}
+          TT_REFRESH_SYLVASMYSTERIES: ${{ secrets.TT_REFRESH_SYLVASMYSTERIES }}
+          TT_REFRESH_FIXEDSPORTSHISTORY: ${{ secrets.TT_REFRESH_FIXEDSPORTSHISTORY }}
           # Kept as the fallback until the direct path is confirmed at parity on
           # every channel. Each channel reports which one served it as
           # channel.tiktokSource in site/data/dashboard.json.
