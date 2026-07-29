@@ -92,7 +92,7 @@ function refreshSilently() {
 
 function updateShell() {
   const connected = state.data.connections?.connectedSources ?? 0;
-  const total = state.data.connections?.totalSources ?? 7;
+  const total = state.data.connections?.totalSources ?? 0;
   document.querySelector("#source-count").textContent =
     `${connected}/${total} sources`;
   document.querySelector("#source-status").textContent =
@@ -296,7 +296,7 @@ function overviewMarkup(data) {
         <div class="section-heading">
           <div>
             <p class="kicker">Channel health</p>
-            <h2>Three brands, seven data sources</h2>
+            <h2>${data.channels.length} brands, ${data.connections?.totalSources ?? 0} data sources</h2>
           </div>
           <button class="text-button" type="button" data-go-tab="connections">
             View connections →
@@ -340,7 +340,7 @@ function videosMarkup(data) {
         ${compactMetric("Tracked videos", data.videos.length || "—", "Latest 30 across all sources", "coral")}
         ${compactMetric("YouTube library", youtubeCount || "—", "Recent public uploads", "mint")}
         ${compactMetric("TikTok library", tiktokCount || "—", "Authorized public posts", "violet")}
-        ${compactMetric("Instagram library", instagramCount || "\u2014", "Reels from @sylvasblessing", "blue")}
+        ${compactMetric("Instagram library", instagramCount || "\u2014", "Reels from connected accounts", "blue")}
       </section>
       <section class="panel table-panel full-table">
         <div class="panel-heading">

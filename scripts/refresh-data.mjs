@@ -542,10 +542,13 @@ function upsertInstagramFeed(feeds, nextFeed) {
 
 function recalculateDashboard(dashboard, referenceDate) {
   const platformMetrics = dashboard.channels.flatMap((channel) => {
-    const metrics = [
-      { platform: "youtube", metric: channel.youtube },
-      { platform: "tiktok", metric: channel.tiktok },
-    ];
+    const metrics = [];
+    if (channel.youtubeChannelId || channel.youtubeHandle) {
+      metrics.push({ platform: "youtube", metric: channel.youtube });
+    }
+    if (channel.tiktokUsername) {
+      metrics.push({ platform: "tiktok", metric: channel.tiktok });
+    }
     if (channel.instagramUsername) {
       metrics.push({ platform: "instagram", metric: channel.instagram });
     }

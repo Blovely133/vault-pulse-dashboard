@@ -262,6 +262,97 @@
       },
       "tiktokSource": "direct",
       "tiktokAuthExpiresAt": "2027-07-29T14:17:57.211Z"
+    },
+    {
+      "id": 4,
+      "slot": 4,
+      "slug": "sylvas-mysteries",
+      "displayName": "Sylva's Mysteries",
+      "youtubeChannelId": "UC8Uj7A6wSYlJ-eekeGc6GJw",
+      "youtubeHandle": "@SylvasMysteries",
+      "tiktokUsername": "",
+      "instagramUsername": "sylvasmysteries",
+      "instagramFeedEnv": "VAULT_PULSE_INSTAGRAM_API_URL_MYSTERIES",
+      "accent": "#43a047",
+      "avatar": "./assets/sylvas-mysteries-avatar.jpg",
+      "youtube": {
+        "connected": false,
+        "connectionLabel": "First refresh pending",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      },
+      "tiktok": {
+        "connected": false,
+        "connectionLabel": "Not configured",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      },
+      "instagram": {
+        "connected": false,
+        "connectionLabel": "First refresh pending",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "reach": null,
+        "comments": null,
+        "saves": null,
+        "shares": null,
+        "totalInteractions": null,
+        "averageWatchTimeMs": null,
+        "totalWatchTimeMs": null,
+        "engagementRate": null,
+        "viewToReachRatio": null,
+        "profileUrl": "https://www.instagram.com/sylvasmysteries/"
+      },
+      "shortsAnalytics": {
+        "choseToViewRate": null,
+        "averagePercentageViewed": null,
+        "engagedViews": null,
+        "subscribersGained": null,
+        "subscribersPerThousandEngagedViews": null,
+        "twentyFourHourVsBaseline": null,
+        "returningViewers": null
+      },
+      "publishing": {
+        "scheduledThrough": null,
+        "readyToReview": null,
+        "pipeline": {
+          "planned": null,
+          "editing": null,
+          "review": null,
+          "scheduled": null,
+          "publishedThisWeek": null
+        }
+      },
+      "reportMetrics": {
+        "cadenceAdherence": null,
+        "swipeAwayRate": null,
+        "completionRate": null,
+        "conversionPerThousand": null,
+        "velocityRate": null,
+        "returningViewers": null
+      },
+      "instagramPerformance": {
+        "views": null,
+        "reach": null,
+        "reels": null,
+        "totalInteractions": null,
+        "averageWatchTimeMs": null,
+        "viewsPerReachedAccount": null,
+        "engagementPerThousandReach": null,
+        "savesPerThousandReach": null,
+        "sharesPerThousandReach": null,
+        "interactionsPerReel": null
+      },
+      "tiktokSource": null,
+      "tiktokAuthExpiresAt": null
     }
   ],
   "videos": [
@@ -25898,11 +25989,12 @@
     "tiktokSources": {
       "axolotl-drama": "direct",
       "anime-countdown-vault": "direct",
-      "kids-history": "direct"
+      "kids-history": "direct",
+      "sylvas-mysteries": null
     },
     "instagramFeed": true,
     "connectedSources": 8,
-    "totalSources": 8
+    "totalSources": 10
   },
   "refresh": {
     "ok": [
