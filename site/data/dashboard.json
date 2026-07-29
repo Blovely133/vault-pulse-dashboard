@@ -354,6 +354,98 @@
       },
       "tiktokSource": null,
       "tiktokAuthExpiresAt": null
+    },
+    {
+      "id": 5,
+      "slot": 5,
+      "slug": "fixed-fights",
+      "displayName": "Fixed Fights",
+      "youtubeChannelId": "UClVSNWZc1f3sel37mrNOfgA",
+      "youtubeHandle": "@FixedFights-g9q",
+      "tiktokUsername": "",
+      "instagramUsername": "fixedfightsshorts",
+      "instagramFeedEnv": "VAULT_PULSE_INSTAGRAM_API_URL_FIXED_FIGHTS",
+      "accent": "#526670",
+      "avatar": "./assets/fixed-fights-avatar.jpg",
+      "youtube": {
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 0,
+        "audience": 0,
+        "videos": 0,
+        "likes": 0,
+        "engagementRate": 0
+      },
+      "tiktok": {
+        "connected": false,
+        "connectionLabel": "Username needed",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "engagementRate": null
+      },
+      "instagram": {
+        "connected": true,
+        "connectionLabel": "Connected",
+        "views": 0,
+        "audience": null,
+        "videos": 0,
+        "likes": 0,
+        "reach": 0,
+        "comments": 0,
+        "saves": 0,
+        "shares": 0,
+        "totalInteractions": 0,
+        "averageWatchTimeMs": 0,
+        "totalWatchTimeMs": 0,
+        "engagementRate": 0,
+        "viewToReachRatio": 0,
+        "profileUrl": "https://www.instagram.com/fixedfightsshorts/",
+        "generatedAt": "2026-07-29T19:11:35+00:00"
+      },
+      "shortsAnalytics": {
+        "choseToViewRate": null,
+        "averagePercentageViewed": null,
+        "engagedViews": null,
+        "subscribersGained": null,
+        "subscribersPerThousandEngagedViews": null,
+        "twentyFourHourVsBaseline": null,
+        "returningViewers": null
+      },
+      "publishing": {
+        "scheduledThrough": null,
+        "readyToReview": null,
+        "pipeline": {
+          "planned": null,
+          "editing": null,
+          "review": null,
+          "scheduled": null,
+          "publishedThisWeek": null
+        }
+      },
+      "reportMetrics": {
+        "cadenceAdherence": null,
+        "swipeAwayRate": null,
+        "completionRate": null,
+        "conversionPerThousand": null,
+        "velocityRate": null,
+        "returningViewers": null
+      },
+      "instagramPerformance": {
+        "views": 0,
+        "reach": 0,
+        "reels": 0,
+        "totalInteractions": 0,
+        "averageWatchTimeMs": 0,
+        "viewsPerReachedAccount": null,
+        "engagementPerThousandReach": null,
+        "savesPerThousandReach": null,
+        "sharesPerThousandReach": null,
+        "interactionsPerReel": null
+      },
+      "tiktokSource": null,
+      "tiktokAuthExpiresAt": null
     }
   ],
   "videos": [
