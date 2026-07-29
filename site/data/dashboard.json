@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-07-29T19:30:15.938Z",
-  "generatedAt": "2026-07-29T19:30:15.938Z",
+  "updatedAt": "2026-07-29T19:45:15.129Z",
+  "generatedAt": "2026-07-29T19:45:15.129Z",
   "hasLiveData": true,
   "totals": {
-    "views": 12923,
+    "views": 12957,
     "sevenDayViews": null,
     "audience": 70,
-    "engagementRate": 3.9168842713484078
+    "engagementRate": 3.9261354183996002
   },
   "platformTotals": {
-    "youtube": 7957,
-    "tiktok": 4613,
+    "youtube": 7969,
+    "tiktok": 4635,
     "instagram": 353
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.938Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.129Z"
     },
     {
       "id": 2,
@@ -91,11 +91,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2380,
+        "views": 2377,
         "audience": 4,
         "videos": 11,
         "likes": 66,
-        "engagementRate": 2.941176470588235
+        "engagementRate": 2.944888514934792
       },
       "tiktok": {
         "connected": true,
@@ -108,8 +108,8 @@
         "source": "direct"
       },
       "instagram": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Snapshot stale",
         "views": 1,
         "audience": null,
         "videos": 1,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.938Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:06.129Z"
     },
     {
       "id": 3,
@@ -185,25 +185,25 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 5431,
+        "views": 5446,
         "audience": 18,
         "videos": 9,
-        "likes": 237,
-        "engagementRate": 4.658442275823973
+        "likes": 238,
+        "engagementRate": 4.663973558575101
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3243,
+        "views": 3265,
         "audience": 41,
         "videos": 5,
-        "likes": 155,
-        "engagementRate": 5.4887449892075235,
+        "likes": 157,
+        "engagementRate": 5.51301684532925,
         "source": "direct"
       },
       "instagram": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Snapshot stale",
         "views": 352,
         "audience": null,
         "videos": 3,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 3
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.938Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:58.129Z"
     },
     {
       "id": 4,
@@ -295,8 +295,8 @@
         "source": "direct"
       },
       "instagram": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Snapshot stale",
         "views": 0,
         "audience": null,
         "videos": 0,
@@ -354,7 +354,7 @@
         "interactionsPerReel": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.938Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:25.129Z"
     },
     {
       "id": 5,
@@ -388,8 +388,8 @@
         "source": "direct"
       },
       "instagram": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Snapshot stale",
         "views": 0,
         "audience": null,
         "videos": 0,
@@ -447,7 +447,7 @@
         "interactionsPerReel": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:31.938Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:34.129Z"
     }
   ],
   "videos": [
@@ -509,12 +509,12 @@
       "title": "The Oldest Surviving Footage of New York City",
       "url": "https://www.youtube.com/watch?v=Hz39AJS0ixE",
       "publishedAt": "2026-07-29T14:00:27Z",
-      "views": 359,
-      "likes": 27,
+      "views": 374,
+      "likes": 28,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 52,
-      "engagementRate": 8.07799442896936
+      "engagementRate": 8.02139037433155
     },
     {
       "id": "tiktok:7666544577871990046",
@@ -574,12 +574,12 @@
       "title": "TOP 5 ANIME BETRAYALS | The Backstabs That Broke Us",
       "url": "https://www.youtube.com/watch?v=B9YHLIlgYCc",
       "publishedAt": "2026-07-29T01:00:20Z",
-      "views": 49,
+      "views": 50,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 60,
-      "engagementRate": 2.0408163265306123
+      "engagementRate": 2
     },
     {
       "id": "youtube:WJsDz_g7AUQ",
@@ -809,12 +809,12 @@
       "title": "TOP 3 MUSHOKU TENSEI FIGHTS | Orsted, Hydra & Eris",
       "url": "https://www.youtube.com/watch?v=Ovd4YjdUW-A",
       "publishedAt": "2026-07-28T01:00:21Z",
-      "views": 397,
+      "views": 393,
       "likes": 8,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 2.0151133501259446
+      "engagementRate": 2.035623409669211
     },
     {
       "id": "youtube:ikvKaSibjtQ",
@@ -1289,12 +1289,12 @@
       "title": "The Only Video of Mark Twain That Exists The only known motion picture of Mark Twain — filmed in 1909 at Stormfield, his estate in Redding, Connecticut, by Thomas Edison's film company. The women at the tea table are believed to be his daughters, Clara and Jean. Jean died that December; Twain followed seven months later, the day after Halley's Comet returned — just as he'd always predicted. #history #marktwain #archivalfootage #vintage #edison #shorts",
       "url": "https://www.tiktok.com/@thearchivelives/video/7666543222574959902?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-26T14:00:00.000Z",
-      "views": 2091,
-      "likes": 98,
+      "views": 2113,
+      "likes": 100,
       "comments": 5,
       "shares": 11,
       "durationSeconds": 42,
-      "engagementRate": 5.4519368723099
+      "engagementRate": 5.489824893516328
     },
     {
       "id": "youtube:_pGblDtgo8Q",
@@ -27516,6 +27516,106 @@
       "likes": 0,
       "reach": 0,
       "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": 146,
+      "audience": 2,
+      "videos": 6,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": null,
+      "audience": 4,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": 2377,
+      "audience": 4,
+      "videos": 11,
+      "likes": 66,
+      "engagementRate": 2.944888514934792
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": 1370,
+      "audience": 5,
+      "videos": 9,
+      "likes": 31,
+      "engagementRate": 3.43065693430657
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": 5446,
+      "audience": 18,
+      "videos": 9,
+      "likes": 238,
+      "engagementRate": 4.663973558575101
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": 3265,
+      "audience": 41,
+      "videos": 5,
+      "likes": 157,
+      "engagementRate": 5.51301684532925
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": 0,
+      "audience": 0,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": null,
+      "audience": 0,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": 0,
+      "audience": 0,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-29T19:45:15.129Z",
+      "views": null,
+      "audience": 0,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
     }
   ],
   "trend": [
@@ -27600,8 +27700,8 @@
     {
       "date": "2026-07-29",
       "label": "Jul 29",
-      "youtube": 7957,
-      "tiktok": 4613
+      "youtube": 7969,
+      "tiktok": 4635
     }
   ],
   "connections": {
@@ -27613,8 +27713,8 @@
       "sylvas-mysteries": "direct",
       "fixed-fights": "direct"
     },
-    "instagramFeed": true,
-    "connectedSources": 14,
+    "instagramFeed": false,
+    "connectedSources": 10,
     "totalSources": 14
   },
   "refresh": {
@@ -27625,29 +27725,30 @@
       "Anime Countdown Vault · YouTube",
       "Anime Countdown Vault · YouTube Analytics",
       "Anime Countdown Vault · TikTok (direct)",
-      "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube",
       "Kids History · YouTube Analytics",
       "Kids History · TikTok (direct)",
-      "Kids History Â· Instagram",
       "Sylva's Mysteries · YouTube",
       "Sylva's Mysteries · YouTube Analytics",
       "Sylva's Mysteries · TikTok (direct)",
-      "Sylva's Mysteries Â· Instagram",
       "Fixed Fights · YouTube",
       "Fixed Fights · YouTube Analytics",
-      "Fixed Fights · TikTok (direct)",
-      "Fixed Fights Â· Instagram"
+      "Fixed Fights · TikTok (direct)"
     ],
     "skipped": [],
     "warnings": [],
-    "errors": []
+    "errors": [
+      "Anime Countdown Vault Â· Instagram: 530 <none>",
+      "Kids History Â· Instagram: 530 <none>",
+      "Sylva's Mysteries Â· Instagram: 530 <none>",
+      "Fixed Fights Â· Instagram: 530 <none>"
+    ]
   },
   "instagram": {
     "version": 1,
     "generatedAt": "2026-07-29T19:30:21+00:00",
     "source": "Instagram Graph API",
-    "stale": false,
+    "stale": true,
     "account": {
       "id": "27621863550813655",
       "username": "sylvasblessing",
@@ -27732,7 +27833,7 @@
       "version": 1,
       "generatedAt": "2026-07-29T19:30:19+00:00",
       "source": "Instagram Graph API",
-      "stale": false,
+      "stale": true,
       "account": {
         "id": "27762283650100227",
         "username": "animehype1338",
@@ -27782,7 +27883,7 @@
       "version": 1,
       "generatedAt": "2026-07-29T19:30:21+00:00",
       "source": "Instagram Graph API",
-      "stale": false,
+      "stale": true,
       "account": {
         "id": "27621863550813655",
         "username": "sylvasblessing",
@@ -27866,7 +27967,7 @@
       "version": 1,
       "generatedAt": "2026-07-29T19:30:22+00:00",
       "source": "Instagram Graph API",
-      "stale": false,
+      "stale": true,
       "account": {
         "id": "28152632567687981",
         "username": "sylvasmysteries",
@@ -27898,7 +27999,7 @@
       "version": 1,
       "generatedAt": "2026-07-29T19:30:23+00:00",
       "source": "Instagram Graph API",
-      "stale": false,
+      "stale": true,
       "account": {
         "id": "28527325910187734",
         "username": "fixedfightsshorts",
