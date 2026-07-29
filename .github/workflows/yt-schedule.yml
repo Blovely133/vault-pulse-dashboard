@@ -1,0 +1,173 @@
+name: YouTube schedule tool
+
+# Read and reschedule the publish time of already-uploaded videos on a channel
+# that has granted OAuth access. Used by the "one video per day" cadence job.
+#
+# Rescheduling on YouTube is a plain videos.update call, so this exists to keep
+# that job off browser automation -- Studio's scheduling UI is shadow-DOM'd and
+# clicking it is slow and unreliable.
+#
+# videos.update REPLACES the whole status part, so this always reads the current
+# status first and writes it back with only publishAt changed. Sending a partial
+# status silently resets license/embeddable/madeForKids to their defaults.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Channel ID to operate on
+        required: true
+        default: UCUzrKvQc2Yud2WGJcFfl00g
+      updates:
+        description: >-
+          JSON array of {"id": "<videoId>", "publishAt": "<RFC3339 UTC>"}.
+          Leave empty to only list the channel's videos.
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Reschedule
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          UPDATES: ${{ inputs.updates }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+        run: |
+          cat > /tmp/yt-schedule.mjs <<'SCRIPT'
+          const tokenEndpoint = "https://oauth2.googleapis.com/token";
+          const api = "https://www.googleapis.com/youtube/v3";
+
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+          };
+
+          const channel = process.env.CHANNEL;
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          const refreshToken = process.env[refreshEnv];
+          if (!refreshToken) throw new Error(`${refreshEnv} is empty`);
+
+          async function accessToken() {
+            const body = new URLSearchParams({
+              client_id: process.env.YT_CLIENT_ID,
+              client_secret: process.env.YT_CLIENT_SECRET,
+              refresh_token: refreshToken,
+              grant_type: "refresh_token",
+            });
+            const res = await fetch(tokenEndpoint, { method: "POST", body });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`token: ${res.status} ${JSON.stringify(json)}`);
+            return json.access_token;
+          }
+
+          const token = await accessToken();
+          const auth = { Authorization: `Bearer ${token}` };
+
+          async function get(path, params) {
+            const url = new URL(`${api}/${path}`);
+            for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
+            const res = await fetch(url, { headers: auth });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`${path}: ${res.status} ${JSON.stringify(json)}`);
+            return json;
+          }
+
+          // The uploads playlist includes private/scheduled videos for the owner.
+          const channels = await get("channels", { part: "contentDetails", id: channel });
+          const uploads = channels.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
+          if (!uploads) throw new Error("no uploads playlist");
+
+          const ids = [];
+          let pageToken = "";
+          do {
+            const page = await get("playlistItems", {
+              part: "contentDetails",
+              playlistId: uploads,
+              maxResults: "50",
+              ...(pageToken ? { pageToken } : {}),
+            });
+            for (const item of page.items ?? []) ids.push(item.contentDetails.videoId);
+            pageToken = page.nextPageToken ?? "";
+          } while (pageToken);
+
+          const videos = [];
+          for (let i = 0; i < ids.length; i += 50) {
+            const page = await get("videos", {
+              part: "snippet,status",
+              id: ids.slice(i, i + 50).join(","),
+            });
+            videos.push(...(page.items ?? []));
+          }
+
+          const byId = new Map(videos.map((v) => [v.id, v]));
+
+          console.log("YTS_LIST_BEGIN");
+          for (const v of videos) {
+            console.log(
+              JSON.stringify({
+                id: v.id,
+                title: v.snippet.title.slice(0, 60),
+                privacy: v.status.privacyStatus,
+                publishAt: v.status.publishAt ?? null,
+                published: v.snippet.publishedAt,
+              }),
+            );
+          }
+          console.log("YTS_LIST_END");
+
+          const raw = (process.env.UPDATES ?? "").trim();
+          if (!raw) {
+            console.log("YTS_NO_UPDATES");
+            process.exit(0);
+          }
+
+          const updates = JSON.parse(raw);
+          for (const { id, publishAt } of updates) {
+            const current = byId.get(id);
+            if (!current) {
+              console.log(`YTS_SKIP ${id} not on this channel`);
+              continue;
+            }
+            if (current.status.privacyStatus !== "private") {
+              // A public video has already gone out; changing publishAt does
+              // nothing and this is the shape a mistargeted update takes.
+              console.log(`YTS_SKIP ${id} is ${current.status.privacyStatus}, not scheduled`);
+              continue;
+            }
+            // Carry every status field forward -- see the note at the top.
+            const status = {
+              privacyStatus: "private",
+              publishAt,
+              license: current.status.license,
+              embeddable: current.status.embeddable,
+              publicStatsViewable: current.status.publicStatsViewable,
+              selfDeclaredMadeForKids: current.status.madeForKids ?? false,
+            };
+            const res = await fetch(`${api}/videos?part=status`, {
+              method: "PUT",
+              headers: { ...auth, "Content-Type": "application/json" },
+              body: JSON.stringify({ id, status }),
+            });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`update ${id}: ${res.status} ${JSON.stringify(json)}`);
+            console.log(
+              `YTS_OK ${id} ${current.snippet.title.slice(0, 44)} -> ${json.status.publishAt}`,
+            );
+          }
+          SCRIPT
+          node /tmp/yt-schedule.mjs
