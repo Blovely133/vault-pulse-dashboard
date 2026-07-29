@@ -625,11 +625,19 @@ function connectionsMarkup(data) {
 }
 
 function channelDetailMarkup(data, channel) {
-  const metrics = [
-    channel.youtube,
-    channel.tiktok,
-    ...(channel.instagramUsername ? [channel.instagram] : []),
+  const configuredPlatforms = [
+    ...(channel.youtubeChannelId || channel.youtubeHandle
+      ? [["youtube", channel.youtube]]
+      : []),
+    ...(channel.tiktokUsername ? [["tiktok", channel.tiktok]] : []),
+    ...(channel.instagramUsername
+      ? [["instagram", channel.instagram]]
+      : []),
   ];
+  const metrics = configuredPlatforms.map(([, metric]) => metric);
+  const platformNames = configuredPlatforms.map(([platform]) =>
+    platformLabel(platform),
+  );
   const channelVideos = data.videos.filter(
     (video) => video.channelId === channel.id,
   );
@@ -658,9 +666,9 @@ function channelDetailMarkup(data, channel) {
       </section>
 
       <section class="metric-grid" aria-label="${escapeAttribute(channel.displayName)} totals">
-        ${compactMetric("Total views", formatMetric(totalViews), channel.instagramUsername ? "YouTube + TikTok + Instagram" : "YouTube + TikTok", "coral")}
-        ${compactMetric("Total audience", formatMetric(totalAudience), "Subscribers + followers", "mint")}
-        ${compactMetric("Total likes", formatMetric(totalLikes), channel.instagramUsername ? "Reported across three platforms" : "Reported by both platforms", "violet")}
+        ${compactMetric("Total views", formatMetric(totalViews), platformNames.join(" + "), "coral")}
+        ${compactMetric("Total audience", formatMetric(totalAudience), "Across configured platforms", "mint")}
+        ${compactMetric("Total likes", formatMetric(totalLikes), `Reported across ${configuredPlatforms.length} platform${configuredPlatforms.length === 1 ? "" : "s"}`, "violet")}
         ${compactMetric(
           "7-day views",
           insights.sevenDayViews == null
@@ -668,19 +676,17 @@ function channelDetailMarkup(data, channel) {
             : `+${formatMetric(insights.sevenDayViews)}`,
           insights.sevenDayViews == null
             ? "Building a 7-day snapshot"
-            : "Lift across both platforms",
+            : "Lift across configured platforms",
           "blue",
         )}
       </section>
 
       <section class="platform-detail-grid">
-        ${platformDetailMarkup("youtube", channel.youtube, channel)}
-        ${platformDetailMarkup("tiktok", channel.tiktok, channel)}
-        ${
-          channel.instagramUsername
-            ? platformDetailMarkup("instagram", channel.instagram, channel)
-            : ""
-        }
+        ${configuredPlatforms
+          .map(([platform, metric]) =>
+            platformDetailMarkup(platform, metric, channel),
+          )
+          .join("")}
       </section>
 
       <section class="insight-section" aria-labelledby="shorts-performance-heading">
@@ -830,7 +836,11 @@ function channelCardMarkup(channel) {
         </div>
       </div>
       ${platformLineMarkup("youtube", channel.youtube, channel, false)}
-      ${platformLineMarkup("tiktok", channel.tiktok, channel, false)}
+      ${
+        channel.tiktokUsername
+          ? platformLineMarkup("tiktok", channel.tiktok, channel, false)
+          : ""
+      }
       ${
         channel.instagramUsername
           ? platformLineMarkup("instagram", channel.instagram, channel, false)
