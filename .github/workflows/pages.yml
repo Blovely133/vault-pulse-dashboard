@@ -60,6 +60,7 @@ jobs:
           VAULT_PULSE_INSTAGRAM_API_URL_HISTORY: https://instagram-media.sylvasblessing.com/analytics/v1
           VAULT_PULSE_INSTAGRAM_API_URL_ANIME: https://instagram-media.sylvasblessing.com/anime/analytics/v1
           VAULT_PULSE_INSTAGRAM_API_URL_MYSTERIES: https://instagram-media.sylvasblessing.com/mysteries/analytics/v1
+          VAULT_PULSE_INSTAGRAM_API_URL_FIXED_FIGHTS: https://instagram-media.sylvasblessing.com/fixed-fights/analytics/v1
           VAULT_PULSE_DATA_TOKEN: ${{ secrets.VAULT_PULSE_DATA_TOKEN }}
           TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA: ${{ secrets.TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA }}
           TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT: ${{ secrets.TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT }}

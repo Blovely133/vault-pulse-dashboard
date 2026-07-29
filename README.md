@@ -1,6 +1,6 @@
 # Vault Pulse
 
-GitHub-hosted YouTube, TikTok, and Instagram analytics for the three-channel
+GitHub-hosted YouTube, TikTok, and Instagram analytics for the five-channel
 network.
 
 ## Live dashboard
@@ -60,6 +60,18 @@ Channel three is preloaded with:
 - TikTok account: `@thearchivelives`
 - Instagram account: `@sylvasblessing`
 
+Channel four is preloaded with:
+
+- Display name: `Sylva's Mysteries`
+- YouTube channel ID: `UC8Uj7A6wSYlJ-eekeGc6GJw`
+- Instagram account: `@sylvasmysteries`
+
+Channel five is preloaded with:
+
+- Display name: `Fixed Fights`
+- YouTube channel ID: `UClVSNWZc1f3sel37mrNOfgA`
+- Instagram account: `@fixedfightsshorts`
+
 Add these Actions secrets under **Settings → Secrets and variables → Actions**:
 
 - `YOUTUBE_API_KEY`
@@ -86,7 +98,7 @@ The OAuth callback is
 After the environment is configured, connect the three accounts through
 `https://testing-multiplayer-server.onrender.com/vault-pulse/setup`.
 
-All three YouTube channels share `YOUTUBE_API_KEY`. Channel identities are
+All five YouTube channels share `YOUTUBE_API_KEY`. Channel identities are
 stored in `site/data/dashboard.json`.
 
 ## Channel report metrics
