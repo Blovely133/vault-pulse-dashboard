@@ -95,6 +95,10 @@ test("only the mapped channels have a direct token", () => {
     refreshTokenEnvForSlug("kids-history"),
     "TT_REFRESH_THEARCHIVELIVES",
   );
+  assert.equal(
+    refreshTokenEnvForSlug("fixed-fights"),
+    "TT_REFRESH_FIXEDSPORTSHISTORY",
+  );
   assert.equal(refreshTokenEnvForSlug("not-a-channel"), null);
   assert.equal(refreshTokenEnvForSlug(undefined), null);
 });
