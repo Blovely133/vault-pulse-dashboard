@@ -44,6 +44,10 @@ export const channelRefreshTokenEnv = Object.freeze({
   // The account behind this slug is @thearchivelives. The dashboard label is
   // still "Kids History" from before the channel was renamed.
   "kids-history": "TT_REFRESH_THEARCHIVELIVES",
+  "sylvas-mysteries": "TT_REFRESH_SYLVASMYSTERIES",
+  // The account behind this slug is @fixedsportshistory; the channel is
+  // called Fixed Fights everywhere else.
+  "fixed-fights": "TT_REFRESH_FIXEDSPORTSHISTORY",
 });
 
 export function refreshTokenEnvForSlug(slug) {
