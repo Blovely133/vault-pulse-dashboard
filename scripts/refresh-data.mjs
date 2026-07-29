@@ -2,6 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ensureReportMetricFields } from "./report-metrics.mjs";
+import { normalizeInstagramFeed } from "./instagram-data.mjs";
 import { mergeVideos } from "./video-merge.mjs";
 
 const repositoryRoot = path.resolve(
@@ -20,6 +21,7 @@ for (const channel of data.channels) {
   ensureReportMetricFields(channel);
   await refreshYouTube(channel);
   await refreshTikTok(channel);
+  await refreshInstagram(channel);
 }
 
 if (freshVideos.length) {
@@ -303,13 +305,56 @@ async function refreshTikTok(channel) {
   }
 }
 
+async function refreshInstagram(channel) {
+  if (!channel.instagramUsername) return;
+
+  const analyticsUrl = process.env.VAULT_PULSE_INSTAGRAM_API_URL?.trim();
+  if (!analyticsUrl) {
+    channel.instagram = {
+      ...(channel.instagram ?? {}),
+      connected: false,
+      connectionLabel:
+        channel.instagram?.views != null ? "Snapshot cached" : "Feed needed",
+    };
+    refresh.skipped.push(`${channel.displayName} Â· Instagram feed`);
+    return;
+  }
+
+  try {
+    const payload = await fetchJson(new URL(analyticsUrl));
+    const normalized = normalizeInstagramFeed(channel, payload, capturedAt);
+    channel.instagram = normalized.metric;
+    data.instagram = normalized.feed;
+    freshVideos.push(...normalized.videos);
+    freshSnapshots.push(normalized.snapshot);
+    refresh.ok.push(`${channel.displayName} Â· Instagram`);
+  } catch (error) {
+    channel.instagram = {
+      ...(channel.instagram ?? {}),
+      connected: false,
+      connectionLabel:
+        channel.instagram?.views != null ? "Snapshot stale" : "Refresh error",
+    };
+    if (data.instagram) data.instagram.stale = true;
+    refresh.errors.push(
+      `${channel.displayName} Â· Instagram: ${errorMessage(error)}`,
+    );
+  }
+}
+
 function recalculateDashboard(dashboard, referenceDate) {
-  const platformMetrics = dashboard.channels.flatMap((channel) => [
-    { platform: "youtube", metric: channel.youtube },
-    { platform: "tiktok", metric: channel.tiktok },
-  ]);
+  const platformMetrics = dashboard.channels.flatMap((channel) => {
+    const metrics = [
+      { platform: "youtube", metric: channel.youtube },
+      { platform: "tiktok", metric: channel.tiktok },
+    ];
+    if (channel.instagramUsername) {
+      metrics.push({ platform: "instagram", metric: channel.instagram });
+    }
+    return metrics;
+  });
   const metricsWithData = platformMetrics.filter(
-    ({ metric }) => metric.views != null,
+    ({ metric }) => metric?.views != null,
   );
   const totalViews = metricsWithData.reduce(
     (total, { metric }) => total + integer(metric.views),
@@ -323,6 +368,7 @@ function recalculateDashboard(dashboard, referenceDate) {
   const interactions =
     sum(dashboard.videos ?? [], "likes") +
     sum(dashboard.videos ?? [], "comments") +
+    sum(dashboard.videos ?? [], "saves") +
     sum(dashboard.videos ?? [], "shares");
   const previousViews = viewsAtOrBefore(
     dashboard.snapshots ?? [],
@@ -343,12 +389,16 @@ function recalculateDashboard(dashboard, referenceDate) {
   dashboard.platformTotals = {
     youtube: platformTotal(platformMetrics, "youtube"),
     tiktok: platformTotal(platformMetrics, "tiktok"),
+    instagram: platformTotal(platformMetrics, "instagram"),
   };
   dashboard.trend = buildTrend(dashboard.snapshots ?? [], referenceDate);
   dashboard.connections = {
     youtubeApiKey: Boolean(process.env.YOUTUBE_API_KEY?.trim()),
+    instagramFeed: platformMetrics.some(
+      ({ platform, metric }) => platform === "instagram" && metric.connected,
+    ),
     connectedSources: platformMetrics.filter(
-      ({ metric }) => metric.connected,
+      ({ metric }) => metric?.connected,
     ).length,
     totalSources: platformMetrics.length,
   };
@@ -417,7 +467,7 @@ function viewsAtOrBefore(snapshots, targetTime) {
 function platformTotal(metrics, platform) {
   const values = metrics
     .filter((entry) => entry.platform === platform)
-    .map((entry) => entry.metric.views)
+    .map((entry) => entry.metric?.views)
     .filter((value) => value != null);
   return values.length
     ? values.reduce((total, value) => total + integer(value), 0)

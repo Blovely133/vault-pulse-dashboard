@@ -11,6 +11,7 @@
   --mint: #5be7c4;
   --violet: #8b7cff;
   --blue: #54a7ff;
+  --instagram: #ff5fa2;
   --shadow: 0 24px 80px rgb(0 0 0 / 24%);
 }
 
@@ -669,7 +670,7 @@ h2 {
 
 .platform-split {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin-top: 17px;
 }
 
@@ -925,6 +926,11 @@ h2 {
   color: var(--mint);
 }
 
+.platform-icon.instagram {
+  background: rgb(255 95 162 / 10%);
+  color: var(--instagram);
+}
+
 .platform-line strong,
 .platform-line span,
 .platform-stat strong,
@@ -1055,7 +1061,7 @@ h2 {
 
 .platform-detail-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
 }
 
@@ -1070,6 +1076,10 @@ h2 {
 
 .platform-detail.tiktok {
   border-color: rgb(91 231 196 / 18%);
+}
+
+.platform-detail.instagram {
+  border-color: rgb(255 95 162 / 20%);
 }
 
 .platform-detail-heading,
@@ -1361,6 +1371,179 @@ h2 {
   box-shadow: 0 0 9px rgb(220 183 92 / 45%);
 }
 
+.instagram-hero {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 178px;
+  border-color: rgb(255 95 162 / 22%);
+  padding: 26px;
+}
+
+.instagram-hero::after {
+  position: absolute;
+  right: -70px;
+  bottom: -130px;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: var(--instagram);
+  content: "";
+  filter: blur(95px);
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.instagram-identity {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 18px;
+}
+
+.instagram-mark {
+  display: grid;
+  width: 68px;
+  height: 68px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgb(255 95 162 / 30%);
+  border-radius: 20px;
+  background:
+    linear-gradient(145deg, rgb(255 95 162 / 20%), rgb(139 124 255 / 12%)),
+    #121722;
+  color: white;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 850;
+  box-shadow: inset 0 0 24px rgb(255 95 162 / 8%);
+}
+
+.instagram-identity h2 {
+  margin: 4px 0 0;
+  font-size: clamp(1.55rem, 3.2vw, 2.25rem);
+}
+
+.instagram-identity p:not(.kicker) {
+  max-width: 650px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.67rem;
+  line-height: 1.6;
+}
+
+.instagram-hero-actions {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  flex: 0 0 auto;
+  justify-items: end;
+  gap: 13px;
+}
+
+.instagram-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted);
+  font-size: 0.53rem;
+}
+
+.instagram-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.instagram-status.is-live i {
+  background: var(--mint);
+  box-shadow: 0 0 10px rgb(91 231 196 / 70%);
+}
+
+.instagram-status.is-pending i {
+  background: #dcb75c;
+  box-shadow: 0 0 10px rgb(220 183 92 / 45%);
+}
+
+.instagram-open {
+  color: white;
+  text-decoration: none;
+}
+
+.instagram-signal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.instagram-signal {
+  min-height: 172px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background:
+    linear-gradient(145deg, rgb(255 255 255 / 4%), rgb(255 255 255 / 1.5%)),
+    var(--panel);
+  padding: 17px;
+}
+
+.instagram-signal div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.instagram-signal span,
+.instagram-signal small,
+.instagram-signal strong {
+  display: block;
+}
+
+.instagram-signal span {
+  color: var(--muted);
+  font-size: 0.59rem;
+}
+
+.instagram-signal small {
+  color: currentcolor;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.43rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.instagram-signal strong {
+  margin-top: 26px;
+  color: white;
+  font-size: clamp(1.45rem, 2.5vw, 1.95rem);
+  letter-spacing: -0.045em;
+}
+
+.instagram-signal p {
+  margin: 10px 0 0;
+  color: var(--dim);
+  font-size: 0.5rem;
+  line-height: 1.5;
+}
+
+.instagram-table-panel {
+  min-height: 340px;
+  padding: 22px;
+}
+
+.instagram-reel-table {
+  min-width: 900px;
+}
+
+.instagram-reel-table td:first-child {
+  min-width: 250px;
+}
+
 .operations-panel {
   padding: 22px;
 }
@@ -1593,6 +1776,11 @@ td a span {
   color: var(--mint);
 }
 
+.table-platform.instagram {
+  background: rgb(255 95 162 / 9%);
+  color: var(--instagram);
+}
+
 .table-empty {
   display: flex;
   align-items: center;
@@ -1789,6 +1977,11 @@ td a span {
   .connection-card:last-child {
     grid-column: 1 / -1;
   }
+
+  .platform-detail-grid,
+  .instagram-signal-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 900px) {
@@ -1858,9 +2051,18 @@ td a span {
 
 @media (max-width: 650px) {
   .brand-mark {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
+    display: none;
+  }
+
+  .sidebar {
+    gap: 6px;
+    padding-inline: 12px;
+  }
+
+  .nav-list {
+    width: 100%;
+    justify-content: space-between;
+    margin-left: 0;
   }
 
   .nav-button {
@@ -1898,7 +2100,8 @@ td a span {
   .channel-grid,
   .connection-grid,
   .insight-grid,
-  .operations-grid {
+  .operations-grid,
+  .instagram-signal-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1942,6 +2145,26 @@ td a span {
 
   .platform-detail-heading {
     align-items: flex-start;
+  }
+
+  .instagram-hero {
+    display: block;
+    padding: 22px;
+  }
+
+  .instagram-identity {
+    align-items: flex-start;
+  }
+
+  .instagram-mark {
+    width: 58px;
+    height: 58px;
+    border-radius: 17px;
+  }
+
+  .instagram-hero-actions {
+    justify-items: start;
+    margin-top: 22px;
   }
 }
 

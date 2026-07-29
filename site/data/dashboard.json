@@ -10,7 +10,8 @@
   },
   "platformTotals": {
     "youtube": 7571,
-    "tiktok": 14015
+    "tiktok": 14015,
+    "instagram": null
   },
   "channels": [
     {
@@ -138,6 +139,7 @@
       "youtubeHandle": "",
       "tiktokUsername": "sylva6806",
       "tiktokTokenEnv": "TIKTOK_ACCESS_TOKEN_KIDS_HISTORY",
+      "instagramUsername": "sylvasblessing",
       "accent": "#8b7cff",
       "avatar": "./assets/kids-history-avatar.jpg",
       "youtube": {
@@ -157,6 +159,24 @@
         "videos": 6,
         "likes": 410,
         "engagementRate": 3.854335063388071
+      },
+      "instagram": {
+        "connected": false,
+        "connectionLabel": "First refresh pending",
+        "views": null,
+        "audience": null,
+        "videos": null,
+        "likes": null,
+        "reach": null,
+        "comments": null,
+        "saves": null,
+        "shares": null,
+        "totalInteractions": null,
+        "averageWatchTimeMs": null,
+        "totalWatchTimeMs": null,
+        "engagementRate": null,
+        "viewToReachRatio": null,
+        "profileUrl": "https://www.instagram.com/sylvasblessing/"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -22470,8 +22490,9 @@
   ],
   "connections": {
     "youtubeApiKey": true,
+    "instagramFeed": false,
     "connectedSources": 6,
-    "totalSources": 6
+    "totalSources": 7
   },
   "refresh": {
     "ok": [

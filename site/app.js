@@ -15,6 +15,7 @@ const tiktokSetupUrl =
 const titles = {
   overview: "The whole network, one pulse.",
   videos: "Every post. Every signal.",
+  instagram: "Reel performance, without the guesswork.",
   connections: "Connect once. Track from here.",
 };
 
@@ -91,7 +92,7 @@ function refreshSilently() {
 
 function updateShell() {
   const connected = state.data.connections?.connectedSources ?? 0;
-  const total = state.data.connections?.totalSources ?? 6;
+  const total = state.data.connections?.totalSources ?? 7;
   document.querySelector("#source-count").textContent =
     `${connected}/${total} sources`;
   document.querySelector("#source-status").textContent =
@@ -104,6 +105,9 @@ function render() {
   if (!state.data) return;
   if (state.tab === "overview") view.innerHTML = overviewMarkup(state.data);
   if (state.tab === "videos") view.innerHTML = videosMarkup(state.data);
+  if (state.tab === "instagram") {
+    view.innerHTML = instagramMarkup(state.data);
+  }
   if (state.tab === "connections") {
     view.innerHTML = connectionsMarkup(state.data);
   }
@@ -177,7 +181,7 @@ function syncRoute() {
 
 function overviewMarkup(data) {
   const metrics = [
-    ["Total views", formatMetric(data.totals.views), "YouTube + TikTok", "coral"],
+    ["Total views", formatMetric(data.totals.views), "All connected platforms", "coral"],
     [
       "7-day view lift",
       data.totals.sevenDayViews == null
@@ -261,6 +265,10 @@ function overviewMarkup(data) {
               <span>TikTok views</span>
               <strong>${formatMetric(data.platformTotals.tiktok)}</strong>
             </div>
+            <div>
+              <span>Instagram views</span>
+              <strong>${formatMetric(data.platformTotals.instagram)}</strong>
+            </div>
           </div>
         </article>
 
@@ -288,7 +296,7 @@ function overviewMarkup(data) {
         <div class="section-heading">
           <div>
             <p class="kicker">Channel health</p>
-            <h2>Three brands, six data sources</h2>
+            <h2>Three brands, seven data sources</h2>
           </div>
           <button class="text-button" type="button" data-go-tab="connections">
             View connections →
@@ -323,12 +331,16 @@ function videosMarkup(data) {
   const tiktokCount = data.videos.filter(
     (video) => video.platform === "tiktok",
   ).length;
+  const instagramCount = data.videos.filter(
+    (video) => video.platform === "instagram",
+  ).length;
   return `
     <div class="view-stack">
-      <section class="metric-grid compact">
+      <section class="metric-grid">
         ${compactMetric("Tracked videos", data.videos.length || "—", "Latest 30 across all sources", "coral")}
         ${compactMetric("YouTube library", youtubeCount || "—", "Recent public uploads", "mint")}
         ${compactMetric("TikTok library", tiktokCount || "—", "Authorized public posts", "violet")}
+        ${compactMetric("Instagram library", instagramCount || "\u2014", "Reels from @sylvasblessing", "blue")}
       </section>
       <section class="panel table-panel full-table">
         <div class="panel-heading">
@@ -347,9 +359,201 @@ function videosMarkup(data) {
   `;
 }
 
+function instagramMarkup(data) {
+  const channel = data.channels.find((item) => item.instagramUsername);
+  const instagram = channel?.instagram ?? {};
+  const feed = data.instagram ?? {};
+  const account = feed.account ?? {};
+  const totals = feed.totals ?? instagram;
+  const reels = Array.isArray(feed.reels)
+    ? feed.reels
+    : data.videos.filter((video) => video.platform === "instagram");
+  const username =
+    account.username || channel?.instagramUsername || "sylvasblessing";
+  const profileUrl =
+    account.profileUrl ||
+    instagram.profileUrl ||
+    `https://www.instagram.com/${username}/`;
+  const connected = Boolean(instagram.connected || account.connected);
+  const freshness = feed.generatedAt || instagram.generatedAt;
+  const ratio = numericValue(totals.viewToReachRatio);
+  const errors = Array.isArray(feed.errors) ? feed.errors.length : 0;
+
+  return `
+    <div class="view-stack">
+      <section class="instagram-hero panel">
+        <div class="instagram-identity">
+          <span class="instagram-mark" aria-hidden="true">IG</span>
+          <div>
+            <p class="kicker">${escapeHtml(channel?.displayName || "Kids History")} distribution</p>
+            <h2>@${escapeHtml(username)}</h2>
+            <p>
+              Reel reach, retention, and interaction data from the live
+              Instagram professional account.
+            </p>
+          </div>
+        </div>
+        <div class="instagram-hero-actions">
+          <span class="instagram-status ${connected ? "is-live" : "is-pending"}">
+            <i aria-hidden="true"></i>
+            ${connected ? "Live Graph API feed" : "First live refresh pending"}
+          </span>
+          <a class="primary-button instagram-open" href="${escapeAttribute(profileUrl)}" target="_blank" rel="noreferrer">
+            Open Instagram <span aria-hidden="true">&#8599;</span>
+          </a>
+        </div>
+      </section>
+
+      ${
+        connected
+          ? ""
+          : `
+            <section class="setup-banner">
+              <div>
+                <p class="kicker">Connection staged</p>
+                <h2>The Instagram feed is ready for its first refresh.</h2>
+                <p>
+                  Vault Pulse will fill this tab automatically after the
+                  analytics service is deployed. No Instagram credential is
+                  stored in this website.
+                </p>
+              </div>
+            </section>
+          `
+      }
+
+      <section class="metric-grid" aria-label="Instagram totals">
+        ${compactMetric("Reel views", formatMetric(totals.views), `${formatMetric(totals.reels)} Reels tracked`, "coral")}
+        ${compactMetric("Reach", formatMetric(totals.reach), "Accounts reached across Reels", "mint")}
+        ${compactMetric("Interactions", formatMetric(totals.totalInteractions), "Likes + comments + saves + shares", "violet")}
+        ${compactMetric("Avg. watch time", formatWatchTime(totals.averageWatchTimeMs), "Weighted across tracked views", "blue")}
+      </section>
+
+      <section class="instagram-signal-grid" aria-label="Instagram quality signals">
+        ${instagramSignalMarkup(
+          "Views / reach",
+          ratio == null ? "\u2014" : `${ratio.toFixed(2)}x`,
+          "Replay depth",
+          ratio == null
+            ? "Waiting for the first snapshot"
+            : ratio > 1
+              ? "Views exceed unique reach, showing repeat plays."
+              : "Views compared with accounts reached.",
+          "coral",
+        )}
+        ${instagramSignalMarkup(
+          "Engagement / reach",
+          formatPercent(totals.engagementRate),
+          "Interaction quality",
+          "Total interactions divided by accounts reached.",
+          "mint",
+        )}
+        ${instagramSignalMarkup(
+          "Saves",
+          formatMetric(totals.saves),
+          "Intent signal",
+          "People keeping a Reel for later.",
+          "violet",
+        )}
+        ${instagramSignalMarkup(
+          "Shares",
+          formatMetric(totals.shares),
+          "Distribution signal",
+          "Reels passed directly to another viewer.",
+          "blue",
+        )}
+      </section>
+
+      <section class="panel table-panel instagram-table-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="kicker">Reel scorecard</p>
+            <h2>Every Instagram post, one clean comparison</h2>
+          </div>
+          <span class="timezone">${freshness ? `Updated ${escapeHtml(formatSync(freshness))}` : "Awaiting first snapshot"}</span>
+        </div>
+        ${instagramReelTableMarkup(reels)}
+        ${
+          errors
+            ? `<p class="data-note"><i aria-hidden="true"></i>${errors} Reel${errors === 1 ? "" : "s"} could not be refreshed in the latest snapshot; the available rows remain live.</p>`
+            : ""
+        }
+      </section>
+    </div>
+  `;
+}
+
+function instagramSignalMarkup(label, value, eyebrow, note, accent) {
+  return `
+    <article class="instagram-signal ${accent}">
+      <div>
+        <span>${escapeHtml(label)}</span>
+        <small>${escapeHtml(eyebrow)}</small>
+      </div>
+      <strong>${escapeHtml(value)}</strong>
+      <p>${escapeHtml(note)}</p>
+    </article>
+  `;
+}
+
+function instagramReelTableMarkup(reels) {
+  if (!reels.length) {
+    return `
+      <div class="table-empty">
+        <span>IG</span>
+        <div>
+          <strong>No Instagram snapshot has landed yet</strong>
+          <p>Views, reach, watch time, interactions, saves, and shares will appear here.</p>
+        </div>
+      </div>
+    `;
+  }
+  return `
+    <div class="table-wrap">
+      <table class="instagram-reel-table">
+        <thead>
+          <tr>
+            <th>Reel</th>
+            <th>Views</th>
+            <th>Reach</th>
+            <th>Avg. watch</th>
+            <th>Interactions</th>
+            <th>Saves</th>
+            <th>Shares</th>
+            <th>Published</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${reels
+            .map(
+              (reel) => `
+                <tr>
+                  <td>
+                    <a href="${escapeAttribute(reel.url)}" target="_blank" rel="noreferrer">
+                      <strong>${escapeHtml(reel.title || "Untitled Instagram Reel")}</strong>
+                      <span>Open Reel &#8599;</span>
+                    </a>
+                  </td>
+                  <td>${formatMetric(reel.views)}</td>
+                  <td>${formatMetric(reel.reach)}</td>
+                  <td>${formatWatchTime(reel.averageWatchTimeMs)}</td>
+                  <td>${formatMetric(reel.totalInteractions)}</td>
+                  <td>${formatMetric(reel.saves)}</td>
+                  <td>${formatMetric(reel.shares)}</td>
+                  <td>${formatDate(reel.publishedAt)}</td>
+                </tr>
+              `,
+            )
+            .join("")}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
 function connectionsMarkup(data) {
   const connected = data.connections.connectedSources ?? 0;
-  const total = data.connections.totalSources ?? 6;
+  const total = data.connections.totalSources ?? 7;
   const percent = total ? Math.round((connected / total) * 100) : 0;
   return `
     <div class="view-stack">
@@ -360,8 +564,9 @@ function connectionsMarkup(data) {
           <h2>Your accounts stay connected backstage.</h2>
           <p>
             YouTube access stays in encrypted GitHub Secrets. TikTok connections
-            and refresh tokens stay encrypted on the Render server. No platform
-            credential is stored in this website or sent to a browser.
+            stay on the Render server, while Instagram access stays on the AWS
+            publisher. No platform credential is stored in this website or sent
+            to a browser.
           </p>
           <div class="connection-progress">
             <span>${connected} of ${total} sources connected</span>
@@ -379,9 +584,9 @@ function connectionsMarkup(data) {
         <div>
           <strong>Automated by GitHub Actions</strong>
           <p>
-            The dashboard checks each configured platform every 15 minutes and
-            redeploys this page with a new snapshot. Use Secure setup once for
-            each TikTok account; automatic token refresh handles later updates.
+            The dashboard checks every configured platform each 15 minutes and
+            redeploys this page with a new snapshot. TikTok and Instagram token
+            refreshes happen automatically on their existing servers.
           </p>
         </div>
       </section>
@@ -390,7 +595,11 @@ function connectionsMarkup(data) {
 }
 
 function channelDetailMarkup(data, channel) {
-  const metrics = [channel.youtube, channel.tiktok];
+  const metrics = [
+    channel.youtube,
+    channel.tiktok,
+    ...(channel.instagramUsername ? [channel.instagram] : []),
+  ];
   const channelVideos = data.videos.filter(
     (video) => video.channelId === channel.id,
   );
@@ -419,9 +628,9 @@ function channelDetailMarkup(data, channel) {
       </section>
 
       <section class="metric-grid" aria-label="${escapeAttribute(channel.displayName)} totals">
-        ${compactMetric("Total views", formatMetric(totalViews), "YouTube + TikTok", "coral")}
+        ${compactMetric("Total views", formatMetric(totalViews), channel.instagramUsername ? "YouTube + TikTok + Instagram" : "YouTube + TikTok", "coral")}
         ${compactMetric("Total audience", formatMetric(totalAudience), "Subscribers + followers", "mint")}
-        ${compactMetric("Total likes", formatMetric(totalLikes), "Reported by both platforms", "violet")}
+        ${compactMetric("Total likes", formatMetric(totalLikes), channel.instagramUsername ? "Reported across three platforms" : "Reported by both platforms", "violet")}
         ${compactMetric(
           "7-day views",
           insights.sevenDayViews == null
@@ -437,6 +646,11 @@ function channelDetailMarkup(data, channel) {
       <section class="platform-detail-grid">
         ${platformDetailMarkup("youtube", channel.youtube, channel)}
         ${platformDetailMarkup("tiktok", channel.tiktok, channel)}
+        ${
+          channel.instagramUsername
+            ? platformDetailMarkup("instagram", channel.instagram, channel)
+            : ""
+        }
       </section>
 
       <section class="insight-section" aria-labelledby="shorts-performance-heading">
@@ -581,14 +795,23 @@ function channelCardMarkup(channel) {
       </div>
       ${platformLineMarkup("youtube", channel.youtube, channel, false)}
       ${platformLineMarkup("tiktok", channel.tiktok, channel, false)}
+      ${
+        channel.instagramUsername
+          ? platformLineMarkup("instagram", channel.instagram, channel, false)
+          : ""
+      }
       <span class="channel-card-cta">Open channel report <span aria-hidden="true">&rarr;</span></span>
     </button>
   `;
 }
 
 function platformLineMarkup(platform, metrics, channel, linked = true) {
-  const label = platform === "youtube" ? "YouTube" : "TikTok";
-  const icon = platform === "youtube" ? "YT" : "TT";
+  const labels = {
+    youtube: ["YouTube", "YT"],
+    tiktok: ["TikTok", "TT"],
+    instagram: ["Instagram", "IG"],
+  };
+  const [label, icon] = labels[platform] ?? [platform, "?"];
   const href = channelPlatformUrl(channel, platform);
   const statusClass = metrics.connected
     ? "status-live"
@@ -614,9 +837,19 @@ function platformLineMarkup(platform, metrics, channel, linked = true) {
 
 function platformDetailMarkup(platform, metrics, channel) {
   const isYouTube = platform === "youtube";
-  const label = isYouTube ? "YouTube" : "TikTok";
-  const audienceLabel = isYouTube ? "Subscribers" : "Followers";
-  const likesNote = isYouTube ? "Recent public uploads" : "Profile total";
+  const isInstagram = platform === "instagram";
+  const label = isYouTube ? "YouTube" : isInstagram ? "Instagram" : "TikTok";
+  const icon = isYouTube ? "YT" : isInstagram ? "IG" : "TT";
+  const audienceLabel = isYouTube
+    ? "Subscribers"
+    : isInstagram
+      ? "Reach"
+      : "Followers";
+  const likesNote = isYouTube
+    ? "Recent public uploads"
+    : isInstagram
+      ? "Tracked Reels"
+      : "Profile total";
   const url = channelPlatformUrl(channel, platform);
   const statusClass = metrics.connected
     ? "status-live"
@@ -628,7 +861,7 @@ function platformDetailMarkup(platform, metrics, channel) {
     <article class="platform-detail panel ${platform}">
       <div class="platform-detail-heading">
         <div>
-          <span class="platform-icon ${platform}">${isYouTube ? "YT" : "TT"}</span>
+          <span class="platform-icon ${platform}">${icon}</span>
           <div>
             <p class="kicker">${label} analytics</p>
             <h3>${escapeHtml(metrics.connectionLabel)}</h3>
@@ -642,10 +875,10 @@ function platformDetailMarkup(platform, metrics, channel) {
         }
       </div>
       <div class="platform-detail-stats">
-        ${detailStatMarkup("Views", metrics.views, "Platform total")}
-        ${detailStatMarkup(audienceLabel, metrics.audience, "Current audience")}
+        ${detailStatMarkup("Views", metrics.views, isInstagram ? "Tracked Reels" : "Platform total")}
+        ${detailStatMarkup(audienceLabel, isInstagram ? metrics.reach : metrics.audience, isInstagram ? "Accounts reached" : "Current audience")}
         ${detailStatMarkup("Likes", metrics.likes, likesNote)}
-        ${detailStatMarkup("Videos", metrics.videos, "Published count")}
+        ${detailStatMarkup(isInstagram ? "Reels" : "Videos", metrics.videos, "Published count")}
       </div>
     </article>
   `;
@@ -726,6 +959,7 @@ function channelInsightMetrics(data, channel, videos) {
       total +
       Math.max(0, numericValue(video.likes) ?? 0) +
       Math.max(0, numericValue(video.comments) ?? 0) +
+      Math.max(0, numericValue(video.saves) ?? 0) +
       Math.max(0, numericValue(video.shares) ?? 0),
     0,
   );
@@ -962,6 +1196,9 @@ function channelSevenDayViews(data, channel) {
   const availablePlatforms = [
     ["youtube", channel.youtube],
     ["tiktok", channel.tiktok],
+    ...(channel.instagramUsername
+      ? [["instagram", channel.instagram]]
+      : []),
   ]
     .filter(([, metric]) => metric?.views != null)
     .map(([platform]) => platform);
@@ -1053,6 +1290,14 @@ function channelPlatformUrl(channel, platform) {
     }
     return "";
   }
+  if (platform === "instagram") {
+    return (
+      channel.instagram?.profileUrl ||
+      (channel.instagramUsername
+        ? `https://www.instagram.com/${channel.instagramUsername.replace(/^@/, "")}/`
+        : "")
+    );
+  }
   return channel.tiktokUsername
     ? `https://www.tiktok.com/@${channel.tiktokUsername}`
     : "";
@@ -1066,6 +1311,9 @@ function connectionCardMarkup(channel) {
       : "";
   const tiktokUrl = channel.tiktokUsername
     ? `https://www.tiktok.com/@${channel.tiktokUsername}`
+    : "";
+  const instagramUrl = channel.instagramUsername
+    ? `https://www.instagram.com/${channel.instagramUsername.replace(/^@/, "")}/`
     : "";
   return `
     <article class="connection-card" style="--channel-accent:${escapeAttribute(channel.accent)}">
@@ -1092,6 +1340,20 @@ function connectionCardMarkup(channel) {
         <span>TikTok connection</span>
         <strong><a href="${escapeAttribute(tiktokSetupUrl)}" target="_blank" rel="noreferrer">Secure setup &#8599;</a></strong>
       </div>
+      ${
+        channel.instagramUsername
+          ? `
+            <div class="connection-field">
+              <span>Instagram account</span>
+              <strong><a href="${escapeAttribute(instagramUrl)}" target="_blank" rel="noreferrer">@${escapeHtml(channel.instagramUsername.replace(/^@/, ""))} &#8599;</a></strong>
+            </div>
+            <div class="connection-field">
+              <span>Instagram analytics</span>
+              <strong>${channel.instagram?.connected ? "Connected through AWS" : "First refresh pending"}</strong>
+            </div>
+          `
+          : ""
+      }
     </article>
   `;
 }
@@ -1198,7 +1460,7 @@ function videoTableMarkup(videos, emptyLabel) {
                       <span>${escapeHtml(video.channelName)}</span>
                     </a>
                   </td>
-                  <td><span class="table-platform ${video.platform}">${video.platform === "youtube" ? "YouTube" : "TikTok"}</span></td>
+                  <td><span class="table-platform ${video.platform}">${platformLabel(video.platform)}</span></td>
                   <td>${formatMetric(video.views)}</td>
                   <td>${formatMetric(video.likes)}</td>
                   <td>${Number(video.engagementRate || 0).toFixed(1)}%</td>
@@ -1219,6 +1481,21 @@ function formatMetric(value) {
     notation: Math.abs(value) >= 10_000 ? "compact" : "standard",
     maximumFractionDigits: 1,
   }).format(value);
+}
+
+function platformLabel(platform) {
+  return {
+    youtube: "YouTube",
+    tiktok: "TikTok",
+    instagram: "Instagram",
+  }[platform] ?? String(platform || "Unknown");
+}
+
+function formatWatchTime(value) {
+  const milliseconds = numericValue(value);
+  if (milliseconds == null) return "\u2014";
+  const seconds = milliseconds / 1000;
+  return `${seconds.toFixed(seconds >= 10 ? 1 : 2)}s`;
 }
 
 function formatDate(value) {

@@ -39,6 +39,7 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           VAULT_PULSE_TIKTOK_API_URL: https://testing-multiplayer-server.onrender.com/vault-pulse/api/tiktok
+          VAULT_PULSE_INSTAGRAM_API_URL: https://instagram-media.sylvasblessing.com/analytics/v1
           VAULT_PULSE_DATA_TOKEN: ${{ secrets.VAULT_PULSE_DATA_TOKEN }}
           TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA: ${{ secrets.TIKTOK_ACCESS_TOKEN_AXOLOTL_DRAMA }}
           TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT: ${{ secrets.TIKTOK_ACCESS_TOKEN_ANIME_COUNTDOWN_VAULT }}
