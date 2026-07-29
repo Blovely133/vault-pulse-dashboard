@@ -22,9 +22,19 @@ The production site is deployed through GitHub Pages:
 - The Action stores a rolling 31-day history in
   `site/data/dashboard.json`.
 - YouTube credentials stay in encrypted GitHub Actions secrets.
-- TikTok OAuth and refresh tokens stay encrypted on the existing Render
-  persistent disk. The Action receives only sanitized analytics through an
-  authenticated Vault Pulse endpoint.
+- TikTok is read directly by the Action from its own encrypted secrets. TikTok
+  does not rotate refresh tokens, so one static `TT_REFRESH_*` secret per
+  account can be reused every run without consuming anything. Each channel
+  records which reader served it as `tiktokSource` in
+  `site/data/dashboard.json`, rolled up in `connections.tiktokSources`.
+- The older Render proxy is still wired in as a fallback for any channel whose
+  direct secrets are missing, and it still hosts the one-time OAuth grant flow
+  that mints the refresh tokens.
+- A TikTok refresh token expires roughly a year after the ORIGINAL grant, and
+  refreshing does not extend it. The Action records the deadline as
+  `tiktokAuthExpiresAt` per channel and raises a `refresh.warnings` entry once
+  it is within 30 days, because renewing it means re-running the OAuth flow by
+  hand.
 - The Instagram token stays on the AWS publisher, where it is refreshed
   automatically. Vault Pulse receives only a cached, token-free Reel analytics
   feed through the existing Cloudflare Tunnel.
@@ -47,18 +57,24 @@ Channel three is preloaded with:
 
 - Display name: `Kids History`
 - YouTube channel ID: `UCUzrKvQc2Yud2WGJcFfl00g`
-- TikTok account: `@sylva6806`
+- TikTok account: `@thearchivelives`
 - Instagram account: `@sylvasblessing`
 
 Add these Actions secrets under **Settings → Secrets and variables → Actions**:
 
 - `YOUTUBE_API_KEY`
-- `VAULT_PULSE_DATA_TOKEN`
+- `TT_CLIENT_KEY`
+- `TT_CLIENT_SECRET`
+- `TT_REFRESH_AXOLOTL2`
+- `TT_REFRESH_ANIMEHYPE41`
+- `TT_REFRESH_THEARCHIVELIVES`
+- `VAULT_PULSE_DATA_TOKEN` (fallback proxy only)
 
 TikTok access needs the `user.info.basic`, `user.info.profile`,
 `user.info.stats`, and `video.list` scopes.
 
-The Render service uses these private environment values:
+The Render service still hosts the OAuth grant flow and uses these private
+environment values:
 
 - `TIKTOK_CLIENT_KEY`
 - `TIKTOK_CLIENT_SECRET`
