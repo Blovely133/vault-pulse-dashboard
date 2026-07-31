@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-07-31T13:45:15.586Z",
-  "generatedAt": "2026-07-31T13:45:15.586Z",
+  "updatedAt": "2026-07-31T14:00:21.020Z",
+  "generatedAt": "2026-07-31T14:00:21.020Z",
   "hasLiveData": true,
   "totals": {
-    "views": 19461,
+    "views": 19463,
     "sevenDayViews": null,
     "audience": 93,
-    "engagementRate": 4.182768811093431
+    "engagementRate": 4.1533180778032035
   },
   "platformTotals": {
     "youtube": 11065,
-    "tiktok": 6935,
-    "instagram": 1461
+    "tiktok": 6936,
+    "instagram": 1462
   },
   "channels": [
     {
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.586Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.020Z"
     },
     {
       "id": 2,
@@ -124,7 +124,7 @@
         "engagementRate": 0.46728971962616817,
         "viewToReachRatio": 1.1261682242990654,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-07-31T13:45:20+00:00"
+        "generatedAt": "2026-07-31T14:00:25+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.3333333333333333
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.586Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.020Z"
     },
     {
       "id": 3,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 5182,
+        "views": 5183,
         "audience": 49,
         "videos": 7,
         "likes": 240,
-        "engagementRate": 5.403319181783095,
+        "engagementRate": 5.402276673741077,
         "source": "direct"
       },
       "instagram": {
@@ -218,7 +218,7 @@
         "engagementRate": 3.2467532467532463,
         "viewToReachRatio": 1.0865800865800865,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-07-31T13:45:22+00:00"
+        "generatedAt": "2026-07-31T14:00:28+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 3.75
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.586Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.020Z"
     },
     {
       "id": 4,
@@ -311,7 +311,7 @@
         "engagementRate": 2.356902356902357,
         "viewToReachRatio": 1.1245791245791246,
         "profileUrl": "https://www.instagram.com/sylvasmysteries/",
-        "generatedAt": "2026-07-31T13:45:24+00:00"
+        "generatedAt": "2026-07-31T14:00:30+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 3.5
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:21.586Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:21.020Z"
     },
     {
       "id": 5,
@@ -390,7 +390,7 @@
       "instagram": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 384,
+        "views": 385,
         "audience": null,
         "videos": 2,
         "likes": 2,
@@ -399,12 +399,12 @@
         "saves": 1,
         "shares": 3,
         "totalInteractions": 7,
-        "averageWatchTimeMs": 12132,
-        "totalWatchTimeMs": 4658583,
+        "averageWatchTimeMs": 12242,
+        "totalWatchTimeMs": 4713187,
         "engagementRate": 2.1604938271604937,
-        "viewToReachRatio": 1.1851851851851851,
+        "viewToReachRatio": 1.1882716049382716,
         "profileUrl": "https://www.instagram.com/fixedfightsshorts/",
-        "generatedAt": "2026-07-31T13:45:27+00:00"
+        "generatedAt": "2026-07-31T14:00:32+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -435,22 +435,37 @@
         "returningViewers": null
       },
       "instagramPerformance": {
-        "views": 384,
+        "views": 385,
         "reach": 324,
         "reels": 2,
         "totalInteractions": 7,
-        "averageWatchTimeMs": 12132,
-        "viewsPerReachedAccount": 1.1851851851851851,
+        "averageWatchTimeMs": 12242,
+        "viewsPerReachedAccount": 1.1882716049382716,
         "engagementPerThousandReach": 21.604938271604937,
         "savesPerThousandReach": 3.0864197530864197,
         "sharesPerThousandReach": 9.25925925925926,
         "interactionsPerReel": 3.5
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:29.586Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:29.020Z"
     }
   ],
   "videos": [
+    {
+      "id": "tiktok:7668425775544159519",
+      "channelId": 3,
+      "channelName": "Kids History",
+      "platform": "tiktok",
+      "title": "Two cats in gloves, a tiny ring, and a very patient trainer. \"The Boxing Cats (Prof. Welton's)\" was shot in about July 1894 inside Edison's Black Maria — a tar-paper shack in West Orange, New Jersey, and the world's first movie studio. The whole building sat on a track so the crew could shove it around to follow the sun. The cats belonged to Professor Henry Welton, who toured a circus of around forty trained cats: bicycles, hoops, somersaults, the lot. The boxing match was the closing act. The reel is about thirty-three feet long — twenty seconds — and people paid a nickel to watch it alone through a peephole in a Kinetoscope cabinet. One hundred and thirty years later, we're still watching cats on a screen. Source: Edison Manufacturing Co., \"The Boxing Cats (Prof. Welton's)\" (1894). Camera: William Heise; produced under W.K.L. Dickson. Public domain, via Wikimedia Commons / Library of Congress. Narration is an AI voice. #history #cats #catvideo #archivalfootage #edison #1894 #vintage #shorts",
+      "url": "https://www.tiktok.com/@thearchivelives/video/7668425775544159519?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
+      "publishedAt": "2026-07-31T14:00:00.000Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 44,
+      "engagementRate": null
+    },
     {
       "id": "instagram:18362790025209824",
       "channelId": 5,
@@ -459,17 +474,17 @@
       "title": "Good Friday, 1915: Manchester United 2-0 Liverpool - exactly as the gamblers ordered, one goal in...",
       "url": "https://www.instagram.com/reel/DbcRsmYgE0P/",
       "publishedAt": "2026-07-31T03:16:06+0000",
-      "views": 96,
+      "views": 97,
       "reach": 84,
       "likes": 0,
       "comments": 0,
       "saves": 0,
       "shares": 0,
       "totalInteractions": 0,
-      "averageWatchTimeMs": 8831,
-      "totalWatchTimeMs": 715352,
+      "averageWatchTimeMs": 9389,
+      "totalWatchTimeMs": 769956,
       "engagementRate": 0,
-      "viewToReachRatio": 1.1428571428571428
+      "viewToReachRatio": 1.1547619047619047
     },
     {
       "id": "youtube:UmHXVDJ4uJo",
@@ -589,12 +604,12 @@
       "title": "The First Cat Video Was Filmed in 1894",
       "url": "https://www.youtube.com/watch?v=f2INVrQ63X8",
       "publishedAt": "2026-07-30T20:58:17Z",
-      "views": 500,
+      "views": 501,
       "likes": 12,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 45,
-      "engagementRate": 3
+      "engagementRate": 2.9940119760479043
     },
     {
       "id": "instagram:18104623468896888",
@@ -919,12 +934,12 @@
       "title": "The Oldest Surviving Footage of New York City",
       "url": "https://www.youtube.com/watch?v=Hz39AJS0ixE",
       "publishedAt": "2026-07-29T14:00:27Z",
-      "views": 930,
+      "views": 929,
       "likes": 56,
       "comments": 4,
       "shares": 0,
       "durationSeconds": 52,
-      "engagementRate": 6.451612903225806
+      "engagementRate": 6.458557588805166
     },
     {
       "id": "tiktok:7666544577871990046",
@@ -1390,21 +1405,6 @@
       "shares": 0,
       "durationSeconds": 50,
       "engagementRate": 4.621435594886923
-    },
-    {
-      "id": "tiktok:7666544278889336094",
-      "channelId": 3,
-      "channelName": "Kids History",
-      "platform": "tiktok",
-      "title": "This Was Filmed 4 Days Before San Francisco Burned A camera bolted to the front of a cable car, hand-cranked all the way down Market Street from Eighth Street to the Ferry Building — San Francisco, April 14, 1906. Four days later, at 5:12 a.m. on April 18, the earthquake struck. The fires that followed burned for three days and destroyed nearly 500 city blocks, including almost everything visible in this shot. #history #sanfrancisco #1906earthquake #archivalfootage #vintage #shorts",
-      "url": "https://www.tiktok.com/@thearchivelives/video/7666544278889336094?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
-      "publishedAt": "2026-07-27T14:00:00.000Z",
-      "views": 59,
-      "likes": 3,
-      "comments": 2,
-      "shares": 0,
-      "durationSeconds": 49,
-      "engagementRate": 8.47457627118644
     }
   ],
   "snapshots": [
@@ -54713,6 +54713,150 @@
       "likes": 2,
       "reach": 324,
       "engagementRate": 2.1604938271604937
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 0,
+      "audience": 2,
+      "videos": 6,
+      "likes": 0,
+      "engagementRate": 0
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": null,
+      "audience": 5,
+      "videos": 0,
+      "likes": 0,
+      "engagementRate": null
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 3202,
+      "audience": 6,
+      "videos": 14,
+      "likes": 94,
+      "engagementRate": 3.2792004996876947
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 1547,
+      "audience": 5,
+      "videos": 14,
+      "likes": 42,
+      "engagementRate": 4.460245636716225
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 241,
+      "audience": null,
+      "videos": 3,
+      "likes": 1,
+      "reach": 214,
+      "engagementRate": 0.46728971962616817
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 7380,
+      "audience": 22,
+      "videos": 10,
+      "likes": 305,
+      "engagementRate": 4.485094850948509
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 5183,
+      "audience": 49,
+      "videos": 7,
+      "likes": 240,
+      "engagementRate": 5.402276673741077
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 502,
+      "audience": null,
+      "videos": 4,
+      "likes": 12,
+      "reach": 462,
+      "engagementRate": 3.2467532467532463
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 425,
+      "audience": 3,
+      "videos": 2,
+      "likes": 10,
+      "engagementRate": 3.294117647058824
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 10,
+      "audience": 2,
+      "videos": 2,
+      "likes": 6,
+      "engagementRate": 100
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 334,
+      "audience": null,
+      "videos": 2,
+      "likes": 5,
+      "reach": 297,
+      "engagementRate": 2.356902356902357
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 58,
+      "audience": 2,
+      "videos": 2,
+      "likes": 4,
+      "engagementRate": 10.344827586206897
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 196,
+      "audience": 2,
+      "videos": 2,
+      "likes": 7,
+      "engagementRate": 5.612244897959184
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-07-31T14:00:21.020Z",
+      "views": 385,
+      "audience": null,
+      "videos": 2,
+      "likes": 2,
+      "reach": 324,
+      "engagementRate": 2.1604938271604937
     }
   ],
   "trend": [
@@ -54798,7 +54942,7 @@
       "date": "2026-07-31",
       "label": "Jul 31",
       "youtube": 11065,
-      "tiktok": 6935
+      "tiktok": 6936
     }
   ],
   "connections": {
@@ -54842,7 +54986,7 @@
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-07-31T13:45:22+00:00",
+    "generatedAt": "2026-07-31T14:00:28+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
@@ -54944,7 +55088,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-07-31T13:45:20+00:00",
+      "generatedAt": "2026-07-31T14:00:25+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -55028,7 +55172,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-07-31T13:45:22+00:00",
+      "generatedAt": "2026-07-31T14:00:28+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -55129,7 +55273,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-07-31T13:45:24+00:00",
+      "generatedAt": "2026-07-31T14:00:30+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -55196,7 +55340,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-07-31T13:45:27+00:00",
+      "generatedAt": "2026-07-31T14:00:32+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -55208,18 +55352,18 @@
         "connected": true
       },
       "totals": {
-        "views": 384,
+        "views": 385,
         "reach": 324,
         "likes": 2,
         "comments": 1,
         "saves": 1,
         "shares": 3,
         "totalInteractions": 7,
-        "totalWatchTimeMs": 4658583,
+        "totalWatchTimeMs": 4713187,
         "reels": 2,
-        "averageWatchTimeMs": 12132,
+        "averageWatchTimeMs": 12242,
         "engagementRate": 2.1604938271604937,
-        "viewToReachRatio": 1.1851851851851851
+        "viewToReachRatio": 1.1882716049382716
       },
       "reels": [
         {
@@ -55227,17 +55371,17 @@
           "title": "Good Friday, 1915: Manchester United 2-0 Liverpool - exactly as the gamblers ordered, one goal in...",
           "url": "https://www.instagram.com/reel/DbcRsmYgE0P/",
           "publishedAt": "2026-07-31T03:16:06+0000",
-          "views": 96,
+          "views": 97,
           "reach": 84,
           "likes": 0,
           "comments": 0,
           "saves": 0,
           "shares": 0,
           "totalInteractions": 0,
-          "averageWatchTimeMs": 8831,
-          "totalWatchTimeMs": 715352,
+          "averageWatchTimeMs": 9389,
+          "totalWatchTimeMs": 769956,
           "engagementRate": 0,
-          "viewToReachRatio": 1.1428571428571428
+          "viewToReachRatio": 1.1547619047619047
         },
         {
           "id": "17900828745334568",
