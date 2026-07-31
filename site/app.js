@@ -981,6 +981,8 @@ const REASON_FALLBACKS = {
     "YouTube Studio only. No API reports this, so it will always show a dash.",
   "no-data-yet":
     "YouTube Analytics has not processed any Shorts data for this channel in the reporting window yet.",
+  "no-shorts-rows":
+    "YouTube Analytics returned data for this window, but none of it was classified as a Short.",
   lagging:
     "YouTube Analytics is processing. Data currently runs through {dataThroughDate}.",
   "not-authorized": "This channel has not connected YouTube Analytics.",
@@ -996,6 +998,7 @@ const REASON_FALLBACKS = {
 const REASON_BADGES = {
   "studio-only": ["Studio only", "studio"],
   "no-data-yet": ["No data yet", "pending"],
+  "no-shorts-rows": ["No Shorts rows", "pending"],
   lagging: ["Processing", "pending"],
   "not-authorized": ["Not connected", "offline"],
   "refresh-error": ["Read failed", "offline"],
@@ -1042,15 +1045,31 @@ function analyticsNetSubscribers(auth) {
   return gained == null || lost == null ? null : gained - lost;
 }
 
-/** True when the API returned nothing at all for this channel. */
+/**
+ * True when there is nothing to plot for this channel. `rowsReturned.totals`
+ * counts rows BEFORE the Shorts filter, so the post-filter counts are what
+ * decide whether any metric can have a value.
+ */
 function analyticsHasNoRows(auth) {
   if (!auth) return true;
+  const shortsTotals = numericValue(auth.rowsReturned?.shortsTotals);
+  const shortsDaily = numericValue(auth.rowsReturned?.shortsDaily);
+  if (shortsTotals != null || shortsDaily != null) {
+    return (shortsTotals ?? 0) === 0 && (shortsDaily ?? 0) === 0;
+  }
   const rows = numericValue(auth.rowsReturned?.totals);
   if (rows != null) return rows === 0;
   if (analyticsDaily(auth).length > 0) return false;
   return ["views", "engagedViews", "averagePercentageViewed"].every(
     (field) => numericValue(auth[field]) == null,
   );
+}
+
+/** Rows came back, but the Shorts filter matched none of them. */
+function analyticsHasNoShortsRows(auth) {
+  const totals = numericValue(auth?.rowsReturned?.totals);
+  const shortsTotals = numericValue(auth?.rowsReturned?.shortsTotals);
+  return totals != null && totals > 0 && shortsTotals === 0;
 }
 
 /**
@@ -1071,6 +1090,7 @@ function reasonCodeFor(auth, field) {
 
   if (auth.authorized === false) return "not-authorized";
   if (auth.connectionLabel === "Refresh error") return "refresh-error";
+  if (analyticsHasNoShortsRows(auth)) return "no-shorts-rows";
   if (analyticsHasNoRows(auth)) return "no-data-yet";
   // Key absent entirely = the collector does not emit it yet. Key present but
   // null while siblings carry values = YouTube has not processed it.
@@ -1645,13 +1665,26 @@ function tripleStatMarkup(label, eyebrow, entries, accent, auth, field) {
 /**
  * Watch hours against the owner's 3,000-hour goal.
  *
- * The caption states the window explicitly: these are Shorts watch hours over
- * the reporting window, NOT the rolling 12-month public watch hours YouTube
- * counts for Partner Program eligibility. Never let the bar imply otherwise.
+ * Prefers the rolling 12-month ladder, which is the window a 3,000-hour goal
+ * is actually denominated in. Falls back to the short reporting window only
+ * when the ladder is absent, and says so, because the two are not comparable
+ * and a 28-day number sitting on a 12-month goal bar would overstate progress.
  */
 function watchHoursGoalMarkup(auth) {
-  const hours = analyticsWatchHours(auth);
-  const minutes = analyticsValue(auth, "estimatedMinutesWatched");
+  const ladder = auth?.watchHoursLadder ?? null;
+  const goal = numericValue(ladder?.goalHours) ?? WATCH_HOURS_GOAL;
+  const ladderHours = numericValue(ladder?.watchHours);
+  const usingLadder = ladderHours != null;
+  const hours = usingLadder ? ladderHours : analyticsWatchHours(auth);
+  const minutes = usingLadder
+    ? numericValue(ladder?.estimatedMinutesWatched)
+    : analyticsValue(auth, "estimatedMinutesWatched");
+  const windowDays = numericValue(ladder?.windowDays);
+  const basis = usingLadder
+    ? windowDays === 365 || windowDays == null
+      ? "Rolling 12 months"
+      : `Rolling ${formatMetric(windowDays)} days`
+    : "Reporting window only";
 
   if (hours == null) {
     const code = reasonCodeFor(auth, "watchHours");
@@ -1661,7 +1694,7 @@ function watchHoursGoalMarkup(auth) {
         <div class="watch-goal-head">
           <div>
             <p class="kicker">Watch hours</p>
-            <h3>—<small> / ${formatMetric(WATCH_HOURS_GOAL)} hour goal</small></h3>
+            <h3>—<small> / ${formatMetric(goal)} hour goal</small></h3>
           </div>
           <span class="reason-badge tone-${escapeAttribute(tone)}">${escapeHtml(badgeLabel)}</span>
         </div>
@@ -1671,23 +1704,29 @@ function watchHoursGoalMarkup(auth) {
     `;
   }
 
-  const pct = Math.max(0, Math.min(100, (hours / WATCH_HOURS_GOAL) * 100));
-  const remaining = Math.max(0, WATCH_HOURS_GOAL - hours);
+  const pct =
+    numericValue(ladder?.progressPercent) ?? (hours / goal) * 100;
+  const clamped = Math.max(0, Math.min(100, pct));
+  const remaining =
+    numericValue(ladder?.remainingHours) ?? Math.max(0, goal - hours);
   return `
     <article class="watch-goal">
       <div class="watch-goal-head">
         <div>
-          <p class="kicker">Watch hours</p>
-          <h3>${escapeHtml(formatHours(hours))}<small> / ${formatMetric(WATCH_HOURS_GOAL)} hour goal</small></h3>
+          <p class="kicker">Watch hours &middot; ${escapeHtml(basis)}</p>
+          <h3>${escapeHtml(formatHours(hours))}<small> / ${formatMetric(goal)} hour goal</small></h3>
         </div>
-        <span class="watch-goal-pct">${pct < 0.1 && pct > 0 ? "&lt;0.1" : pct.toFixed(1)}%</span>
+        <span class="watch-goal-pct">${clamped < 0.1 && clamped > 0 ? "&lt;0.1" : clamped.toFixed(1)}%</span>
       </div>
-      <div class="watch-goal-bar"><i style="width:${pct.toFixed(2)}%"></i></div>
+      <div class="watch-goal-bar"><i style="width:${clamped.toFixed(2)}%"></i></div>
       <p class="watch-goal-note">
         ${escapeHtml(formatHours(remaining))} hours to go.
         ${minutes == null ? "" : `${escapeHtml(formatMetric(minutes))} minutes watched.`}
-        Shorts watch time in this reporting window only &mdash; not the rolling
-        12-month total YouTube counts for Partner Program eligibility.
+        ${
+          usingLadder
+            ? "Shorts watch time over the last 12 months. YouTube's Partner Program watch-hour threshold counts long-form public watch time; Shorts qualify through the separate views route."
+            : "Shorts watch time in the short reporting window above, not a 12-month total &mdash; progress against an annual goal will read low."
+        }
       </p>
     </article>
   `;
@@ -1740,6 +1779,7 @@ function analyticsStatePanelMarkup(auth) {
   const [badgeLabel, tone] = reasonBadge(code);
   const heading = {
     "no-data-yet": "No analytics processed yet",
+    "no-shorts-rows": "No Shorts in this window",
     lagging: "YouTube is still processing",
     "not-authorized": "YouTube Analytics not connected",
     "refresh-error": "The last analytics read failed",
