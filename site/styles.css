@@ -2330,3 +2330,302 @@ td a span {
     padding: 24px 14px;
   }
 }
+
+/* ------------------------------------------------------------------ *
+ * Authorized YouTube Analytics
+ *
+ * Three visually distinct unavailable states, so a permanent Studio-only
+ * gap never looks like a temporary processing delay or a broken connection:
+ *   tone-studio   slate   permanent, no API source, nothing to fix
+ *   tone-pending  amber   temporary, YouTube has not processed it yet
+ *   tone-offline  coral   actionable, not connected or the read failed
+ *   tone-neutral  dim     not collected by this dashboard yet
+ * ------------------------------------------------------------------ */
+
+.reason-badge {
+  display: inline-block;
+  margin-right: 6px;
+  border: 1px solid currentcolor;
+  border-radius: 5px;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.4rem;
+  font-weight: 850;
+  letter-spacing: 0.07em;
+  padding: 3px 5px;
+  text-transform: uppercase;
+  vertical-align: 1px;
+  white-space: nowrap;
+}
+
+.reason-badge.tone-studio {
+  border-color: rgb(152 164 180 / 34%);
+  background: rgb(152 164 180 / 10%);
+  color: var(--muted);
+}
+
+.reason-badge.tone-pending {
+  border-color: rgb(220 183 92 / 38%);
+  background: rgb(220 183 92 / 11%);
+  color: #dcb75c;
+}
+
+.reason-badge.tone-offline {
+  border-color: rgb(255 61 98 / 34%);
+  background: rgb(255 61 98 / 10%);
+  color: var(--coral);
+}
+
+.reason-badge.tone-neutral {
+  border-color: rgb(103 114 130 / 40%);
+  background: rgb(103 114 130 / 10%);
+  color: var(--dim);
+}
+
+.insight-card.is-unavailable,
+.feed-decision-card.is-unavailable {
+  background: linear-gradient(145deg, rgb(255 255 255 / 2%), transparent),
+    var(--panel);
+}
+
+.insight-card.is-unavailable > strong {
+  color: var(--dim);
+}
+
+.insight-card.is-unavailable .insight-card-heading > i {
+  opacity: 0.28;
+}
+
+.insight-card.tone-pending .insight-card-heading > i {
+  color: #dcb75c;
+  opacity: 0.75;
+}
+
+.insight-card.tone-offline .insight-card-heading > i {
+  color: var(--coral);
+  opacity: 0.75;
+}
+
+.unavailable-reason {
+  margin: 11px 0 0;
+  color: var(--dim);
+  font-size: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Watch-hours goal ------------------------------------------------- */
+
+.watch-goal {
+  display: block;
+  margin-bottom: 12px;
+  border: 1px solid rgb(91 231 196 / 22%);
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgb(91 231 196 / 7%), rgb(255 255 255 / 2%)),
+    var(--panel);
+  padding: 18px;
+}
+
+.watch-goal.is-unavailable {
+  border-color: var(--line);
+  background: linear-gradient(145deg, rgb(255 255 255 / 2%), transparent),
+    var(--panel);
+}
+
+.watch-goal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.watch-goal-head h3 {
+  margin: 6px 0 0;
+  color: white;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+}
+
+.watch-goal-head h3 small {
+  color: var(--dim);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.watch-goal.is-unavailable .watch-goal-head h3 {
+  color: var(--dim);
+}
+
+.watch-goal-pct {
+  flex: 0 0 auto;
+  border: 1px solid rgb(91 231 196 / 30%);
+  border-radius: 7px;
+  background: rgb(91 231 196 / 10%);
+  color: var(--mint);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.55rem;
+  font-weight: 850;
+  padding: 6px 8px;
+}
+
+.watch-goal-bar {
+  position: relative;
+  overflow: hidden;
+  height: 9px;
+  margin-top: 16px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 7%);
+}
+
+.watch-goal-bar i {
+  display: block;
+  min-width: 3px;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--mint), var(--blue));
+  box-shadow: 0 0 14px rgb(91 231 196 / 45%);
+}
+
+.watch-goal-bar.is-empty {
+  background: repeating-linear-gradient(
+    -45deg,
+    rgb(255 255 255 / 6%) 0 6px,
+    transparent 6px 12px
+  );
+}
+
+.watch-goal-note {
+  margin: 12px 0 0;
+  color: var(--dim);
+  font-size: 0.52rem;
+  line-height: 1.6;
+}
+
+/* Freshness line --------------------------------------------------- */
+
+.freshness-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 0 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgb(255 255 255 / 2.5%);
+  color: var(--muted);
+  font-size: 0.53rem;
+  line-height: 1.6;
+  padding: 10px 12px;
+}
+
+.freshness-line strong {
+  color: var(--ink);
+}
+
+.freshness-line i {
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 9px rgb(91 231 196 / 50%);
+}
+
+.freshness-line.is-lagging {
+  border-color: rgb(220 183 92 / 26%);
+  background: rgb(220 183 92 / 6%);
+}
+
+.freshness-line.is-lagging i {
+  background: #dcb75c;
+  box-shadow: 0 0 9px rgb(220 183 92 / 50%);
+}
+
+/* Whole-channel state panel ---------------------------------------- */
+
+.analytics-state {
+  border: 1px dashed var(--line);
+  border-radius: 14px;
+  background: rgb(255 255 255 / 2%);
+  padding: 22px;
+  text-align: left;
+}
+
+.analytics-state.tone-pending {
+  border-color: rgb(220 183 92 / 28%);
+  background: rgb(220 183 92 / 5%);
+}
+
+.analytics-state.tone-offline {
+  border-color: rgb(255 61 98 / 26%);
+  background: rgb(255 61 98 / 5%);
+}
+
+.analytics-state h3 {
+  margin: 12px 0 0;
+  color: var(--ink);
+  font-size: 0.95rem;
+  letter-spacing: -0.02em;
+}
+
+.analytics-state p {
+  max-width: 62ch;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.55rem;
+  line-height: 1.65;
+}
+
+.analytics-state-extra {
+  color: var(--dim) !important;
+}
+
+/* Triple stat card ------------------------------------------------- */
+
+.triple-stat-values {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.triple-stat-values > div + div {
+  border-left: 1px solid var(--line);
+  padding-left: 10px;
+}
+
+.triple-stat-values strong {
+  display: block;
+  color: white;
+  font-size: clamp(0.95rem, 2vw, 1.25rem);
+  letter-spacing: -0.035em;
+}
+
+.triple-stat-values span {
+  display: block;
+  margin-top: 5px;
+  color: var(--dim);
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 650px) {
+  .watch-goal-head {
+    display: block;
+  }
+
+  .watch-goal-pct {
+    display: inline-block;
+    margin-top: 12px;
+  }
+
+  .analytics-state {
+    padding: 18px;
+  }
+
+  .reason-badge {
+    margin-bottom: 4px;
+  }
+}

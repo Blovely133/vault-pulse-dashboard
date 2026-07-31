@@ -2,6 +2,8 @@ const state = {
   tab: "overview",
   selectedChannelSlug: null,
   data: null,
+  authorized: null,
+  authorizedLoadFailed: false,
 };
 
 const autoRefreshIntervalMs = 5 * 60 * 1000;
@@ -57,16 +59,37 @@ async function loadData() {
   if (dataLoadPromise) return dataLoadPromise;
 
   dataLoadPromise = (async () => {
-    const response = await fetch(`./data/dashboard.json?t=${Date.now()}`, {
-      cache: "no-store",
-    });
-    if (!response.ok) {
-      throw new Error(`Dashboard data returned ${response.status}`);
-    }
+    // dashboard.json is mandatory. authorized-analytics.json is best-effort:
+    // it is artifact-only (never committed), so it can legitimately 404 or be
+    // mid-write. It must never be able to blank the dashboard.
+    const [nextData, nextAuthorized] = await Promise.all([
+      fetch(`./data/dashboard.json?t=${Date.now()}`, {
+        cache: "no-store",
+      }).then((response) => {
+        if (!response.ok) {
+          throw new Error(`Dashboard data returned ${response.status}`);
+        }
+        return response.json();
+      }),
+      fetch(`./data/authorized-analytics.json?t=${Date.now()}`, {
+        cache: "no-store",
+      })
+        .then((response) => (response.ok ? response.json() : null))
+        .catch(() => null),
+    ]);
 
-    const nextData = await response.json();
     lastDataCheckAt = Date.now();
-    if (state.data?.generatedAt === nextData.generatedAt) return;
+
+    const authorizedChanged =
+      state.authorized?.generatedAt !== nextAuthorized?.generatedAt;
+    state.authorized = nextAuthorized;
+    state.authorizedLoadFailed = nextAuthorized == null;
+
+    // Repaint when EITHER file moved. A run that only advanced the analytics
+    // file must still repaint, so this check comes after state.authorized.
+    if (state.data?.generatedAt === nextData.generatedAt && !authorizedChanged) {
+      return;
+    }
 
     state.data = nextData;
     updateShell();
@@ -641,7 +664,8 @@ function channelDetailMarkup(data, channel) {
   const channelVideos = data.videos.filter(
     (video) => video.channelId === channel.id,
   );
-  const insights = channelInsightMetrics(data, channel, channelVideos);
+  const auth = authorizedAnalytics(channel);
+  const insights = channelInsightMetrics(data, channel, channelVideos, auth);
   const totalViews = totalPlatformMetric(metrics, "views");
   const totalAudience = totalPlatformMetric(metrics, "audience");
   const totalLikes = totalPlatformMetric(metrics, "likes");
@@ -689,70 +713,57 @@ function channelDetailMarkup(data, channel) {
           .join("")}
       </section>
 
+      ${youtubeAnalyticsSectionMarkup(channel, auth)}
+
       <section class="insight-section" aria-labelledby="shorts-performance-heading">
         <div class="section-heading">
           <div>
             <p class="kicker">Shorts performance</p>
             <h2 id="shorts-performance-heading">Attention and audience quality</h2>
           </div>
-          <span class="timezone">YouTube Studio metrics</span>
+          <span class="timezone">Studio-only fields</span>
         </div>
         <div class="insight-grid">
-          ${feedDecisionMarkup(insights.choseToViewRate, insights.swipeAwayRate)}
-          ${insightMetricMarkup(
-            "Average % viewed",
-            formatPercent(insights.averagePercentageViewed),
-            "Completion",
-            metricAvailabilityNote(
-              insights.averagePercentageViewed,
-              "Average watched per Short",
-            ),
-            "violet",
-          )}
-          ${insightMetricMarkup(
-            "Subs / 1K engaged",
-            formatPerThousand(insights.subscribersPerThousandEngagedViews),
-            "Conversion",
-            metricAvailabilityNote(
-              insights.subscribersPerThousandEngagedViews,
-              "Subscribers gained per 1,000 engaged views",
-            ),
-            "mint",
-          )}
-          ${insightMetricMarkup(
-            "Engagement / 1K",
-            formatPerThousand(insights.engagementPerThousandViews),
-            "Interaction",
-            "Likes, comments, and shares per 1,000 views",
-            "coral",
-          )}
-          ${insightMetricMarkup(
-            "First 24h vs baseline",
-            formatSignedPercent(insights.twentyFourHourVsBaseline),
-            "Velocity",
-            metricAvailabilityNote(
-              insights.twentyFourHourVsBaseline,
-              "First-day views against channel baseline",
-            ),
-            "blue",
-          )}
-          ${insightMetricMarkup(
-            "Returning viewers",
-            formatMetric(insights.returningViewers),
-            "Loyalty",
-            metricAvailabilityNote(
-              insights.returningViewers,
-              "People who came back in the selected period",
-            ),
-            "violet",
-          )}
+          ${feedDecisionMarkup(insights.choseToViewRate, insights.swipeAwayRate, auth)}
+          ${authorizedMetricMarkup({
+            label: "Engagement / 1K",
+            eyebrow: "Interaction",
+            field: "likes",
+            value:
+              insights.engagementPerThousandViews == null
+                ? null
+                : formatPerThousand(insights.engagementPerThousandViews),
+            note: "Likes, comments, and shares per 1,000 views",
+            accent: "coral",
+            auth,
+          })}
+          ${authorizedMetricMarkup({
+            label: "First 24h vs baseline",
+            eyebrow: "Velocity",
+            field: "twentyFourHourVsBaseline",
+            value:
+              insights.twentyFourHourVsBaseline == null
+                ? null
+                : formatSignedPercent(insights.twentyFourHourVsBaseline),
+            note: "First-day views against channel baseline",
+            accent: "blue",
+            auth,
+          })}
+          ${authorizedMetricMarkup({
+            label: "Returning viewers",
+            eyebrow: "Loyalty",
+            field: "returningViewers",
+            value:
+              insights.returningViewers == null
+                ? null
+                : formatMetric(insights.returningViewers),
+            note: "People who came back in the selected period",
+            accent: "violet",
+            auth,
+          })}
         </div>
         ${analyticsColumnsMarkup(insights)}
-        ${
-          insights.privateAnalyticsComplete
-            ? ""
-            : `<p class="data-note"><i aria-hidden="true"></i>Public channel data is live. Chose-to-view, swipe-away, completion, subscriber conversion, 24-hour velocity, and returning viewers need a private YouTube Analytics connection.</p>`
-        }
+        <p class="data-note"><i aria-hidden="true"></i>Chose-to-view, swiped away, and returning viewers exist only in the YouTube Studio interface &mdash; no API reports them, so they stay blank here rather than being guessed at.</p>
       </section>
 
       ${
@@ -940,7 +951,225 @@ function detailStatMarkup(label, value, note) {
   `;
 }
 
-function channelInsightMetrics(data, channel, videos) {
+/* ------------------------------------------------------------------ *
+ * Authorized (OAuth) YouTube Analytics
+ *
+ * Lives in its own file, site/data/authorized-analytics.json, and is joined
+ * client-side. It is deliberately NOT merged into dashboard.json, which is
+ * committed to public git history every 15 minutes.
+ *
+ * Every field here is `number | null`, and null NEVER means zero. Each null
+ * is paired with a reason code so a dash always explains itself.
+ * ------------------------------------------------------------------ */
+
+const WATCH_HOURS_GOAL = 3000;
+
+// No API in youtubeAnalytics v2 reports these. They are Studio-only and must
+// render as a dash forever. They are never estimated or derived.
+const STUDIO_ONLY_FIELDS = new Set([
+  "choseToViewRate",
+  "swipeAwayRate",
+  "returningViewers",
+  "impressions",
+  "impressionsClickThroughRate",
+]);
+
+const NOT_COLLECTED_FIELDS = new Set(["twentyFourHourVsBaseline"]);
+
+const REASON_FALLBACKS = {
+  "studio-only":
+    "YouTube Studio only. No API reports this, so it will always show a dash.",
+  "no-data-yet":
+    "YouTube Analytics has not processed any Shorts data for this channel in the reporting window yet.",
+  lagging:
+    "YouTube Analytics is processing. Data currently runs through {dataThroughDate}.",
+  "not-authorized": "This channel has not connected YouTube Analytics.",
+  "refresh-error":
+    "The last analytics read failed. It will retry on the next refresh.",
+  "not-collected": "Not collected yet.",
+  "feed-unavailable":
+    "The private analytics feed could not be loaded on this visit.",
+};
+
+// Short badge text so the three states are visibly different, not just
+// different sentences buried in small print.
+const REASON_BADGES = {
+  "studio-only": ["Studio only", "studio"],
+  "no-data-yet": ["No data yet", "pending"],
+  lagging: ["Processing", "pending"],
+  "not-authorized": ["Not connected", "offline"],
+  "refresh-error": ["Read failed", "offline"],
+  "not-collected": ["Not collected", "neutral"],
+  "feed-unavailable": ["Feed offline", "offline"],
+};
+
+function authorizedFor(channel) {
+  const channels = state.authorized?.channels;
+  if (!Array.isArray(channels) || !channel) return null;
+  return (
+    channels.find((entry) => entry?.channelId === channel.id) ??
+    channels.find((entry) => entry?.slug === channel.slug) ??
+    null
+  );
+}
+
+function authorizedAnalytics(channel) {
+  return authorizedFor(channel)?.analytics ?? null;
+}
+
+/** Value of an authorized metric, or null. Absent key and null both -> null. */
+function analyticsValue(auth, field) {
+  if (!auth) return null;
+  return numericValue(auth[field]);
+}
+
+/** Watch hours, preferring the emitted value over the minutes conversion. */
+function analyticsWatchHours(auth) {
+  if (!auth) return null;
+  const hours = numericValue(auth.watchHours);
+  if (hours != null) return hours;
+  const minutes = numericValue(auth.estimatedMinutesWatched);
+  return minutes == null ? null : minutes / 60;
+}
+
+/** Net subscribers, preferring the emitted value over gained - lost. */
+function analyticsNetSubscribers(auth) {
+  if (!auth) return null;
+  const net = numericValue(auth.subscribersNet);
+  if (net != null) return net;
+  const gained = numericValue(auth.subscribersGained);
+  const lost = numericValue(auth.subscribersLost);
+  return gained == null || lost == null ? null : gained - lost;
+}
+
+/** True when the API returned nothing at all for this channel. */
+function analyticsHasNoRows(auth) {
+  if (!auth) return true;
+  const rows = numericValue(auth.rowsReturned?.totals);
+  if (rows != null) return rows === 0;
+  if (analyticsDaily(auth).length > 0) return false;
+  return ["views", "engagedViews", "averagePercentageViewed"].every(
+    (field) => numericValue(auth[field]) == null,
+  );
+}
+
+/**
+ * Why a metric is a dash. Prefers the server-emitted `unavailable` map, and
+ * falls back to the documented assignment rules so the UI is honest even
+ * before the data layer starts emitting reason codes.
+ */
+function reasonCodeFor(auth, field) {
+  // These two are properties of the metric itself, not of the connection, so
+  // they hold whatever the feed is doing.
+  if (STUDIO_ONLY_FIELDS.has(field)) return "studio-only";
+  if (NOT_COLLECTED_FIELDS.has(field)) return "not-collected";
+  if (state.authorizedLoadFailed) return "feed-unavailable";
+  if (!auth) return "not-authorized";
+
+  const emitted = auth.unavailable?.[field];
+  if (typeof emitted === "string" && emitted) return emitted;
+
+  if (auth.authorized === false) return "not-authorized";
+  if (auth.connectionLabel === "Refresh error") return "refresh-error";
+  if (analyticsHasNoRows(auth)) return "no-data-yet";
+  // Key absent entirely = the collector does not emit it yet. Key present but
+  // null while siblings carry values = YouTube has not processed it.
+  return field in auth ? "lagging" : "not-collected";
+}
+
+function reasonSentence(code) {
+  const sentence = state.authorized?.reasons?.[code] ?? REASON_FALLBACKS[code];
+  if (!sentence) return "Not available.";
+  return String(sentence).replaceAll(
+    "{dataThroughDate}",
+    formatDayLabel(networkDataThroughDate()) || "an earlier date",
+  );
+}
+
+function reasonBadge(code) {
+  return REASON_BADGES[code] ?? ["Unavailable", "neutral"];
+}
+
+/** Daily rows for one channel, guarding against a malformed feed. */
+function analyticsDaily(auth) {
+  return Array.isArray(auth?.daily) ? auth.daily : [];
+}
+
+/** Latest day actually returned, across every channel. */
+function networkDataThroughDate() {
+  const emitted = state.authorized?.dataThroughDate;
+  if (emitted) return emitted;
+  const channels = Array.isArray(state.authorized?.channels)
+    ? state.authorized.channels
+    : [];
+  const days = channels
+    .flatMap((entry) => analyticsDaily(entry?.analytics))
+    .map((row) => row?.date)
+    .filter(Boolean);
+  return days.length ? days.sort().at(-1) : null;
+}
+
+/** Latest day returned for one channel, which may trail the network. */
+function channelDataThroughDate(auth) {
+  const days = analyticsDaily(auth)
+    .map((row) => row?.date)
+    .filter(Boolean);
+  return days.length ? days.sort().at(-1) : null;
+}
+
+/** Whole days between two YYYY-MM-DD strings. */
+function daysBetween(fromDay, toDay) {
+  const from = parseDayValue(fromDay);
+  const to = parseDayValue(toDay);
+  if (!from || !to) return null;
+  return Math.round((to.getTime() - from.getTime()) / 86_400_000);
+}
+
+/** Parse YYYY-MM-DD as a LOCAL date. `new Date("2026-07-28")` is UTC and
+ *  renders as the 27th in every US timezone, which would misreport freshness. */
+function parseDayValue(value) {
+  if (!value) return null;
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(value).trim());
+  if (!match) {
+    const loose = new Date(value);
+    return Number.isNaN(loose.getTime()) ? null : loose;
+  }
+  const parsed = new Date(
+    Number(match[1]),
+    Number(match[2]) - 1,
+    Number(match[3]),
+  );
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+function formatDayLabel(value) {
+  const parsed = parseDayValue(value);
+  if (!parsed) return "";
+  return parsed.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+}
+
+function formatDuration(seconds) {
+  const parsed = numericValue(seconds);
+  if (parsed == null) return "—";
+  if (parsed < 60) return `${parsed.toFixed(parsed < 10 ? 1 : 0)}s`;
+  const minutes = Math.floor(parsed / 60);
+  const rest = Math.round(parsed % 60);
+  return `${minutes}m ${String(rest).padStart(2, "0")}s`;
+}
+
+function formatHours(value) {
+  const parsed = numericValue(value);
+  if (parsed == null) return "—";
+  if (parsed >= 1000) return formatMetric(Math.round(parsed));
+  return new Intl.NumberFormat("en-US", {
+    maximumFractionDigits: parsed < 100 ? 1 : 0,
+  }).format(parsed);
+}
+
+function channelInsightMetrics(data, channel, videos, auth) {
   const shorts = channel.shortsAnalytics ?? {};
   const publishing = channel.publishing ?? {};
   const reportMetrics = channel.reportMetrics ?? {};
@@ -955,13 +1184,21 @@ function channelInsightMetrics(data, channel, videos) {
     (choseToViewRate == null
       ? null
       : Math.max(0, Math.min(100, 100 - choseToViewRate)));
-  const engagedViews = numericValue(shorts.engagedViews);
-  const subscribersGained = numericValue(shorts.subscribersGained);
+  // Authorized (live, OAuth) values win over reportMetrics/shortsAnalytics,
+  // which are hand-typed override stubs in dashboard.json.
+  const engagedViews =
+    analyticsValue(auth, "engagedViews") ?? numericValue(shorts.engagedViews);
+  const subscribersGained =
+    analyticsValue(auth, "subscribersGained") ??
+    numericValue(shorts.subscribersGained);
   const completionRate = percentValue(
-    reportMetrics.completionRate ?? shorts.averagePercentageViewed,
+    auth?.averagePercentageViewed ??
+      reportMetrics.completionRate ??
+      shorts.averagePercentageViewed,
     false,
   );
   const conversionPerThousand =
+    analyticsValue(auth, "subscribersPerThousandEngagedViews") ??
     numericValue(reportMetrics.conversionPerThousand) ??
     numericValue(shorts.subscribersPerThousandEngagedViews) ??
     (engagedViews > 0 && subscribersGained != null
@@ -1010,24 +1247,32 @@ function channelInsightMetrics(data, channel, videos) {
     0,
   );
 
+  // Shorts engagement per 1K, preferring the authorized Shorts-only counts
+  // over the public per-video roll-up when the API supplies them.
+  const authViews = analyticsValue(auth, "views");
+  const authInteractions = ["likes", "comments", "shares"]
+    .map((field) => analyticsValue(auth, field))
+    .filter((value) => value != null);
+  const authEngagementPerThousand =
+    authViews > 0 && authInteractions.length
+      ? (authInteractions.reduce((total, value) => total + value, 0) /
+          authViews) *
+        1000
+      : null;
+
   return {
-    privateAnalyticsComplete: [
-      choseToViewRate,
-      swipeAwayRate,
-      completionRate,
-      conversionPerThousand,
-      velocityRate,
-      returningViewers,
-    ].every((value) => numericValue(value) != null),
     sevenDayViews: channelSevenDayViews(data, channel),
     choseToViewRate,
     swipeAwayRate,
     averagePercentageViewed: completionRate,
     subscribersPerThousandEngagedViews: conversionPerThousand,
     engagementPerThousandViews:
-      recentViews > 0 ? (recentInteractions / recentViews) * 1000 : null,
+      authEngagementPerThousand ??
+      (recentViews > 0 ? (recentInteractions / recentViews) * 1000 : null),
     twentyFourHourVsBaseline: velocityRate,
     returningViewers,
+    engagedViews,
+    subscribersGained,
     scheduleRunway: scheduleRunway(
       publishing.scheduledThrough,
       data.updatedAt ?? data.generatedAt,
@@ -1056,7 +1301,9 @@ function analyticsColumnsMarkup(insights) {
     [
       "Swiped away",
       formatPercent(insights.swipeAwayRate),
-      "Shorts feed decision",
+      insights.swipeAwayRate == null
+        ? "Studio only — no API source"
+        : "Shorts feed decision",
     ],
     [
       "Completion",
@@ -1071,12 +1318,16 @@ function analyticsColumnsMarkup(insights) {
     [
       "Velocity",
       formatSignedPercent(insights.twentyFourHourVsBaseline),
-      "First 24h vs baseline",
+      insights.twentyFourHourVsBaseline == null
+        ? "Not collected"
+        : "First 24h vs baseline",
     ],
     [
       "Returning viewers",
       formatMetric(insights.returningViewers),
-      "Selected report period",
+      insights.returningViewers == null
+        ? "Studio only — no API source"
+        : "Selected report period",
     ],
   ];
 
@@ -1270,10 +1521,18 @@ function ratePerThousand(value, denominator) {
     : null;
 }
 
-function feedDecisionMarkup(choseToViewRate, swipeAwayRate) {
+function feedDecisionMarkup(choseToViewRate, swipeAwayRate, auth) {
   const hasData = choseToViewRate != null && swipeAwayRate != null;
+  // Chose-to-view has no API source: it is not engagedViews/views (wrong
+  // denominator) and not 100 minus anything the API returns. Unless a human
+  // typed it in from Studio, it stays a dash.
+  const code = hasData ? null : reasonCodeFor(auth, "choseToViewRate");
+  const [badgeLabel, tone] = hasData ? [null, null] : reasonBadge(code);
+  const sentence = hasData
+    ? "Swipe-away is 100% minus chose-to-view."
+    : reasonSentence(code);
   return `
-    <article class="feed-decision-card">
+    <article class="feed-decision-card${hasData ? "" : ` is-unavailable tone-${escapeAttribute(tone)}`}" title="${escapeAttribute(sentence)}">
       <div class="insight-card-heading">
         <div>
           <span>Shorts feed decision</span>
@@ -1294,12 +1553,333 @@ function feedDecisionMarkup(choseToViewRate, swipeAwayRate) {
       <div class="feed-decision-bar${hasData ? "" : " is-empty"}" aria-label="${
         hasData
           ? `${formatPercent(choseToViewRate)} chose to view and ${formatPercent(swipeAwayRate)} swiped away`
-          : "YouTube Analytics connection needed"
+          : "Not available: YouTube Studio only"
       }">
         <i style="width:${hasData ? choseToViewRate : 50}%"></i>
       </div>
-      <p>${hasData ? "Swipe-away is 100% minus chose-to-view." : "YouTube Analytics access needed"}</p>
+      <p>
+        ${hasData ? "" : `<span class="reason-badge tone-${escapeAttribute(tone)}">${escapeHtml(badgeLabel)}</span>`}
+        ${escapeHtml(sentence)}
+      </p>
     </article>
+  `;
+}
+
+/**
+ * One authorized metric. When the value is present it renders normally; when
+ * it is null it renders a dash plus a visible state badge and the reason, so
+ * "no API for this" never looks like "no data yet" or "not connected".
+ */
+function authorizedMetricMarkup({
+  label,
+  eyebrow,
+  field,
+  value,
+  note,
+  accent,
+  auth,
+}) {
+  if (value != null) {
+    return insightMetricMarkup(label, value, eyebrow, note, accent);
+  }
+  const code = reasonCodeFor(auth, field);
+  const [badgeLabel, tone] = reasonBadge(code);
+  const sentence = reasonSentence(code);
+  return `
+    <article class="insight-card ${accent} is-unavailable tone-${escapeAttribute(tone)}" title="${escapeAttribute(sentence)}">
+      <div class="insight-card-heading">
+        <div>
+          <span>${escapeHtml(label)}</span>
+          <small>${escapeHtml(eyebrow)}</small>
+        </div>
+        <i aria-hidden="true"></i>
+      </div>
+      <strong aria-label="Not available">—</strong>
+      <p class="unavailable-reason">
+        <span class="reason-badge tone-${escapeAttribute(tone)}">${escapeHtml(badgeLabel)}</span>
+        ${escapeHtml(sentence)}
+      </p>
+    </article>
+  `;
+}
+
+/** A single card carrying three related counts (likes / comments / shares). */
+function tripleStatMarkup(label, eyebrow, entries, accent, auth, field) {
+  const known = entries.filter(([, value]) => value != null);
+  if (!known.length) {
+    return authorizedMetricMarkup({
+      label,
+      eyebrow,
+      field,
+      value: null,
+      note: "",
+      accent,
+      auth,
+    });
+  }
+  return `
+    <article class="insight-card ${accent} triple-stat">
+      <div class="insight-card-heading">
+        <div>
+          <span>${escapeHtml(label)}</span>
+          <small>${escapeHtml(eyebrow)}</small>
+        </div>
+        <i aria-hidden="true"></i>
+      </div>
+      <div class="triple-stat-values">
+        ${entries
+          .map(
+            ([name, value]) => `
+              <div>
+                <strong>${escapeHtml(formatMetric(value))}</strong>
+                <span>${escapeHtml(name)}</span>
+              </div>
+            `,
+          )
+          .join("")}
+      </div>
+    </article>
+  `;
+}
+
+/**
+ * Watch hours against the owner's 3,000-hour goal.
+ *
+ * The caption states the window explicitly: these are Shorts watch hours over
+ * the reporting window, NOT the rolling 12-month public watch hours YouTube
+ * counts for Partner Program eligibility. Never let the bar imply otherwise.
+ */
+function watchHoursGoalMarkup(auth) {
+  const hours = analyticsWatchHours(auth);
+  const minutes = analyticsValue(auth, "estimatedMinutesWatched");
+
+  if (hours == null) {
+    const code = reasonCodeFor(auth, "watchHours");
+    const [badgeLabel, tone] = reasonBadge(code);
+    return `
+      <article class="watch-goal is-unavailable tone-${escapeAttribute(tone)}">
+        <div class="watch-goal-head">
+          <div>
+            <p class="kicker">Watch hours</p>
+            <h3>—<small> / ${formatMetric(WATCH_HOURS_GOAL)} hour goal</small></h3>
+          </div>
+          <span class="reason-badge tone-${escapeAttribute(tone)}">${escapeHtml(badgeLabel)}</span>
+        </div>
+        <div class="watch-goal-bar is-empty"><i style="width:0%"></i></div>
+        <p class="watch-goal-note">${escapeHtml(reasonSentence(code))}</p>
+      </article>
+    `;
+  }
+
+  const pct = Math.max(0, Math.min(100, (hours / WATCH_HOURS_GOAL) * 100));
+  const remaining = Math.max(0, WATCH_HOURS_GOAL - hours);
+  return `
+    <article class="watch-goal">
+      <div class="watch-goal-head">
+        <div>
+          <p class="kicker">Watch hours</p>
+          <h3>${escapeHtml(formatHours(hours))}<small> / ${formatMetric(WATCH_HOURS_GOAL)} hour goal</small></h3>
+        </div>
+        <span class="watch-goal-pct">${pct < 0.1 && pct > 0 ? "&lt;0.1" : pct.toFixed(1)}%</span>
+      </div>
+      <div class="watch-goal-bar"><i style="width:${pct.toFixed(2)}%"></i></div>
+      <p class="watch-goal-note">
+        ${escapeHtml(formatHours(remaining))} hours to go.
+        ${minutes == null ? "" : `${escapeHtml(formatMetric(minutes))} minutes watched.`}
+        Shorts watch time in this reporting window only &mdash; not the rolling
+        12-month total YouTube counts for Partner Program eligibility.
+      </p>
+    </article>
+  `;
+}
+
+/** Window covered, how current it is, and how far behind YouTube is. */
+function analyticsFreshnessMarkup(auth) {
+  const startDate = state.authorized?.startDate;
+  const endDate = state.authorized?.endDate;
+  const channelThrough = channelDataThroughDate(auth);
+  const through = channelThrough ?? networkDataThroughDate();
+  const lag = daysBetween(through, endDate);
+
+  const parts = [];
+  if (startDate && endDate) {
+    parts.push(
+      `Window ${escapeHtml(formatDayLabel(startDate))} &ndash; ${escapeHtml(formatDayLabel(endDate))}`,
+    );
+  }
+  if (through) {
+    parts.push(`data through <strong>${escapeHtml(formatDayLabel(through))}</strong>`);
+  }
+
+  // Nothing to say about freshness. The state panel below carries the reason,
+  // and a hopeful-looking bar here would only be noise.
+  if (!parts.length) return "";
+
+  let lagCopy = "";
+  if (lag != null && lag > 0) {
+    lagCopy = `YouTube Analytics runs ${lag} day${lag === 1 ? "" : "s"} behind, so these are not live numbers.`;
+  } else if (through) {
+    lagCopy = "YouTube Analytics is current through the end of the window.";
+  }
+
+  const stale = lag != null && lag > 0;
+  return `
+    <p class="freshness-line${stale ? " is-lagging" : ""}">
+      <i aria-hidden="true"></i>
+      <span>
+        ${parts.length ? `${parts.join(" &middot; ")}.` : "Reporting window unavailable."}
+        ${escapeHtml(lagCopy)}
+      </span>
+    </p>
+  `;
+}
+
+/** Whole-channel state panel, used when there is nothing to show per-metric. */
+function analyticsStatePanelMarkup(auth) {
+  const code = reasonCodeFor(auth, "views");
+  const [badgeLabel, tone] = reasonBadge(code);
+  const heading = {
+    "no-data-yet": "No analytics processed yet",
+    lagging: "YouTube is still processing",
+    "not-authorized": "YouTube Analytics not connected",
+    "refresh-error": "The last analytics read failed",
+    "feed-unavailable": "Private analytics feed unavailable",
+    "not-collected": "Not collected yet",
+  }[code] ?? "Analytics unavailable";
+
+  const extra =
+    code === "no-data-yet"
+      ? "This is normal for a channel that started publishing within the last few days: YouTube Analytics reports run 1&ndash;3 days behind, so a brand-new channel has nothing to report yet. Nothing is broken and no action is needed."
+      : "";
+
+  return `
+    <div class="analytics-state tone-${escapeAttribute(tone)}">
+      <span class="reason-badge tone-${escapeAttribute(tone)}">${escapeHtml(badgeLabel)}</span>
+      <h3>${escapeHtml(heading)}</h3>
+      <p>${escapeHtml(reasonSentence(code))}</p>
+      ${extra ? `<p class="analytics-state-extra">${extra}</p>` : ""}
+    </div>
+  `;
+}
+
+/** The private-analytics section on a channel report. */
+function youtubeAnalyticsSectionMarkup(channel, auth) {
+  const connected = auth?.authorized === true && !state.authorizedLoadFailed;
+  const hasRows = connected && !analyticsHasNoRows(auth);
+  const through = channelDataThroughDate(auth) ?? networkDataThroughDate();
+  const chip = hasRows && through
+    ? `YouTube Analytics API &middot; through ${escapeHtml(formatDayLabel(through))}`
+    : "YouTube Analytics API";
+
+  return `
+    <section class="insight-section analytics-section" aria-labelledby="yt-analytics-heading-${escapeAttribute(channel.slug)}">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">YouTube Analytics &middot; private</p>
+          <h2 id="yt-analytics-heading-${escapeAttribute(channel.slug)}">Watch time and audience</h2>
+        </div>
+        <span class="timezone">${chip}</span>
+      </div>
+
+      ${analyticsFreshnessMarkup(auth)}
+
+      ${
+        hasRows
+          ? `
+            ${watchHoursGoalMarkup(auth)}
+            <div class="insight-grid">
+              ${authorizedMetricMarkup({
+                label: "Average % viewed",
+                eyebrow: "Retention",
+                field: "averagePercentageViewed",
+                value: (() => {
+                  const parsed = numericValue(auth?.averagePercentageViewed);
+                  return parsed == null ? null : `${parsed.toFixed(1)}%`;
+                })(),
+                note: "Share of each Short watched, on average",
+                accent: "violet",
+                auth,
+              })}
+              ${authorizedMetricMarkup({
+                label: "Avg view duration",
+                eyebrow: "Attention",
+                field: "averageViewDurationSeconds",
+                value: (() => {
+                  const parsed = numericValue(auth?.averageViewDurationSeconds);
+                  return parsed == null ? null : formatDuration(parsed);
+                })(),
+                note: "Time watched per view",
+                accent: "blue",
+                auth,
+              })}
+              ${authorizedMetricMarkup({
+                label: "Shorts views",
+                eyebrow: "Reach",
+                field: "views",
+                value: (() => {
+                  const views = analyticsValue(auth, "views");
+                  return views == null ? null : formatMetric(views);
+                })(),
+                note: (() => {
+                  const engaged = analyticsValue(auth, "engagedViews");
+                  return engaged == null
+                    ? "Shorts views in this window"
+                    : `${formatMetric(engaged)} engaged views (not swiped straight past)`;
+                })(),
+                accent: "coral",
+                auth,
+              })}
+              ${authorizedMetricMarkup({
+                label: "Subscribers gained",
+                eyebrow: "Growth",
+                field: "subscribersGained",
+                value: (() => {
+                  const gained = analyticsValue(auth, "subscribersGained");
+                  return gained == null ? null : formatMetric(gained);
+                })(),
+                note: (() => {
+                  const lost = analyticsValue(auth, "subscribersLost");
+                  const net = analyticsNetSubscribers(auth);
+                  if (lost == null) return "Gained from Shorts in this window";
+                  return `${formatMetric(lost)} lost · net ${net > 0 ? "+" : ""}${formatMetric(net)}`;
+                })(),
+                accent: "mint",
+                auth,
+              })}
+              ${authorizedMetricMarkup({
+                label: "Subs / 1K engaged",
+                eyebrow: "Conversion",
+                field: "subscribersPerThousandEngagedViews",
+                value: (() => {
+                  const rate = analyticsValue(
+                    auth,
+                    "subscribersPerThousandEngagedViews",
+                  );
+                  return rate == null ? null : formatPerThousand(rate);
+                })(),
+                note: "Subscribers gained per 1,000 engaged views",
+                accent: "violet",
+                auth,
+              })}
+              ${tripleStatMarkup(
+                "Engagement",
+                "Interaction",
+                [
+                  ["Likes", analyticsValue(auth, "likes")],
+                  ["Comments", analyticsValue(auth, "comments")],
+                  ["Shares", analyticsValue(auth, "shares")],
+                ],
+                "coral",
+                auth,
+                "likes",
+              )}
+            </div>
+          `
+          : analyticsStatePanelMarkup(auth)
+      }
+
+      <p class="data-note"><i aria-hidden="true"></i>Private YouTube Analytics, visible to the channel owner only. Figures cover Shorts in the reporting window above.</p>
+    </section>
   `;
 }
 
@@ -1361,10 +1941,6 @@ function pipelineMarkup(pipeline = {}) {
       </div>
     </div>
   `;
-}
-
-function metricAvailabilityNote(value, availableNote) {
-  return value == null ? "YouTube Analytics access needed" : availableNote;
 }
 
 function recentVideos(videos, referenceValue, days) {
