@@ -9,6 +9,7 @@ import {
   analyticsWindow,
   buildAuthorizedAnalytics,
   fetchChannelShortsAnalytics,
+  ladderWindowDays,
   refreshTokenEnvForChannel,
   unavailableChannelAnalytics,
 } from "./youtube-analytics.mjs";
@@ -33,6 +34,9 @@ const data = JSON.parse(await readFile(dataPath, "utf8"));
 const now = new Date();
 const capturedAt = now.toISOString();
 const authorizedWindow = analyticsWindow(now);
+// The 3,000-hour target is a rolling-12-month figure, so it needs its own
+// window. Scaling a 28-day total up to a year would be an invented number.
+const authorizedLadderWindow = analyticsWindow(now, ladderWindowDays);
 const refresh = { ok: [], skipped: [], warnings: [], errors: [] };
 const freshVideos = [];
 const freshSnapshots = [];
@@ -76,6 +80,7 @@ await writeFile(
     buildAuthorizedAnalytics({
       capturedAt,
       window: authorizedWindow,
+      ladderWindow: authorizedLadderWindow,
       channels: authorizedChannels,
     }),
     null,
@@ -231,17 +236,33 @@ async function refreshAuthorizedAnalytics(channel) {
   }
 
   try {
-    authorizedChannels.push({
-      ...entry,
-      analytics: await fetchChannelShortsAnalytics({
-        channelId: channel.youtubeChannelId,
-        clientId,
-        clientSecret,
-        refreshToken,
-        window: authorizedWindow,
-      }),
+    const analytics = await fetchChannelShortsAnalytics({
+      channelId: channel.youtubeChannelId,
+      clientId,
+      clientSecret,
+      refreshToken,
+      window: authorizedWindow,
+      ladderWindow: authorizedLadderWindow,
     });
+    authorizedChannels.push({ ...entry, analytics });
     refresh.ok.push(`${channel.displayName} · YouTube Analytics`);
+
+    // Only API-status strings reach dashboard.json, never the metrics
+    // themselves -- that file is committed to public git history every run.
+    // The per-field detail stays in authorized-analytics.json.
+    for (const warning of analytics.warnings ?? []) {
+      refresh.warnings.push(
+        `${channel.displayName} · YouTube Analytics: ${warning}`,
+      );
+    }
+    const rows = analytics.rowsReturned ?? {};
+    if (rows.totals > 0 && rows.shortsTotals === 0) {
+      // Rows came back and the SHORTS filter discarded all of them. That is a
+      // different failure from "no data yet" and used to look identical.
+      refresh.warnings.push(
+        `${channel.displayName} · YouTube Analytics: rows returned but none were classified as SHORTS`,
+      );
+    }
   } catch (error) {
     authorizedChannels.push({
       ...entry,
