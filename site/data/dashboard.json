@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-03T19:45:24.856Z",
-  "generatedAt": "2026-08-03T19:45:24.856Z",
+  "updatedAt": "2026-08-03T20:00:22.445Z",
+  "generatedAt": "2026-08-03T20:00:22.445Z",
   "hasLiveData": true,
   "totals": {
-    "views": 79430,
-    "sevenDayViews": 69799,
+    "views": 79606,
+    "sevenDayViews": 69975,
     "audience": 354,
-    "engagementRate": 4.094597570685595
+    "engagementRate": 4.084597452616642
   },
   "platformTotals": {
-    "youtube": 18055,
-    "tiktok": 57878,
+    "youtube": 18108,
+    "tiktok": 58001,
     "instagram": 3497
   },
   "channels": [
@@ -28,11 +28,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 542,
+        "views": 558,
         "audience": 4,
         "videos": 2,
-        "likes": 12,
-        "engagementRate": 2.952029520295203
+        "likes": 13,
+        "engagementRate": 3.046594982078853
       },
       "tiktok": {
         "connected": true,
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.856Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.445Z"
     },
     {
       "id": 2,
@@ -91,15 +91,15 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 4130,
+        "views": 4170,
         "audience": 10,
         "videos": 15,
         "likes": 135,
-        "engagementRate": 3.87409200968523
+        "engagementRate": 3.8369304556354913
       },
       "tiktok": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Refresh error",
         "views": 1824,
         "audience": 7,
         "videos": 20,
@@ -124,7 +124,7 @@
         "engagementRate": 0.25510204081632654,
         "viewToReachRatio": 1.1224489795918366,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-08-03T19:45:30+00:00"
+        "generatedAt": "2026-08-03T20:00:27+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 53978,
+        "views": 54094,
         "audience": 261,
         "videos": 6,
-        "likes": 1963,
-        "engagementRate": 4.283226499685057,
+        "likes": 1964,
+        "engagementRate": 4.277738751062964,
         "source": "direct"
       },
       "instagram": {
@@ -218,7 +218,7 @@
         "engagementRate": 4.594084329767149,
         "viewToReachRatio": 1.275015733165513,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-08-03T19:45:33+00:00"
+        "generatedAt": "2026-08-03T20:00:30+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.166666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:55.856Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:55.445Z"
     },
     {
       "id": 4,
@@ -278,20 +278,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3064,
+        "views": 3063,
         "audience": 13,
         "videos": 5,
         "likes": 98,
-        "engagementRate": 3.91644908616188
+        "engagementRate": 3.9177277179236047
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1447,
+        "views": 1454,
         "audience": 12,
         "videos": 3,
         "likes": 44,
-        "engagementRate": 4.14651002073255,
+        "engagementRate": 4.126547455295736,
         "source": "direct"
       },
       "instagram": {
@@ -299,7 +299,7 @@
         "connectionLabel": "Connected",
         "views": 343,
         "audience": null,
-        "videos": 3,
+        "videos": 4,
         "likes": 5,
         "reach": 304,
         "comments": 0,
@@ -311,7 +311,7 @@
         "engagementRate": 2.302631578947368,
         "viewToReachRatio": 1.1282894736842106,
         "profileUrl": "https://www.instagram.com/sylvasmysteries/",
-        "generatedAt": "2026-08-03T19:45:35+00:00"
+        "generatedAt": "2026-08-03T20:00:33+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -344,17 +344,17 @@
       "instagramPerformance": {
         "views": 343,
         "reach": 304,
-        "reels": 3,
+        "reels": 4,
         "totalInteractions": 7,
         "averageWatchTimeMs": 15858,
         "viewsPerReachedAccount": 1.1282894736842106,
         "engagementPerThousandReach": 23.02631578947368,
         "savesPerThousandReach": 6.578947368421052,
         "sharesPerThousandReach": 0,
-        "interactionsPerReel": 2.3333333333333335
+        "interactionsPerReel": 1.75
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:19.856Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:20.445Z"
     },
     {
       "id": 5,
@@ -371,11 +371,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 515,
+        "views": 513,
         "audience": 5,
         "videos": 5,
         "likes": 34,
-        "engagementRate": 10.29126213592233
+        "engagementRate": 10.33138401559454
       },
       "tiktok": {
         "connected": true,
@@ -404,7 +404,7 @@
         "engagementRate": 1.7361111111111112,
         "viewToReachRatio": 1.1944444444444444,
         "profileUrl": "https://www.instagram.com/fixedfightsshorts/",
-        "generatedAt": "2026-08-03T19:45:38+00:00"
+        "generatedAt": "2026-08-03T20:00:36+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -447,10 +447,30 @@
         "interactionsPerReel": 2.5
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:27.856Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:27.445Z"
     }
   ],
   "videos": [
+    {
+      "id": "instagram:18349212262168536",
+      "channelId": 4,
+      "channelName": "Sylva's Mysteries",
+      "platform": "instagram",
+      "title": "No one can read this 500-year-old book. Was it made by alchemists, a secret order, something divi...",
+      "url": "https://www.instagram.com/reel/DblyxHWCZ8y/",
+      "publishedAt": "2026-08-03T19:58:34+0000",
+      "views": 0,
+      "reach": 0,
+      "likes": 0,
+      "comments": 0,
+      "saves": 0,
+      "shares": 0,
+      "totalInteractions": 0,
+      "averageWatchTimeMs": 0,
+      "totalWatchTimeMs": 0,
+      "engagementRate": 0,
+      "viewToReachRatio": 0
+    },
     {
       "id": "tiktok:7669651263138647326",
       "channelId": 4,
@@ -459,12 +479,12 @@
       "title": "Old Book",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7669651263138647326?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-03T04:04:15.000Z",
-      "views": 873,
+      "views": 879,
       "likes": 25,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 24,
-      "engagementRate": 3.436426116838488
+      "engagementRate": 3.4129692832764507
     },
     {
       "id": "tiktok:7669651038676274463",
@@ -474,12 +494,12 @@
       "title": "Gertie, First Cartoons Series",
       "url": "https://www.tiktok.com/@thearchivelives/video/7669651038676274463?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-03T04:03:24.000Z",
-      "views": 1061,
+      "views": 1142,
       "likes": 37,
       "comments": 8,
       "shares": 6,
       "durationSeconds": 18,
-      "engagementRate": 4.806786050895382
+      "engagementRate": 4.46584938704028
     },
     {
       "id": "youtube:2kz08wI2HsI",
@@ -489,12 +509,12 @@
       "title": "Legend Says the Devil Wrote This 165-Pound Book #mystery #history #shorts",
       "url": "https://www.youtube.com/watch?v=2kz08wI2HsI",
       "publishedAt": "2026-08-03T04:00:05Z",
-      "views": 1447,
+      "views": 1446,
       "likes": 36,
       "comments": 6,
       "shares": 0,
       "durationSeconds": 25,
-      "engagementRate": 2.902557014512785
+      "engagementRate": 2.904564315352697
     },
     {
       "id": "instagram:18099813992192308",
@@ -524,12 +544,12 @@
       "title": "THE GIRLS OF SOLO LEVELING | Every Female Character Explained",
       "url": "https://www.youtube.com/watch?v=b786pKyzETo",
       "publishedAt": "2026-08-02T21:00:15Z",
-      "views": 441,
+      "views": 476,
       "likes": 5,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 53,
-      "engagementRate": 1.3605442176870748
+      "engagementRate": 1.2605042016806722
     },
     {
       "id": "instagram:18100250792167426",
@@ -574,12 +594,12 @@
       "title": "The Triple Six Fix: the host rigged the lottery on live TV",
       "url": "https://www.youtube.com/watch?v=ENJKy5M1--o",
       "publishedAt": "2026-08-02T19:22:28Z",
-      "views": 37,
+      "views": 35,
       "likes": 5,
       "comments": 4,
       "shares": 0,
       "durationSeconds": 34,
-      "engagementRate": 24.324324324324326
+      "engagementRate": 25.71428571428571
     },
     {
       "id": "tiktok:7669514872316513566",
@@ -669,12 +689,12 @@
       "title": "Voynich Manuscript  #mysteries #history",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7669084386360429854?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-02T03:00:00.000Z",
-      "views": 473,
+      "views": 474,
       "likes": 15,
       "comments": 6,
       "shares": 0,
       "durationSeconds": 25,
-      "engagementRate": 4.439746300211417
+      "engagementRate": 4.430379746835443
     },
     {
       "id": "tiktok:7669255531730717983",
@@ -699,12 +719,12 @@
       "title": "Oldest Video Ever",
       "url": "https://www.tiktok.com/@thearchivelives/video/7669229661926313246?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-02T00:48:15.000Z",
-      "views": 41450,
-      "likes": 1557,
+      "views": 41480,
+      "likes": 1558,
       "comments": 80,
-      "shares": 179,
+      "shares": 180,
       "durationSeconds": 53,
-      "engagementRate": 4.381182147165259
+      "engagementRate": 4.382835101253616
     },
     {
       "id": "instagram:18456659674140510",
@@ -824,12 +844,12 @@
       "title": "The Yeeps Character the Developers Forgot",
       "url": "https://www.youtube.com/watch?v=IQP9yRTOGrs",
       "publishedAt": "2026-08-01T15:00:19Z",
-      "views": 528,
-      "likes": 10,
+      "views": 544,
+      "likes": 11,
       "comments": 4,
       "shares": 0,
       "durationSeconds": 59,
-      "engagementRate": 2.6515151515151514
+      "engagementRate": 2.7573529411764706
     },
     {
       "id": "tiktok:7668705833869495565",
@@ -874,12 +894,12 @@
       "title": "TOP 5 OVERLORD FIGHTS | Ainz's Best Battles",
       "url": "https://www.youtube.com/watch?v=ATLhPYJ-Zjk",
       "publishedAt": "2026-08-01T01:00:02Z",
-      "views": 421,
+      "views": 426,
       "likes": 10,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 3.0878859857482186
+      "engagementRate": 3.051643192488263
     },
     {
       "id": "tiktok:7668843644132117790",
@@ -1019,12 +1039,12 @@
       "title": "First Cat Video Ever! #history #historytok #cats #catsoftiktok ",
       "url": "https://www.tiktok.com/@thearchivelives/video/7668799715605105950?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-07-31T20:59:55.000Z",
-      "views": 3992,
+      "views": 3993,
       "likes": 41,
       "comments": 7,
       "shares": 3,
       "durationSeconds": 44,
-      "engagementRate": 1.277555110220441
+      "engagementRate": 1.2772351615326822
     },
     {
       "id": "tiktok:7668798793147600159",
@@ -1395,21 +1415,6 @@
       "totalWatchTimeMs": 1931215,
       "engagementRate": 0,
       "viewToReachRatio": 1.0952380952380953
-    },
-    {
-      "id": "tiktok:7668334524324941086",
-      "channelId": 2,
-      "channelName": "Anime Countdown Vault",
-      "platform": "tiktok",
-      "title": "Naruto vs Gojo. 3 rounds, escalating power modes. Sage Mode, Six Paths, BARYON MODE vs Infinity, Unlimited Void, Hollow Purple. Only one walks away. Who you got? #anime #naruto #gojo #jjk #narutoshippuden #jujutsukaisen #baryonmode #unlimitedvoid #whowouldwin #fyp",
-      "url": "https://www.tiktok.com/@animehype41/video/7668334524324941086?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
-      "publishedAt": "2026-07-30T14:54:34.000Z",
-      "views": 3,
-      "likes": 1,
-      "comments": 1,
-      "shares": 0,
-      "durationSeconds": 107,
-      "engagementRate": 66.66666666666666
     }
   ],
   "snapshots": [
@@ -105808,6 +105813,140 @@
       "likes": 3,
       "reach": 576,
       "engagementRate": 1.7361111111111112
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 558,
+      "audience": 4,
+      "videos": 2,
+      "likes": 13,
+      "engagementRate": 3.046594982078853
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 389,
+      "audience": 9,
+      "videos": 3,
+      "likes": 15,
+      "engagementRate": 7.197943444730077
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 4170,
+      "audience": 10,
+      "videos": 15,
+      "likes": 135,
+      "engagementRate": 3.8369304556354913
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 9804,
+      "audience": 27,
+      "videos": 12,
+      "likes": 388,
+      "engagementRate": 4.651162790697675
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 54094,
+      "audience": 261,
+      "videos": 6,
+      "likes": 1964,
+      "engagementRate": 4.277738751062964
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 2026,
+      "audience": null,
+      "videos": 6,
+      "likes": 62,
+      "reach": 1589,
+      "engagementRate": 4.594084329767149
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 3063,
+      "audience": 13,
+      "videos": 5,
+      "likes": 98,
+      "engagementRate": 3.9177277179236047
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 1454,
+      "audience": 12,
+      "videos": 3,
+      "likes": 44,
+      "engagementRate": 4.126547455295736
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 343,
+      "audience": null,
+      "videos": 4,
+      "likes": 5,
+      "reach": 304,
+      "engagementRate": 2.302631578947368
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 513,
+      "audience": 5,
+      "videos": 5,
+      "likes": 34,
+      "engagementRate": 10.33138401559454
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 240,
+      "audience": 6,
+      "videos": 1,
+      "likes": 15,
+      "engagementRate": 7.5
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-03T20:00:22.445Z",
+      "views": 688,
+      "audience": null,
+      "videos": 4,
+      "likes": 3,
+      "reach": 576,
+      "engagementRate": 1.7361111111111112
     }
   ],
   "trend": [
@@ -105892,8 +106031,8 @@
     {
       "date": "2026-08-03",
       "label": "Aug 3",
-      "youtube": 18055,
-      "tiktok": 57878
+      "youtube": 18108,
+      "tiktok": 58001
     }
   ],
   "connections": {
@@ -105906,7 +106045,7 @@
       "fixed-fights": "direct"
     },
     "instagramFeed": true,
-    "connectedSources": 14,
+    "connectedSources": 13,
     "totalSources": 14
   },
   "refresh": {
@@ -105916,7 +106055,6 @@
       "Axolotl Drama · TikTok (direct)",
       "Anime Countdown Vault · YouTube",
       "Anime Countdown Vault · YouTube Analytics",
-      "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube",
       "Kids History · YouTube Analytics",
@@ -105933,11 +106071,13 @@
     ],
     "skipped": [],
     "warnings": [],
-    "errors": []
+    "errors": [
+      "Anime Countdown Vault · TikTok (direct): Server Internal Error"
+    ]
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-08-03T19:45:33+00:00",
+    "generatedAt": "2026-08-03T20:00:30+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
@@ -106073,7 +106213,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-08-03T19:45:30+00:00",
+      "generatedAt": "2026-08-03T20:00:27+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -106208,7 +106348,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-03T19:45:33+00:00",
+      "generatedAt": "2026-08-03T20:00:30+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -106343,14 +106483,14 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-03T19:45:35+00:00",
+      "generatedAt": "2026-08-03T20:00:33+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
         "id": "28152632567687981",
         "username": "sylvasmysteries",
         "accountType": "BUSINESS",
-        "mediaCount": 3,
+        "mediaCount": 4,
         "profileUrl": "https://www.instagram.com/sylvasmysteries/",
         "connected": true
       },
@@ -106363,12 +106503,29 @@
         "shares": 0,
         "totalInteractions": 7,
         "totalWatchTimeMs": 5439140,
-        "reels": 3,
+        "reels": 4,
         "averageWatchTimeMs": 15858,
         "engagementRate": 2.302631578947368,
         "viewToReachRatio": 1.1282894736842106
       },
       "reels": [
+        {
+          "id": "18349212262168536",
+          "title": "No one can read this 500-year-old book. Was it made by alchemists, a secret order, something divi...",
+          "url": "https://www.instagram.com/reel/DblyxHWCZ8y/",
+          "publishedAt": "2026-08-03T19:58:34+0000",
+          "views": 0,
+          "reach": 0,
+          "likes": 0,
+          "comments": 0,
+          "saves": 0,
+          "shares": 0,
+          "totalInteractions": 0,
+          "averageWatchTimeMs": 0,
+          "totalWatchTimeMs": 0,
+          "engagementRate": 0,
+          "viewToReachRatio": 0
+        },
         {
           "id": "18549310756073834",
           "title": "Every clock stopped at the same minute. 25 people gone off a ship that could not sink. The offici...",
@@ -106427,7 +106584,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-03T19:45:38+00:00",
+      "generatedAt": "2026-08-03T20:00:36+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
