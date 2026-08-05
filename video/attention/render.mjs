@@ -1,11 +1,11 @@
 // Renders attention-dot-v2.mp4 — an 18-second selective-attention demo for
-// the shorts channels: a red dot to follow, a countdown challenge, and a
-// second dim dot that drifts across the screen the whole time. The reveal
-// circles the missed dot and replays its path.
+// the shorts channels: a red dot to follow under a countdown, and a second
+// dim dot parked in plain sight the whole time. The reveal circles the dot
+// almost every first-time viewer filtered out.
 //
 // Every on-screen claim is enforced by the timeline constants below: the
-// hidden dot exists and is drifting by 0:02, and the trail replay is its
-// real path. No invented statistics.
+// hidden dot is measurably present by 0:02 and never moves. No invented
+// statistics.
 //
 //   npm install && node render.mjs
 //
@@ -13,12 +13,13 @@
 // unseeded randomness — so a re-render reproduces the committed file's
 // content byte-for-byte apart from encoder version drift.
 
-import { spawn } from "node:child_process";
+import { spawn, execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import sharp from "sharp";
 import ffmpegPath from "ffmpeg-static";
+import { VO_LINES } from "./vo/lines.mjs";
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const OUT = path.join(HERE, "attention-dot-v2.mp4");
@@ -37,9 +38,8 @@ const FRAMES = Math.round(DUR * FPS); // 540
 const COUNT_START = 1.0;
 const FREEZE = 13.0; // countdown hits 0, thump, world stops
 const HIDE_IN = 1.7; // hidden dot fade-in begins — clearly present at 0:02
-const HIDE_END = 13.0; // hidden dot stops drifting at the freeze
 const REVEAL_TWO = 13.35; // "There were two."
-const REVEAL_RING = 14.55; // ring + trail + timestamp line
+const REVEAL_RING = 14.55; // ring + timestamp line
 const REVEAL_LESSON = 16.3; // "Attention is a spotlight."
 const OUTRO = 17.55; // fades begin; loop-seam by 18.0
 
@@ -68,26 +68,28 @@ function mulberry32(seed) {
 }
 
 // ---------------------------------------------------------------------------
-// Red dot path: authored waypoints, eased curved hops. Two hops pass within
-// ~230-280px of the hidden dot (outside foveal focus, obvious on rewatch).
-// After FREEZE it holds still, then glides home so frame 539 matches frame 0.
+// Red dot path: authored waypoints, eased curved hops. Every waypoint keeps
+// ≥~400px away from the hidden dot — peripheral vision is sharply
+// motion-sensitive, and a foveal sweep anywhere near the hidden dot gives it
+// away. After FREEZE it holds still, then glides home so frame 539 matches
+// frame 0.
 // ---------------------------------------------------------------------------
 const WAYPOINTS = [
   [0.0, 540, 1180],
   [0.55, 760, 820],
-  [1.2, 320, 640],
+  [1.2, 520, 760],
   [2.0, 820, 1260],
   [2.9, 250, 1150],
-  [3.7, 640, 520],
+  [3.7, 660, 560],
   [4.6, 880, 900],
   [5.4, 420, 1300],
-  [6.2, 575, 830], // near-pass #1 (hidden dot ~(361,656))
+  [6.2, 700, 640],
   [7.0, 860, 1350],
-  [7.8, 240, 980],
-  [8.6, 700, 620], // brushes past the hidden path (~190px)
+  [7.8, 300, 990],
+  [8.6, 620, 540],
   [9.4, 330, 1240],
-  [10.4, 820, 700], // near-pass #2 (hidden dot ~(626,583))
-  [11.2, 430, 700],
+  [10.4, 830, 760],
+  [11.2, 470, 880],
   [12.1, 740, 1300],
   [13.0, 830, 1120], // freeze position
 ];
@@ -125,40 +127,25 @@ function redDotPos(t) {
 }
 
 // ---------------------------------------------------------------------------
-// Hidden dot: drifts left-to-right along the upper-middle band on a gentle
-// S-curve, clear of every text block. Anchored so it exists by 0:02.
+// Hidden dot: parked in the upper-left dead zone, fully static. A moving dot
+// is exactly what peripheral vision evolved to catch; a dim stationary one
+// while the fovea tracks a moving target is what selective attention filters
+// out. It rises quickly to a faint-but-measurable level by 0:02 (so the
+// reveal's timestamp claim is true), then creeps the rest of the way in
+// while the viewer locks onto the red dot.
 // ---------------------------------------------------------------------------
-function hiddenDotPos(t) {
-  const u = clamp((t - HIDE_IN) / (HIDE_END - HIDE_IN), 0, 1);
-  return {
-    x: 86 + 704 * u,
-    y: 668 - 96 * u + 26 * Math.sin(1.5 * Math.PI * u),
-    u,
-  };
+const HIDDEN_X = 150;
+const HIDDEN_Y = 610;
+function hiddenDotPos() {
+  return { x: HIDDEN_X, y: HIDDEN_Y };
 }
 const hiddenOpacity = (t) => {
-  let o = smoothstep((t - HIDE_IN) / 0.85);
+  const arrive = 0.35 * smoothstep((t - HIDE_IN) / 0.3); // present by 0:02
+  const creep = 0.65 * smoothstep((t - 2.0) / 2.5); // fully in by ~4.5
+  let o = Math.min(1, arrive + creep);
   if (t > 17.5) o *= 1 - smoothstep((t - 17.5) / 0.4); // gone by the loop seam
   return o;
 };
-
-// Trail polyline for the reveal replay (the hidden dot's real path).
-function hiddenTrailPath() {
-  const pts = [];
-  for (let k = 0; k <= 40; k++) {
-    const t = HIDE_IN + ((HIDE_END - HIDE_IN) * k) / 40;
-    const p = hiddenDotPos(t);
-    pts.push([p.x, p.y]);
-  }
-  let d = `M ${pts[0][0].toFixed(1)} ${pts[0][1].toFixed(1)}`;
-  let total = 0;
-  for (let k = 1; k < pts.length; k++) {
-    d += ` L ${pts[k][0].toFixed(1)} ${pts[k][1].toFixed(1)}`;
-    total += Math.hypot(pts[k][0] - pts[k - 1][0], pts[k][1] - pts[k - 1][1]);
-  }
-  return { d, total, pts };
-}
-const TRAIL = hiddenTrailPath();
 
 // ---------------------------------------------------------------------------
 // Copy beats. One block on screen at a time — the original overlapped two
@@ -173,22 +160,24 @@ const FAINT = "#8f8a85";
 
 // Each line: y baseline, size, default fill, spans [text, fill?]
 const BLOCKS = [
+  // The copy never hints that something else is on screen — an explicit
+  // "spot it" challenge makes viewers scan and find the second dot. Every
+  // line pushes fixation onto the red dot; the promise is about the ending.
   {
     from: 0.0,
     to: 4.5,
     lines: [
-      { y: 300, size: 66, spans: [["Keep your eyes on", INK]] },
-      { y: 388, size: 66, spans: [["the ", INK], ["red dot.", RED]] },
-      { y: 486, size: 44, spans: [["Something else is hiding here.", DIM]] },
-      { y: 546, size: 44, spans: [["Spot it before the timer ends.", DIM]] },
+      { y: 330, size: 74, spans: [["Watch the ", INK], ["red dot.", RED]] },
+      { y: 470, size: 46, spans: [["When the timer ends, you'll see", DIM]] },
+      { y: 530, size: 46, spans: [["what almost everyone misses.", DIM]] },
     ],
   },
   {
     from: 4.6,
     to: 6.9,
     lines: [
-      { y: 1210, size: 60, spans: [["Eyes on the ", INK], ["red dot.", RED]] },
-      { y: 1292, size: 48, spans: [["Don't look anywhere else.", DIM]] },
+      { y: 1210, size: 60, spans: [["Stay on the ", INK], ["red dot.", RED]] },
+      { y: 1292, size: 48, spans: [["Don't blink.", DIM]] },
     ],
   },
   {
@@ -217,7 +206,7 @@ const BLOCKS = [
     to: 16.1,
     lines: [
       { y: 1155, size: 54, spans: [["The second one has been", INK]] },
-      { y: 1230, size: 54, spans: [["drifting since ", INK], ["0:02.", RED]] },
+      { y: 1230, size: 54, spans: [["there since ", INK], ["0:02.", RED]] },
     ],
   },
   {
@@ -233,17 +222,21 @@ const BLOCKS = [
 function blockSvg(block, t) {
   const IN = 0.2; // pop-in duration
   const OUTD = 0.17;
-  if (t < block.from || t > block.to + OUTD) return "";
+  // Visibility is strictly [from, to] with the fade-out completing BY `to`,
+  // so blocks can never render together as long as windows don't share time.
+  // A block starting at 0 skips the pop-in: the hook must be fully readable
+  // in frame 0 (it's the poster frame and the loop restart).
+  if (t < block.from || t > block.to) return "";
   let o = 1;
   let pop = 1;
   let dy = 0;
-  if (t < block.from + IN) {
+  if (block.from > 0 && t < block.from + IN) {
     const s = easeOutCubic((t - block.from) / IN);
     o = s;
     pop = 0.955 + 0.045 * s;
     dy = 14 * (1 - s);
-  } else if (t > block.to) {
-    o = 1 - (t - block.to) / OUTD;
+  } else if (t > block.to - OUTD) {
+    o = (block.to - t) / OUTD;
   }
   const ys = block.lines.map((l) => l.y);
   const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
@@ -334,16 +327,16 @@ function redDotSvg(t) {
 function hiddenDotSvg(t) {
   const o = hiddenOpacity(t);
   if (o <= 0.001) return "";
-  const p = hiddenDotPos(Math.min(t, HIDE_END));
-  // Brightness bump + single pulse when circled, another at the loop-bait beat
+  const p = hiddenDotPos();
+  // Resting state is genuinely dim and small — the trick depends on it.
+  // Once circled it brightens so the reveal (and every rewatch) lands.
   let boost = 0;
-  if (t >= REVEAL_RING) boost = 0.35 * Math.exp(-(t - REVEAL_RING) / 0.5);
-  if (t >= 16.25) boost = Math.max(boost, 0.4 * Math.exp(-(t - 16.25) / 0.35));
-  const scale = 1 + boost * 0.5;
-  const r = 15 * scale;
-  return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(r * 2.9).toFixed(1)}" fill="url(#grayGlow)" opacity="${(o * (0.55 + boost)).toFixed(3)}"/>
-  <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r.toFixed(1)}" fill="#736b66" opacity="${o.toFixed(3)}"/>
-  <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r.toFixed(1)}" fill="#a89f99" opacity="${(o * boost).toFixed(3)}"/>`;
+  if (t >= REVEAL_RING) boost = 0.55 * Math.exp(-(t - REVEAL_RING) / 1.6);
+  if (t >= 16.35) boost = Math.max(boost, 0.6 * Math.exp(-(t - 16.35) / 0.35));
+  const r = 12 * (1 + boost * 0.35);
+  return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${(r * 2.2).toFixed(1)}" fill="url(#grayGlow)" opacity="${(o * (0.28 + boost)).toFixed(3)}"/>
+  <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r.toFixed(1)}" fill="#4a4540" opacity="${o.toFixed(3)}"/>
+  <circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${r.toFixed(1)}" fill="#978d86" opacity="${(o * boost).toFixed(3)}"/>`;
 }
 
 // Reveal: dark veil, ring draw-in around the hidden dot, trail replay.
@@ -354,53 +347,18 @@ function revealSvg(t) {
   let parts = `<rect x="0" y="0" width="${W}" height="${H}" fill="#000000" opacity="${veil.toFixed(3)}"/>`;
 
   if (t >= REVEAL_RING) {
-    const end = hiddenDotPos(HIDE_END);
+    const p = hiddenDotPos();
     let fade = 1;
     if (t > 16.9) fade = 1 - smoothstep((t - 16.9) / 0.4);
 
-    // Ring sweep
+    // Ring sweep around the spot that was there the whole time
     const ringP = easeOutCubic(clamp((t - REVEAL_RING) / 0.4, 0, 1));
     const C = 2 * Math.PI * 46;
     const breathe = 1 + 0.05 * Math.sin(2 * Math.PI * 0.8 * (t - REVEAL_RING));
-    parts += `<g opacity="${fade.toFixed(3)}" transform="translate(${end.x.toFixed(1)} ${end.y.toFixed(1)}) scale(${breathe.toFixed(4)}) rotate(-90)">
+    parts += `<g opacity="${fade.toFixed(3)}" transform="translate(${p.x.toFixed(1)} ${p.y.toFixed(1)}) scale(${breathe.toFixed(4)}) rotate(-90)">
       <circle cx="0" cy="0" r="46" fill="none" stroke="${RED}" stroke-width="18" opacity="0.15"/>
       <circle cx="0" cy="0" r="46" fill="none" stroke="${RED}" stroke-width="6" stroke-linecap="round" stroke-dasharray="${(C * ringP).toFixed(1)} ${C.toFixed(1)}"/>
     </g>`;
-
-    // Trail replay: draw the hidden dot's real path from its entry point
-    const trailP = easeInOutCubic(clamp((t - (REVEAL_RING + 0.1)) / 1.2, 0, 1));
-    if (trailP > 0) {
-      const shown = TRAIL.total * trailP;
-      parts += `<g opacity="${(0.9 * fade).toFixed(3)}">
-        <path d="${TRAIL.d}" fill="none" stroke="#ffb9b2" stroke-width="12" stroke-linecap="round" opacity="0.12" stroke-dasharray="${shown.toFixed(1)} ${TRAIL.total.toFixed(1)}"/>
-        <path d="${TRAIL.d}" fill="none" stroke="#ffd7d3" stroke-width="4" stroke-linecap="round" opacity="0.75" stroke-dasharray="${shown.toFixed(1)} ${TRAIL.total.toFixed(1)}"/>
-      </g>`;
-      if (trailP < 1) {
-        // Comet head at the draw front
-        let acc = 0;
-        let hx = TRAIL.pts[0][0];
-        let hy = TRAIL.pts[0][1];
-        for (let k = 1; k < TRAIL.pts.length; k++) {
-          const seg = Math.hypot(
-            TRAIL.pts[k][0] - TRAIL.pts[k - 1][0],
-            TRAIL.pts[k][1] - TRAIL.pts[k - 1][1],
-          );
-          if (acc + seg >= shown) {
-            const f = (shown - acc) / seg;
-            hx = lerp(TRAIL.pts[k - 1][0], TRAIL.pts[k][0], f);
-            hy = lerp(TRAIL.pts[k - 1][1], TRAIL.pts[k][1], f);
-            break;
-          }
-          acc += seg;
-          hx = TRAIL.pts[k][0];
-          hy = TRAIL.pts[k][1];
-        }
-        parts += `<circle cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="9" fill="#ffe9e7" opacity="${(0.9 * fade).toFixed(3)}"/>`;
-      }
-      // Entry marker: where it began at 0:02
-      const e = TRAIL.pts[0];
-      parts += `<circle cx="${e[0].toFixed(1)}" cy="${e[1].toFixed(1)}" r="7" fill="none" stroke="#ffb9b2" stroke-width="3" opacity="${(0.6 * fade * trailP).toFixed(3)}"/>`;
-    }
   }
   return parts;
 }
@@ -463,15 +421,79 @@ function frameSvg(frame) {
 }
 
 // ---------------------------------------------------------------------------
-// Audio: 44.1kHz stereo, fully synthesized. Cue times mirror the visuals.
+// Audio: 44.1kHz stereo — synthesized bed and cues, plus optional ElevenLabs
+// voiceover clips (vo/*.mp3, produced by vo/generate.mjs). When the clips
+// exist they are slot-fitted, mixed center, and the bed ducks under them.
 // ---------------------------------------------------------------------------
 const SR = 44100;
+
+function decodePcm(file, atempo) {
+  const args = ["-v", "error", "-i", file];
+  if (atempo && atempo > 1.001) args.push("-filter:a", `atempo=${atempo.toFixed(4)}`);
+  args.push("-f", "f32le", "-ac", "1", "-ar", String(SR), "pipe:1");
+  const out = execFileSync(ffmpegPath, args, { maxBuffer: 1 << 26 });
+  return new Float32Array(out.buffer.slice(out.byteOffset, out.byteOffset + out.byteLength));
+}
+
+function loadVoiceover() {
+  const dir = path.join(HERE, "vo");
+  const missing = VO_LINES.filter((l) => !fs.existsSync(path.join(dir, l.file)));
+  if (missing.length) {
+    console.log(
+      missing.length === VO_LINES.length
+        ? "Voiceover: no clips found — synth-only mix. Set ELEVENLABS_API_KEY and run `node vo/generate.mjs`."
+        : `Voiceover: missing ${missing.map((m) => m.file).join(", ")} — synth-only mix.`,
+    );
+    return null;
+  }
+  const clips = [];
+  for (const line of VO_LINES) {
+    const f = path.join(dir, line.file);
+    let raw = decodePcm(f);
+    const slot = line.endBy - line.t;
+    if (raw.length / SR > slot) {
+      const factor = Math.min(1.3, raw.length / SR / slot);
+      raw = decodePcm(f, factor);
+      if (raw.length / SR > slot + 0.05) {
+        console.warn(
+          `Voiceover: ${line.file} still ${(raw.length / SR).toFixed(2)}s after ${factor.toFixed(2)}x atempo (slot ${slot.toFixed(2)}s) — shorten the line.`,
+        );
+      }
+    }
+    let peak = 0;
+    for (let i = 0; i < raw.length; i++) peak = Math.max(peak, Math.abs(raw[i]));
+    const g = peak > 0 ? 0.62 / peak : 1;
+    const samples = new Float64Array(raw.length);
+    for (let i = 0; i < raw.length; i++) samples[i] = raw[i] * g;
+    clips.push({ samples, start: line.t });
+  }
+  console.log(`Voiceover: mixing ${clips.length} clips.`);
+  return clips;
+}
 
 function buildAudio() {
   const N = Math.round(DUR * SR);
   const L = new Float64Array(N);
   const R = new Float64Array(N);
   const rand = mulberry32(0x50a11d);
+
+  // Voiceover placements drive a duck envelope for the bed
+  const voClips = loadVoiceover();
+  const duck = new Float64Array(N).fill(1);
+  if (voClips) {
+    const rampN = Math.round(0.12 * SR);
+    const DUCK = 0.38;
+    for (const c of voClips) {
+      const n0 = Math.round(c.start * SR);
+      const n1 = Math.min(N, n0 + c.samples.length);
+      for (let i = Math.max(0, n0 - rampN); i < Math.min(N, n1 + rampN); i++) {
+        let g = DUCK;
+        if (i < n0) g = lerp(1, DUCK, (i - (n0 - rampN)) / rampN);
+        else if (i >= n1) g = lerp(DUCK, 1, (i - n1) / rampN);
+        duck[i] = Math.min(duck[i], g);
+      }
+    }
+  }
 
   const addPanned = (i, v, pan) => {
     // pan -1..1 equal-power
@@ -541,7 +563,7 @@ function buildAudio() {
       const sub = Math.sin(2 * Math.PI * 52 * t) * 0.02 * lfo;
       const alpha = 1 - Math.exp((-2 * Math.PI * 280) / SR);
       y += alpha * ((rand() * 2 - 1) - y);
-      const v = (sub + y * 0.011) * level * fadeIn * fadeOut;
+      const v = (sub + y * 0.011) * level * duck[i] * fadeIn * fadeOut;
       L[i] += v;
       R[i] += v * 0.92 + (i > 40 ? 0 : 0); // hair of width
     }
@@ -583,6 +605,17 @@ function buildAudio() {
   sine(16.45, 0.13, 70, 70, 0.055, 0.003);
   tick(17.6, 880, 0.035); // quiet pre-roll cue at the seam
 
+  // --- Voiceover on top, center-panned
+  if (voClips) {
+    for (const c of voClips) {
+      const n0 = Math.round(c.start * SR);
+      for (let i = 0; i < c.samples.length && n0 + i < N; i++) {
+        L[n0 + i] += c.samples[i] * 0.72;
+        R[n0 + i] += c.samples[i] * 0.72;
+      }
+    }
+  }
+
   // --- Normalize to -3 dBFS and write 16-bit WAV
   let peak = 0;
   for (let i = 0; i < N; i++) peak = Math.max(peak, Math.abs(L[i]), Math.abs(R[i]));
@@ -615,6 +648,10 @@ function buildAudio() {
 async function main() {
   console.log("Building audio…");
   buildAudio();
+  if (process.argv.includes("--audio-only")) {
+    console.log(`Audio written to ${WAV} (kept for inspection).`);
+    return;
+  }
 
   console.log("Building background…");
   const bg = await buildBackground();
