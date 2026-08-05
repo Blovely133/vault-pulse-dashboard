@@ -15,8 +15,8 @@
 // Everything else mirrors the original: same copy, same beat order and
 // pacing, same reveal, and a red dot that keeps roaming through the
 // reveal. One addition: the source's audio track was pure silence, so a
-// synthesized soundtrack (countdown ticks, riser, thump, reveal chime)
-// runs under it.
+// cue-only soundtrack (countdown ticks, thump, reveal chime — no ambient
+// bed) runs under it.
 //
 //   npm install && node render.mjs
 //
@@ -322,9 +322,10 @@ function frameSvg(frame) {
 
 // ---------------------------------------------------------------------------
 // Audio: 44.1kHz stereo, fully synthesized (the source clip's track was
-// silence). Cue times mirror the visuals: ticks on every countdown flip
-// rising through the 3-2-1, a riser into zero, a thump when the timer ends,
-// a low swell under "There were two.", and a chime as the ring draws.
+// silence). Cue-only — no ambient bed or noise riser, just the dot's
+// sounds against silence: a tick on every countdown flip rising through
+// the 3-2-1, a thump when the timer ends, a low swell under "There were
+// two.", and a chime as the ring draws.
 // ---------------------------------------------------------------------------
 const SR = 44100;
 
@@ -379,26 +380,6 @@ function buildAudio() {
     }
   };
 
-  // --- Bed: sub drone + dark noise, swelling gently toward the timer's end
-  {
-    let y = 0;
-    for (let i = 0; i < N; i++) {
-      const t = i / SR;
-      const lfo = 1 + 0.35 * Math.sin(2 * Math.PI * 0.13 * t);
-      let level = 1 + 0.45 * smoothstep(t / COUNT_END);
-      if (t >= COUNT_END && t < COUNT_END + 0.28) level *= 0.15; // freeze duck
-      else if (t >= COUNT_END + 0.28) level *= 0.55;
-      const fadeIn = smoothstep(t / 0.4);
-      const fadeOut = t > 17.15 ? 1 - smoothstep((t - 17.15) / 0.4) : 1;
-      const sub = Math.sin(2 * Math.PI * 52 * t) * 0.02 * lfo;
-      const alpha = 1 - Math.exp((-2 * Math.PI * 280) / SR);
-      y += alpha * ((rand() * 2 - 1) - y);
-      const v = (sub + y * 0.011) * level * fadeIn * fadeOut;
-      L[i] += v;
-      R[i] += v * 0.92;
-    }
-  }
-
   // --- Cues
   sine(0.03, 0.14, 190, 190, 0.15, 0.002); // opening pop on the frame-0 hook
   tick(0.03, 2400, 0.05);
@@ -412,9 +393,6 @@ function buildAudio() {
     tick(s, f, amp);
     if (hot) sine(s, 0.22, f / 4, f / 4, 0.035, 0.003);
   }
-
-  noiseSweep(COUNT_END - 3, 3.0, 0.085, 350, 5200); // riser into zero
-  sine(COUNT_END - 3, 3.0, 108, 216, 0.026, 0.01);
 
   sine(COUNT_END, 0.42, 54, 30, 0.3, 0.002); // thump as the timer ends
   noiseSweep(COUNT_END, 0.03, 0.18, 3000, 800);

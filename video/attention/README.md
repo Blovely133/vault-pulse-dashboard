@@ -23,9 +23,10 @@ Same as the original: all copy verbatim, beat order and pacing, the small
 top-right "14s" countdown, full-screen 3-2-1 numerals over the last three
 seconds, and the freeze-free reveal ("There were two." + ring + "The
 second one has been there since 0:02.") with the red dot still roaming.
-One addition: the source's track was pure silence, so a synthesized
+One addition: the source's track was pure silence, so a cue-only
 soundtrack runs under it — countdown ticks rising through the 3-2-1, a
-riser, a thump when the timer ends, and a chime as the ring draws.
+thump when the timer ends, and a chime as the ring draws, with silence
+between cues (no ambient bed).
 The hidden dot is measurably present in the encoded file at
 0:02 (probed luma ~37 at t=2.0 against a ~27 background, settling ~64), so
 the reveal's timestamp is true.
