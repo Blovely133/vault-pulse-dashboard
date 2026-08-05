@@ -1,8 +1,8 @@
 # Attention dot
 
 `attention-dot.mp4` — a faithful rebuild of the original "watch the red
-dot" selective-attention short (1080x1920@30, 17.6s, silent mono track like
-the source), rendered deterministically by `render.mjs`.
+dot" selective-attention short (1080x1920@30, 17.6s), rendered
+deterministically by `render.mjs`.
 
 Three deliberate changes from the original, nothing else:
 
@@ -21,9 +21,12 @@ Three deliberate changes from the original, nothing else:
 
 Same as the original: all copy verbatim, beat order and pacing, the small
 top-right "14s" countdown, full-screen 3-2-1 numerals over the last three
-seconds, the freeze-free reveal ("There were two." + ring + "The second one
-has been there since 0:02.") with the red dot still roaming, and a silent
-audio stream. The hidden dot is measurably present in the encoded file at
+seconds, and the freeze-free reveal ("There were two." + ring + "The
+second one has been there since 0:02.") with the red dot still roaming.
+One addition: the source's track was pure silence, so a synthesized
+soundtrack runs under it — countdown ticks rising through the 3-2-1, a
+riser, a thump when the timer ends, and a chime as the ring draws.
+The hidden dot is measurably present in the encoded file at
 0:02 (probed luma ~37 at t=2.0 against a ~27 background, settling ~64), so
 the reveal's timestamp is true.
 

@@ -13,8 +13,10 @@
 //      rendered two lines on top of each other around 10.3s.
 //
 // Everything else mirrors the original: same copy, same beat order and
-// pacing, same reveal, a red dot that keeps roaming through the reveal,
-// and a silent audio track.
+// pacing, same reveal, and a red dot that keeps roaming through the
+// reveal. One addition: the source's audio track was pure silence, so a
+// synthesized soundtrack (countdown ticks, riser, thump, reveal chime)
+// runs under it.
 //
 //   npm install && node render.mjs
 //
@@ -319,13 +321,120 @@ function frameSvg(frame) {
 }
 
 // ---------------------------------------------------------------------------
-// Audio: a silent mono track, matching the original file's stream layout.
+// Audio: 44.1kHz stereo, fully synthesized (the source clip's track was
+// silence). Cue times mirror the visuals: ticks on every countdown flip
+// rising through the 3-2-1, a riser into zero, a thump when the timer ends,
+// a low swell under "There were two.", and a chime as the ring draws.
 // ---------------------------------------------------------------------------
 const SR = 44100;
 
-function buildSilentAudio() {
+function buildAudio() {
   const N = Math.round(DUR * SR);
-  const pcm = Buffer.alloc(N * 2); // 16-bit mono zeros
+  const L = new Float64Array(N);
+  const R = new Float64Array(N);
+  const rand = mulberry32(0x50a11d);
+
+  const addPanned = (i, v, pan) => {
+    const th = ((pan + 1) / 2) * (Math.PI / 2);
+    if (i >= 0 && i < N) {
+      L[i] += v * Math.cos(th);
+      R[i] += v * Math.sin(th);
+    }
+  };
+
+  const sine = (t0, dur, f0, f1, amp, attack = 0.005, pan = 0) => {
+    const n0 = Math.round(t0 * SR);
+    const n1 = Math.min(N, n0 + Math.round(dur * SR));
+    let phase = 0;
+    for (let i = n0; i < n1; i++) {
+      const s = (i - n0) / SR;
+      const f = lerp(f0, f1, s / dur);
+      phase += (2 * Math.PI * f) / SR;
+      const env = Math.min(1, s / attack) * Math.exp(-s / (dur * 0.38));
+      addPanned(i, Math.sin(phase) * amp * env, pan);
+    }
+  };
+
+  const tick = (t0, freq, amp, pan = 0) => {
+    const n0 = Math.round(t0 * SR);
+    const n1 = Math.min(N, n0 + Math.round(0.03 * SR));
+    for (let i = n0; i < n1; i++) {
+      const s = (i - n0) / SR;
+      const env = Math.exp(-s / 0.007);
+      const v = (Math.sin(2 * Math.PI * freq * s) + (rand() - 0.5) * 0.4) * amp * env;
+      addPanned(i, v, pan);
+    }
+  };
+
+  const noiseSweep = (t0, dur, ampTo, lpFrom, lpTo) => {
+    const n0 = Math.round(t0 * SR);
+    const n1 = Math.min(N, n0 + Math.round(dur * SR));
+    let y = 0;
+    for (let i = n0; i < n1; i++) {
+      const s = (i - n0) / (dur * SR);
+      const fc = lerp(lpFrom, lpTo, s * s);
+      const alpha = 1 - Math.exp((-2 * Math.PI * fc) / SR);
+      y += alpha * ((rand() * 2 - 1) - y);
+      addPanned(i, y * ampTo * s, 0);
+    }
+  };
+
+  // --- Bed: sub drone + dark noise, swelling gently toward the timer's end
+  {
+    let y = 0;
+    for (let i = 0; i < N; i++) {
+      const t = i / SR;
+      const lfo = 1 + 0.35 * Math.sin(2 * Math.PI * 0.13 * t);
+      let level = 1 + 0.45 * smoothstep(t / COUNT_END);
+      if (t >= COUNT_END && t < COUNT_END + 0.28) level *= 0.15; // freeze duck
+      else if (t >= COUNT_END + 0.28) level *= 0.55;
+      const fadeIn = smoothstep(t / 0.4);
+      const fadeOut = t > 17.15 ? 1 - smoothstep((t - 17.15) / 0.4) : 1;
+      const sub = Math.sin(2 * Math.PI * 52 * t) * 0.02 * lfo;
+      const alpha = 1 - Math.exp((-2 * Math.PI * 280) / SR);
+      y += alpha * ((rand() * 2 - 1) - y);
+      const v = (sub + y * 0.011) * level * fadeIn * fadeOut;
+      L[i] += v;
+      R[i] += v * 0.92;
+    }
+  }
+
+  // --- Cues
+  sine(0.03, 0.14, 190, 190, 0.15, 0.002); // opening pop on the frame-0 hook
+  tick(0.03, 2400, 0.05);
+
+  for (let s = 1; s <= 13; s++) {
+    // A tick on every countdown flip; the last three (under the 3-2-1
+    // numerals) rise in pitch and weight.
+    const hot = s >= 11;
+    const f = hot ? [988, 1109, 1245][s - 11] : 880;
+    const amp = hot ? 0.085 + (s - 11) * 0.02 : 0.05;
+    tick(s, f, amp);
+    if (hot) sine(s, 0.22, f / 4, f / 4, 0.035, 0.003);
+  }
+
+  noiseSweep(COUNT_END - 3, 3.0, 0.085, 350, 5200); // riser into zero
+  sine(COUNT_END - 3, 3.0, 108, 216, 0.026, 0.01);
+
+  sine(COUNT_END, 0.42, 54, 30, 0.3, 0.002); // thump as the timer ends
+  noiseSweep(COUNT_END, 0.03, 0.18, 3000, 800);
+
+  sine(REVEAL_TWO, 0.7, 82, 82, 0.045, 0.01); // low swell under "There were two."
+
+  [672, 1008, 1344].forEach((f, k) => {
+    // Chime as the ring draws around the second dot
+    sine(REVEAL_RING + k * 0.03, 1.15, f, f, [0.095, 0.055, 0.04][k], 0.004, k === 1 ? -0.3 : 0.25);
+  });
+
+  // --- Normalize to -3 dBFS and write 16-bit stereo WAV
+  let peak = 0;
+  for (let i = 0; i < N; i++) peak = Math.max(peak, Math.abs(L[i]), Math.abs(R[i]));
+  const gain = peak > 0 ? 0.71 / peak : 1;
+  const pcm = Buffer.alloc(N * 4);
+  for (let i = 0; i < N; i++) {
+    pcm.writeInt16LE(Math.round(clamp(L[i] * gain, -1, 1) * 32767), i * 4);
+    pcm.writeInt16LE(Math.round(clamp(R[i] * gain, -1, 1) * 32767), i * 4 + 2);
+  }
   const header = Buffer.alloc(44);
   header.write("RIFF", 0);
   header.writeUInt32LE(36 + pcm.length, 4);
@@ -333,10 +442,10 @@ function buildSilentAudio() {
   header.write("fmt ", 12);
   header.writeUInt32LE(16, 16);
   header.writeUInt16LE(1, 20); // PCM
-  header.writeUInt16LE(1, 22); // mono
+  header.writeUInt16LE(2, 22); // stereo
   header.writeUInt32LE(SR, 24);
-  header.writeUInt32LE(SR * 2, 28);
-  header.writeUInt16LE(2, 32);
+  header.writeUInt32LE(SR * 4, 28);
+  header.writeUInt16LE(4, 32);
   header.writeUInt16LE(16, 34);
   header.write("data", 36);
   header.writeUInt32LE(pcm.length, 40);
@@ -348,7 +457,7 @@ function buildSilentAudio() {
 // ---------------------------------------------------------------------------
 async function main() {
   console.log("Building audio…");
-  buildSilentAudio();
+  buildAudio();
 
   console.log("Building background…");
   const bg = await buildBackground();
@@ -370,8 +479,7 @@ async function main() {
     "-color_primaries", "bt709",
     "-color_trc", "bt709",
     "-c:a", "aac",
-    "-b:a", "96k",
-    "-ac", "1",
+    "-b:a", "160k",
     "-movflags", "+faststart",
     "-shortest",
     OUT,
