@@ -30,9 +30,9 @@ on:
   workflow_dispatch:
   schedule:
     # Seed and self-heal ONLY -- this is not the clock. If a handoff is ever
-    # lost, this restarts the chain. Unpopular minutes, clear of pages.yml (2/5)
-    # and refresh-watchdog.yml (4/5).
-    - cron: "9/20 * * * *"
+    # lost, this restarts the chain. The guard below makes every seed safe: it
+    # never dispatches while a refresh is already active.
+    - cron: "9,24,39,54 * * * *"
 
 permissions:
   actions: write
@@ -55,17 +55,87 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -uo pipefail
+
+          nudge_refresh() {
+            local runs stale_id active status
+
+            if ! runs=$(gh api \
+              "repos/$GITHUB_REPOSITORY/actions/workflows/pages.yml/runs?per_page=100"); then
+              echo "::warning::could not read refresh workflow state; skipping this tick"
+              return 0
+            fi
+
+            # A Pages deployment can occasionally remain in GitHub's waiting
+            # state forever. It then owns the workflow concurrency group, while
+            # every later refresh is repeatedly replaced in the pending slot.
+            # Give legitimate deployments 25 minutes, then clear only the
+            # oldest wedged waiter. An existing pending run will start next.
+            if ! stale_id=$(jq -r --argjson cutoff "$(( $(date +%s) - 1500 ))" '
+              [.workflow_runs[]
+                | select(.status == "waiting")
+                | select((.updated_at | fromdateiso8601) <= $cutoff)]
+              | sort_by(.updated_at)
+              | first
+              | .id // empty
+            ' <<<"$runs"); then
+              echo "::warning::could not parse refresh workflow state; skipping this tick"
+              return 0
+            fi
+
+            if [ -n "$stale_id" ]; then
+              echo "cancelling stale waiting refresh $stale_id"
+              gh run cancel "$stale_id" --repo "$GITHUB_REPOSITORY" \
+                || echo "::warning::could not cancel stale refresh $stale_id"
+
+              # Give GitHub time to release the concurrency group. If it does
+              # not, the active-run guard below safely leaves it alone.
+              for attempt in $(seq 1 12); do
+                status=$(gh api \
+                  "repos/$GITHUB_REPOSITORY/actions/runs/$stale_id" \
+                  --jq .status 2>/dev/null) || status="unknown"
+                [ "$status" = "completed" ] && break
+                sleep 5
+              done
+
+              runs=$(gh api \
+                "repos/$GITHUB_REPOSITORY/actions/workflows/pages.yml/runs?per_page=100") \
+                || return 0
+            fi
+
+            if ! active=$(jq '[.workflow_runs[] | select(
+              .status == "in_progress" or
+              .status == "queued" or
+              .status == "pending" or
+              .status == "waiting" or
+              .status == "requested"
+            )] | length' <<<"$runs"); then
+              echo "::warning::could not count active refreshes; skipping this tick"
+              return 0
+            fi
+
+            if [ "$active" -gt 0 ]; then
+              echo "$active refresh run(s) already active; leaving them alone"
+              return 0
+            fi
+
+            if gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main; then
+              echo "refresh dispatched at $(date -u +%H:%M:%SZ)"
+            else
+              echo "::warning::refresh dispatch failed"
+            fi
+          }
+
           TICKS=21
           for i in $(seq 1 "$TICKS"); do
-            if gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main; then
-              echo "tick $i/$TICKS dispatched at $(date -u +%H:%M:%SZ)"
-            else
-              # Never fail the chain over one bad tick -- the next one is 15
-              # minutes away, and the handoff step must still run.
-              echo "::warning::tick $i/$TICKS failed to dispatch"
-            fi
+            echo "tick $i/$TICKS at $(date -u +%H:%M:%SZ)"
+            nudge_refresh
             if [ "$i" -lt "$TICKS" ]; then
-              sleep 900
+              # GitHub can reap a hosted job after a long silent period. Keep
+              # the runner visibly alive while preserving the 15-minute clock.
+              for minute in $(seq 1 15); do
+                sleep 60
+                echo "next tick in $((15 - minute)) minute(s)"
+              done
             fi
           done
 
