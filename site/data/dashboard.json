@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-08-06T09:48:46.683Z",
-  "generatedAt": "2026-08-06T09:48:46.683Z",
+  "updatedAt": "2026-08-06T10:04:03.869Z",
+  "generatedAt": "2026-08-06T10:04:03.869Z",
   "hasLiveData": true,
   "totals": {
-    "views": 138127,
-    "sevenDayViews": 122574,
+    "views": 138256,
+    "sevenDayViews": 122652,
     "audience": 507,
-    "engagementRate": 4.7660666976210635
+    "engagementRate": 4.802611835105173
   },
   "platformTotals": {
-    "youtube": 29340,
-    "tiktok": 89341,
-    "instagram": 19446
+    "youtube": 29354,
+    "tiktok": 89403,
+    "instagram": 19499
   },
   "channels": [
     {
@@ -28,11 +28,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3315,
+        "views": 3314,
         "audience": 11,
         "videos": 5,
         "likes": 95,
-        "engagementRate": 3.7104072398190047
+        "engagementRate": 3.711526855763428
       },
       "tiktok": {
         "connected": true,
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.683Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:58.869Z"
     },
     {
       "id": 2,
@@ -91,11 +91,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 4462,
+        "views": 4464,
         "audience": 14,
         "videos": 18,
         "likes": 180,
-        "engagementRate": 4.885701479157328
+        "engagementRate": 4.883512544802867
       },
       "tiktok": {
         "connected": false,
@@ -124,7 +124,7 @@
         "engagementRate": 0.25510204081632654,
         "viewToReachRatio": 1.1224489795918366,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-08-06T09:48:52+00:00"
+        "generatedAt": "2026-08-06T10:04:10+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -185,20 +185,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 13184,
+        "views": 13166,
         "audience": 44,
         "videos": 15,
         "likes": 534,
-        "engagementRate": 4.90746359223301
+        "engagementRate": 4.91417286951238
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 84189,
+        "views": 84248,
         "audience": 372,
         "videos": 7,
-        "likes": 3180,
-        "engagementRate": 4.3984368504198885,
+        "likes": 3182,
+        "engagementRate": 4.397730509923084,
         "source": "direct"
       },
       "instagram": {
@@ -208,17 +208,17 @@
         "audience": null,
         "videos": 7,
         "likes": 74,
-        "reach": 2691,
+        "reach": 2692,
         "comments": 0,
         "saves": 12,
         "shares": 1,
         "totalInteractions": 88,
-        "averageWatchTimeMs": 9889,
-        "totalWatchTimeMs": 33573376,
-        "engagementRate": 3.2701597918989225,
-        "viewToReachRatio": 1.2616127833519137,
+        "averageWatchTimeMs": 9890,
+        "totalWatchTimeMs": 33575932,
+        "engagementRate": 3.268945022288262,
+        "viewToReachRatio": 1.2611441307578009,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-08-06T09:48:59+00:00"
+        "generatedAt": "2026-08-06T10:04:15+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -250,18 +250,18 @@
       },
       "instagramPerformance": {
         "views": 3395,
-        "reach": 2691,
+        "reach": 2692,
         "reels": 7,
         "totalInteractions": 88,
-        "averageWatchTimeMs": 9889,
-        "viewsPerReachedAccount": 1.2616127833519137,
-        "engagementPerThousandReach": 32.70159791898922,
-        "savesPerThousandReach": 4.459308807134894,
-        "sharesPerThousandReach": 0.3716090672612412,
+        "averageWatchTimeMs": 9890,
+        "viewsPerReachedAccount": 1.2611441307578009,
+        "engagementPerThousandReach": 32.68945022288262,
+        "savesPerThousandReach": 4.457652303120357,
+        "sharesPerThousandReach": 0.3714710252600297,
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:54.683Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:53.869Z"
     },
     {
       "id": 4,
@@ -278,20 +278,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 6605,
+        "views": 6609,
         "audience": 19,
         "videos": 7,
         "likes": 174,
-        "engagementRate": 3.194549583648751
+        "engagementRate": 3.192616129520351
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2728,
+        "views": 2731,
         "audience": 15,
         "videos": 5,
         "likes": 94,
-        "engagementRate": 4.69208211143695,
+        "engagementRate": 4.686927865250824,
         "source": "direct"
       },
       "instagram": {
@@ -301,17 +301,17 @@
         "audience": null,
         "videos": 5,
         "likes": 56,
-        "reach": 1563,
+        "reach": 1564,
         "comments": 3,
         "saves": 17,
         "shares": 9,
         "totalInteractions": 86,
-        "averageWatchTimeMs": 10754,
-        "totalWatchTimeMs": 22734398,
-        "engagementRate": 5.502239283429303,
-        "viewToReachRatio": 1.3525271912987844,
+        "averageWatchTimeMs": 10755,
+        "totalWatchTimeMs": 22736374,
+        "engagementRate": 5.498721227621484,
+        "viewToReachRatio": 1.3516624040920715,
         "profileUrl": "https://www.instagram.com/sylvasmysteries/",
-        "generatedAt": "2026-08-06T09:49:03+00:00"
+        "generatedAt": "2026-08-06T10:04:19+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -343,18 +343,18 @@
       },
       "instagramPerformance": {
         "views": 2114,
-        "reach": 1563,
+        "reach": 1564,
         "reels": 5,
         "totalInteractions": 86,
-        "averageWatchTimeMs": 10754,
-        "viewsPerReachedAccount": 1.3525271912987844,
-        "engagementPerThousandReach": 55.02239283429303,
-        "savesPerThousandReach": 10.876519513755598,
-        "sharesPerThousandReach": 5.758157389635317,
+        "averageWatchTimeMs": 10755,
+        "viewsPerReachedAccount": 1.3516624040920715,
+        "engagementPerThousandReach": 54.987212276214834,
+        "savesPerThousandReach": 10.869565217391305,
+        "sharesPerThousandReach": 5.754475703324808,
         "interactionsPerReel": 17.2
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:15.683Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:15.869Z"
     },
     {
       "id": 5,
@@ -371,11 +371,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 1774,
+        "views": 1801,
         "audience": 10,
         "videos": 8,
-        "likes": 99,
-        "engagementRate": 7.94813979706877
+        "likes": 102,
+        "engagementRate": 7.995558023320378
       },
       "tiktok": {
         "connected": true,
@@ -390,21 +390,21 @@
       "instagram": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 13497,
+        "views": 13550,
         "audience": null,
         "videos": 6,
         "likes": 330,
-        "reach": 10860,
+        "reach": 10906,
         "comments": 75,
         "saves": 60,
-        "shares": 578,
-        "totalInteractions": 1074,
-        "averageWatchTimeMs": 31384,
-        "totalWatchTimeMs": 423584195,
-        "engagementRate": 9.88950276243094,
-        "viewToReachRatio": 1.242817679558011,
+        "shares": 620,
+        "totalInteractions": 1116,
+        "averageWatchTimeMs": 31441,
+        "totalWatchTimeMs": 426028824,
+        "engagementRate": 10.232899321474417,
+        "viewToReachRatio": 1.242435356684394,
         "profileUrl": "https://www.instagram.com/fixedfightsshorts/",
-        "generatedAt": "2026-08-06T09:49:06+00:00"
+        "generatedAt": "2026-08-06T10:04:24+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -435,19 +435,19 @@
         "returningViewers": null
       },
       "instagramPerformance": {
-        "views": 13497,
-        "reach": 10860,
+        "views": 13550,
+        "reach": 10906,
         "reels": 6,
-        "totalInteractions": 1074,
-        "averageWatchTimeMs": 31384,
-        "viewsPerReachedAccount": 1.242817679558011,
-        "engagementPerThousandReach": 98.89502762430939,
-        "savesPerThousandReach": 5.524861878453039,
-        "sharesPerThousandReach": 53.22283609576427,
-        "interactionsPerReel": 179
+        "totalInteractions": 1116,
+        "averageWatchTimeMs": 31441,
+        "viewsPerReachedAccount": 1.242435356684394,
+        "engagementPerThousandReach": 102.32899321474417,
+        "savesPerThousandReach": 5.501558774986246,
+        "sharesPerThousandReach": 56.84944067485788,
+        "interactionsPerReel": 186
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:21.683Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:21.869Z"
     }
   ],
   "videos": [
@@ -504,12 +504,12 @@
       "title": "The night an NBA player got paid to play badly",
       "url": "https://www.youtube.com/watch?v=F0kbLGQM-zY",
       "publishedAt": "2026-08-06T05:58:08Z",
-      "views": 658,
-      "likes": 19,
+      "views": 686,
+      "likes": 22,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 3.64741641337386
+      "engagementRate": 3.9358600583090384
     },
     {
       "id": "tiktok:7670775198160915743",
@@ -584,12 +584,12 @@
       "title": "Dot Game",
       "url": "https://www.youtube.com/watch?v=tkGvqkRMU8U",
       "publishedAt": "2026-08-05T23:00:24Z",
-      "views": 278,
+      "views": 277,
       "likes": 8,
       "comments": 6,
       "shares": 0,
       "durationSeconds": 18,
-      "engagementRate": 5.0359712230215825
+      "engagementRate": 5.054151624548736
     },
     {
       "id": "tiktok:7670686034434264333",
@@ -644,12 +644,12 @@
       "title": "Steven",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7670406992703327519?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-05T04:57:00.000Z",
-      "views": 324,
+      "views": 325,
       "likes": 20,
       "comments": 6,
       "shares": 0,
       "durationSeconds": 38,
-      "engagementRate": 8.024691358024691
+      "engagementRate": 8
     },
     {
       "id": "tiktok:7670406889233976607",
@@ -659,12 +659,12 @@
       "title": "Oldest man ever caught on film",
       "url": "https://www.tiktok.com/@thearchivelives/video/7670406889233976607?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-05T04:56:30.000Z",
-      "views": 8922,
+      "views": 8962,
       "likes": 212,
       "comments": 24,
       "shares": 12,
       "durationSeconds": 21,
-      "engagementRate": 2.779645819323022
+      "engagementRate": 2.767239455478688
     },
     {
       "id": "youtube:_Dn6W-1HjEQ",
@@ -704,17 +704,17 @@
       "title": "May 31, 2002: one win from the Finals, the Kings ran into 27 free throws in one quarter. Both the...",
       "url": "https://www.instagram.com/reel/DbowwRWjmo_/",
       "publishedAt": "2026-08-04T23:38:32+0000",
-      "views": 12582,
-      "reach": 10112,
+      "views": 12634,
+      "reach": 10158,
       "likes": 317,
       "comments": 74,
       "saves": 55,
-      "shares": 573,
-      "totalInteractions": 1047,
-      "averageWatchTimeMs": 40563,
-      "totalWatchTimeMs": 405637235,
-      "engagementRate": 10.354034810126581,
-      "viewToReachRatio": 1.2442642405063291
+      "shares": 615,
+      "totalInteractions": 1089,
+      "averageWatchTimeMs": 40678,
+      "totalWatchTimeMs": 408081864,
+      "engagementRate": 10.720614294152393,
+      "viewToReachRatio": 1.2437487694428038
     },
     {
       "id": "youtube:okPtVyEGzZs",
@@ -770,16 +770,16 @@
       "url": "https://www.instagram.com/reel/DboY505iU0E/",
       "publishedAt": "2026-08-04T20:09:58+0000",
       "views": 1643,
-      "reach": 1143,
+      "reach": 1144,
       "likes": 50,
       "comments": 3,
       "saves": 14,
       "shares": 9,
       "totalInteractions": 77,
-      "averageWatchTimeMs": 13838,
-      "totalWatchTimeMs": 15568386,
-      "engagementRate": 6.73665791776028,
-      "viewToReachRatio": 1.4374453193350831
+      "averageWatchTimeMs": 13828,
+      "totalWatchTimeMs": 15570362,
+      "engagementRate": 6.730769230769231,
+      "viewToReachRatio": 1.4361888111888113
     },
     {
       "id": "youtube:xBGy6zrVVvE",
@@ -804,12 +804,12 @@
       "title": "One small step",
       "url": "https://www.tiktok.com/@thearchivelives/video/7670019403202776351?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-04T03:52:42.000Z",
-      "views": 792,
+      "views": 795,
       "likes": 22,
       "comments": 23,
       "shares": 1,
       "durationSeconds": 20,
-      "engagementRate": 5.808080808080808
+      "engagementRate": 5.786163522012579
     },
     {
       "id": "tiktok:7670018366559505694",
@@ -854,12 +854,12 @@
       "title": "No One Faked the Moon Landing (1969)",
       "url": "https://www.youtube.com/watch?v=B29xfeRxDj4",
       "publishedAt": "2026-08-03T21:10:00Z",
-      "views": 1244,
+      "views": 1225,
       "likes": 27,
       "comments": 10,
       "shares": 0,
       "durationSeconds": 21,
-      "engagementRate": 2.97427652733119
+      "engagementRate": 3.0204081632653064
     },
     {
       "id": "youtube:CuJIpwAKLnU",
@@ -964,12 +964,12 @@
       "title": "Old Book",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7669651263138647326?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-03T04:04:15.000Z",
-      "views": 1476,
+      "views": 1478,
       "likes": 34,
       "comments": 7,
       "shares": 1,
       "durationSeconds": 24,
-      "engagementRate": 2.8455284552845526
+      "engagementRate": 2.841677943166441
     },
     {
       "id": "tiktok:7669651038676274463",
@@ -979,12 +979,12 @@
       "title": "Gertie, First Cartoons Series",
       "url": "https://www.tiktok.com/@thearchivelives/video/7669651038676274463?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-03T04:03:24.000Z",
-      "views": 14302,
-      "likes": 564,
+      "views": 14309,
+      "likes": 565,
       "comments": 26,
       "shares": 42,
       "durationSeconds": 18,
-      "engagementRate": 4.418962382883513
+      "engagementRate": 4.423789223565588
     },
     {
       "id": "youtube:2kz08wI2HsI",
@@ -994,12 +994,12 @@
       "title": "Legend Says the Devil Wrote This 165-Pound Book #mystery #history #shorts",
       "url": "https://www.youtube.com/watch?v=2kz08wI2HsI",
       "publishedAt": "2026-08-03T04:00:05Z",
-      "views": 1445,
+      "views": 1447,
       "likes": 40,
       "comments": 8,
       "shares": 0,
       "durationSeconds": 25,
-      "engagementRate": 3.3217993079584778
+      "engagementRate": 3.31720801658604
     },
     {
       "id": "instagram:18099813992192308",
@@ -1045,16 +1045,16 @@
       "url": "https://www.instagram.com/reel/DbjNpPboL-Y/",
       "publishedAt": "2026-08-02T19:55:13+0000",
       "views": 1498,
-      "reach": 1105,
+      "reach": 1106,
       "likes": 49,
       "comments": 0,
       "saves": 9,
       "shares": 0,
       "totalInteractions": 59,
-      "averageWatchTimeMs": 11440,
-      "totalWatchTimeMs": 12550073,
-      "engagementRate": 5.339366515837104,
-      "viewToReachRatio": 1.3556561085972851
+      "averageWatchTimeMs": 11432,
+      "totalWatchTimeMs": 12552629,
+      "engagementRate": 5.334538878842676,
+      "viewToReachRatio": 1.3544303797468353
     },
     {
       "id": "youtube:6aQvLyk8FKw",
@@ -1064,12 +1064,12 @@
       "title": "Gertie the Dinosaur: The Cartoon Performed Live",
       "url": "https://www.youtube.com/watch?v=6aQvLyk8FKw",
       "publishedAt": "2026-08-02T19:45:34Z",
-      "views": 891,
+      "views": 893,
       "likes": 29,
       "comments": 12,
       "shares": 0,
       "durationSeconds": 19,
-      "engagementRate": 4.601571268237935
+      "engagementRate": 4.591265397536394
     },
     {
       "id": "youtube:ENJKy5M1--o",
@@ -1079,12 +1079,12 @@
       "title": "The Triple Six Fix: the host rigged the lottery on live TV",
       "url": "https://www.youtube.com/watch?v=ENJKy5M1--o",
       "publishedAt": "2026-08-02T19:22:28Z",
-      "views": 90,
+      "views": 89,
       "likes": 8,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 34,
-      "engagementRate": 14.444444444444443
+      "engagementRate": 14.606741573033707
     },
     {
       "id": "tiktok:7669514872316513566",
@@ -1204,12 +1204,12 @@
       "title": "Oldest Video Ever",
       "url": "https://www.tiktok.com/@thearchivelives/video/7669229661926313246?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-02T00:48:15.000Z",
-      "views": 47022,
+      "views": 47024,
       "likes": 1929,
       "comments": 85,
       "shares": 222,
       "durationSeconds": 53,
-      "engagementRate": 4.755220960401514
+      "engagementRate": 4.755018713848248
     },
     {
       "id": "instagram:18456659674140510",
@@ -1299,12 +1299,12 @@
       "title": "The First World Champion Ever Filmed Was Paid to Win",
       "url": "https://www.youtube.com/watch?v=_SGg530d0_g",
       "publishedAt": "2026-08-01T17:00:38Z",
-      "views": 1404,
+      "views": 1405,
       "likes": 31,
       "comments": 11,
       "shares": 0,
       "durationSeconds": 26,
-      "engagementRate": 2.9914529914529915
+      "engagementRate": 2.9893238434163703
     },
     {
       "id": "tiktok:7669081063385271583",
@@ -1359,7 +1359,7 @@
       "title": "2003: after the frozen envelope scandal the NBA rebuilt the lottery. Ping pong balls. A sealed ro...",
       "url": "https://www.instagram.com/reel/Dbe3uO6CO8G/",
       "publishedAt": "2026-08-01T03:27:10+0000",
-      "views": 77,
+      "views": 78,
       "reach": 59,
       "likes": 3,
       "comments": 0,
@@ -1369,7 +1369,7 @@
       "averageWatchTimeMs": 152855,
       "totalWatchTimeMs": 9324161,
       "engagementRate": 8.47457627118644,
-      "viewToReachRatio": 1.305084745762712
+      "viewToReachRatio": 1.3220338983050848
     },
     {
       "id": "youtube:ATLhPYJ-Zjk",
@@ -1379,12 +1379,12 @@
       "title": "TOP 5 OVERLORD FIGHTS | Ainz's Best Battles",
       "url": "https://www.youtube.com/watch?v=ATLhPYJ-Zjk",
       "publishedAt": "2026-08-01T01:00:02Z",
-      "views": 446,
+      "views": 448,
       "likes": 13,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 3.587443946188341
+      "engagementRate": 3.571428571428571
     },
     {
       "id": "tiktok:7668843644132117790",
@@ -141880,6 +141880,140 @@
       "likes": 330,
       "reach": 10860,
       "engagementRate": 9.88950276243094
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 3314,
+      "audience": 11,
+      "videos": 5,
+      "likes": 95,
+      "engagementRate": 3.711526855763428
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 685,
+      "audience": 9,
+      "videos": 6,
+      "likes": 40,
+      "engagementRate": 10.364963503649635
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 4464,
+      "audience": 14,
+      "videos": 18,
+      "likes": 180,
+      "engagementRate": 4.883512544802867
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 13166,
+      "audience": 44,
+      "videos": 15,
+      "likes": 534,
+      "engagementRate": 4.91417286951238
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 84248,
+      "audience": 372,
+      "videos": 7,
+      "likes": 3182,
+      "engagementRate": 4.397730509923084
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 3395,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2692,
+      "engagementRate": 3.268945022288262
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 6609,
+      "audience": 19,
+      "videos": 7,
+      "likes": 174,
+      "engagementRate": 3.192616129520351
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 2731,
+      "audience": 15,
+      "videos": 5,
+      "likes": 94,
+      "engagementRate": 4.686927865250824
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 2114,
+      "audience": null,
+      "videos": 5,
+      "likes": 56,
+      "reach": 1564,
+      "engagementRate": 5.498721227621484
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 1801,
+      "audience": 10,
+      "videos": 8,
+      "likes": 102,
+      "engagementRate": 7.995558023320378
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-06T10:04:03.869Z",
+      "views": 13550,
+      "audience": null,
+      "videos": 6,
+      "likes": 330,
+      "reach": 10906,
+      "engagementRate": 10.232899321474417
     }
   ],
   "trend": [
@@ -141964,8 +142098,8 @@
     {
       "date": "2026-08-06",
       "label": "Aug 6",
-      "youtube": 29340,
-      "tiktok": 89341
+      "youtube": 29354,
+      "tiktok": 89403
     }
   ],
   "connections": {
@@ -142010,7 +142144,7 @@
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-08-06T09:48:59+00:00",
+    "generatedAt": "2026-08-06T10:04:15+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
@@ -142023,17 +142157,17 @@
     },
     "totals": {
       "views": 3395,
-      "reach": 2691,
+      "reach": 2692,
       "likes": 74,
       "comments": 0,
       "saves": 12,
       "shares": 1,
       "totalInteractions": 88,
-      "totalWatchTimeMs": 33573376,
+      "totalWatchTimeMs": 33575932,
       "reels": 7,
-      "averageWatchTimeMs": 9889,
-      "engagementRate": 3.2701597918989225,
-      "viewToReachRatio": 1.2616127833519137
+      "averageWatchTimeMs": 9890,
+      "engagementRate": 3.268945022288262,
+      "viewToReachRatio": 1.2611441307578009
     },
     "reels": [
       {
@@ -142059,16 +142193,16 @@
         "url": "https://www.instagram.com/reel/DbjNpPboL-Y/",
         "publishedAt": "2026-08-02T19:55:13+0000",
         "views": 1498,
-        "reach": 1105,
+        "reach": 1106,
         "likes": 49,
         "comments": 0,
         "saves": 9,
         "shares": 0,
         "totalInteractions": 59,
-        "averageWatchTimeMs": 11440,
-        "totalWatchTimeMs": 12550073,
-        "engagementRate": 5.339366515837104,
-        "viewToReachRatio": 1.3556561085972851
+        "averageWatchTimeMs": 11432,
+        "totalWatchTimeMs": 12552629,
+        "engagementRate": 5.334538878842676,
+        "viewToReachRatio": 1.3544303797468353
       },
       {
         "id": "18109720078807541",
@@ -142163,7 +142297,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-08-06T09:48:52+00:00",
+      "generatedAt": "2026-08-06T10:04:10+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -142298,7 +142432,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-06T09:48:59+00:00",
+      "generatedAt": "2026-08-06T10:04:15+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -142311,17 +142445,17 @@
       },
       "totals": {
         "views": 3395,
-        "reach": 2691,
+        "reach": 2692,
         "likes": 74,
         "comments": 0,
         "saves": 12,
         "shares": 1,
         "totalInteractions": 88,
-        "totalWatchTimeMs": 33573376,
+        "totalWatchTimeMs": 33575932,
         "reels": 7,
-        "averageWatchTimeMs": 9889,
-        "engagementRate": 3.2701597918989225,
-        "viewToReachRatio": 1.2616127833519137
+        "averageWatchTimeMs": 9890,
+        "engagementRate": 3.268945022288262,
+        "viewToReachRatio": 1.2611441307578009
       },
       "reels": [
         {
@@ -142347,16 +142481,16 @@
           "url": "https://www.instagram.com/reel/DbjNpPboL-Y/",
           "publishedAt": "2026-08-02T19:55:13+0000",
           "views": 1498,
-          "reach": 1105,
+          "reach": 1106,
           "likes": 49,
           "comments": 0,
           "saves": 9,
           "shares": 0,
           "totalInteractions": 59,
-          "averageWatchTimeMs": 11440,
-          "totalWatchTimeMs": 12550073,
-          "engagementRate": 5.339366515837104,
-          "viewToReachRatio": 1.3556561085972851
+          "averageWatchTimeMs": 11432,
+          "totalWatchTimeMs": 12552629,
+          "engagementRate": 5.334538878842676,
+          "viewToReachRatio": 1.3544303797468353
         },
         {
           "id": "18109720078807541",
@@ -142450,7 +142584,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-06T09:49:03+00:00",
+      "generatedAt": "2026-08-06T10:04:19+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -142463,17 +142597,17 @@
       },
       "totals": {
         "views": 2114,
-        "reach": 1563,
+        "reach": 1564,
         "likes": 56,
         "comments": 3,
         "saves": 17,
         "shares": 9,
         "totalInteractions": 86,
-        "totalWatchTimeMs": 22734398,
+        "totalWatchTimeMs": 22736374,
         "reels": 5,
-        "averageWatchTimeMs": 10754,
-        "engagementRate": 5.502239283429303,
-        "viewToReachRatio": 1.3525271912987844
+        "averageWatchTimeMs": 10755,
+        "engagementRate": 5.498721227621484,
+        "viewToReachRatio": 1.3516624040920715
       },
       "reels": [
         {
@@ -142482,16 +142616,16 @@
           "url": "https://www.instagram.com/reel/DboY505iU0E/",
           "publishedAt": "2026-08-04T20:09:58+0000",
           "views": 1643,
-          "reach": 1143,
+          "reach": 1144,
           "likes": 50,
           "comments": 3,
           "saves": 14,
           "shares": 9,
           "totalInteractions": 77,
-          "averageWatchTimeMs": 13838,
-          "totalWatchTimeMs": 15568386,
-          "engagementRate": 6.73665791776028,
-          "viewToReachRatio": 1.4374453193350831
+          "averageWatchTimeMs": 13828,
+          "totalWatchTimeMs": 15570362,
+          "engagementRate": 6.730769230769231,
+          "viewToReachRatio": 1.4361888111888113
         },
         {
           "id": "18349212262168536",
@@ -142568,7 +142702,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-06T09:49:06+00:00",
+      "generatedAt": "2026-08-06T10:04:24+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -142580,18 +142714,18 @@
         "connected": true
       },
       "totals": {
-        "views": 13497,
-        "reach": 10860,
+        "views": 13550,
+        "reach": 10906,
         "likes": 330,
         "comments": 75,
         "saves": 60,
-        "shares": 578,
-        "totalInteractions": 1074,
-        "totalWatchTimeMs": 423584195,
+        "shares": 620,
+        "totalInteractions": 1116,
+        "totalWatchTimeMs": 426028824,
         "reels": 6,
-        "averageWatchTimeMs": 31384,
-        "engagementRate": 9.88950276243094,
-        "viewToReachRatio": 1.242817679558011
+        "averageWatchTimeMs": 31441,
+        "engagementRate": 10.232899321474417,
+        "viewToReachRatio": 1.242435356684394
       },
       "reels": [
         {
@@ -142616,17 +142750,17 @@
           "title": "May 31, 2002: one win from the Finals, the Kings ran into 27 free throws in one quarter. Both the...",
           "url": "https://www.instagram.com/reel/DbowwRWjmo_/",
           "publishedAt": "2026-08-04T23:38:32+0000",
-          "views": 12582,
-          "reach": 10112,
+          "views": 12634,
+          "reach": 10158,
           "likes": 317,
           "comments": 74,
           "saves": 55,
-          "shares": 573,
-          "totalInteractions": 1047,
-          "averageWatchTimeMs": 40563,
-          "totalWatchTimeMs": 405637235,
-          "engagementRate": 10.354034810126581,
-          "viewToReachRatio": 1.2442642405063291
+          "shares": 615,
+          "totalInteractions": 1089,
+          "averageWatchTimeMs": 40678,
+          "totalWatchTimeMs": 408081864,
+          "engagementRate": 10.720614294152393,
+          "viewToReachRatio": 1.2437487694428038
         },
         {
           "id": "18061799582734793",
@@ -142650,7 +142784,7 @@
           "title": "2003: after the frozen envelope scandal the NBA rebuilt the lottery. Ping pong balls. A sealed ro...",
           "url": "https://www.instagram.com/reel/Dbe3uO6CO8G/",
           "publishedAt": "2026-08-01T03:27:10+0000",
-          "views": 77,
+          "views": 78,
           "reach": 59,
           "likes": 3,
           "comments": 0,
@@ -142660,7 +142794,7 @@
           "averageWatchTimeMs": 152855,
           "totalWatchTimeMs": 9324161,
           "engagementRate": 8.47457627118644,
-          "viewToReachRatio": 1.305084745762712
+          "viewToReachRatio": 1.3220338983050848
         },
         {
           "id": "18362790025209824",
