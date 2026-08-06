@@ -1,0 +1,78 @@
+name: Vault Pulse ticker
+
+# A 15-minute clock that does not depend on GitHub's cron, and needs no
+# credential of any kind.
+#
+# WHY. GitHub's `schedule` trigger drops slots rather than queueing them. This
+# repo asks four times an hour and was measured delivering 13 runs in 23 hours
+# -- 14%, gaps up to 3h19m, never once a 15-minute interval. It looked healthy
+# for months only because an external ticker of unknown origin dispatched
+# pages.yml every 15 minutes; that ticker stopped at 2026-08-05T17:15:03Z and
+# the real rate became visible. refresh-watchdog.yml cannot cover it: it runs
+# on the same dropped scheduler.
+#
+# HOW. This job holds a runner and dispatches pages.yml every 15 minutes for
+# ~5.25 hours, then starts its own successor and exits. The chain is the clock.
+#
+# NO TOKEN NEEDED. `github.token` can dispatch a workflow in its own repository
+# -- refresh-watchdog.yml has been doing exactly that all along. A personal
+# access token was never actually required for this; only for driving it from
+# outside the repo.
+#
+# COST. One continuously-held hosted runner. Actions minutes are free and
+# unmetered on public repositories, and 1 concurrent job sits far inside the
+# 20-job allowance. The work is this repository's own publish pipeline, not
+# unrelated compute. To stop it: disable this workflow in the Actions tab, or
+# delete this file. Nothing else depends on it -- pages.yml's own cron and the
+# watchdog both stay in place as the degraded-mode fallback.
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Seed and self-heal ONLY -- this is not the clock. If a handoff is ever
+    # lost, this restarts the chain. Unpopular minutes, clear of pages.yml (2/5)
+    # and refresh-watchdog.yml (4/5).
+    - cron: "9/20 * * * *"
+
+permissions:
+  actions: write
+  contents: read
+
+# One ticker at a time. A successor dispatched while this one is still winding
+# down queues instead of running alongside it.
+concurrency:
+  group: vault-pulse-ticker
+  cancel-in-progress: false
+
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    # 21 ticks x 15 min = 315 min, plus headroom. Hosted jobs cap at 360.
+    timeout-minutes: 345
+    steps:
+      - name: Dispatch a refresh every 15 minutes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          TICKS=21
+          for i in $(seq 1 "$TICKS"); do
+            if gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main; then
+              echo "tick $i/$TICKS dispatched at $(date -u +%H:%M:%SZ)"
+            else
+              # Never fail the chain over one bad tick -- the next one is 15
+              # minutes away, and the handoff step must still run.
+              echo "::warning::tick $i/$TICKS failed to dispatch"
+            fi
+            if [ "$i" -lt "$TICKS" ]; then
+              sleep 900
+            fi
+          done
+
+      - name: Start the next generation
+        # always() so a timeout or a failed loop still hands off. Losing this is
+        # the one thing that breaks the chain; the cron above is the backstop.
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run ticker.yml --repo "$GITHUB_REPOSITORY" --ref main
