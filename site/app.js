@@ -637,7 +637,7 @@ function connectionsMarkup(data) {
         <div>
           <strong>Automated by GitHub Actions</strong>
           <p>
-            The dashboard checks every configured platform each 15 minutes and
+            The dashboard re-checks every configured platform continuously and
             redeploys this page with a new snapshot. TikTok and Instagram token
             refreshes happen automatically on their existing servers.
           </p>
@@ -956,7 +956,7 @@ function detailStatMarkup(label, value, note) {
  *
  * Lives in its own file, site/data/authorized-analytics.json, and is joined
  * client-side. It is deliberately NOT merged into dashboard.json, which is
- * committed to public git history every 15 minutes.
+ * committed to public git history on every refresh.
  *
  * Every field here is `number | null`, and null NEVER means zero. Each null
  * is paired with a reason code so a dash always explains itself.

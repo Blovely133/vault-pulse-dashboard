@@ -2,7 +2,7 @@ name: Guard scheduled Vault Pulse refreshes
 
 on:
   schedule:
-    - cron: "12/15 * * * *"
+    - cron: "4/5 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -19,7 +19,7 @@ jobs:
       - name: Check snapshot age
         id: freshness
         shell: bash
-        run: echo "stale=$(node scripts/check-freshness.mjs 18)" >> "$GITHUB_OUTPUT"
+        run: echo "stale=$(node scripts/check-freshness.mjs 12)" >> "$GITHUB_OUTPUT"
 
       - name: Recover a missed refresh
         if: steps.freshness.outputs.stale == 'true'
