@@ -2,7 +2,9 @@ name: Guard scheduled Vault Pulse refreshes
 
 on:
   schedule:
-    - cron: "4/5 * * * *"
+    # Five minutes after each ticker slot. This only dispatches when the
+    # snapshot is stale, so it is a low-cost backstop for a dropped cron tick.
+    - cron: "14,29,44,59 * * * *"
   workflow_dispatch:
 
 permissions:
