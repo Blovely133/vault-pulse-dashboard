@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-06T22:09:31.200Z",
-  "generatedAt": "2026-08-06T22:09:31.200Z",
+  "updatedAt": "2026-08-06T22:10:25.578Z",
+  "generatedAt": "2026-08-06T22:10:25.578Z",
   "hasLiveData": true,
   "totals": {
-    "views": 147101,
-    "sevenDayViews": 129574,
+    "views": 147122,
+    "sevenDayViews": 129595,
     "audience": 518,
-    "engagementRate": 4.882713333107674
+    "engagementRate": 4.881928404023995
   },
   "platformTotals": {
-    "youtube": 32440,
-    "tiktok": 92929,
+    "youtube": 32456,
+    "tiktok": 92934,
     "instagram": 21732
   },
   "channels": [
@@ -28,11 +28,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 4497,
+        "views": 4504,
         "audience": 15,
         "videos": 5,
         "likes": 141,
-        "engagementRate": 4.024905492550589
+        "engagementRate": 4.018650088809947
       },
       "tiktok": {
         "connected": true,
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.200Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.578Z"
     },
     {
       "id": 2,
@@ -98,8 +98,8 @@
         "engagementRate": 4.871508379888268
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
+        "connected": true,
+        "connectionLabel": "Connected",
         "views": 1496,
         "audience": 7,
         "videos": 20,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.16666666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.755Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:03.578Z"
     },
     {
       "id": 3,
@@ -185,20 +185,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 13681,
+        "views": 13705,
         "audience": 44,
         "videos": 15,
         "likes": 539,
-        "engagementRate": 4.76573349901323
+        "engagementRate": 4.75738781466618
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 87594,
+        "views": 87599,
         "audience": 377,
         "videos": 7,
         "likes": 3304,
-        "engagementRate": 4.379295385528689,
+        "engagementRate": 4.379045422892956,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.200Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:54.578Z"
     },
     {
       "id": 4,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 17.6
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.200Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:19.578Z"
     },
     {
       "id": 5,
@@ -371,11 +371,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2321,
+        "views": 2306,
         "audience": 11,
         "videos": 8,
         "likes": 103,
-        "engagementRate": 6.247307195174494
+        "engagementRate": 6.287944492627926
       },
       "tiktok": {
         "connected": true,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 230.33333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:30.200Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:26.578Z"
     }
   ],
   "videos": [
@@ -489,12 +489,12 @@
       "title": "Oldest Video Ever",
       "url": "https://www.youtube.com/watch?v=1nN9ocCbpvc",
       "publishedAt": "2026-08-06T06:00:35Z",
-      "views": 885,
+      "views": 907,
       "likes": 46,
       "comments": 11,
       "shares": 0,
       "durationSeconds": 54,
-      "engagementRate": 6.440677966101695
+      "engagementRate": 6.284454244762955
     },
     {
       "id": "youtube:oN_8iFn-YrQ",
@@ -534,12 +534,12 @@
       "title": "The night an NBA player got paid to play badly",
       "url": "https://www.youtube.com/watch?v=F0kbLGQM-zY",
       "publishedAt": "2026-08-06T05:58:08Z",
-      "views": 1187,
+      "views": 1174,
       "likes": 22,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 2.274641954507161
+      "engagementRate": 2.2998296422487225
     },
     {
       "id": "tiktok:7670775198160915743",
@@ -689,12 +689,12 @@
       "title": "Oldest man ever caught on film",
       "url": "https://www.tiktok.com/@thearchivelives/video/7670406889233976607?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-05T04:56:30.000Z",
-      "views": 11899,
+      "views": 11904,
       "likes": 314,
       "comments": 27,
       "shares": 17,
       "durationSeconds": 21,
-      "engagementRate": 3.008656189595764
+      "engagementRate": 3.0073924731182795
     },
     {
       "id": "youtube:_Dn6W-1HjEQ",
@@ -754,12 +754,12 @@
       "title": "The referee said this game was rigged | Kings at Lakers, Game 6",
       "url": "https://www.youtube.com/watch?v=okPtVyEGzZs",
       "publishedAt": "2026-08-04T22:39:38Z",
-      "views": 143,
+      "views": 149,
       "likes": 21,
       "comments": 8,
       "shares": 0,
       "durationSeconds": 69,
-      "engagementRate": 20.27972027972028
+      "engagementRate": 19.463087248322147
     },
     {
       "id": "youtube:S2T7TsdsoSM",
@@ -769,12 +769,12 @@
       "title": "Can You Name All 8 Eevee Evolutions?!",
       "url": "https://www.youtube.com/watch?v=S2T7TsdsoSM",
       "publishedAt": "2026-08-04T22:39:26Z",
-      "views": 1814,
+      "views": 1821,
       "likes": 67,
       "comments": 12,
       "shares": 0,
       "durationSeconds": 33,
-      "engagementRate": 4.355016538037487
+      "engagementRate": 4.3382756727073035
     },
     {
       "id": "tiktok:7670308760438508813",
@@ -929,12 +929,12 @@
       "title": "The referee was the fix: Robert Hoyzer, 2004 German Cup",
       "url": "https://www.youtube.com/watch?v=glu5n-8u2OM",
       "publishedAt": "2026-08-03T20:43:18Z",
-      "views": 375,
+      "views": 367,
       "likes": 10,
       "comments": 6,
       "shares": 0,
       "durationSeconds": 25,
-      "engagementRate": 4.266666666666667
+      "engagementRate": 4.35967302452316
     },
     {
       "id": "tiktok:7669905220373105950",
@@ -148746,6 +148746,150 @@
       "likes": 406,
       "reach": 12328,
       "engagementRate": 11.210253082414017
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 4504,
+      "audience": 15,
+      "videos": 5,
+      "likes": 141,
+      "engagementRate": 4.018650088809947
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 695,
+      "audience": 9,
+      "videos": 6,
+      "likes": 41,
+      "engagementRate": 10.359712230215827
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 4475,
+      "audience": 14,
+      "videos": 18,
+      "likes": 180,
+      "engagementRate": 4.871508379888268
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 1496,
+      "audience": 7,
+      "videos": 20,
+      "likes": 71,
+      "engagementRate": 6.684491978609626
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 13705,
+      "audience": 44,
+      "videos": 15,
+      "likes": 539,
+      "engagementRate": 4.75738781466618
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 87599,
+      "audience": 377,
+      "videos": 7,
+      "likes": 3304,
+      "engagementRate": 4.379045422892956
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 3399,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2695,
+      "engagementRate": 3.2653061224489797
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 7466,
+      "audience": 20,
+      "videos": 8,
+      "likes": 218,
+      "engagementRate": 3.4556656844361107
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 2901,
+      "audience": 15,
+      "videos": 6,
+      "likes": 98,
+      "engagementRate": 4.653567735263702
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 2155,
+      "audience": null,
+      "videos": 5,
+      "likes": 57,
+      "reach": 1596,
+      "engagementRate": 5.513784461152882
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 2306,
+      "audience": 11,
+      "videos": 8,
+      "likes": 103,
+      "engagementRate": 6.287944492627926
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-06T22:10:25.578Z",
+      "views": 15738,
+      "audience": null,
+      "videos": 6,
+      "likes": 406,
+      "reach": 12328,
+      "engagementRate": 11.210253082414017
     }
   ],
   "trend": [
@@ -148830,8 +148974,8 @@
     {
       "date": "2026-08-06",
       "label": "Aug 6",
-      "youtube": 32440,
-      "tiktok": 92929
+      "youtube": 32456,
+      "tiktok": 92934
     }
   ],
   "connections": {
@@ -148844,7 +148988,7 @@
       "fixed-fights": "direct"
     },
     "instagramFeed": true,
-    "connectedSources": 13,
+    "connectedSources": 14,
     "totalSources": 14
   },
   "refresh": {
@@ -148854,6 +148998,7 @@
       "Axolotl Drama · TikTok (direct)",
       "Anime Countdown Vault · YouTube",
       "Anime Countdown Vault · YouTube Analytics",
+      "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube",
       "Kids History · YouTube Analytics",
@@ -148870,9 +149015,7 @@
     ],
     "skipped": [],
     "warnings": [],
-    "errors": [
-      "Anime Countdown Vault · TikTok (direct): Server Internal Error"
-    ]
+    "errors": []
   },
   "instagram": {
     "version": 1,
