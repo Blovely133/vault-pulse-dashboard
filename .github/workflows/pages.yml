@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-  schedule:
-    - cron: "2/5 * * * *"
   workflow_dispatch:
 
 permissions:
@@ -17,7 +15,9 @@ permissions:
 
 concurrency:
   group: vault-pulse-pages
-  cancel-in-progress: false
+  # A refresh normally finishes in under a minute. Replacing an older run is
+  # intentional: it also clears a Pages deployment stuck in waiting.
+  cancel-in-progress: true
 
 jobs:
   refresh-and-deploy:
