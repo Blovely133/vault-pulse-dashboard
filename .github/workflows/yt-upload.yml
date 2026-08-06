@@ -36,6 +36,14 @@ on:
         description: RFC3339 UTC publishAt. Empty = private, unscheduled.
         required: false
         default: ""
+      privacy:
+        description: privacyStatus for the upload (private | unlisted | public)
+        required: false
+        default: "private"
+      thumbnail:
+        description: Optional path in this repo checkout to a JPEG thumbnail
+        required: false
+        default: ""
 
 permissions:
   contents: read
@@ -54,6 +62,8 @@ jobs:
           TAGS_CSV: ${{ inputs.tags_csv }}
           CATEGORY_ID: ${{ inputs.category_id }}
           PUBLISH_AT: ${{ inputs.publish_at }}
+          PRIVACY: ${{ inputs.privacy }}
+          THUMBNAIL: ${{ inputs.thumbnail }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
@@ -99,6 +109,13 @@ jobs:
           const description = Buffer.from(process.env.DESCRIPTION_B64, "base64").toString("utf8");
           const tags = (process.env.TAGS_CSV || "").split(",").map(t => t.trim()).filter(Boolean);
           const publishAt = (process.env.PUBLISH_AT || "").trim();
+          const privacy = (process.env.PRIVACY || "").trim() || "private";
+          if (!["private", "unlisted", "public"].includes(privacy)) {
+            throw new Error(`bad privacy: ${privacy}`);
+          }
+          if (publishAt && privacy !== "private") {
+            throw new Error("publishAt requires privacy=private");
+          }
 
           const metadata = {
             snippet: {
@@ -108,7 +125,7 @@ jobs:
               categoryId: process.env.CATEGORY_ID || "27",
             },
             status: {
-              privacyStatus: "private",
+              privacyStatus: privacy,
               selfDeclaredMadeForKids: false,
               ...(publishAt ? { publishAt } : {}),
             },
@@ -157,5 +174,34 @@ jobs:
                 madeForKids: v?.status?.madeForKids ?? null,
               }),
           );
+
+          // Thumbnail is best-effort: the video is already up, so a failure here
+          // is a Studio to-do, never a failed release.
+          const thumb = (process.env.THUMBNAIL || "").trim();
+          if (thumb) {
+            try {
+              const img = fs.readFileSync(thumb);
+              const thumbRes = await fetch(
+                `${uploadApi}/thumbnails/set?videoId=${putJson.id}`,
+                {
+                  method: "POST",
+                  headers: {
+                    ...auth,
+                    "Content-Type": "image/jpeg",
+                    "Content-Length": String(img.length),
+                  },
+                  body: img,
+                },
+              );
+              const thumbJson = await thumbRes.json();
+              console.log(
+                thumbRes.ok
+                  ? `YTU_THUMB_OK ${putJson.id}`
+                  : `YTU_THUMB_FAIL ${thumbRes.status} ${JSON.stringify(thumbJson)}`,
+              );
+            } catch (err) {
+              console.log(`YTU_THUMB_FAIL ${err.message}`);
+            }
+          }
           SCRIPT
           node /tmp/yt-upload.mjs
