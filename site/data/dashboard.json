@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-07T01:09:59.737Z",
-  "generatedAt": "2026-08-07T01:09:59.737Z",
+  "updatedAt": "2026-08-07T01:10:37.565Z",
+  "generatedAt": "2026-08-07T01:10:37.565Z",
   "hasLiveData": true,
   "totals": {
-    "views": 148494,
-    "sevenDayViews": 130336,
+    "views": 148502,
+    "sevenDayViews": 130344,
     "audience": 523,
-    "engagementRate": 4.904044037679656
+    "engagementRate": 4.903838914496524
   },
   "platformTotals": {
-    "youtube": 33011,
-    "tiktok": 93507,
+    "youtube": 33018,
+    "tiktok": 93508,
     "instagram": 21976
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.737Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.565Z"
     },
     {
       "id": 2,
@@ -98,8 +98,8 @@
         "engagementRate": 4.8725972284309345
       },
       "tiktok": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Refresh error",
         "views": 1496,
         "audience": 7,
         "videos": 22,
@@ -124,7 +124,7 @@
         "engagementRate": 0.25510204081632654,
         "viewToReachRatio": 1.1224489795918366,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-08-07T01:05:06+00:00"
+        "generatedAt": "2026-08-07T01:10:46+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -185,11 +185,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 13707,
+        "views": 13714,
         "audience": 44,
         "videos": 15,
         "likes": 540,
-        "engagementRate": 4.763989202597213
+        "engagementRate": 4.761557532448593
       },
       "tiktok": {
         "connected": true,
@@ -218,7 +218,7 @@
         "engagementRate": 3.2640949554896146,
         "viewToReachRatio": 1.2614985163204748,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-08-07T01:05:10+00:00"
+        "generatedAt": "2026-08-07T01:10:51+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.737Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:51.565Z"
     },
     {
       "id": 4,
@@ -287,11 +287,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2945,
+        "views": 2946,
         "audience": 16,
         "videos": 6,
         "likes": 99,
-        "engagementRate": 4.6179966044142615,
+        "engagementRate": 4.61642905634759,
         "source": "direct"
       },
       "instagram": {
@@ -354,7 +354,7 @@
         "interactionsPerReel": 17.6
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:23.737Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:14.565Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 239.5
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:32.737Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:23.565Z"
     }
   ],
   "videos": [
@@ -489,12 +489,12 @@
       "title": "Oldest Video Ever",
       "url": "https://www.youtube.com/watch?v=1nN9ocCbpvc",
       "publishedAt": "2026-08-06T06:00:35Z",
-      "views": 885,
+      "views": 888,
       "likes": 46,
       "comments": 11,
       "shares": 0,
       "durationSeconds": 54,
-      "engagementRate": 6.440677966101695
+      "engagementRate": 6.418918918918918
     },
     {
       "id": "youtube:oN_8iFn-YrQ",
@@ -884,12 +884,12 @@
       "title": "No One Faked the Moon Landing (1969)",
       "url": "https://www.youtube.com/watch?v=B29xfeRxDj4",
       "publishedAt": "2026-08-03T21:10:00Z",
-      "views": 1293,
+      "views": 1289,
       "likes": 27,
       "comments": 10,
       "shares": 0,
       "durationSeconds": 21,
-      "engagementRate": 2.8615622583139984
+      "engagementRate": 2.8704422032583397
     },
     {
       "id": "youtube:CuJIpwAKLnU",
@@ -994,12 +994,12 @@
       "title": "Old Book",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7669651263138647326?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-03T04:04:15.000Z",
-      "views": 1521,
+      "views": 1522,
       "likes": 35,
       "comments": 7,
       "shares": 1,
       "durationSeconds": 24,
-      "engagementRate": 2.827087442472058
+      "engagementRate": 2.8252299605781865
     },
     {
       "id": "tiktok:7669651038676274463",
@@ -1094,12 +1094,12 @@
       "title": "Gertie the Dinosaur: The Cartoon Performed Live",
       "url": "https://www.youtube.com/watch?v=6aQvLyk8FKw",
       "publishedAt": "2026-08-02T19:45:34Z",
-      "views": 902,
+      "views": 907,
       "likes": 30,
       "comments": 12,
       "shares": 0,
       "durationSeconds": 19,
-      "engagementRate": 4.656319290465632
+      "engagementRate": 4.630650496141125
     },
     {
       "id": "youtube:ENJKy5M1--o",
@@ -178412,6 +178412,140 @@
       "likes": 413,
       "reach": 12500,
       "engagementRate": 11.496
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 5000,
+      "audience": 19,
+      "videos": 5,
+      "likes": 152,
+      "engagementRate": 3.92
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 697,
+      "audience": 9,
+      "videos": 6,
+      "likes": 41,
+      "engagementRate": 10.329985652797705
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 4474,
+      "audience": 14,
+      "videos": 18,
+      "likes": 180,
+      "engagementRate": 4.8725972284309345
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 13714,
+      "audience": 44,
+      "videos": 15,
+      "likes": 540,
+      "engagementRate": 4.761557532448593
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 88126,
+      "audience": 377,
+      "videos": 7,
+      "likes": 3316,
+      "engagementRate": 4.367610012936023
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 3401,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2696,
+      "engagementRate": 3.2640949554896146
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 7516,
+      "audience": 20,
+      "videos": 8,
+      "likes": 219,
+      "engagementRate": 3.44598190526876
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 2946,
+      "audience": 16,
+      "videos": 6,
+      "likes": 99,
+      "engagementRate": 4.61642905634759
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 2160,
+      "audience": null,
+      "videos": 5,
+      "likes": 57,
+      "reach": 1599,
+      "engagementRate": 5.5034396497811136
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 2314,
+      "audience": 11,
+      "videos": 8,
+      "likes": 105,
+      "engagementRate": 6.525496974935177
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T01:10:37.565Z",
+      "views": 15975,
+      "audience": null,
+      "videos": 6,
+      "likes": 413,
+      "reach": 12500,
+      "engagementRate": 11.496
     }
   ],
   "trend": [
@@ -178496,8 +178630,8 @@
     {
       "date": "2026-08-07",
       "label": "Aug 7",
-      "youtube": 33011,
-      "tiktok": 93507
+      "youtube": 33018,
+      "tiktok": 93508
     }
   ],
   "connections": {
@@ -178510,7 +178644,7 @@
       "fixed-fights": "direct"
     },
     "instagramFeed": true,
-    "connectedSources": 14,
+    "connectedSources": 13,
     "totalSources": 14
   },
   "refresh": {
@@ -178520,7 +178654,6 @@
       "Axolotl Drama · TikTok (direct)",
       "Anime Countdown Vault · YouTube",
       "Anime Countdown Vault · YouTube Analytics",
-      "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube",
       "Kids History · YouTube Analytics",
@@ -178537,11 +178670,13 @@
     ],
     "skipped": [],
     "warnings": [],
-    "errors": []
+    "errors": [
+      "Anime Countdown Vault · TikTok (direct): Server Internal Error"
+    ]
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-08-07T01:05:10+00:00",
+    "generatedAt": "2026-08-07T01:10:51+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
@@ -178694,7 +178829,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-08-07T01:05:06+00:00",
+      "generatedAt": "2026-08-07T01:10:46+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -178829,7 +178964,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-07T01:05:10+00:00",
+      "generatedAt": "2026-08-07T01:10:51+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
