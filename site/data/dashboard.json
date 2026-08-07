@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-08-07T21:43:33.048Z",
-  "generatedAt": "2026-08-07T21:43:33.048Z",
+  "updatedAt": "2026-08-07T21:45:56.195Z",
+  "generatedAt": "2026-08-07T21:45:56.195Z",
   "hasLiveData": true,
   "totals": {
-    "views": 156637,
-    "sevenDayViews": 136191,
+    "views": 156647,
+    "sevenDayViews": 136184,
     "audience": 545,
-    "engagementRate": 5.035538852339474
+    "engagementRate": 5.035936636138554
   },
   "platformTotals": {
     "youtube": 35632,
-    "tiktok": 97711,
-    "instagram": 23294
+    "tiktok": 97718,
+    "instagram": 23297
   },
   "channels": [
     {
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.048Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.195Z"
     },
     {
       "id": 2,
@@ -98,8 +98,8 @@
         "engagementRate": 4.869332142059415
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
+        "connected": true,
+        "connectionLabel": "Connected",
         "views": 1496,
         "audience": 7,
         "videos": 22,
@@ -124,7 +124,7 @@
         "engagementRate": 0.25510204081632654,
         "viewToReachRatio": 1.1224489795918366,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-08-07T21:39:10+00:00"
+        "generatedAt": "2026-08-07T21:45:00+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.16666666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.626Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.195Z"
     },
     {
       "id": 3,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 91941,
+        "views": 91946,
         "audience": 388,
         "videos": 9,
-        "likes": 3484,
-        "engagementRate": 4.378895161027181,
+        "likes": 3485,
+        "engagementRate": 4.379744632719205,
         "source": "direct"
       },
       "instagram": {
@@ -218,7 +218,7 @@
         "engagementRate": 3.259259259259259,
         "viewToReachRatio": 1.2603703703703704,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-08-07T21:39:58+00:00"
+        "generatedAt": "2026-08-07T21:45:04+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.048Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:58.195Z"
     },
     {
       "id": 4,
@@ -287,11 +287,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3213,
+        "views": 3215,
         "audience": 17,
         "videos": 7,
         "likes": 105,
-        "engagementRate": 4.450669156551509,
+        "engagementRate": 4.447900466562986,
         "source": "direct"
       },
       "instagram": {
@@ -311,7 +311,7 @@
         "engagementRate": 5.358217940999397,
         "viewToReachRatio": 1.341360626128838,
         "profileUrl": "https://www.instagram.com/sylvasmysteries/",
-        "generatedAt": "2026-08-07T21:40:02+00:00"
+        "generatedAt": "2026-08-07T21:45:07+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 14.833333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:23.048Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:24.195Z"
     },
     {
       "id": 5,
@@ -390,7 +390,7 @@
       "instagram": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 17223,
+        "views": 17226,
         "audience": null,
         "videos": 6,
         "likes": 470,
@@ -399,12 +399,12 @@
         "saves": 96,
         "shares": 999,
         "totalInteractions": 1721,
-        "averageWatchTimeMs": 32669,
-        "totalWatchTimeMs": 562665381,
+        "averageWatchTimeMs": 32681,
+        "totalWatchTimeMs": 562965961,
         "engagementRate": 12.954459917199848,
-        "viewToReachRatio": 1.2964245389537072,
+        "viewToReachRatio": 1.2966503575461046,
         "profileUrl": "https://www.instagram.com/fixedfightsshorts/",
-        "generatedAt": "2026-08-07T21:40:05+00:00"
+        "generatedAt": "2026-08-07T21:45:10+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -435,19 +435,19 @@
         "returningViewers": null
       },
       "instagramPerformance": {
-        "views": 17223,
+        "views": 17226,
         "reach": 13285,
         "reels": 6,
         "totalInteractions": 1721,
-        "averageWatchTimeMs": 32669,
-        "viewsPerReachedAccount": 1.2964245389537072,
+        "averageWatchTimeMs": 32681,
+        "viewsPerReachedAccount": 1.2966503575461046,
         "engagementPerThousandReach": 129.54459917199847,
         "savesPerThousandReach": 7.226194956718103,
         "sharesPerThousandReach": 75.19759126834775,
         "interactionsPerReel": 286.8333333333333
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:32.048Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:34.195Z"
     }
   ],
   "videos": [
@@ -569,12 +569,12 @@
       "title": "Heavens Gate",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7671261691883064607?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-07T12:13:52.000Z",
-      "views": 155,
+      "views": 157,
       "likes": 3,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 25,
-      "engagementRate": 2.5806451612903225
+      "engagementRate": 2.547770700636943
     },
     {
       "id": "youtube:-1tJKQCZJLY",
@@ -814,12 +814,12 @@
       "title": "Oldest man ever caught on film",
       "url": "https://www.tiktok.com/@thearchivelives/video/7670406889233976607?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-05T04:56:30.000Z",
-      "views": 15474,
-      "likes": 456,
+      "views": 15479,
+      "likes": 457,
       "comments": 31,
       "shares": 17,
       "durationSeconds": 21,
-      "engagementRate": 3.2570763861961995
+      "engagementRate": 3.2624846566315653
     },
     {
       "id": "youtube:_Dn6W-1HjEQ",
@@ -859,17 +859,17 @@
       "title": "May 31, 2002: one win from the Finals, the Kings ran into 27 free throws in one quarter. Both the...",
       "url": "https://www.instagram.com/reel/DbowwRWjmo_/",
       "publishedAt": "2026-08-04T23:38:32+0000",
-      "views": 16266,
+      "views": 16269,
       "reach": 12509,
       "likes": 456,
       "comments": 111,
       "saves": 90,
       "shares": 994,
       "totalInteractions": 1692,
-      "averageWatchTimeMs": 42784,
-      "totalWatchTimeMs": 543575804,
+      "averageWatchTimeMs": 42794,
+      "totalWatchTimeMs": 543876384,
       "engagementRate": 13.52626109201375,
-      "viewToReachRatio": 1.3003437524982013
+      "viewToReachRatio": 1.3005835798225278
     },
     {
       "id": "youtube:okPtVyEGzZs",
@@ -361390,6 +361390,100 @@
       "likes": 470,
       "reach": 13285,
       "engagementRate": 12.954459917199848
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 818,
+      "audience": 9,
+      "videos": 7,
+      "likes": 46,
+      "engagementRate": 9.902200488997554
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 1496,
+      "audience": 7,
+      "videos": 22,
+      "likes": 71,
+      "engagementRate": 6.684491978609626
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 91946,
+      "audience": 388,
+      "videos": 9,
+      "likes": 3485,
+      "engagementRate": 4.379744632719205
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 3403,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2700,
+      "engagementRate": 3.259259259259259
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 3215,
+      "audience": 17,
+      "videos": 7,
+      "likes": 105,
+      "engagementRate": 4.447900466562986
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 2228,
+      "audience": null,
+      "videos": 6,
+      "likes": 58,
+      "reach": 1661,
+      "engagementRate": 5.358217940999397
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T21:45:56.195Z",
+      "views": 17226,
+      "audience": null,
+      "videos": 6,
+      "likes": 470,
+      "reach": 13285,
+      "engagementRate": 12.954459917199848
     }
   ],
   "trend": [
@@ -361475,7 +361569,7 @@
       "date": "2026-08-07",
       "label": "Aug 7",
       "youtube": 35632,
-      "tiktok": 97711
+      "tiktok": 97718
     }
   ],
   "connections": {
@@ -361488,7 +361582,7 @@
       "fixed-fights": "direct"
     },
     "instagramFeed": true,
-    "connectedSources": 8,
+    "connectedSources": 9,
     "totalSources": 14
   },
   "refresh": {
@@ -361496,6 +361590,7 @@
       "Axolotl Drama · YouTube Analytics",
       "Axolotl Drama · TikTok (direct)",
       "Anime Countdown Vault · YouTube Analytics",
+      "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube Analytics",
       "Kids History · TikTok (direct)",
@@ -361512,7 +361607,6 @@
     "errors": [
       "Axolotl Drama · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Anime Countdown Vault · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
-      "Anime Countdown Vault · TikTok (direct): Server Internal Error",
       "Kids History · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Sylva's Mysteries · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Fixed Fights · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>."
@@ -361520,7 +361614,7 @@
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-08-07T21:39:58+00:00",
+    "generatedAt": "2026-08-07T21:45:04+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
@@ -361673,7 +361767,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-08-07T21:39:10+00:00",
+      "generatedAt": "2026-08-07T21:45:00+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -361808,7 +361902,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-07T21:39:58+00:00",
+      "generatedAt": "2026-08-07T21:45:04+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -361960,7 +362054,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-07T21:40:02+00:00",
+      "generatedAt": "2026-08-07T21:45:07+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -362095,7 +362189,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-07T21:40:05+00:00",
+      "generatedAt": "2026-08-07T21:45:10+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -362107,18 +362201,18 @@
         "connected": true
       },
       "totals": {
-        "views": 17223,
+        "views": 17226,
         "reach": 13285,
         "likes": 470,
         "comments": 112,
         "saves": 96,
         "shares": 999,
         "totalInteractions": 1721,
-        "totalWatchTimeMs": 562665381,
+        "totalWatchTimeMs": 562965961,
         "reels": 6,
-        "averageWatchTimeMs": 32669,
+        "averageWatchTimeMs": 32681,
         "engagementRate": 12.954459917199848,
-        "viewToReachRatio": 1.2964245389537072
+        "viewToReachRatio": 1.2966503575461046
       },
       "reels": [
         {
@@ -362143,17 +362237,17 @@
           "title": "May 31, 2002: one win from the Finals, the Kings ran into 27 free throws in one quarter. Both the...",
           "url": "https://www.instagram.com/reel/DbowwRWjmo_/",
           "publishedAt": "2026-08-04T23:38:32+0000",
-          "views": 16266,
+          "views": 16269,
           "reach": 12509,
           "likes": 456,
           "comments": 111,
           "saves": 90,
           "shares": 994,
           "totalInteractions": 1692,
-          "averageWatchTimeMs": 42784,
-          "totalWatchTimeMs": 543575804,
+          "averageWatchTimeMs": 42794,
+          "totalWatchTimeMs": 543876384,
           "engagementRate": 13.52626109201375,
-          "viewToReachRatio": 1.3003437524982013
+          "viewToReachRatio": 1.3005835798225278
         },
         {
           "id": "18061799582734793",
