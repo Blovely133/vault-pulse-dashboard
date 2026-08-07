@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-07T20:52:36.534Z",
-  "generatedAt": "2026-08-07T20:52:36.534Z",
+  "updatedAt": "2026-08-07T20:53:07.219Z",
+  "generatedAt": "2026-08-07T20:53:07.219Z",
   "hasLiveData": true,
   "totals": {
-    "views": 156531,
-    "sevenDayViews": 136236,
+    "views": 156532,
+    "sevenDayViews": 136237,
     "audience": 545,
-    "engagementRate": 5.028470607105622
+    "engagementRate": 5.028430279651299
   },
   "platformTotals": {
     "youtube": 35632,
-    "tiktok": 97637,
+    "tiktok": 97638,
     "instagram": 23262
   },
   "channels": [
@@ -37,11 +37,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 811,
+        "views": 812,
         "audience": 9,
         "videos": 7,
         "likes": 44,
-        "engagementRate": 9.494451294697903,
+        "engagementRate": 9.482758620689655,
         "source": "direct"
       },
       "shortsAnalytics": {
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.534Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.219Z"
     },
     {
       "id": 2,
@@ -98,8 +98,8 @@
         "engagementRate": 4.869332142059415
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
+        "connected": true,
+        "connectionLabel": "Connected",
         "views": 1496,
         "audience": 7,
         "videos": 22,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.16666666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.002Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.219Z"
     },
     {
       "id": 3,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:58.534Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.219Z"
     },
     {
       "id": 4,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 14.833333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:24.534Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.219Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 286.6666666666667
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:33.534Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:31.219Z"
     }
   ],
   "videos": [
@@ -489,12 +489,12 @@
       "title": "new eevee evolutions types and powers",
       "url": "https://www.tiktok.com/@axlotyl2/video/7671280779229515021?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-07T13:28:23.000Z",
-      "views": 113,
+      "views": 114,
       "likes": 3,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 45,
-      "engagementRate": 4.424778761061947
+      "engagementRate": 4.385964912280701
     },
     {
       "id": "youtube:Z2MM2wVDURk",
@@ -355772,6 +355772,100 @@
       "likes": 470,
       "reach": 13277,
       "engagementRate": 12.954733750094146
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 812,
+      "audience": 9,
+      "videos": 7,
+      "likes": 44,
+      "engagementRate": 9.482758620689655
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 1496,
+      "audience": 7,
+      "videos": 22,
+      "likes": 71,
+      "engagementRate": 6.684491978609626
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 91881,
+      "audience": 388,
+      "videos": 9,
+      "likes": 3480,
+      "engagementRate": 4.3763128394336155
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 3403,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2700,
+      "engagementRate": 3.259259259259259
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 3206,
+      "audience": 17,
+      "videos": 7,
+      "likes": 102,
+      "engagementRate": 4.335620711166563
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 2228,
+      "audience": null,
+      "videos": 6,
+      "likes": 58,
+      "reach": 1661,
+      "engagementRate": 5.358217940999397
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T20:53:07.219Z",
+      "views": 17191,
+      "audience": null,
+      "videos": 6,
+      "likes": 470,
+      "reach": 13277,
+      "engagementRate": 12.954733750094146
     }
   ],
   "trend": [
@@ -355857,7 +355951,7 @@
       "date": "2026-08-07",
       "label": "Aug 7",
       "youtube": 35632,
-      "tiktok": 97637
+      "tiktok": 97638
     }
   ],
   "connections": {
@@ -355870,7 +355964,7 @@
       "fixed-fights": "direct"
     },
     "instagramFeed": true,
-    "connectedSources": 8,
+    "connectedSources": 9,
     "totalSources": 14
   },
   "refresh": {
@@ -355878,6 +355972,7 @@
       "Axolotl Drama · YouTube Analytics",
       "Axolotl Drama · TikTok (direct)",
       "Anime Countdown Vault · YouTube Analytics",
+      "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube Analytics",
       "Kids History · TikTok (direct)",
@@ -355894,7 +355989,6 @@
     "errors": [
       "Axolotl Drama · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Anime Countdown Vault · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
-      "Anime Countdown Vault · TikTok (direct): Server Internal Error",
       "Kids History · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Sylva's Mysteries · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Fixed Fights · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>."
