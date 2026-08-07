@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-07T04:33:25.676Z",
-  "generatedAt": "2026-08-07T04:33:25.676Z",
+  "updatedAt": "2026-08-07T04:34:04.881Z",
+  "generatedAt": "2026-08-07T04:34:04.881Z",
   "hasLiveData": true,
   "totals": {
-    "views": 150688,
-    "sevenDayViews": 131850,
+    "views": 150698,
+    "sevenDayViews": 131860,
     "audience": 531,
-    "engagementRate": 4.918598630846229
+    "engagementRate": 4.918396528770771
   },
   "platformTotals": {
-    "youtube": 33758,
-    "tiktok": 94646,
+    "youtube": 33762,
+    "tiktok": 94652,
     "instagram": 22284
   },
   "channels": [
@@ -28,11 +28,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 5661,
+        "views": 5659,
         "audience": 22,
         "videos": 5,
         "likes": 157,
-        "engagementRate": 3.62126832715068
+        "engagementRate": 3.62254815338399
       },
       "tiktok": {
         "connected": true,
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.676Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.881Z"
     },
     {
       "id": 2,
@@ -91,11 +91,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 4474,
+        "views": 4477,
         "audience": 14,
         "videos": 18,
         "likes": 180,
-        "engagementRate": 4.8725972284309345
+        "engagementRate": 4.869332142059415
       },
       "tiktok": {
         "connected": true,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.16666666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.676Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.881Z"
     },
     {
       "id": 3,
@@ -185,20 +185,20 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 13760,
+        "views": 13763,
         "audience": 44,
         "videos": 15,
         "likes": 541,
-        "engagementRate": 4.752906976744186
+        "engagementRate": 4.751870958366635
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 89216,
+        "views": 89222,
         "audience": 382,
         "videos": 7,
         "likes": 3366,
-        "engagementRate": 4.370292324246772,
+        "engagementRate": 4.369998430880276,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.676Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.881Z"
     },
     {
       "id": 4,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 17.6
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.676Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.881Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 250
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:30.676Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:31.881Z"
     }
   ],
   "videos": [
@@ -689,12 +689,12 @@
       "title": "Oldest man ever caught on film",
       "url": "https://www.tiktok.com/@thearchivelives/video/7670406889233976607?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-05T04:56:30.000Z",
-      "views": 13296,
+      "views": 13302,
       "likes": 365,
       "comments": 29,
       "shares": 17,
       "durationSeconds": 21,
-      "engagementRate": 3.0911552346570397
+      "engagementRate": 3.0897609382047815
     },
     {
       "id": "youtube:_Dn6W-1HjEQ",
@@ -1094,12 +1094,12 @@
       "title": "Gertie the Dinosaur: The Cartoon Performed Live",
       "url": "https://www.youtube.com/watch?v=6aQvLyk8FKw",
       "publishedAt": "2026-08-02T19:45:34Z",
-      "views": 907,
+      "views": 908,
       "likes": 30,
       "comments": 12,
       "shares": 0,
       "durationSeconds": 19,
-      "engagementRate": 4.630650496141125
+      "engagementRate": 4.6255506607929515
     },
     {
       "id": "youtube:ENJKy5M1--o",
@@ -1154,12 +1154,12 @@
       "title": "10 Pokemon Only One Escapes",
       "url": "https://www.youtube.com/watch?v=p5nvWd9Jq8Q",
       "publishedAt": "2026-08-02T16:00:37Z",
-      "views": 17,
+      "views": 15,
       "likes": 3,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 17.647058823529413
+      "engagementRate": 20
     },
     {
       "id": "instagram:18061799582734793",
@@ -215182,6 +215182,150 @@
       "likes": 423,
       "reach": 12657,
       "engagementRate": 11.851149561507466
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 5659,
+      "audience": 22,
+      "videos": 5,
+      "likes": 157,
+      "engagementRate": 3.62254815338399
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 697,
+      "audience": 9,
+      "videos": 6,
+      "likes": 41,
+      "engagementRate": 10.329985652797705
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 4477,
+      "audience": 14,
+      "videos": 18,
+      "likes": 180,
+      "engagementRate": 4.869332142059415
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 1496,
+      "audience": 7,
+      "videos": 22,
+      "likes": 71,
+      "engagementRate": 6.684491978609626
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 13763,
+      "audience": 44,
+      "videos": 15,
+      "likes": 541,
+      "engagementRate": 4.751870958366635
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 89222,
+      "audience": 382,
+      "videos": 7,
+      "likes": 3366,
+      "engagementRate": 4.369998430880276
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 3402,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2698,
+      "engagementRate": 3.261675315048184
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 7547,
+      "audience": 20,
+      "videos": 8,
+      "likes": 220,
+      "engagementRate": 3.445077514244071
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 2994,
+      "audience": 16,
+      "videos": 6,
+      "likes": 100,
+      "engagementRate": 4.575818303273213
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 2161,
+      "audience": null,
+      "videos": 5,
+      "likes": 57,
+      "reach": 1599,
+      "engagementRate": 5.5034396497811136
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 2316,
+      "audience": 11,
+      "videos": 8,
+      "likes": 105,
+      "engagementRate": 6.51986183074266
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T04:34:04.881Z",
+      "views": 16281,
+      "audience": null,
+      "videos": 6,
+      "likes": 423,
+      "reach": 12657,
+      "engagementRate": 11.851149561507466
     }
   ],
   "trend": [
@@ -215266,8 +215410,8 @@
     {
       "date": "2026-08-07",
       "label": "Aug 7",
-      "youtube": 33758,
-      "tiktok": 94646
+      "youtube": 33762,
+      "tiktok": 94652
     }
   ],
   "connections": {
