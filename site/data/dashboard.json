@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-07T01:31:54.020Z",
-  "generatedAt": "2026-08-07T01:31:54.020Z",
+  "updatedAt": "2026-08-07T01:32:34.568Z",
+  "generatedAt": "2026-08-07T01:32:34.568Z",
   "hasLiveData": true,
   "totals": {
-    "views": 148586,
-    "sevenDayViews": 130274,
+    "views": 148587,
+    "sevenDayViews": 130275,
     "audience": 523,
-    "engagementRate": 4.903862230396254
+    "engagementRate": 4.903821235401811
   },
   "platformTotals": {
     "youtube": 33024,
-    "tiktok": 93547,
+    "tiktok": 93548,
     "instagram": 22015
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.020Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.568Z"
     },
     {
       "id": 2,
@@ -124,7 +124,7 @@
         "engagementRate": 0.25510204081632654,
         "viewToReachRatio": 1.1224489795918366,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-08-07T01:27:15+00:00"
+        "generatedAt": "2026-08-07T01:32:43+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.16666666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.020Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.568Z"
     },
     {
       "id": 3,
@@ -218,7 +218,7 @@
         "engagementRate": 3.2640949554896146,
         "viewToReachRatio": 1.2618694362017804,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-08-07T01:27:25+00:00"
+        "generatedAt": "2026-08-07T01:32:51+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.020Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:52.568Z"
     },
     {
       "id": 4,
@@ -287,11 +287,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 2949,
+        "views": 2950,
         "audience": 16,
         "videos": 6,
         "likes": 99,
-        "engagementRate": 4.611732790776534,
+        "engagementRate": 4.610169491525424,
         "source": "direct"
       },
       "instagram": {
@@ -354,7 +354,7 @@
         "interactionsPerReel": 17.6
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:21.020Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:11.568Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 239.83333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:30.020Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:20.568Z"
     }
   ],
   "videos": [
@@ -994,12 +994,12 @@
       "title": "Old Book",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7669651263138647326?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-03T04:04:15.000Z",
-      "views": 1524,
+      "views": 1525,
       "likes": 35,
       "comments": 7,
       "shares": 1,
       "durationSeconds": 24,
-      "engagementRate": 2.8215223097112863
+      "engagementRate": 2.819672131147541
     },
     {
       "id": "tiktok:7669651038676274463",
@@ -182354,6 +182354,150 @@
       "likes": 414,
       "reach": 12532,
       "engagementRate": 11.482604532397064
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 5000,
+      "audience": 19,
+      "videos": 5,
+      "likes": 152,
+      "engagementRate": 3.92
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 697,
+      "audience": 9,
+      "videos": 6,
+      "likes": 41,
+      "engagementRate": 10.329985652797705
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 4474,
+      "audience": 14,
+      "videos": 18,
+      "likes": 180,
+      "engagementRate": 4.8725972284309345
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 1496,
+      "audience": 7,
+      "videos": 22,
+      "likes": 71,
+      "engagementRate": 6.684491978609626
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 13720,
+      "audience": 44,
+      "videos": 15,
+      "likes": 540,
+      "engagementRate": 4.759475218658892
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 88162,
+      "audience": 377,
+      "videos": 7,
+      "likes": 3318,
+      "engagementRate": 4.368095097661124
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 3402,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2696,
+      "engagementRate": 3.2640949554896146
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 7516,
+      "audience": 20,
+      "videos": 8,
+      "likes": 219,
+      "engagementRate": 3.44598190526876
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 2950,
+      "audience": 16,
+      "videos": 6,
+      "likes": 99,
+      "engagementRate": 4.610169491525424
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 2160,
+      "audience": null,
+      "videos": 5,
+      "likes": 57,
+      "reach": 1599,
+      "engagementRate": 5.5034396497811136
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 2314,
+      "audience": 11,
+      "videos": 8,
+      "likes": 105,
+      "engagementRate": 6.525496974935177
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T01:32:34.568Z",
+      "views": 16013,
+      "audience": null,
+      "videos": 6,
+      "likes": 414,
+      "reach": 12532,
+      "engagementRate": 11.482604532397064
     }
   ],
   "trend": [
@@ -182439,7 +182583,7 @@
       "date": "2026-08-07",
       "label": "Aug 7",
       "youtube": 33024,
-      "tiktok": 93547
+      "tiktok": 93548
     }
   ],
   "connections": {
@@ -182483,7 +182627,7 @@
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-08-07T01:27:25+00:00",
+    "generatedAt": "2026-08-07T01:32:51+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
@@ -182636,7 +182780,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-08-07T01:27:15+00:00",
+      "generatedAt": "2026-08-07T01:32:43+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -182771,7 +182915,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-08-07T01:27:25+00:00",
+      "generatedAt": "2026-08-07T01:32:51+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
