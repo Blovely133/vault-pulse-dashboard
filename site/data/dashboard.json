@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-07T18:41:10.985Z",
-  "generatedAt": "2026-08-07T18:41:10.985Z",
+  "updatedAt": "2026-08-07T18:42:02.620Z",
+  "generatedAt": "2026-08-07T18:42:02.620Z",
   "hasLiveData": true,
   "totals": {
-    "views": 156099,
-    "sevenDayViews": 135778,
+    "views": 156102,
+    "sevenDayViews": 135781,
     "audience": 544,
-    "engagementRate": 5.0039426465618515
+    "engagementRate": 5.003862122236169
   },
   "platformTotals": {
     "youtube": 35632,
-    "tiktok": 97336,
+    "tiktok": 97339,
     "instagram": 23131
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.985Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.620Z"
     },
     {
       "id": 2,
@@ -98,8 +98,8 @@
         "engagementRate": 4.869332142059415
       },
       "tiktok": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Refresh error",
         "views": 1496,
         "audience": 7,
         "videos": 22,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 91597,
+        "views": 91599,
         "audience": 387,
         "videos": 9,
         "likes": 3467,
-        "engagementRate": 4.375689160125332,
+        "engagementRate": 4.3755936200176855,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.985Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.620Z"
     },
     {
       "id": 4,
@@ -287,11 +287,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3190,
+        "views": 3191,
         "audience": 17,
         "videos": 7,
         "likes": 102,
-        "engagementRate": 4.3573667711598745,
+        "engagementRate": 4.35600125352554,
         "source": "direct"
       },
       "instagram": {
@@ -354,7 +354,7 @@
         "interactionsPerReel": 14.833333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.985Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:23.620Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 280.3333333333333
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:31.985Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:32.620Z"
     }
   ],
   "videos": [
@@ -569,12 +569,12 @@
       "title": "Heavens Gate",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7671261691883064607?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-07T12:13:52.000Z",
-      "views": 141,
+      "views": 142,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 25,
-      "engagementRate": 0.7092198581560284
+      "engagementRate": 0.7042253521126761
     },
     {
       "id": "youtube:-1tJKQCZJLY",
@@ -1134,12 +1134,12 @@
       "title": "Gertie, First Cartoons Series",
       "url": "https://www.tiktok.com/@thearchivelives/video/7669651038676274463?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-03T04:03:24.000Z",
-      "views": 14604,
+      "views": 14605,
       "likes": 581,
       "comments": 27,
       "shares": 42,
       "durationSeconds": 18,
-      "engagementRate": 4.450835387565051
+      "engagementRate": 4.450530640191715
     },
     {
       "id": "youtube:2kz08wI2HsI",
@@ -341916,6 +341916,90 @@
       "likes": 463,
       "reach": 13220,
       "engagementRate": 12.723146747352496
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T18:42:02.620Z",
+      "views": 810,
+      "audience": 9,
+      "videos": 7,
+      "likes": 44,
+      "engagementRate": 9.506172839506172
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T18:42:02.620Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T18:42:02.620Z",
+      "views": 91599,
+      "audience": 387,
+      "videos": 9,
+      "likes": 3467,
+      "engagementRate": 4.3755936200176855
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T18:42:02.620Z",
+      "views": 3403,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2700,
+      "engagementRate": 3.259259259259259
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T18:42:02.620Z",
+      "views": 3191,
+      "audience": 17,
+      "videos": 7,
+      "likes": 102,
+      "engagementRate": 4.35600125352554
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T18:42:02.620Z",
+      "views": 2227,
+      "audience": null,
+      "videos": 6,
+      "likes": 58,
+      "reach": 1660,
+      "engagementRate": 5.36144578313253
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-07T18:42:02.620Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-07T18:42:02.620Z",
+      "views": 17061,
+      "audience": null,
+      "videos": 6,
+      "likes": 463,
+      "reach": 13220,
+      "engagementRate": 12.723146747352496
     }
   ],
   "trend": [
@@ -342001,7 +342085,7 @@
       "date": "2026-08-07",
       "label": "Aug 7",
       "youtube": 35632,
-      "tiktok": 97336
+      "tiktok": 97339
     }
   ],
   "connections": {
@@ -342014,7 +342098,7 @@
       "fixed-fights": "direct"
     },
     "instagramFeed": true,
-    "connectedSources": 9,
+    "connectedSources": 8,
     "totalSources": 14
   },
   "refresh": {
@@ -342022,7 +342106,6 @@
       "Axolotl Drama · YouTube Analytics",
       "Axolotl Drama · TikTok (direct)",
       "Anime Countdown Vault · YouTube Analytics",
-      "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube Analytics",
       "Kids History · TikTok (direct)",
@@ -342039,6 +342122,7 @@
     "errors": [
       "Axolotl Drama · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Anime Countdown Vault · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
+      "Anime Countdown Vault · TikTok (direct): Server Internal Error",
       "Kids History · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Sylva's Mysteries · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Fixed Fights · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>."
