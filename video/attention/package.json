@@ -1,0 +1,13 @@
+{
+  "name": "vault-pulse-attention-video",
+  "private": true,
+  "type": "module",
+  "description": "Renderer for the attention-dot selective-attention short",
+  "scripts": {
+    "render": "node render.mjs"
+  },
+  "dependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "sharp": "^0.33.4"
+  }
+}
