@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-08T02:19:20.826Z",
-  "generatedAt": "2026-08-08T02:19:20.826Z",
+  "updatedAt": "2026-08-08T02:20:12.489Z",
+  "generatedAt": "2026-08-08T02:20:12.489Z",
   "hasLiveData": true,
   "totals": {
-    "views": 157023,
-    "sevenDayViews": 132686,
+    "views": 157024,
+    "sevenDayViews": 132687,
     "audience": 548,
-    "engagementRate": 5.04623387399175
+    "engagementRate": 5.0461936142713535
   },
   "platformTotals": {
     "youtube": 35632,
-    "tiktok": 97967,
+    "tiktok": 97968,
     "instagram": 23424
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.826Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.489Z"
     },
     {
       "id": 2,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.16666666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.826Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.489Z"
     },
     {
       "id": 3,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 92388,
+        "views": 92389,
         "audience": 391,
         "videos": 9,
         "likes": 3509,
-        "engagementRate": 4.385850976317271,
+        "engagementRate": 4.385803504746236,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.826Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.489Z"
     },
     {
       "id": 4,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 14.833333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:20.826Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.489Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 288.5
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:27.826Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:31.489Z"
     }
   ],
   "videos": [
@@ -829,12 +829,12 @@
       "title": "Oldest man ever caught on film",
       "url": "https://www.tiktok.com/@thearchivelives/video/7670406889233976607?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-05T04:56:30.000Z",
-      "views": 15819,
+      "views": 15820,
       "likes": 474,
       "comments": 31,
       "shares": 17,
       "durationSeconds": 21,
-      "engagementRate": 3.299829319173146
+      "engagementRate": 3.299620733249052
     },
     {
       "id": "youtube:_Dn6W-1HjEQ",
@@ -393675,6 +393675,100 @@
       "likes": 472,
       "reach": 13350,
       "engagementRate": 12.96629213483146
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 824,
+      "audience": 9,
+      "videos": 7,
+      "likes": 49,
+      "engagementRate": 10.315533980582524
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 1270,
+      "audience": 7,
+      "videos": 23,
+      "likes": 73,
+      "engagementRate": 7.637795275590552
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 92389,
+      "audience": 391,
+      "videos": 9,
+      "likes": 3509,
+      "engagementRate": 4.385803504746236
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 3404,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2701,
+      "engagementRate": 3.258052573121066
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 3242,
+      "audience": 17,
+      "videos": 7,
+      "likes": 110,
+      "engagementRate": 4.565083281924738
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 2229,
+      "audience": null,
+      "videos": 6,
+      "likes": 58,
+      "reach": 1662,
+      "engagementRate": 5.354993983152828
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T02:20:12.489Z",
+      "views": 17351,
+      "audience": null,
+      "videos": 6,
+      "likes": 472,
+      "reach": 13350,
+      "engagementRate": 12.96629213483146
     }
   ],
   "trend": [
@@ -393760,7 +393854,7 @@
       "date": "2026-08-08",
       "label": "Aug 8",
       "youtube": null,
-      "tiktok": 97967
+      "tiktok": 97968
     }
   ],
   "connections": {
