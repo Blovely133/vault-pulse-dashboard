@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-08T00:38:33.221Z",
-  "generatedAt": "2026-08-08T00:38:33.221Z",
+  "updatedAt": "2026-08-08T00:39:20.634Z",
+  "generatedAt": "2026-08-08T00:39:20.634Z",
   "hasLiveData": true,
   "totals": {
     "views": 156790,
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.221Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.634Z"
     },
     {
       "id": 2,
@@ -98,8 +98,8 @@
         "engagementRate": 4.869332142059415
       },
       "tiktok": {
-        "connected": false,
-        "connectionLabel": "Refresh error",
+        "connected": true,
+        "connectionLabel": "Connected",
         "views": 1270,
         "audience": 7,
         "videos": 23,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.16666666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:06.580Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.634Z"
     },
     {
       "id": 3,
@@ -202,8 +202,8 @@
         "source": "direct"
       },
       "instagram": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Snapshot stale",
         "views": 3403,
         "audience": null,
         "videos": 7,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.221Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.634Z"
     },
     {
       "id": 4,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 14.833333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:23.221Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.634Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 287.1666666666667
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:32.221Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:30.634Z"
     }
   ],
   "videos": [
@@ -381640,6 +381640,89 @@
       "likes": 470,
       "reach": 13320,
       "engagementRate": 12.935435435435435
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T00:39:20.634Z",
+      "views": 823,
+      "audience": 9,
+      "videos": 7,
+      "likes": 49,
+      "engagementRate": 10.328068043742405
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T00:39:20.634Z",
+      "views": 1270,
+      "audience": 7,
+      "videos": 23,
+      "likes": 73,
+      "engagementRate": 7.637795275590552
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T00:39:20.634Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T00:39:20.634Z",
+      "views": 92226,
+      "audience": 390,
+      "videos": 9,
+      "likes": 3502,
+      "engagementRate": 4.385964912280701
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T00:39:20.634Z",
+      "views": 3231,
+      "audience": 17,
+      "videos": 7,
+      "likes": 109,
+      "engagementRate": 4.549675023212628
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T00:39:20.634Z",
+      "views": 2229,
+      "audience": null,
+      "videos": 6,
+      "likes": 58,
+      "reach": 1662,
+      "engagementRate": 5.354993983152828
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T00:39:20.634Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T00:39:20.634Z",
+      "views": 17293,
+      "audience": null,
+      "videos": 6,
+      "likes": 470,
+      "reach": 13320,
+      "engagementRate": 12.935435435435435
     }
   ],
   "trend": [
@@ -381746,10 +381829,10 @@
       "Axolotl Drama · YouTube Analytics",
       "Axolotl Drama · TikTok (direct)",
       "Anime Countdown Vault · YouTube Analytics",
+      "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube Analytics",
       "Kids History · TikTok (direct)",
-      "Kids History Â· Instagram",
       "Sylva's Mysteries · YouTube Analytics",
       "Sylva's Mysteries · TikTok (direct)",
       "Sylva's Mysteries Â· Instagram",
@@ -381762,8 +381845,8 @@
     "errors": [
       "Axolotl Drama · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Anime Countdown Vault · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
-      "Anime Countdown Vault · TikTok (direct): Server Internal Error",
       "Kids History · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
+      "Kids History Â· Instagram: fetch failed",
       "Sylva's Mysteries · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Fixed Fights · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>."
     ]
@@ -381772,7 +381855,7 @@
     "version": 1,
     "generatedAt": "2026-08-08T00:37:43+00:00",
     "source": "Instagram Graph API",
-    "stale": false,
+    "stale": true,
     "account": {
       "id": "27621863550813655",
       "username": "sylvasblessing",
@@ -382060,7 +382143,7 @@
       "version": 1,
       "generatedAt": "2026-08-08T00:37:43+00:00",
       "source": "Instagram Graph API",
-      "stale": false,
+      "stale": true,
       "account": {
         "id": "27621863550813655",
         "username": "sylvasblessing",
