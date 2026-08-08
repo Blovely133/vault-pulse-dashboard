@@ -12,9 +12,8 @@ The production site is deployed through GitHub Pages:
 ## How it works
 
 - The browser loads a static dashboard from GitHub Pages.
-- A scheduled GitHub Action checks configured YouTube, TikTok, and Instagram
-  accounts
-  every 15 minutes.
+- A one-way scheduled GitHub Action checks configured YouTube, TikTok, and
+  Instagram accounts every 15 minutes.
 - An independent watchdog checks five minutes later and starts a recovery
   refresh when GitHub skipped the primary schedule.
 - An open dashboard quietly checks for a newly deployed snapshot every five
@@ -241,4 +240,4 @@ Then open <http://localhost:4173/>.
 ## Manual refresh
 
 Run the **Refresh and deploy Vault Pulse** workflow from the repository's
-Actions tab. Scheduled runs start at minutes 7, 22, 37, and 52 of every hour.
+Actions tab. Scheduled runs start at minutes 9, 24, 39, and 54 of every hour.

@@ -297,12 +297,14 @@ h2 {
 }
 
 .last-sync {
-  min-width: 126px;
+  max-width: 270px;
+  min-width: 190px;
   text-align: right;
 }
 
 .last-sync span,
-.last-sync strong {
+.last-sync strong,
+.last-sync small {
   display: block;
 }
 
@@ -315,6 +317,13 @@ h2 {
   margin-top: 4px;
   font-size: 0.68rem;
   font-weight: 650;
+}
+
+.last-sync small {
+  margin-top: 4px;
+  color: var(--dim);
+  font-size: 0.55rem;
+  line-height: 1.35;
 }
 
 .primary-button,
