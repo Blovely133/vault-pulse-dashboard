@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-08T01:58:19.549Z",
-  "generatedAt": "2026-08-08T01:58:19.549Z",
+  "updatedAt": "2026-08-08T01:59:08.544Z",
+  "generatedAt": "2026-08-08T01:59:08.544Z",
   "hasLiveData": true,
   "totals": {
-    "views": 156968,
-    "sevenDayViews": 132690,
+    "views": 156969,
+    "sevenDayViews": 132691,
     "audience": 548,
     "engagementRate": 5.046409730480379
   },
   "platformTotals": {
     "youtube": 35632,
-    "tiktok": 97932,
+    "tiktok": 97933,
     "instagram": 23404
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.549Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.544Z"
     },
     {
       "id": 2,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 0.16666666666666666
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.549Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.544Z"
     },
     {
       "id": 3,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 92357,
+        "views": 92358,
         "audience": 391,
         "videos": 9,
         "likes": 3508,
-        "engagementRate": 4.386240349946403,
+        "engagementRate": 4.3861928582256,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:57.549Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.544Z"
     },
     {
       "id": 4,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 14.833333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.549Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.544Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 288.3333333333333
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:31.549Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:31.544Z"
     }
   ],
   "videos": [
@@ -391183,6 +391183,100 @@
       "likes": 471,
       "reach": 13345,
       "engagementRate": 12.963656800299738
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 823,
+      "audience": 9,
+      "videos": 7,
+      "likes": 49,
+      "engagementRate": 10.328068043742405
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 1270,
+      "audience": 7,
+      "videos": 23,
+      "likes": 73,
+      "engagementRate": 7.637795275590552
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 92358,
+      "audience": 391,
+      "videos": 9,
+      "likes": 3508,
+      "engagementRate": 4.3861928582256
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 3404,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2701,
+      "engagementRate": 3.258052573121066
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 3239,
+      "audience": 17,
+      "videos": 7,
+      "likes": 110,
+      "engagementRate": 4.569311515899969
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 2229,
+      "audience": null,
+      "videos": 6,
+      "likes": 58,
+      "reach": 1662,
+      "engagementRate": 5.354993983152828
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T01:59:08.544Z",
+      "views": 17331,
+      "audience": null,
+      "videos": 6,
+      "likes": 471,
+      "reach": 13345,
+      "engagementRate": 12.963656800299738
     }
   ],
   "trend": [
@@ -391268,7 +391362,7 @@
       "date": "2026-08-08",
       "label": "Aug 8",
       "youtube": null,
-      "tiktok": 97932
+      "tiktok": 97933
     }
   ],
   "connections": {
