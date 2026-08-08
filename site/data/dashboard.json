@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-08T01:07:09.029Z",
-  "generatedAt": "2026-08-08T01:07:09.029Z",
+  "updatedAt": "2026-08-08T01:07:56.552Z",
+  "generatedAt": "2026-08-08T01:07:56.552Z",
   "hasLiveData": true,
   "totals": {
-    "views": 156835,
-    "sevenDayViews": 132645,
+    "views": 156836,
+    "sevenDayViews": 132646,
     "audience": 547,
-    "engagementRate": 5.042339031794216
+    "engagementRate": 5.0430975946829
   },
   "platformTotals": {
     "youtube": 35632,
-    "tiktok": 97825,
+    "tiktok": 97826,
     "instagram": 23378
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.029Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.552Z"
     },
     {
       "id": 2,
@@ -98,8 +98,8 @@
         "engagementRate": 4.869332142059415
       },
       "tiktok": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Refresh error",
         "views": 1270,
         "audience": 7,
         "videos": 23,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:58.029Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.552Z"
     },
     {
       "id": 4,
@@ -287,11 +287,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 3234,
+        "views": 3235,
         "audience": 17,
         "videos": 7,
-        "likes": 109,
-        "engagementRate": 4.545454545454546,
+        "likes": 110,
+        "engagementRate": 4.574961360123648,
         "source": "direct"
       },
       "instagram": {
@@ -354,7 +354,7 @@
         "interactionsPerReel": 14.833333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:24.029Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.552Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 287.1666666666667
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:33.029Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:30.552Z"
     }
   ],
   "videos": [
@@ -614,12 +614,12 @@
       "title": "Milk Carton",
       "url": "https://www.tiktok.com/@sylvasmysteries/video/7670892665784765727?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-06T12:21:30.000Z",
-      "views": 149,
-      "likes": 5,
+      "views": 150,
+      "likes": 6,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 59,
-      "engagementRate": 5.369127516778524
+      "engagementRate": 6
     },
     {
       "id": "youtube:1nN9ocCbpvc",
@@ -384917,6 +384917,90 @@
       "likes": 470,
       "reach": 13320,
       "engagementRate": 12.935435435435435
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:07:56.552Z",
+      "views": 823,
+      "audience": 9,
+      "videos": 7,
+      "likes": 49,
+      "engagementRate": 10.328068043742405
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T01:07:56.552Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:07:56.552Z",
+      "views": 92255,
+      "audience": 390,
+      "videos": 9,
+      "likes": 3505,
+      "engagementRate": 4.387838057557856
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T01:07:56.552Z",
+      "views": 3404,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2700,
+      "engagementRate": 3.259259259259259
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:07:56.552Z",
+      "views": 3235,
+      "audience": 17,
+      "videos": 7,
+      "likes": 110,
+      "engagementRate": 4.574961360123648
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T01:07:56.552Z",
+      "views": 2229,
+      "audience": null,
+      "videos": 6,
+      "likes": 58,
+      "reach": 1662,
+      "engagementRate": 5.354993983152828
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T01:07:56.552Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T01:07:56.552Z",
+      "views": 17305,
+      "audience": null,
+      "videos": 6,
+      "likes": 470,
+      "reach": 13320,
+      "engagementRate": 12.935435435435435
     }
   ],
   "trend": [
@@ -385002,7 +385086,7 @@
       "date": "2026-08-08",
       "label": "Aug 8",
       "youtube": null,
-      "tiktok": 97825
+      "tiktok": 97826
     }
   ],
   "connections": {
@@ -385015,7 +385099,7 @@
       "fixed-fights": "direct"
     },
     "instagramFeed": true,
-    "connectedSources": 9,
+    "connectedSources": 8,
     "totalSources": 14
   },
   "refresh": {
@@ -385023,11 +385107,11 @@
       "Axolotl Drama · YouTube Analytics",
       "Axolotl Drama · TikTok (direct)",
       "Anime Countdown Vault · YouTube Analytics",
-      "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
       "Kids History · YouTube Analytics",
       "Kids History · TikTok (direct)",
       "Kids History Â· Instagram",
+      "Sylva's Mysteries · YouTube Analytics",
       "Sylva's Mysteries · TikTok (direct)",
       "Sylva's Mysteries Â· Instagram",
       "Fixed Fights · YouTube Analytics",
@@ -385036,14 +385120,14 @@
     ],
     "skipped": [],
     "warnings": [
-      "Kids History · YouTube Analytics: watch-time report (estimatedMinutesWatched,likes,comments,shares): Internal error encountered."
+      "Fixed Fights · YouTube Analytics: watch-time report (estimatedMinutesWatched,likes,comments,shares): Internal error encountered."
     ],
     "errors": [
       "Axolotl Drama · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Anime Countdown Vault · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
+      "Anime Countdown Vault · TikTok (direct): Server Internal Error",
       "Kids History · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Sylva's Mysteries · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
-      "Sylva's Mysteries · YouTube Analytics: Internal error encountered.",
       "Fixed Fights · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>."
     ]
   },
