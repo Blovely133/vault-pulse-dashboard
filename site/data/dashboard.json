@@ -1,16 +1,16 @@
 {
-  "updatedAt": "2026-08-08T02:04:53.364Z",
-  "generatedAt": "2026-08-08T02:04:53.364Z",
+  "updatedAt": "2026-08-08T02:05:30.461Z",
+  "generatedAt": "2026-08-08T02:05:30.461Z",
   "hasLiveData": true,
   "totals": {
-    "views": 156990,
-    "sevenDayViews": 132671,
+    "views": 156991,
+    "sevenDayViews": 132672,
     "audience": 548,
-    "engagementRate": 5.046603677221655
+    "engagementRate": 5.046563405233296
   },
   "platformTotals": {
     "youtube": 35632,
-    "tiktok": 97940,
+    "tiktok": 97941,
     "instagram": 23418
   },
   "channels": [
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:15:00.364Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.461Z"
     },
     {
       "id": 2,
@@ -194,11 +194,11 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 92364,
+        "views": 92365,
         "audience": 391,
         "videos": 9,
         "likes": 3508,
-        "engagementRate": 4.38590792949634,
+        "engagementRate": 4.385860444973746,
         "source": "direct"
       },
       "instagram": {
@@ -261,7 +261,7 @@
         "interactionsPerReel": 12.571428571428571
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:58.364Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.461Z"
     },
     {
       "id": 4,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 14.833333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:24.364Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.461Z"
     },
     {
       "id": 5,
@@ -447,7 +447,7 @@
         "interactionsPerReel": 288.5
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:34.364Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:30.461Z"
     }
   ],
   "videos": [
@@ -829,12 +829,12 @@
       "title": "Oldest man ever caught on film",
       "url": "https://www.tiktok.com/@thearchivelives/video/7670406889233976607?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-08-05T04:56:30.000Z",
-      "views": 15800,
+      "views": 15801,
       "likes": 473,
       "comments": 31,
       "shares": 17,
       "durationSeconds": 21,
-      "engagementRate": 3.2974683544303796
+      "engagementRate": 3.2972596671096768
     },
     {
       "id": "youtube:_Dn6W-1HjEQ",
@@ -391959,6 +391959,90 @@
       "likes": 472,
       "reach": 13346,
       "engagementRate": 12.970178330585943
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:05:30.461Z",
+      "views": 823,
+      "audience": 9,
+      "videos": 7,
+      "likes": 49,
+      "engagementRate": 10.328068043742405
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T02:05:30.461Z",
+      "views": 440,
+      "audience": null,
+      "videos": 6,
+      "likes": 1,
+      "reach": 392,
+      "engagementRate": 0.25510204081632654
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:05:30.461Z",
+      "views": 92365,
+      "audience": 391,
+      "videos": 9,
+      "likes": 3508,
+      "engagementRate": 4.385860444973746
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T02:05:30.461Z",
+      "views": 3404,
+      "audience": null,
+      "videos": 7,
+      "likes": 74,
+      "reach": 2701,
+      "engagementRate": 3.258052573121066
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:05:30.461Z",
+      "views": 3240,
+      "audience": 17,
+      "videos": 7,
+      "likes": 110,
+      "engagementRate": 4.567901234567901
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T02:05:30.461Z",
+      "views": 2229,
+      "audience": null,
+      "videos": 6,
+      "likes": 58,
+      "reach": 1662,
+      "engagementRate": 5.354993983152828
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-08T02:05:30.461Z",
+      "views": 243,
+      "audience": 6,
+      "videos": 1,
+      "likes": 16,
+      "engagementRate": 7.818930041152264
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-08T02:05:30.461Z",
+      "views": 17345,
+      "audience": null,
+      "videos": 6,
+      "likes": 472,
+      "reach": 13346,
+      "engagementRate": 12.970178330585943
     }
   ],
   "trend": [
@@ -392044,7 +392128,7 @@
       "date": "2026-08-08",
       "label": "Aug 8",
       "youtube": null,
-      "tiktok": 97940
+      "tiktok": 97941
     }
   ],
   "connections": {
@@ -392077,9 +392161,7 @@
       "Fixed Fights Â· Instagram"
     ],
     "skipped": [],
-    "warnings": [
-      "Kids History · YouTube Analytics: watch-time report (estimatedMinutesWatched,likes,comments,shares): Internal error encountered."
-    ],
+    "warnings": [],
     "errors": [
       "Axolotl Drama · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
       "Anime Countdown Vault · YouTube: The request cannot be completed because you have exceeded your <a href=\"/youtube/v3/getting-started#quota\">quota</a>.",
