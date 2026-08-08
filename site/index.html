@@ -16,8 +16,8 @@
     <meta property="og:image" content="./assets/og.png" />
     <title>Vault Pulse — Channel Analytics</title>
     <link rel="icon" href="./assets/vault-avatar.png" />
-    <link rel="stylesheet" href="./styles.css?v=10" />
-    <script src="./app.js?v=12" defer></script>
+    <link rel="stylesheet" href="./styles.css?v=11" />
+    <script type="module" src="./app.js?v=13"></script>
   </head>
   <body>
     <div class="loading-screen" id="loading-screen">
@@ -66,9 +66,12 @@
             <h1 id="page-title">The whole network, one pulse.</h1>
           </div>
           <div class="topbar-actions">
-            <div class="last-sync">
-              <span>Last data sync</span>
+            <div class="last-sync" aria-live="polite">
+              <span id="last-sync-label">Platform freshness</span>
               <strong id="last-sync">Waiting for first refresh</strong>
+              <small id="platform-freshness-details">
+                Waiting for platform data
+              </small>
             </div>
             <button class="primary-button" id="reload-button" type="button">
               <span aria-hidden="true">↻</span>

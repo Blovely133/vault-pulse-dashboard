@@ -10,8 +10,6 @@ permissions:
   contents: write
   pages: write
   id-token: write
-  # To restart ticker.yml if its chain ever dies. See the last step.
-  actions: write
 
 concurrency:
   group: vault-pulse-pages
@@ -119,35 +117,3 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-      - name: Keep the ticker alive
-        # ticker.yml is the 15-minute clock, and this run is normally one of its
-        # ticks -- so a healthy ticker makes this a no-op, which is the usual
-        # case. It matters for the one failure this design has: the ticker hands
-        # off to its own successor every ~5.25 h, and if a handoff is ever lost
-        # the clock stops silently. This makes any refresh, from any trigger,
-        # resurrect it. The two mechanisms hold each other up, with the crons
-        # underneath as a last resort.
-        #
-        # Deliberately `always()`: a refresh that failed still proves a runner
-        # got here, and a dead clock is worth restarting either way.
-        if: always()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -uo pipefail
-          alive=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow ticker.yml --limit 20 \
-            --json status \
-            --jq '[.[] | select(.status == "in_progress" or .status == "queued" or .status == "waiting")] | length' \
-            2>/dev/null) || alive=""
-
-          if [ -z "$alive" ]; then
-            # Never fail the deploy over the watchdog-of-a-watchdog.
-            echo "::warning::could not read ticker state; leaving it alone"
-          elif [ "$alive" -gt 0 ]; then
-            echo "ticker alive ($alive run(s)) - nothing to do"
-          else
-            echo "no ticker running - restarting the chain"
-            gh workflow run ticker.yml --repo "$GITHUB_REPOSITORY" --ref main \
-              || echo "::warning::ticker restart dispatch failed"
-          fi

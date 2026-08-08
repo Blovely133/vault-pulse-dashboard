@@ -23,8 +23,26 @@ jobs:
         shell: bash
         run: echo "stale=$(node scripts/check-freshness.mjs 12)" >> "$GITHUB_OUTPUT"
 
-      - name: Recover a missed refresh
+      - name: Check for an active refresh
         if: steps.freshness.outputs.stale == 'true'
+        id: active_refresh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          active=$(gh run list --repo "$GITHUB_REPOSITORY" --workflow pages.yml --limit 20 \
+            --json status \
+            --jq '[.[] | select(.status != "completed")] | length')
+          if [ "$active" -gt 0 ]; then
+            echo "active=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "active=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Recover a missed refresh
+        if: >-
+          steps.freshness.outputs.stale == 'true' &&
+          steps.active_refresh.outputs.active != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run pages.yml --ref main

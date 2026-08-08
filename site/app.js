@@ -1,3 +1,5 @@
+import { summarizePlatformFreshness } from "./platform-freshness.mjs";
+
 const state = {
   tab: "overview",
   selectedChannelSlug: null,
@@ -116,12 +118,66 @@ function refreshSilently() {
 function updateShell() {
   const connected = state.data.connections?.connectedSources ?? 0;
   const total = state.data.connections?.totalSources ?? 0;
+  const freshness = summarizePlatformFreshness(state.data);
+  const freshnessLabel = document.querySelector("#last-sync-label");
+  const freshnessValue = document.querySelector("#last-sync");
+  const freshnessDetails = document.querySelector(
+    "#platform-freshness-details",
+  );
   document.querySelector("#source-count").textContent =
     `${connected}/${total} sources`;
-  document.querySelector("#source-status").textContent =
-    connected > 0 ? "Automated tracking active" : "Setup in progress";
-  document.querySelector("#last-sync").textContent =
-    formatSync(state.data.updatedAt);
+  freshnessLabel.textContent = "Platform freshness";
+
+  if (freshness.issues.length > 0 || freshness.unmatchedErrorCount > 0) {
+    const primary =
+      freshness.issues.find((issue) => issue.platform === "youtube") ??
+      freshness.issues[0];
+    const issueCount =
+      freshness.issues.length + Number(freshness.unmatchedErrorCount > 0);
+    const moreIssues =
+      issueCount > 1
+        ? ` · +${issueCount - 1} issue${issueCount === 2 ? "" : "s"}`
+        : "";
+    freshnessValue.textContent = primary
+      ? `${primary.shortLabel} ${freshnessStatus(primary.status)} · ${
+          primary.completeThrough
+            ? formatSync(primary.completeThrough)
+            : "no complete snapshot"
+        }${moreIssues}`
+      : `${freshness.unmatchedErrorCount} refresh error${freshness.unmatchedErrorCount === 1 ? "" : "s"}`;
+    document.querySelector("#source-status").textContent =
+      `Partial refresh: ${[
+        ...freshness.issues.map(
+          (issue) => `${issue.label} ${freshnessStatus(issue.status)}`,
+        ),
+        ...(freshness.unmatchedErrorCount
+          ? [`${freshness.unmatchedErrorCount} other error${freshness.unmatchedErrorCount === 1 ? "" : "s"}`]
+          : []),
+      ].join(" + ")}`;
+  } else {
+    freshnessValue.textContent = freshness.completeThrough
+      ? `All sources · ${formatSync(freshness.completeThrough)}`
+      : "Waiting for first complete refresh";
+    document.querySelector("#source-status").textContent =
+      connected > 0 ? "Automated tracking active" : "Setup in progress";
+  }
+
+  const detail = freshness.platforms
+    .map(
+      (platform) =>
+        `${platform.shortLabel} ${freshnessStatus(platform.status)}${platform.completeThrough ? ` · ${formatSync(platform.completeThrough)}` : ""}`,
+    )
+    .join(" · ");
+  freshnessDetails.textContent = detail || "No configured platform data";
+}
+
+function freshnessStatus(status) {
+  if (status === "quota") return "quota paused";
+  if (status === "error") return "error";
+  if (status === "paused") return "paused";
+  if (status === "stale") return "stale";
+  if (status === "waiting") return "waiting";
+  return "current";
 }
 
 function render() {
