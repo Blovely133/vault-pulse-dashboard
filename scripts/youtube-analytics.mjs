@@ -34,6 +34,11 @@ export const channelRefreshTokenEnv = Object.freeze({
   "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
   UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
   UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+  // Added 2026-08-09. Quoted throughout -- Court Signal's id contains a hyphen
+  // and the other two are quoted for consistency, so nobody has to re-check.
+  "UC5amukolWTisi6cjGEU68FA": "YT_REFRESH_HISTORYOFHUMANS",
+  "UCdIcgTi2g2H3Z7xtwKhzc0Q": "YT_REFRESH_ANIMERECAPS",
+  "UCya0t0Lg1eDN-oM2eAOcwRw": "YT_REFRESH_COURTSIGNAL",
 });
 
 export const authorizedAnalyticsDefaults = Object.freeze({

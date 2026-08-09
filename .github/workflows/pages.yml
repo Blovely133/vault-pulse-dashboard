@@ -45,6 +45,9 @@ jobs:
           YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
           YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
           YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          YT_REFRESH_HISTORYOFHUMANS: ${{ secrets.YT_REFRESH_HISTORYOFHUMANS }}
+          YT_REFRESH_ANIMERECAPS: ${{ secrets.YT_REFRESH_ANIMERECAPS }}
+          YT_REFRESH_COURTSIGNAL: ${{ secrets.YT_REFRESH_COURTSIGNAL }}
           # Direct TikTok read. Present these and a channel bypasses the Render
           # proxy below; TikTok does not rotate refresh tokens, so re-using one
           # static secret every run consumes nothing.
