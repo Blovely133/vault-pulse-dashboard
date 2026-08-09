@@ -2,8 +2,19 @@ name: Guard scheduled Vault Pulse refreshes
 
 on:
   schedule:
-    # Five minutes after each ticker slot. This only dispatches when the
-    # snapshot is stale, so it is a low-cost backstop for a dropped cron tick.
+    # THE ONLY SCHEDULED TRIGGER LEFT IN THIS REPO, AND IT IS A BACKSTOP, NOT
+    # THE CLOCK. The 15-minute refresh is driven by the `vault-pulse-tick`
+    # systemd timer on ops-box (see automation/vault-pulse-tick), because
+    # GitHub's scheduler delivered only ~40% of slots here - a dashboard
+    # promising 15 minutes showed numbers 20-50 minutes old. These four asks
+    # land a minute before each box tick and only dispatch when the snapshot is
+    # genuinely stale, so the normal case costs nothing.
+    #
+    # This is a REAL guard now in a way it was not before. While the primary
+    # was also a GitHub cron, this ran on the same throttled scheduler and
+    # failed with it - a guard that runs on the mechanism it guards is not a
+    # guard. Backstopping a box timer makes it an independent mechanism: if the
+    # box dies, this is the thing that notices.
     - cron: "14,29,44,59 * * * *"
   workflow_dispatch:
 
