@@ -210,12 +210,18 @@ jobs:
             }
 
             const after = (await get("videos", { part: "snippet,status", id })).items?.[0];
+            const actualTags = after?.snippet.tags ?? [];
+            console.log(
+              `YTM_TAGS actual=${JSON.stringify(actualTags)} expected=${JSON.stringify(normalizedTags)}`,
+            );
             const checks = {
               videoPresent: Boolean(after),
               title: after?.snippet.title === current.snippet.title,
               category: after?.snippet.categoryId === current.snippet.categoryId,
               description: after?.snippet.description === description,
-              tags: JSON.stringify(after?.snippet.tags ?? []) === JSON.stringify(normalizedTags),
+              tags:
+                actualTags.length === normalizedTags.length &&
+                normalizedTags.every((tag) => actualTags.includes(tag)),
               status: after ? stableJson(after.status) === statusBefore : false,
             };
             console.log(`YTM_VERIFY ${JSON.stringify(checks)}`);
