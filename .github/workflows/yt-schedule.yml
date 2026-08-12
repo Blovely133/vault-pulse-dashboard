@@ -164,6 +164,9 @@ jobs:
               embeddable: current.status.embeddable,
               publicStatsViewable: current.status.publicStatsViewable,
               selfDeclaredMadeForKids: current.status.madeForKids ?? false,
+              ...(current.status.containsSyntheticMedia != null
+                ? { containsSyntheticMedia: current.status.containsSyntheticMedia }
+                : {}),
             };
             const res = await fetch(`${api}/videos?part=status`, {
               method: "PUT",
