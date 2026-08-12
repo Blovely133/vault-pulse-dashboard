@@ -130,6 +130,7 @@ jobs:
                 title: v.snippet.title.slice(0, 60),
                 privacy: v.status.privacyStatus,
                 publishAt: v.status.publishAt ?? null,
+                containsSyntheticMedia: v.status.containsSyntheticMedia ?? null,
                 published: v.snippet.publishedAt,
                 views: Number(v.statistics?.viewCount ?? 0),
               }),
@@ -144,7 +145,7 @@ jobs:
           }
 
           const updates = JSON.parse(raw);
-          for (const { id, publishAt } of updates) {
+          for (const { id, publishAt, containsSyntheticMedia } of updates) {
             const current = byId.get(id);
             if (!current) {
               console.log(`YTS_SKIP ${id} not on this channel`);
@@ -164,8 +165,10 @@ jobs:
               embeddable: current.status.embeddable,
               publicStatsViewable: current.status.publicStatsViewable,
               selfDeclaredMadeForKids: current.status.madeForKids ?? false,
-              ...(current.status.containsSyntheticMedia != null
-                ? { containsSyntheticMedia: current.status.containsSyntheticMedia }
+              ...(typeof containsSyntheticMedia === "boolean"
+                ? { containsSyntheticMedia }
+                : current.status.containsSyntheticMedia != null
+                  ? { containsSyntheticMedia: current.status.containsSyntheticMedia }
                 : {}),
             };
             const res = await fetch(`${api}/videos?part=status`, {
