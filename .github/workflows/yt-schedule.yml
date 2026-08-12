@@ -94,6 +94,14 @@ jobs:
           }
 
           // The uploads playlist includes private/scheduled videos for the owner.
+          const identity = await get("channels", { part: "snippet", mine: "true" });
+          if (identity.items?.length !== 1 || identity.items[0].id !== channel) {
+            throw new Error(
+              `Identity mismatch: token=${identity.items?.[0]?.id ?? "none"}, target=${channel}`,
+            );
+          }
+          console.log(`YTS_IDENTITY_OK channel=${channel} title=${identity.items[0].snippet.title}`);
+
           const channels = await get("channels", { part: "contentDetails", id: channel });
           const uploads = channels.items?.[0]?.contentDetails?.relatedPlaylists?.uploads;
           if (!uploads) throw new Error("no uploads playlist");
@@ -146,7 +154,70 @@ jobs:
             process.exit(0);
           }
 
-          const updates = JSON.parse(raw);
+          const request = JSON.parse(raw);
+          if (!Array.isArray(request)) {
+            const metadata = request?.metadata;
+            if (!metadata || Object.keys(request).some((key) => key !== "metadata")) {
+              throw new Error("Non-array updates must contain only a metadata operation");
+            }
+            const { id, descriptionB64, tags } = metadata;
+            const current = byId.get(id);
+            if (!current) throw new Error(`Metadata target ${id} is not on this channel`);
+            if (!/^[A-Za-z0-9_-]{11}$/.test(id)) throw new Error("Invalid metadata video id");
+            const description = Buffer.from(descriptionB64, "base64").toString("utf8");
+            if (!description || Buffer.byteLength(description, "utf8") > 5000) {
+              throw new Error("Metadata description is empty or exceeds 5000 bytes");
+            }
+            if (!Array.isArray(tags) || !tags.length || tags.some((tag) => typeof tag !== "string")) {
+              throw new Error("Metadata tags must be a non-empty string array");
+            }
+            const normalizedTags = tags.map((tag) => tag.trim()).filter(Boolean);
+            if (normalizedTags.length !== tags.length || normalizedTags.join(",").length > 450) {
+              throw new Error("Metadata tags are empty or too long");
+            }
+
+            const statusBefore = JSON.stringify(current.status);
+            const snippet = {
+              title: current.snippet.title,
+              description,
+              categoryId: current.snippet.categoryId,
+              tags: normalizedTags,
+              ...(current.snippet.defaultLanguage
+                ? { defaultLanguage: current.snippet.defaultLanguage }
+                : {}),
+              ...(current.snippet.defaultAudioLanguage
+                ? { defaultAudioLanguage: current.snippet.defaultAudioLanguage }
+                : {}),
+            };
+            const update = await fetch(`${api}/videos?part=snippet`, {
+              method: "PUT",
+              headers: { ...auth, "Content-Type": "application/json" },
+              body: JSON.stringify({ id, snippet }),
+            });
+            const updateJson = await update.json();
+            if (!update.ok) {
+              throw new Error(`metadata update ${id}: ${update.status} ${JSON.stringify(updateJson)}`);
+            }
+
+            const after = (await get("videos", { part: "snippet,status", id })).items?.[0];
+            if (
+              !after ||
+              after.snippet.title !== current.snippet.title ||
+              after.snippet.categoryId !== current.snippet.categoryId ||
+              after.snippet.description !== description ||
+              JSON.stringify(after.snippet.tags ?? []) !== JSON.stringify(normalizedTags) ||
+              JSON.stringify(after.status) !== statusBefore
+            ) {
+              throw new Error("Metadata verification failed or a protected field changed");
+            }
+            console.log(
+              `YTM_OK id=${id} tags=${JSON.stringify(normalizedTags)} ` +
+                `privacy=${after.status.privacyStatus} publishAt=${after.status.publishAt ?? "null"}`,
+            );
+            process.exit(0);
+          }
+
+          const updates = request;
           for (const { id, publishAt, containsSyntheticMedia } of updates) {
             const current = byId.get(id);
             if (!current) {
