@@ -1,0 +1,146 @@
+name: YouTube metadata tool
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Exact owner channel ID
+        required: true
+      video_id:
+        description: Exact video ID
+        required: true
+      description_b64:
+        description: Base64 UTF-8 description
+        required: true
+      tags_csv:
+        description: Comma-separated keyword tags
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update description and tags
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          VIDEO_ID: ${{ inputs.video_id }}
+          DESCRIPTION_B64: ${{ inputs.description_b64 }}
+          TAGS_CSV: ${{ inputs.tags_csv }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          YT_REFRESH_HISTORYOFHUMANS: ${{ secrets.YT_REFRESH_HISTORYOFHUMANS }}
+          YT_REFRESH_ANIMERECAPS: ${{ secrets.YT_REFRESH_ANIMERECAPS }}
+          YT_REFRESH_COURTSIGNAL: ${{ secrets.YT_REFRESH_COURTSIGNAL }}
+        run: |
+          cat > /tmp/yt-metadata.mjs <<'SCRIPT'
+          import crypto from "node:crypto";
+
+          const api = "https://www.googleapis.com/youtube/v3";
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+            "UC5amukolWTisi6cjGEU68FA": "YT_REFRESH_HISTORYOFHUMANS",
+            "UCdIcgTi2g2H3Z7xtwKhzc0Q": "YT_REFRESH_ANIMERECAPS",
+            "UCya0t0Lg1eDN-oM2eAOcwRw": "YT_REFRESH_COURTSIGNAL",
+          };
+
+          const channel = process.env.CHANNEL;
+          const videoId = process.env.VIDEO_ID;
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          if (!/^[A-Za-z0-9_-]{11}$/.test(videoId)) throw new Error("Invalid video id");
+
+          const tokenBody = new URLSearchParams({
+            client_id: process.env.YT_CLIENT_ID,
+            client_secret: process.env.YT_CLIENT_SECRET,
+            refresh_token: process.env[refreshEnv],
+            grant_type: "refresh_token",
+          });
+          const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
+            method: "POST",
+            body: tokenBody,
+          });
+          const tokenJson = await tokenRes.json();
+          if (!tokenRes.ok) throw new Error(`token: ${tokenRes.status}`);
+          const auth = { Authorization: `Bearer ${tokenJson.access_token}` };
+
+          async function get(path, params) {
+            const url = new URL(`${api}/${path}`);
+            for (const [key, value] of Object.entries(params)) url.searchParams.set(key, value);
+            const response = await fetch(url, { headers: auth });
+            const json = await response.json();
+            if (!response.ok) throw new Error(`${path}: ${response.status} ${JSON.stringify(json)}`);
+            return json;
+          }
+
+          const mine = await get("channels", { part: "snippet", mine: "true" });
+          if (mine.items?.length !== 1 || mine.items[0].id !== channel) {
+            throw new Error(`Identity mismatch: token=${mine.items?.[0]?.id ?? "none"}, target=${channel}`);
+          }
+          console.log(`YTM_IDENTITY_OK channel=${channel} title=${mine.items[0].snippet.title}`);
+
+          const before = (await get("videos", {
+            part: "snippet,status",
+            id: videoId,
+          })).items?.[0];
+          if (!before || before.snippet.channelId !== channel) {
+            throw new Error(`Video ${videoId} is not owned by ${channel}`);
+          }
+
+          const description = Buffer.from(process.env.DESCRIPTION_B64, "base64").toString("utf8");
+          const tags = process.env.TAGS_CSV.split(",").map((tag) => tag.trim()).filter(Boolean);
+          if (!description || !tags.length) throw new Error("Description and tags are required");
+          if (Buffer.byteLength(description, "utf8") > 5000) throw new Error("Description exceeds 5000 bytes");
+          if (tags.join(",").length > 450) throw new Error("Tags are too long");
+
+          const snippet = {
+            title: before.snippet.title,
+            description,
+            categoryId: before.snippet.categoryId,
+            tags,
+            ...(before.snippet.defaultLanguage ? { defaultLanguage: before.snippet.defaultLanguage } : {}),
+            ...(before.snippet.defaultAudioLanguage
+              ? { defaultAudioLanguage: before.snippet.defaultAudioLanguage }
+              : {}),
+          };
+          const response = await fetch(`${api}/videos?part=snippet`, {
+            method: "PUT",
+            headers: { ...auth, "Content-Type": "application/json" },
+            body: JSON.stringify({ id: videoId, snippet }),
+          });
+          const json = await response.json();
+          if (!response.ok) throw new Error(`update: ${response.status} ${JSON.stringify(json)}`);
+
+          const after = (await get("videos", {
+            part: "snippet,status",
+            id: videoId,
+          })).items?.[0];
+          const sameStatus = JSON.stringify(before.status) === JSON.stringify(after.status);
+          const tagsMatch = JSON.stringify(after.snippet.tags ?? []) === JSON.stringify(tags);
+          if (
+            after.snippet.title !== before.snippet.title ||
+            after.snippet.categoryId !== before.snippet.categoryId ||
+            after.snippet.description !== description ||
+            !tagsMatch ||
+            !sameStatus
+          ) {
+            throw new Error("Verification failed: a protected field changed or metadata did not persist");
+          }
+          const digest = crypto.createHash("sha256").update(description).digest("hex").slice(0, 16);
+          console.log(
+            `YTM_OK id=${videoId} descriptionSha=${digest} tags=${JSON.stringify(tags)} ` +
+              `privacy=${after.status.privacyStatus} publishAt=${after.status.publishAt ?? "null"}`,
+          );
+          SCRIPT
+          node /tmp/yt-metadata.mjs
