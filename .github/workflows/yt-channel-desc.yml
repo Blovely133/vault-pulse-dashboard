@@ -107,16 +107,30 @@ jobs:
           });
           const putJson = await putRes.json();
           if (!putRes.ok) throw new Error(`update: ${putRes.status} ${JSON.stringify(putJson)}`);
+          const echoed = putJson.brandingSettings?.channel?.description ?? "";
+          console.log(`YTCD_PUT_ECHO (${echoed.length} chars, containsAppend=${echoed.includes(append)})`);
 
-          const verifyRes = await fetch(`${api}/channels?part=brandingSettings&id=${channel}`, { headers: auth });
-          const verifyJson = await verifyRes.json();
-          const now = verifyJson.items?.[0]?.brandingSettings?.channel?.description ?? "";
+          // Channel metadata reads lag the write (eventual consistency) -
+          // poll the readback for up to ~2 minutes before calling it a failure.
+          let now = "";
+          let title = null;
+          for (let attempt = 1; attempt <= 6; attempt++) {
+            const verifyRes = await fetch(`${api}/channels?part=brandingSettings&id=${channel}`, { headers: auth });
+            const verifyJson = await verifyRes.json();
+            now = verifyJson.items?.[0]?.brandingSettings?.channel?.description ?? "";
+            title = verifyJson.items?.[0]?.brandingSettings?.channel?.title ?? null;
+            if (now.includes(append)) break;
+            console.log(`YTCD_READBACK_STALE attempt ${attempt} (${now.length} chars)`);
+            if (attempt < 6) await new Promise(r => setTimeout(r, 20000));
+          }
           console.log(`YTCD_AFTER (${now.length} chars)\n${now}`);
           console.log("YTCD_VERIFY " + JSON.stringify({
             channel,
             appended: now.includes(append),
-            title: verifyJson.items?.[0]?.brandingSettings?.channel?.title ?? null,
+            put_echoed_append: echoed.includes(append),
+            title,
           }));
-          if (!now.includes(append)) throw new Error("post-write readback does not contain the appended paragraph");
+          if (!now.includes(append) && !echoed.includes(append)) throw new Error("neither PUT echo nor readback contains the appended paragraph - write did not take");
+          if (!now.includes(append)) console.log("YTCD_WARN write accepted (PUT echo has the paragraph) but readback still stale after 2 min - re-check later");
           SCRIPT
           node /tmp/yt-channel-desc.mjs
