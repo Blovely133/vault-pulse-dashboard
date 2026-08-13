@@ -1,0 +1,122 @@
+name: YouTube channel description tool
+
+# Append a paragraph to a channel's description via channels.update.
+# Read-modify-write: fetches current brandingSettings, appends the new
+# paragraph, writes back only the documented-updatable channel fields
+# (title/description/keywords/country/etc.) so nothing else is wiped.
+# Idempotent: skips if the paragraph is already present.
+# Companion to yt-upload.yml / yt-schedule.yml, same channel->secret map.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Channel ID to update
+        required: true
+      append_b64:
+        description: Base64 UTF-8 paragraph to append to the description
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update description
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          APPEND_B64: ${{ inputs.append_b64 }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          YT_REFRESH_HISTORYOFHUMANS: ${{ secrets.YT_REFRESH_HISTORYOFHUMANS }}
+          YT_REFRESH_ANIMERECAPS: ${{ secrets.YT_REFRESH_ANIMERECAPS }}
+          YT_REFRESH_COURTSIGNAL: ${{ secrets.YT_REFRESH_COURTSIGNAL }}
+        run: |
+          cat > /tmp/yt-channel-desc.mjs <<'SCRIPT'
+          const tokenEndpoint = "https://oauth2.googleapis.com/token";
+          const api = "https://www.googleapis.com/youtube/v3";
+
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+            "UC5amukolWTisi6cjGEU68FA": "YT_REFRESH_HISTORYOFHUMANS",
+            "UCdIcgTi2g2H3Z7xtwKhzc0Q": "YT_REFRESH_ANIMERECAPS",
+            "UCya0t0Lg1eDN-oM2eAOcwRw": "YT_REFRESH_COURTSIGNAL",
+          };
+
+          const channel = process.env.CHANNEL;
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          const refreshToken = process.env[refreshEnv];
+          if (!refreshToken) throw new Error(`${refreshEnv} is empty`);
+
+          const body = new URLSearchParams({
+            client_id: process.env.YT_CLIENT_ID,
+            client_secret: process.env.YT_CLIENT_SECRET,
+            refresh_token: refreshToken,
+            grant_type: "refresh_token",
+          });
+          const tokenRes = await fetch(tokenEndpoint, { method: "POST", body });
+          const tokenJson = await tokenRes.json();
+          if (!tokenRes.ok) throw new Error(`token: ${tokenRes.status} ${JSON.stringify(tokenJson)}`);
+          const auth = { Authorization: `Bearer ${tokenJson.access_token}` };
+
+          const getRes = await fetch(`${api}/channels?part=brandingSettings&id=${channel}`, { headers: auth });
+          const getJson = await getRes.json();
+          if (!getRes.ok) throw new Error(`get: ${getRes.status} ${JSON.stringify(getJson)}`);
+          const item = getJson.items?.[0];
+          if (!item) throw new Error(`channel ${channel} not returned by channels.list`);
+          const ch = item.brandingSettings?.channel ?? {};
+          const before = ch.description ?? "";
+          console.log(`YTCD_BEFORE (${before.length} chars)\n${before}`);
+
+          const append = Buffer.from(process.env.APPEND_B64, "base64").toString("utf8").trim();
+          if (!append) throw new Error("append_b64 decoded to empty text");
+
+          if (before.includes(append)) {
+            console.log("YTCD_SKIP paragraph already present, nothing written");
+            process.exit(0);
+          }
+
+          const after = before.trim() ? `${before.replace(/\s+$/, "")}\n\n${append}` : append;
+          if (after.length > 1000) {
+            throw new Error(`description would be ${after.length} chars; YouTube caps at 1000 - trim first`);
+          }
+
+          // Only the documented-updatable fields; carrying unknown or
+          // deprecated fields into channels.update risks a 400, omitting
+          // present ones risks silently clearing them.
+          const keep = ["title", "keywords", "trackingAnalyticsAccountId", "unsubscribedTrailer", "country", "defaultLanguage"];
+          const outCh = { description: after };
+          for (const k of keep) if (ch[k] !== undefined) outCh[k] = ch[k];
+
+          const putRes = await fetch(`${api}/channels?part=brandingSettings`, {
+            method: "PUT",
+            headers: { ...auth, "Content-Type": "application/json; charset=UTF-8" },
+            body: JSON.stringify({ id: channel, brandingSettings: { channel: outCh } }),
+          });
+          const putJson = await putRes.json();
+          if (!putRes.ok) throw new Error(`update: ${putRes.status} ${JSON.stringify(putJson)}`);
+
+          const verifyRes = await fetch(`${api}/channels?part=brandingSettings&id=${channel}`, { headers: auth });
+          const verifyJson = await verifyRes.json();
+          const now = verifyJson.items?.[0]?.brandingSettings?.channel?.description ?? "";
+          console.log(`YTCD_AFTER (${now.length} chars)\n${now}`);
+          console.log("YTCD_VERIFY " + JSON.stringify({
+            channel,
+            appended: now.includes(append),
+            title: verifyJson.items?.[0]?.brandingSettings?.channel?.title ?? null,
+          }));
+          if (!now.includes(append)) throw new Error("post-write readback does not contain the appended paragraph");
+          SCRIPT
+          node /tmp/yt-channel-desc.mjs
