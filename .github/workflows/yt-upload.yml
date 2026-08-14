@@ -100,6 +100,17 @@ jobs:
           if (!tokenRes.ok) throw new Error(`token: ${tokenRes.status} ${JSON.stringify(tokenJson)}`);
           const auth = { Authorization: `Bearer ${tokenJson.access_token}` };
 
+          // Assert the OAuth identity before creating anything. Secret names
+          // are legacy labels and are not proof of which channel owns them.
+          const mineRes = await fetch(`${api}/channels?part=snippet&mine=true`, { headers: auth });
+          const mineJson = await mineRes.json();
+          if (!mineRes.ok) throw new Error(`identity: ${mineRes.status} ${JSON.stringify(mineJson)}`);
+          const me = mineJson.items?.[0];
+          if (!me || me.id !== channel) {
+            throw new Error(`IDENTITY MISMATCH: token=${me?.id ?? "none"} requested=${channel}`);
+          }
+          console.log(`IDENTITY_OK ${me.id} "${me.snippet.title}"`);
+
           const media = fs.readFileSync(process.env.FILE);
           const title = Buffer.from(process.env.TITLE_B64, "base64").toString("utf8");
           const description = Buffer.from(process.env.DESCRIPTION_B64, "base64").toString("utf8");
@@ -116,6 +127,8 @@ jobs:
             status: {
               privacyStatus: "private",
               selfDeclaredMadeForKids: false,
+              // Owner selection for this fully stylized quiz: AI use = No.
+              containsSyntheticMedia: false,
               ...(publishAt ? { publishAt } : {}),
             },
           };
@@ -147,20 +160,33 @@ jobs:
 
           console.log(`YTU_OK ${putJson.id}`);
 
-          const verify = await fetch(
-            `${api}/videos?part=status,snippet&id=${putJson.id}`,
-            { headers: auth },
-          );
-          const verifyJson = await verify.json();
-          const v = verifyJson.items?.[0];
+          let v;
+          for (let attempt = 0; attempt < 24; attempt++) {
+            const verify = await fetch(
+              `${api}/videos?part=status,snippet,processingDetails&id=${putJson.id}`,
+              { headers: auth },
+            );
+            const verifyJson = await verify.json();
+            if (!verify.ok) throw new Error(`verify: ${verify.status} ${JSON.stringify(verifyJson)}`);
+            v = verifyJson.items?.[0];
+            const state = v?.processingDetails?.processingStatus;
+            if (state === "succeeded" || state === "failed" || state === "terminated") break;
+            await new Promise((resolve) => setTimeout(resolve, 5000));
+          }
           console.log(
             "YTU_VERIFY " +
               JSON.stringify({
                 id: putJson.id,
+                channelId: v?.snippet?.channelId,
                 title: v?.snippet?.title,
                 privacy: v?.status?.privacyStatus,
                 publishAt: v?.status?.publishAt ?? null,
                 madeForKids: v?.status?.madeForKids ?? null,
+                selfDeclaredMadeForKids: v?.status?.selfDeclaredMadeForKids ?? null,
+                containsSyntheticMedia: v?.status?.containsSyntheticMedia ?? false,
+                uploadStatus: v?.status?.uploadStatus ?? null,
+                processingStatus: v?.processingDetails?.processingStatus ?? null,
+                processingFailureReason: v?.processingDetails?.processingFailureReason ?? null,
               }),
           );
           SCRIPT
