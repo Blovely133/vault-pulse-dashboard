@@ -9,6 +9,11 @@ The production site is deployed through GitHub Pages:
 
 <https://blovely133.github.io/vault-pulse-dashboard/>
 
+## Production records
+
+- [Milo Smiling Critters Hard Edition](docs/productions/2026-08-14-milo-smiling-critters-hard-edition.md) — local creative build, audio provenance, QA, and verified YouTube delivery.
+- [YouTube upload and schedule runbook](docs/operations/youtube-upload.md) — repeatable staging, dispatch, verification, failure recovery, and receipt procedure.
+
 ## How it works
 
 - The browser loads a static dashboard from GitHub Pages.
