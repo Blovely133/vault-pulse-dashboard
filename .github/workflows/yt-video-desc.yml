@@ -133,8 +133,17 @@ jobs:
             descriptionLength: before.snippet.description.length,
           }));
 
+          function printDescription(text) {
+            console.log("YVD_DESCRIPTION_BEGIN");
+            console.log(text);
+            console.log("YVD_DESCRIPTION_END");
+          }
+
           if (before.snippet.description === nextDescription) {
+            // Full-text equality against what YouTube actually stores, so this
+            // doubles as a read-back check -- print it rather than exiting mute.
             console.log("YVD_NOOP description already matches -- nothing written");
+            printDescription(before.snippet.description);
             process.exit(0);
           }
 
@@ -158,7 +167,15 @@ jobs:
           console.log("YVD_WROTE " + videoId);
 
           // --- Independent read-back. Not the write echo. ---
-          const after = await readVideo();
+          // videos.list is read-after-write lagged: a write that has genuinely
+          // landed can still read back stale for a few seconds. Poll rather than
+          // declaring failure on the first look, or a good write fails the job.
+          let after = await readVideo();
+          for (let i = 1; i <= 6 && after.snippet.description !== nextDescription; i++) {
+            console.log(`YVD_READBACK_LAG attempt ${i}: still ${after.snippet.description.length} chars, want ${nextDescription.length} -- waiting 5s`);
+            await new Promise((r) => setTimeout(r, 5000));
+            after = await readVideo();
+          }
           console.log("YVD_AFTER " + JSON.stringify({
             id: after.id,
             title: after.snippet.title,
@@ -177,8 +194,6 @@ jobs:
           if (problems.length) throw new Error("YVD_VERIFY_FAILED " + problems.join("; "));
           console.log("YVD_VERIFY_OK description replaced; title, category, privacy and publishAt all unchanged");
 
-          console.log("YVD_DESCRIPTION_BEGIN");
-          console.log(after.snippet.description);
-          console.log("YVD_DESCRIPTION_END");
+          printDescription(after.snippet.description);
           SCRIPT
           node /tmp/yt-video-desc.mjs
