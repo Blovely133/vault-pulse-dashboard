@@ -1,0 +1,184 @@
+name: YouTube video description tool
+
+# Replace ONE video's description via videos.update. Nothing else is touched:
+# not the file, not the schedule, not visibility, not the title, not the
+# category.
+#
+# WHY READ-MODIFY-WRITE. videos.update REPLACES the whole `snippet` part, exactly
+# like it replaces the whole `status` part (see the note at the top of
+# yt-schedule.yml). Sending {description} alone would blank the title and reset
+# categoryId -- which on this network silently un-sets "Sports" and is the shape
+# a description "fix" takes when it goes wrong. So this reads the current snippet
+# first and writes every field back, changing only the description.
+#
+# WHY THE GUARD. `expect_title` must match the video's current title exactly or
+# the job aborts before writing. A description edit aimed at the wrong id is
+# otherwise silent and hard to notice. Fail closed.
+#
+# Companion to yt-upload.yml / yt-schedule.yml / yt-channel-desc.yml, same
+# channel->secret map.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Channel ID that owns the video
+        required: true
+      video_id:
+        description: Video ID to edit
+        required: true
+      expect_title:
+        description: The video's CURRENT title, exactly. Aborts on mismatch.
+        required: true
+      description_b64:
+        description: Base64 UTF-8 of the new description (avoids YAML/shell mangling)
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update video description
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          VIDEO_ID: ${{ inputs.video_id }}
+          EXPECT_TITLE: ${{ inputs.expect_title }}
+          DESCRIPTION_B64: ${{ inputs.description_b64 }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          YT_REFRESH_HISTORYOFHUMANS: ${{ secrets.YT_REFRESH_HISTORYOFHUMANS }}
+          YT_REFRESH_ANIMERECAPS: ${{ secrets.YT_REFRESH_ANIMERECAPS }}
+          YT_REFRESH_COURTSIGNAL: ${{ secrets.YT_REFRESH_COURTSIGNAL }}
+        run: |
+          cat > /tmp/yt-video-desc.mjs <<'SCRIPT'
+          const tokenEndpoint = "https://oauth2.googleapis.com/token";
+          const api = "https://www.googleapis.com/youtube/v3";
+
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+            "UC5amukolWTisi6cjGEU68FA": "YT_REFRESH_HISTORYOFHUMANS",
+            "UCdIcgTi2g2H3Z7xtwKhzc0Q": "YT_REFRESH_ANIMERECAPS",
+            "UCya0t0Lg1eDN-oM2eAOcwRw": "YT_REFRESH_COURTSIGNAL",
+          };
+
+          const channel = process.env.CHANNEL;
+          const videoId = process.env.VIDEO_ID;
+          const expectTitle = process.env.EXPECT_TITLE;
+          const nextDescription = Buffer.from(process.env.DESCRIPTION_B64, "base64").toString("utf8");
+
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          const refreshToken = process.env[refreshEnv];
+          if (!refreshToken) throw new Error(`${refreshEnv} is empty`);
+
+          async function accessToken() {
+            const body = new URLSearchParams({
+              client_id: process.env.YT_CLIENT_ID,
+              client_secret: process.env.YT_CLIENT_SECRET,
+              refresh_token: refreshToken,
+              grant_type: "refresh_token",
+            });
+            const res = await fetch(tokenEndpoint, { method: "POST", body });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`token: ${res.status} ${JSON.stringify(json)}`);
+            return json.access_token;
+          }
+
+          const token = await accessToken();
+          const auth = { Authorization: `Bearer ${token}` };
+
+          async function readVideo() {
+            const url = new URL(`${api}/videos`);
+            url.searchParams.set("part", "snippet,status");
+            url.searchParams.set("id", videoId);
+            const res = await fetch(url, { headers: auth });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`videos.list: ${res.status} ${JSON.stringify(json)}`);
+            return json.items?.[0];
+          }
+
+          const before = await readVideo();
+          if (!before) throw new Error(`YVD_ABORT video ${videoId} not found`);
+
+          // --- Guards. All must hold before anything is written. ---
+          if (before.snippet.channelId !== channel) {
+            throw new Error(`YVD_ABORT ${videoId} belongs to ${before.snippet.channelId}, not ${channel}`);
+          }
+          if (before.snippet.title !== expectTitle) {
+            console.log(`YVD_ABORT title guard failed`);
+            console.log(`  expected: ${JSON.stringify(expectTitle)}`);
+            console.log(`  actual  : ${JSON.stringify(before.snippet.title)}`);
+            throw new Error("YVD_ABORT title mismatch -- refusing to edit");
+          }
+          console.log("YVD_GUARDS_OK channel + title match");
+
+          console.log("YVD_BEFORE " + JSON.stringify({
+            id: before.id,
+            title: before.snippet.title,
+            categoryId: before.snippet.categoryId,
+            privacyStatus: before.status.privacyStatus,
+            publishAt: before.status.publishAt ?? null,
+            descriptionLength: before.snippet.description.length,
+          }));
+
+          if (before.snippet.description === nextDescription) {
+            console.log("YVD_NOOP description already matches -- nothing written");
+            process.exit(0);
+          }
+
+          // Carry EVERY snippet field forward; change only the description.
+          const snippet = {
+            title: before.snippet.title,
+            description: nextDescription,
+            categoryId: before.snippet.categoryId,
+          };
+          if (before.snippet.tags) snippet.tags = before.snippet.tags;
+          if (before.snippet.defaultLanguage) snippet.defaultLanguage = before.snippet.defaultLanguage;
+          if (before.snippet.defaultAudioLanguage) snippet.defaultAudioLanguage = before.snippet.defaultAudioLanguage;
+
+          const res = await fetch(`${api}/videos?part=snippet`, {
+            method: "PUT",
+            headers: { ...auth, "Content-Type": "application/json" },
+            body: JSON.stringify({ id: videoId, snippet }),
+          });
+          const json = await res.json();
+          if (!res.ok) throw new Error(`videos.update: ${res.status} ${JSON.stringify(json)}`);
+          console.log("YVD_WROTE " + videoId);
+
+          // --- Independent read-back. Not the write echo. ---
+          const after = await readVideo();
+          console.log("YVD_AFTER " + JSON.stringify({
+            id: after.id,
+            title: after.snippet.title,
+            categoryId: after.snippet.categoryId,
+            privacyStatus: after.status.privacyStatus,
+            publishAt: after.status.publishAt ?? null,
+            descriptionLength: after.snippet.description.length,
+          }));
+
+          const problems = [];
+          if (after.snippet.description !== nextDescription) problems.push("description did not take");
+          if (after.snippet.title !== before.snippet.title) problems.push("title changed");
+          if (after.snippet.categoryId !== before.snippet.categoryId) problems.push("categoryId changed");
+          if (after.status.privacyStatus !== before.status.privacyStatus) problems.push("privacyStatus changed");
+          if ((after.status.publishAt ?? null) !== (before.status.publishAt ?? null)) problems.push("publishAt changed");
+          if (problems.length) throw new Error("YVD_VERIFY_FAILED " + problems.join("; "));
+          console.log("YVD_VERIFY_OK description replaced; title, category, privacy and publishAt all unchanged");
+
+          console.log("YVD_DESCRIPTION_BEGIN");
+          console.log(after.snippet.description);
+          console.log("YVD_DESCRIPTION_END");
+          SCRIPT
+          node /tmp/yt-video-desc.mjs
