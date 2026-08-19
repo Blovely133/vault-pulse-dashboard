@@ -1,0 +1,144 @@
+name: YouTube upload 059 (push-triggered copy of yt-upload.yml)
+
+# One-shot release lane for Archive Lives 059 (owner: "post it for next week sometime").
+# Same node script as yt-upload.yml on main; the inputs come from releases/059/release-job.json
+# in this branch so the push of this branch fires exactly ONE upload (private + publishAt).
+# Delete the branch after the run.
+
+on:
+  push:
+    branches: [agent/ep059-yt-release]
+    paths: ['releases/059/release-job.json']
+
+permissions:
+  contents: read
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read job file
+        run: |
+          node -e '
+            const fs = require("fs");
+            const j = JSON.parse(fs.readFileSync("releases/059/release-job.json", "utf8"));
+            const out = ["CHANNEL=" + j.channel, "FILE=" + j.file, "TITLE_B64=" + j.title_b64,
+                         "DESCRIPTION_B64=" + j.description_b64, "TAGS_CSV=" + (j.tags_csv || ""),
+                         "CATEGORY_ID=" + (j.category_id || "27"), "PUBLISH_AT=" + (j.publish_at || "")].join("\n") + "\n";
+            fs.appendFileSync(process.env.GITHUB_ENV, out);
+            console.log("job:", j.file, "publishAt:", j.publish_at, "title:", Buffer.from(j.title_b64, "base64").toString("utf8"));
+          '
+      - name: Upload
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          YT_REFRESH_HISTORYOFHUMANS: ${{ secrets.YT_REFRESH_HISTORYOFHUMANS }}
+          YT_REFRESH_ANIMERECAPS: ${{ secrets.YT_REFRESH_ANIMERECAPS }}
+          YT_REFRESH_COURTSIGNAL: ${{ secrets.YT_REFRESH_COURTSIGNAL }}
+        run: |
+          cat > /tmp/yt-upload.mjs <<'SCRIPT'
+          import fs from "node:fs";
+
+          const tokenEndpoint = "https://oauth2.googleapis.com/token";
+          const api = "https://www.googleapis.com/youtube/v3";
+          const uploadApi = "https://www.googleapis.com/upload/youtube/v3";
+
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+            "UC5amukolWTisi6cjGEU68FA": "YT_REFRESH_HISTORYOFHUMANS",
+            "UCdIcgTi2g2H3Z7xtwKhzc0Q": "YT_REFRESH_ANIMERECAPS",
+            "UCya0t0Lg1eDN-oM2eAOcwRw": "YT_REFRESH_COURTSIGNAL",
+          };
+
+          const channel = process.env.CHANNEL;
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          const refreshToken = process.env[refreshEnv];
+          if (!refreshToken) throw new Error(`${refreshEnv} is empty`);
+
+          const body = new URLSearchParams({
+            client_id: process.env.YT_CLIENT_ID,
+            client_secret: process.env.YT_CLIENT_SECRET,
+            refresh_token: refreshToken,
+            grant_type: "refresh_token",
+          });
+          const tokenRes = await fetch(tokenEndpoint, { method: "POST", body });
+          const tokenJson = await tokenRes.json();
+          if (!tokenRes.ok) throw new Error(`token: ${tokenRes.status} ${JSON.stringify(tokenJson)}`);
+          const auth = { Authorization: `Bearer ${tokenJson.access_token}` };
+
+          const media = fs.readFileSync(process.env.FILE);
+          const title = Buffer.from(process.env.TITLE_B64, "base64").toString("utf8");
+          const description = Buffer.from(process.env.DESCRIPTION_B64, "base64").toString("utf8");
+          const tags = (process.env.TAGS_CSV || "").split(",").map(t => t.trim()).filter(Boolean);
+          const publishAt = (process.env.PUBLISH_AT || "").trim();
+
+          const metadata = {
+            snippet: {
+              title,
+              description,
+              ...(tags.length ? { tags } : {}),
+              categoryId: process.env.CATEGORY_ID || "27",
+            },
+            status: {
+              privacyStatus: "private",
+              selfDeclaredMadeForKids: false,
+              ...(publishAt ? { publishAt } : {}),
+            },
+          };
+
+          const initRes = await fetch(
+            `${uploadApi}/videos?uploadType=resumable&part=snippet,status`,
+            {
+              method: "POST",
+              headers: {
+                ...auth,
+                "Content-Type": "application/json; charset=UTF-8",
+                "X-Upload-Content-Type": "video/mp4",
+                "X-Upload-Content-Length": String(media.length),
+              },
+              body: JSON.stringify(metadata),
+            },
+          );
+          if (!initRes.ok) throw new Error(`init: ${initRes.status} ${await initRes.text()}`);
+          const location = initRes.headers.get("location");
+          if (!location) throw new Error("no resumable upload location");
+
+          const putRes = await fetch(location, {
+            method: "PUT",
+            headers: { "Content-Type": "video/mp4", "Content-Length": String(media.length) },
+            body: media,
+          });
+          const putJson = await putRes.json();
+          if (!putRes.ok) throw new Error(`upload: ${putRes.status} ${JSON.stringify(putJson)}`);
+
+          console.log(`YTU_OK ${putJson.id}`);
+
+          const verify = await fetch(
+            `${api}/videos?part=status,snippet&id=${putJson.id}`,
+            { headers: auth },
+          );
+          const verifyJson = await verify.json();
+          const v = verifyJson.items?.[0];
+          console.log(
+            "YTU_VERIFY " +
+              JSON.stringify({
+                id: putJson.id,
+                title: v?.snippet?.title,
+                privacy: v?.status?.privacyStatus,
+                publishAt: v?.status?.publishAt ?? null,
+                madeForKids: v?.status?.madeForKids ?? null,
+              }),
+          );
+          SCRIPT
+          node /tmp/yt-upload.mjs
