@@ -1,0 +1,297 @@
+name: YouTube thumbnail tool
+
+# Set a custom thumbnail on ONE already-published video via thumbnails.set.
+# Nothing else is touched: not the title, not the description, not the
+# schedule, not visibility. thumbnails.set is a media-only endpoint -- it
+# carries no snippet, so there is no read-modify-write hazard here of the kind
+# yt-schedule.yml / yt-video-desc.yml warn about.
+#
+# WHY PUSH-TRIGGERED. workflow_dispatch has not fired reliably against
+# non-default branches in this repo, so the primary trigger is a push to this
+# agent branch, filtered to thumbnail-job.json. The job's parameters live in
+# that file rather than in dispatch inputs, so committing the file IS the
+# trigger and the run is reproducible from the branch alone. workflow_dispatch
+# is kept as a secondary trigger; its inputs override the file when given.
+#
+# WHY DRY-RUN IS THE DEFAULT. A thumbnail write is immediate and public. So
+# mode "dry-run" reads the video and validates the candidate image WITHOUT
+# writing, and mode "set" additionally requires `confirm` to equal the exact
+# string "SET <video_id>". Anything else refuses and exits 1. Fail closed.
+#
+# SHORTS CAVEAT. A custom thumbnail set on a Short is honoured by the API and
+# shows on Home/Search/channel-page surfaces, but the Shorts *feed* renders a
+# frame from the video itself. Do not expect the in-feed image to change.
+#
+# Companion to yt-upload.yml / yt-schedule.yml / yt-video-desc.yml, same
+# channel->secret map.
+
+on:
+  push:
+    branches: [agent/yt-thumbnail-lane]
+    paths: ["thumbnail-job.json"]
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Channel ID that owns the video (overrides thumbnail-job.json)
+        required: false
+        default: ""
+      video_id:
+        description: Video ID (overrides thumbnail-job.json)
+        required: false
+        default: ""
+      mode:
+        description: dry-run | set
+        required: false
+        default: dry-run
+      image:
+        description: Path in this checkout to the image (overrides job file)
+        required: false
+        default: ""
+      confirm:
+        description: For mode=set only, must be exactly "SET <video_id>"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+jobs:
+  thumbnail:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Thumbnail
+        env:
+          IN_CHANNEL: ${{ inputs.channel }}
+          IN_VIDEO_ID: ${{ inputs.video_id }}
+          IN_MODE: ${{ inputs.mode }}
+          IN_IMAGE: ${{ inputs.image }}
+          IN_CONFIRM: ${{ inputs.confirm }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          YT_REFRESH_HISTORYOFHUMANS: ${{ secrets.YT_REFRESH_HISTORYOFHUMANS }}
+          YT_REFRESH_ANIMERECAPS: ${{ secrets.YT_REFRESH_ANIMERECAPS }}
+          YT_REFRESH_COURTSIGNAL: ${{ secrets.YT_REFRESH_COURTSIGNAL }}
+        run: |
+          cat > /tmp/yt-thumbnail.mjs <<'SCRIPT'
+          import fs from "node:fs";
+
+          const tokenEndpoint = "https://oauth2.googleapis.com/token";
+          const api = "https://www.googleapis.com/youtube/v3";
+          const uploadApi = "https://www.googleapis.com/upload/youtube/v3";
+
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+            "UC5amukolWTisi6cjGEU68FA": "YT_REFRESH_HISTORYOFHUMANS",
+            "UCdIcgTi2g2H3Z7xtwKhzc0Q": "YT_REFRESH_ANIMERECAPS",
+            "UCya0t0Lg1eDN-oM2eAOcwRw": "YT_REFRESH_COURTSIGNAL",
+          };
+
+          // --- Job parameters: file first, dispatch inputs override. ---
+          const jobPath = "thumbnail-job.json";
+          let job = {};
+          if (fs.existsSync(jobPath)) {
+            job = JSON.parse(fs.readFileSync(jobPath, "utf8"));
+            console.log(`YTT_JOB_FILE ${jobPath}`);
+          } else {
+            console.log(`YTT_NO_JOB_FILE ${jobPath} absent -- relying on dispatch inputs`);
+          }
+          const pick = (input, fromFile) => ((input ?? "").trim() ? (input ?? "").trim() : (fromFile ?? ""));
+
+          const channel = pick(process.env.IN_CHANNEL, job.channel);
+          const videoId = pick(process.env.IN_VIDEO_ID, job.video_id);
+          const mode = pick(process.env.IN_MODE, job.mode) || "dry-run";
+          const imagePath = pick(process.env.IN_IMAGE, job.image);
+          const confirm = pick(process.env.IN_CONFIRM, job.confirm);
+
+          if (!channel) throw new Error("YTT_ABORT no channel");
+          if (!videoId) throw new Error("YTT_ABORT no video_id");
+          if (!imagePath) throw new Error("YTT_ABORT no image path");
+          if (mode !== "dry-run" && mode !== "set") throw new Error(`YTT_ABORT unknown mode ${mode}`);
+          console.log(`YTT_MODE ${mode} video=${videoId} channel=${channel} image=${imagePath}`);
+
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          const refreshToken = process.env[refreshEnv];
+          if (!refreshToken) throw new Error(`${refreshEnv} is empty`);
+
+          async function accessToken() {
+            const body = new URLSearchParams({
+              client_id: process.env.YT_CLIENT_ID,
+              client_secret: process.env.YT_CLIENT_SECRET,
+              refresh_token: refreshToken,
+              grant_type: "refresh_token",
+            });
+            const res = await fetch(tokenEndpoint, { method: "POST", body });
+            const json = await res.json();
+            // Never print the body -- it carries the access token.
+            if (!res.ok) throw new Error(`token exchange failed: ${res.status} ${json.error ?? ""}`);
+            return json.access_token;
+          }
+
+          const token = await accessToken();
+          const auth = { Authorization: `Bearer ${token}` };
+          console.log("YTT_TOKEN_OK access token acquired");
+
+          async function readVideo() {
+            const url = new URL(`${api}/videos`);
+            url.searchParams.set("part", "snippet,status,contentDetails");
+            url.searchParams.set("id", videoId);
+            const res = await fetch(url, { headers: auth });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`videos.list: ${res.status} ${JSON.stringify(json)}`);
+            return json.items?.[0];
+          }
+
+          function printThumbnails(label, thumbs) {
+            const sizes = Object.entries(thumbs ?? {});
+            if (!sizes.length) {
+              console.log(`${label} (none reported)`);
+              return;
+            }
+            for (const [name, t] of sizes) {
+              console.log(`${label} ${name} ${t.width}x${t.height} ${t.url}`);
+            }
+          }
+
+          // --- Pure-header image probe. No image library in the runner. ---
+          function imageInfo(buf) {
+            if (buf.length > 24 && buf[0] === 0x89 && buf.toString("ascii", 1, 4) === "PNG") {
+              return { format: "png", mime: "image/png", width: buf.readUInt32BE(16), height: buf.readUInt32BE(20) };
+            }
+            if (buf.length > 4 && buf[0] === 0xff && buf[1] === 0xd8) {
+              let off = 2;
+              while (off + 9 < buf.length) {
+                if (buf[off] !== 0xff) { off += 1; continue; }
+                const marker = buf[off + 1];
+                if (marker === 0xd8 || marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) { off += 2; continue; }
+                const len = buf.readUInt16BE(off + 2);
+                const isSOF = marker >= 0xc0 && marker <= 0xcf && marker !== 0xc4 && marker !== 0xc8 && marker !== 0xcc;
+                if (isSOF) {
+                  return { format: "jpeg", mime: "image/jpeg", height: buf.readUInt16BE(off + 5), width: buf.readUInt16BE(off + 7) };
+                }
+                off += 2 + len;
+              }
+            }
+            if (buf.length > 10 && buf.toString("ascii", 0, 3) === "GIF") {
+              return { format: "gif", mime: "image/gif", width: buf.readUInt16LE(6), height: buf.readUInt16LE(8) };
+            }
+            return null;
+          }
+
+          const MAX_BYTES = 2 * 1024 * 1024;
+          const MIN_WIDTH = 640;
+
+          const problems = [];
+
+          const video = await readVideo();
+          if (!video) {
+            console.log(`YTT_DRY_FAIL video ${videoId} not found or not visible to this account`);
+            process.exit(1);
+          }
+          if (video.snippet.channelId !== channel) {
+            console.log(`YTT_DRY_FAIL ${videoId} belongs to ${video.snippet.channelId}, not ${channel}`);
+            process.exit(1);
+          }
+          console.log("YTT_GUARDS_OK channel matches");
+
+          console.log("YTT_VIDEO " + JSON.stringify({
+            id: video.id,
+            title: video.snippet.title,
+            privacyStatus: video.status.privacyStatus,
+            publishAt: video.status.publishAt ?? null,
+            publishedAt: video.snippet.publishedAt,
+            duration: video.contentDetails?.duration ?? null,
+            madeForKids: video.status.madeForKids ?? null,
+          }));
+          printThumbnails("YTT_THUMB_BEFORE", video.snippet.thumbnails);
+
+          // --- Candidate image checks. ---
+          let media = null;
+          let info = null;
+          if (!fs.existsSync(imagePath)) {
+            problems.push(`image not found at ${imagePath}`);
+            console.log(`YTT_IMAGE missing ${imagePath}`);
+          } else {
+            media = fs.readFileSync(imagePath);
+            info = imageInfo(media);
+            console.log("YTT_IMAGE " + JSON.stringify({
+              path: imagePath,
+              exists: true,
+              bytes: media.length,
+              mib: +(media.length / 1048576).toFixed(3),
+              format: info?.format ?? "unrecognised",
+              mime: info?.mime ?? null,
+              width: info?.width ?? null,
+              height: info?.height ?? null,
+              aspect: info ? +(info.width / info.height).toFixed(4) : null,
+            }));
+            if (media.length > MAX_BYTES) problems.push(`image is ${media.length} bytes, over the 2 MB limit`);
+            if (!info) problems.push("image is not a recognised JPEG/PNG/GIF");
+            else if (info.width < MIN_WIDTH) problems.push(`image is ${info.width}px wide, under the 640px minimum`);
+          }
+
+          if (mode === "dry-run") {
+            console.log("YTT_LIMITS max_bytes=2097152 min_width=640 accepted=image/jpeg,image/png,image/gif");
+            if (problems.length) {
+              console.log(`YTT_DRY_FAIL ${problems.join("; ")}`);
+              process.exit(1);
+            }
+            console.log("YTT_DRY_OK candidate passes limits; nothing was written");
+            process.exit(0);
+          }
+
+          // --- mode === "set" from here. Guarded. ---
+          const expected = `SET ${videoId}`;
+          if (confirm !== expected) {
+            console.log("YTT_REFUSED confirm string missing");
+            console.log(`  expected exactly: ${JSON.stringify(expected)}`);
+            console.log(`  got             : ${JSON.stringify(confirm)}`);
+            process.exit(1);
+          }
+          if (problems.length) {
+            console.log(`YTT_DRY_FAIL ${problems.join("; ")}`);
+            process.exit(1);
+          }
+          console.log(`YTT_CONFIRMED writing thumbnail to ${videoId}`);
+
+          const setUrl = `${uploadApi}/thumbnails/set?videoId=${encodeURIComponent(videoId)}&uploadType=media`;
+          const setRes = await fetch(setUrl, {
+            method: "POST",
+            headers: { ...auth, "Content-Type": info.mime, "Content-Length": String(media.length) },
+            body: media,
+          });
+          const setJson = await setRes.json();
+          if (!setRes.ok) throw new Error(`thumbnails.set: ${setRes.status} ${JSON.stringify(setJson)}`);
+          printThumbnails("YTT_SET_RESPONSE", setJson.items?.[0]);
+
+          // --- Independent read-back. Not the write echo. ---
+          // videos.list is read-after-write lagged; poll rather than declaring
+          // failure on the first look.
+          const beforeDefault = video.snippet.thumbnails?.high?.url ?? "";
+          let after = await readVideo();
+          for (let i = 1; i <= 6 && (after.snippet.thumbnails?.high?.url ?? "") === beforeDefault; i++) {
+            console.log(`YTT_READBACK_LAG attempt ${i}: thumbnail url unchanged -- waiting 5s`);
+            await new Promise((r) => setTimeout(r, 5000));
+            after = await readVideo();
+          }
+          printThumbnails("YTT_THUMB_AFTER", after.snippet.thumbnails);
+
+          const regressions = [];
+          if (after.snippet.title !== video.snippet.title) regressions.push("title changed");
+          if (after.status.privacyStatus !== video.status.privacyStatus) regressions.push("privacyStatus changed");
+          if (regressions.length) throw new Error("YTT_VERIFY_FAILED " + regressions.join("; "));
+
+          console.log(`YTT_SET_OK ${videoId}`);
+          console.log("YTT_NOTE the Shorts feed renders a frame from the video; the custom thumbnail applies to Home/Search/channel-page surfaces.");
+          SCRIPT
+          node /tmp/yt-thumbnail.mjs
