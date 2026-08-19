@@ -18,9 +18,15 @@ name: YouTube thumbnail tool
 # writing, and mode "set" additionally requires `confirm` to equal the exact
 # string "SET <video_id>". Anything else refuses and exits 1. Fail closed.
 #
-# SHORTS CAVEAT. A custom thumbnail set on a Short is honoured by the API and
-# shows on Home/Search/channel-page surfaces, but the Shorts *feed* renders a
-# frame from the video itself. Do not expect the in-feed image to change.
+# SHORTS CAVEAT. Uploadable custom Shorts thumbnails only launched 2026-07-24
+# (blog.youtube, "New thumbnail updates in YouTube Studio"). The thumbnails.set
+# API reference says NOTHING about Shorts either way, and there is no revision-
+# history entry for that launch -- so whether the API path works on a Short is
+# undocumented and this lane exists partly to find out. Separately, no YouTube
+# Help page documents WHERE a Shorts thumbnail renders; the consistent community
+# read is that the swipe Shorts feed shows a frame from the video regardless,
+# and the custom image only buys you Home / Search / channel-page / subscriptions.
+# Treat both points as unverified until a real "set" run proves otherwise.
 #
 # Companion to yt-upload.yml / yt-schedule.yml / yt-video-desc.yml, same
 # channel->secret map.
@@ -237,11 +243,15 @@ jobs:
             }));
             if (media.length > MAX_BYTES) problems.push(`image is ${media.length} bytes, over the 2 MB limit`);
             if (!info) problems.push("image is not a recognised JPEG/PNG/GIF");
+            // thumbnails.set accepts image/jpeg and image/png only (plus
+            // application/octet-stream). Catch GIF here so the failure is
+            // legible instead of a 400 invalidImage from the API.
+            else if (info.format === "gif") problems.push("GIF is not accepted by thumbnails.set -- use JPEG or PNG");
             else if (info.width < MIN_WIDTH) problems.push(`image is ${info.width}px wide, under the 640px minimum`);
           }
 
           if (mode === "dry-run") {
-            console.log("YTT_LIMITS max_bytes=2097152 min_width=640 accepted=image/jpeg,image/png,image/gif");
+            console.log("YTT_LIMITS max_bytes=2097152 min_width=640 accepted=image/jpeg,image/png");
             if (problems.length) {
               console.log(`YTT_DRY_FAIL ${problems.join("; ")}`);
               process.exit(1);
@@ -292,6 +302,6 @@ jobs:
           if (regressions.length) throw new Error("YTT_VERIFY_FAILED " + regressions.join("; "));
 
           console.log(`YTT_SET_OK ${videoId}`);
-          console.log("YTT_NOTE the Shorts feed renders a frame from the video; the custom thumbnail applies to Home/Search/channel-page surfaces.");
+          console.log("YTT_NOTE undocumented: the swipe Shorts feed is widely reported to show a video frame regardless. Verify in Studio and on Home/Search/channel page, not in the Shorts feed.");
           SCRIPT
           node /tmp/yt-thumbnail.mjs
