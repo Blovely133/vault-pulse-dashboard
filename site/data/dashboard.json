@@ -1,15 +1,15 @@
 {
-  "updatedAt": "2026-08-21T14:59:21.169Z",
-  "generatedAt": "2026-08-21T14:59:21.169Z",
+  "updatedAt": "2026-08-21T15:00:15.908Z",
+  "generatedAt": "2026-08-21T15:00:15.908Z",
   "hasLiveData": true,
   "totals": {
-    "views": 275769,
-    "sevenDayViews": 49996,
+    "views": 275772,
+    "sevenDayViews": 49964,
     "audience": 785,
-    "engagementRate": 3.834649896464453
+    "engagementRate": 3.843662275966314
   },
   "platformTotals": {
-    "youtube": 109009,
+    "youtube": 109012,
     "tiktok": 122043,
     "instagram": 44717
   },
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.169Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.908Z"
     },
     {
       "id": 2,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 1.8333333333333333
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.169Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.908Z"
     },
     {
       "id": 3,
@@ -261,7 +261,7 @@
         "interactionsPerReel": 18.3
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:51.169Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:56.908Z"
     },
     {
       "id": 4,
@@ -278,11 +278,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 21744,
+        "views": 21743,
         "audience": 43,
         "videos": 16,
         "likes": 593,
-        "engagementRate": 3.0445180279617365
+        "engagementRate": 3.044658050866946
       },
       "tiktok": {
         "connected": true,
@@ -354,7 +354,7 @@
         "interactionsPerReel": 9.8
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:55:13.169Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:55:22.908Z"
     },
     {
       "id": 5,
@@ -373,7 +373,7 @@
         "connectionLabel": "Connected",
         "views": 17495,
         "audience": 37,
-        "videos": 17,
+        "videos": 18,
         "likes": 635,
         "engagementRate": 4.292655044298371
       },
@@ -447,7 +447,7 @@
         "interactionsPerReel": 275.8181818181818
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:18.169Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:15:30.908Z"
     },
     {
       "id": 6,
@@ -650,11 +650,11 @@
       "youtube": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 9790,
+        "views": 9794,
         "audience": 20,
         "videos": 7,
         "likes": 256,
-        "engagementRate": 2.9417773237997955
+        "engagementRate": 2.940575862773126
       },
       "tiktok": {
         "connected": false,
@@ -730,6 +730,21 @@
     }
   ],
   "videos": [
+    {
+      "id": "youtube:gq88XZVCrYE",
+      "channelId": 5,
+      "channelName": "Fixed Fights",
+      "platform": "youtube",
+      "title": "He tried to bet $100,000 — then showed the cashier why | Alabama, 2023",
+      "url": "https://www.youtube.com/watch?v=gq88XZVCrYE",
+      "publishedAt": "2026-08-21T15:00:13Z",
+      "views": 0,
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "durationSeconds": 57,
+      "engagementRate": 0
+    },
     {
       "id": "youtube:1OBiW2inDe0",
       "channelId": 4,
@@ -1098,12 +1113,12 @@
       "title": "The Blazers Don't Need Ja Morant to Save Them | NBA Rankings #18",
       "url": "https://www.youtube.com/watch?v=TQn-BYWsA5k",
       "publishedAt": "2026-08-16T15:00:13Z",
-      "views": 1451,
+      "views": 1455,
       "likes": 53,
       "comments": 4,
       "shares": 0,
       "durationSeconds": 61,
-      "engagementRate": 3.9283252929014476
+      "engagementRate": 3.917525773195876
     },
     {
       "id": "youtube:kIbVDALQ-R0",
@@ -1664,21 +1679,6 @@
       "shares": 0,
       "durationSeconds": 84,
       "engagementRate": 6.306306306306306
-    },
-    {
-      "id": "youtube:sACzziqVzpY",
-      "channelId": 3,
-      "channelName": "Kids History",
-      "platform": "youtube",
-      "title": "The Original Mr. Olympia",
-      "url": "https://www.youtube.com/watch?v=sACzziqVzpY",
-      "publishedAt": "2026-08-12T23:05:03Z",
-      "views": 1219,
-      "likes": 40,
-      "comments": 2,
-      "shares": 0,
-      "durationSeconds": 30,
-      "engagementRate": 3.4454470877768664
     }
   ],
   "snapshots": [
@@ -617270,6 +617270,180 @@
       "videos": 7,
       "likes": 256,
       "engagementRate": 2.9417773237997955
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 19664,
+      "audience": 83,
+      "videos": 13,
+      "likes": 537,
+      "engagementRate": 3.514035801464605
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 4428,
+      "audience": 13,
+      "videos": 16,
+      "likes": 250,
+      "engagementRate": 6.910569105691057
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 9414,
+      "audience": 24,
+      "videos": 30,
+      "likes": 355,
+      "engagementRate": 4.429572976418101
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 445,
+      "audience": 9,
+      "videos": 27,
+      "likes": 87,
+      "engagementRate": 20.44943820224719
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 1007,
+      "audience": null,
+      "videos": 12,
+      "likes": 18,
+      "reach": 907,
+      "engagementRate": 2.4255788313120177
+    },
+    {
+      "channelId": 3,
+      "platform": "youtube",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 25050,
+      "audience": 57,
+      "videos": 25,
+      "likes": 1045,
+      "engagementRate": 4.826347305389222
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 110546,
+      "audience": 424,
+      "videos": 17,
+      "likes": 4328,
+      "engagementRate": 4.500388978343857
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 7333,
+      "audience": null,
+      "videos": 10,
+      "likes": 146,
+      "reach": 5865,
+      "engagementRate": 3.1202046035805626
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 21743,
+      "audience": 43,
+      "videos": 16,
+      "likes": 593,
+      "engagementRate": 3.044658050866946
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 6378,
+      "audience": 22,
+      "videos": 11,
+      "likes": 170,
+      "engagementRate": 3.4336782690498593
+    },
+    {
+      "channelId": 4,
+      "platform": "instagram",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 2620,
+      "audience": null,
+      "videos": 10,
+      "likes": 64,
+      "reach": 1993,
+      "engagementRate": 4.917210235825388
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 17495,
+      "audience": 37,
+      "videos": 18,
+      "likes": 635,
+      "engagementRate": 4.292655044298371
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 246,
+      "audience": 7,
+      "videos": 2,
+      "likes": 16,
+      "engagementRate": 7.723577235772358
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 33757,
+      "audience": null,
+      "videos": 11,
+      "likes": 875,
+      "reach": 25549,
+      "engagementRate": 11.875220165172804
+    },
+    {
+      "channelId": 6,
+      "platform": "youtube",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 4838,
+      "audience": 42,
+      "videos": 9,
+      "likes": 330,
+      "engagementRate": 7.523770152955766
+    },
+    {
+      "channelId": 7,
+      "platform": "youtube",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 1014,
+      "audience": 4,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 2.564102564102564
+    },
+    {
+      "channelId": 8,
+      "platform": "youtube",
+      "capturedAt": "2026-08-21T15:00:15.908Z",
+      "views": 9794,
+      "audience": 20,
+      "videos": 7,
+      "likes": 256,
+      "engagementRate": 2.940575862773126
     }
   ],
   "trend": [
@@ -617354,7 +617528,7 @@
     {
       "date": "2026-08-21",
       "label": "Aug 21",
-      "youtube": 109009,
+      "youtube": 109012,
       "tiktok": 122043
     }
   ],
