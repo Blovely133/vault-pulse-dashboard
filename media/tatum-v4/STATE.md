@@ -128,3 +128,21 @@ branch still holds v1); card enable-windows in this doc. VO regen: workflow patt
 - Pocket In Oak (Cedar Diagram) confirmed as the story-lane bed; DistroKid Social Media Pack active;
   claims = pre-YPP revenue path.
 - Vault Pulse "restricted" OAuth analytics file is publicly fetchable on the Pages site — flagged, unresolved.
+
+## Asset drop 2026-08-24 (owner request: Paris footage + the Mustard tag)
+
+- `paris-fan-clip.mp4` — the @rapalert6 X clip (status 1822462065254002755), 6.3s 888x476, the only
+  both-in-frame VIDEO: Ella waits frame-right holding the newborn (0–5s), joins the family pose for
+  the final ~1.5s (Tatum + medal, Deuce, mom, grandma).
+- `pagesix-paris.mp4` — Page Six news package (YT `PJp_WEqVG-E`), 49s 1080p, five usable stretches
+  (caption cards fade in/out; clean frames exist in each): **0–6s REAL couple two-shot** (Rubin
+  July-4 white party, IG/Will Makris credit) · 7–15s Olympics game (USA #10) · **16–31s the Paris
+  family photo**, Ken-Burns'd · 32–40s Ella's bump debut at the June 2024 Finals celebration ·
+  **41–47s the 2019 courtside first-link shot** (both in frame, he walks past in warmups).
+- `tvoff-mustard-moment.mp3` — Kendrick Lamar "tv off" (official audio `U8F5G5wR1mk`), cut 1:52–2:12:
+  quiet build carrying the "Mustard on the beat, ho" tag → **drop at 2:05** → the ~5s MUSTAAAARD
+  scream (drop verified by loudness scan: ~-22 lull → -7 at 125s). Boo'd Up itself has NO tag
+  (verified) — this is the tag source. Planned use: the Grammy/Boo'd Up beat.
+- `tvoff-mustard-scream.mp3` — tight sting, 2:03.5–2:10.5.
+- `mustard-portrait-2019.jpg` — Commons `File:DJ_Mustard_2019_by_Glenn_Francis_(cropped).jpg`
+  (2019 iHeartRadio Awards; CC — credit Glenn Francis / PacificProDigital if shown on screen).
