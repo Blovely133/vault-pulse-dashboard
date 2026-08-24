@@ -1,0 +1,292 @@
+<title>The Never-Announced Formula</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#14161c; --panel:#1c2028; --panel2:#181b22; --line:#2a3038; --text:#e9e7df;
+    --muted:#98a1ab; --amber:#e9b64a; --amber-ink:#14161c; --green:#5fae81; --red:#d2564a;
+    --chip-line:#3a414c; --bar:#333a45;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#f4f3ee; --panel:#ffffff; --panel2:#edece5; --line:#d9d6cc; --text:#23262b;
+      --muted:#5d656e; --amber:#a97614; --amber-ink:#fdfcf8; --green:#2e7d54; --red:#b23c31;
+      --chip-line:#c8c4b8; --bar:#dcd9cf;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f3ee; --panel:#ffffff; --panel2:#edece5; --line:#d9d6cc; --text:#23262b;
+    --muted:#5d656e; --amber:#a97614; --amber-ink:#fdfcf8; --green:#2e7d54; --red:#b23c31;
+    --chip-line:#c8c4b8; --bar:#dcd9cf;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--bg); color:var(--text); font:16px/1.55 "Source Sans 3",system-ui,sans-serif; margin:0; padding:40px 20px 80px;}
+  .wrap{max-width:1020px; margin:0 auto; display:flex; flex-direction:column; gap:44px;}
+  .eyebrow{font:500 13px/1 "IBM Plex Mono",monospace; letter-spacing:.14em; color:var(--muted); text-transform:uppercase;}
+  h1{font:700 52px/1.02 "Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.01em; margin:10px 0 8px; text-wrap:balance;}
+  h1 .amber{color:var(--amber)}
+  h2{font:700 28px/1.1 "Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.02em; margin:0 0 4px;}
+  h3{font:600 20px/1.15 "Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.03em; margin:0;}
+  p{margin:0; max-width:72ch;}
+  .sub{color:var(--muted); max-width:78ch;}
+  section{display:flex; flex-direction:column; gap:14px;}
+
+  .cards{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:760px){.cards{grid-template-columns:1fr}}
+  .vidcard{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:18px 20px; display:flex; flex-direction:column; gap:8px; border-top:3px solid var(--amber);}
+  .vidcard.tatum{border-top-color:var(--green)}
+  .vidcard .status{font:500 12px/1 "IBM Plex Mono",monospace; letter-spacing:.1em; text-transform:uppercase;}
+  .vidcard .status b{font-weight:500}
+  .live{color:var(--amber)} .draft{color:var(--green)}
+  .vidcard .name{font:600 19px/1.25 "Source Sans 3",sans-serif;}
+  .stats{display:flex; flex-wrap:wrap; gap:6px 18px; font:400 14px/1.4 "IBM Plex Mono",monospace; color:var(--muted); font-variant-numeric:tabular-nums;}
+  .stats b{color:var(--text); font-weight:500}
+
+  table{border-collapse:collapse; width:100%; font-size:14.5px;}
+  .tablebox{overflow-x:auto; background:var(--panel); border:1px solid var(--line); border-radius:6px;}
+  th{font:600 12px/1.3 "IBM Plex Mono",monospace; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); text-align:left; padding:10px 12px; border-bottom:1px solid var(--line); white-space:nowrap;}
+  td{padding:8px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+  tr:last-child td{border-bottom:none}
+  td.tc{font:500 13.5px/1.5 "IBM Plex Mono",monospace; white-space:nowrap; color:var(--amber); font-variant-numeric:tabular-nums;}
+  .tatumtable td.tc{color:var(--green)}
+  td.dur{font:400 13.5px/1.5 "IBM Plex Mono",monospace; white-space:nowrap; font-variant-numeric:tabular-nums;}
+  .durbar{display:block; height:4px; background:var(--bar); border-radius:2px; margin-top:5px; min-width:60px; position:relative; overflow:hidden;}
+  .durbar i{display:block; position:absolute; inset:0 auto 0 0; background:var(--amber); border-radius:2px;}
+  .tatumtable .durbar i{background:var(--green)}
+  td.tr-in{font:400 13px/1.6 "IBM Plex Mono",monospace; white-space:nowrap; color:var(--muted);}
+  .actrow td{background:var(--panel2); font:700 15px/1.3 "Barlow Condensed",sans-serif; text-transform:uppercase; letter-spacing:.04em; padding:9px 12px;}
+  .actrow .range{color:var(--muted); font:400 12.5px/1.3 "IBM Plex Mono",monospace; letter-spacing:0; text-transform:none; margin-left:10px;}
+  .vo{display:block; font:italic 400 13.5px/1.5 "Source Sans 3",sans-serif; color:var(--muted); text-transform:none; letter-spacing:0; margin-top:3px; max-width:90ch; font-weight:400;}
+
+  .chip{display:inline-block; font:600 11px/1 "IBM Plex Mono",monospace; letter-spacing:.06em; padding:4px 7px; border-radius:3px; border:1px solid var(--chip-line); color:var(--muted); white-space:nowrap;}
+  .chip.both{background:var(--amber); border-color:var(--amber); color:var(--amber-ink); font-weight:700;}
+  .chip.her{border-color:var(--red); color:var(--red);}
+  .chip.him{border-color:var(--muted);color:var(--text);}
+  .chip.card{border-style:dashed}
+
+  .splitbar{display:flex; height:30px; border-radius:4px; overflow:hidden; border:1px solid var(--line); font:600 12px/30px "IBM Plex Mono",monospace;}
+  .splitbar span{display:block; text-align:center; white-space:nowrap; overflow:hidden; color:var(--amber-ink);}
+  .seg-her{background:var(--red)} .seg-him{background:#7b8494} .seg-both{background:var(--amber)} .seg-obj{background:var(--bar); color:var(--text)!important}
+  .splitlabel{font:500 12.5px/1.4 "IBM Plex Mono",monospace; color:var(--muted); margin-bottom:5px;}
+  .legend{display:flex; flex-wrap:wrap; gap:14px; font:400 13px/1.4 "IBM Plex Mono",monospace; color:var(--muted);}
+  .legend i{display:inline-block; width:11px; height:11px; border-radius:2px; margin-right:5px; vertical-align:-1px;}
+
+  .verdict{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:760px){.verdict{grid-template-columns:1fr}}
+  .vbox{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px 18px;}
+  .vbox h3{margin-bottom:10px}
+  .vbox ul{margin:0; padding-left:18px; display:flex; flex-direction:column; gap:8px; font-size:14.5px;}
+  .vbox li::marker{color:var(--muted)}
+  .match h3{color:var(--green)} .diverge h3{color:var(--red)}
+  .note{font-size:13.5px; color:var(--muted); border-left:2px solid var(--line); padding-left:14px; max-width:80ch;}
+  .formula td:first-child{font-weight:600; white-space:nowrap;}
+  .formula td{font-size:14px}
+  code{font:500 13px/1.4 "IBM Plex Mono",monospace; background:var(--panel2); border:1px solid var(--line); border-radius:3px; padding:1px 5px;}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Fixed Fights · Story Lane · Format Reference · 2026-08-24</div>
+  <h1>The Never-<span class="amber">Announced</span> Formula</h1>
+  <p class="sub">Beat-by-beat map of the Kyrie/Marlene video — the lane's proven performer — and the Jayson Tatum/Ella Mai v3 draft measured against it. Cut times from 30&thinsp;fps scene detection; a <code>~</code> marks a soft seam placed from the 1&thinsp;fps frame read. Narration lines are stitched from on-screen captions, so treat them as close paraphrase, not verbatim.</p>
+</header>
+
+<section class="cards">
+  <div class="vidcard">
+    <div class="status live">● Live — YouTube i9gY27MJca8</div>
+    <div class="name">Why did Kyrie Irving never announce his wife? | Marlene Wilkerson</div>
+    <div class="stats"><span><b>2:44</b> runtime</span><span><b>99.7K</b> views</span><span><b>6,024</b> likes</span><span><b>118</b> comments</span><span><b>6.16%</b> engagement</span></div>
+    <div class="stats"><span>published 08-21 · stats from the 08-24 dashboard snapshot — ~100K in under 3 days</span></div>
+  </div>
+  <div class="vidcard tatum">
+    <div class="status draft">○ Draft v3 — "screenshot + circle"</div>
+    <div class="name">Jayson Tatum / Ella Mai — tatum story v3</div>
+    <div class="stats"><span><b>1:29</b> runtime</span><span><b>1080×1920</b></span><span><b>30</b> fps</span></div>
+    <div class="stats"><span>on Desktop\sports · v4 hook prepend drafted, awaiting the owner's line pick + story-lane VO</span></div>
+  </div>
+</section>
+
+<section>
+  <h2>The shared spine</h2>
+  <p class="sub">Both videos run the same arc. Tatum v3 is a true structural mirror at 54% of the runtime — every beat lands, in order, except the hook phrasing and the two-shots (both called out in the scorecard).</p>
+  <div class="tablebox"><table class="formula">
+    <tr><th>Beat</th><th>Kyrie / Marlene</th><th>Tatum / Ella v3</th></tr>
+    <tr><td>The receipt hook</td><td>0:00–0:09 — question over family footage: "Do you know the story of Kyrie Irving's wife? Most fans don't."</td><td>0:00–0:07 — statement over her close-up, then the Feb-2019 IG screenshot drops in, 👀 circled in red</td></tr>
+    <tr><td>Her name, said early</td><td>~0:07 — "Her name is Marlene Wilkerson"</td><td>~0:07 — "Her name is Ella Mai Howell"</td></tr>
+    <tr><td>Her own résumé first</td><td>0:09–0:25 — marketing student → business + 750K-sub YouTube channel, "from ground zero"</td><td>0:07–0:21 — London → Queens → Boo'd Up 2018 → Grammy</td></tr>
+    <tr><td>How it started</td><td>0:25–0:34 — a kids' basketball tournament he hosted, "not a red carpet"</td><td>folded into the hook — the eyes-emoji comment is the origin story</td></tr>
+    <tr><td>Never announced</td><td>0:34–0:47 — 2019 engagement caught by a photographer; ring macro; "radio silence from both, not one post"</td><td>0:21–0:32 — "then, nothing. No posts, no confirmations. He has never discussed her in public."</td></tr>
+    <tr><td>Milestones as tells</td><td>0:47–1:34 — home water birth on her own channel; son's birth announced by his head coach; "I was the doula"; "my wife is a warrior" — the word <em>wife</em> was the announcement</td><td>0:32–0:54 — celebrates in his jersey; the bump; Paris gold + the one family photo; the baby's name surfacing on his sneakers</td></tr>
+    <tr><td>The test (with date/headline card)</td><td>2:03–2:15 — March 2025 torn ACL headline card; made both free throws first; 19 months out</td><td>0:54–1:01 — "May 12, 2025" date card in the empty tunnel; ruptured Achilles; surgery next day</td></tr>
+    <tr><td>Loyalty through it</td><td>2:15–2:32 — Dallas re-signed him mid-rehab; a third child, "same way, always: by her, own channel, own time"</td><td>1:01–1:23 — comeback game, Deuce postgame "to come cuddle"; 28, in Boston, still never announced a thing</td></tr>
+    <tr><td>Callback close</td><td>2:32–2:44 — dissolve montage back through trophy and balloons; "a love never felt [the need] to announce"</td><td>1:23–1:29 — dissolve chain back to the screenshot: "beginning with the eyes emoji under a photograph"</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Who carries the screen</h2>
+  <div>
+    <div class="splitlabel">KYRIE — 164s</div>
+    <div class="splitbar">
+      <span class="seg-her" style="width:32%">HER 32%</span><span class="seg-him" style="width:39%">HIM 39%</span><span class="seg-both" style="width:27%">TOGETHER 27%</span><span class="seg-obj" style="width:2%"></span>
+    </div>
+  </div>
+  <div>
+    <div class="splitlabel">TATUM v3 — 88.6s</div>
+    <div class="splitbar">
+      <span class="seg-her" style="width:45%">HER 45%</span><span class="seg-him" style="width:45%">HIM 45%</span><span class="seg-obj" style="width:10%">OBJ 10%</span>
+    </div>
+  </div>
+  <div class="legend"><span><i class="seg-her"></i>her solo</span><span><i class="seg-him"></i>him solo (+kids)</span><span><i class="seg-both"></i>couple / family two-shots</span><span><i class="seg-obj"></i>objects &amp; cards (sneakers, tunnel, sign)</span></div>
+  <p class="note">The Kyrie video lands every emotional peak on a two-shot — open, engagement, births, red carpet, close — all pulled from Marlene's own vlog catalog. Tatum v3 has <b>zero</b> frames of the couple together; their absence from camera is the story itself, and the only public together-moment that exists is the Paris 2024 family photo. That gap is structural, not an editing miss.</p>
+</section>
+
+<section>
+  <h2>Kyrie / Marlene — full shot map</h2>
+  <p class="sub">~45 shots · average ~3.3s · longest hold 11.4s (his "doula" interview) · every shot is real moving footage — zero static freeze-frames; the only photo-derived shots are animated with a zoom (marked). Body is hard cuts; dissolves show up at act seams and take over for the closing montage. Flashbulbs inside the Finals shots read like extra cuts and add pace for free.</p>
+  <div class="tablebox"><table>
+    <tr><th>In</th><th>Dur</th><th>What's on screen</th><th>Who</th><th>Motion</th><th>Trans. in</th></tr>
+    <tr class="actrow"><td colspan="6">Act 1 — The hook <span class="range">0:00–0:08.5</span><span class="vo">"Do you know the story of Kyrie Irving's wife? Most fans don't — because almost none of it was ever announced."</span></td></tr>
+    <tr><td class="tc">0:00.0</td><td class="dur">3.0s<span class="durbar"><i style="width:25%"></i></span></td><td>Yellow-balloon party — Kyrie, pregnant Marlene, daughter</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">cold open</td></tr>
+    <tr><td class="tc">0:03.0</td><td class="dur">1.8s<span class="durbar"><i style="width:15%"></i></span></td><td>Couch vlog two-shot</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:04.8</td><td class="dur">1.0s<span class="durbar"><i style="width:8%"></i></span></td><td>Kyrie interview close-up, bucket hat, outdoors</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~0:05.8</td><td class="dur">2.7s<span class="durbar"><i style="width:22%"></i></span></td><td>Marlene at a glam event, friend whispering to her</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr class="actrow"><td colspan="6">Act 2 — Her name + her own thing <span class="range">0:08.5–0:24.8</span><span class="vo">"Her name is Marlene Wilkerson… building her own thing — a marketing student from Los Angeles who turned a college assignment [into] a business and YouTube channel… seven hundred [fifty] thousand subscribers… her words: from ground zero."</span></td></tr>
+    <tr><td class="tc">0:08.5</td><td class="dur">2.8s<span class="durbar"><i style="width:23%"></i></span></td><td>Her sit-down interview #1 (grey wrap, white curtains)</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:11.3</td><td class="dur">1.4s<span class="durbar"><i style="width:12%"></i></span></td><td>Old phone clip, college-era</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:12.7</td><td class="dur">1.5s<span class="durbar"><i style="width:13%"></i></span></td><td>Sunlit selfie, college years</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:14.2</td><td class="dur">3.5s<span class="durbar"><i style="width:29%"></i></span></td><td>Sit-down interview</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:17.7</td><td class="dur">1.8s<span class="durbar"><i style="width:15%"></i></span></td><td>Glam close-up, gold earrings</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:19.5</td><td class="dur">5.3s<span class="durbar"><i style="width:44%"></i></span></td><td>Green-tee interview (Hela shirt, moving boxes behind)</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">quick dissolve</td></tr>
+    <tr class="actrow"><td colspan="6">Act 3 — How they met <span class="range">0:24.8–0:33.5</span><span class="vo">"Then in December twenty-eighteen [he was] spotted somewhere unexpected — not a red carpet: a kids' basketball tournament Kyrie was hosting… the world saw them together."</span></td></tr>
+    <tr><td class="tc">0:24.8</td><td class="dur">1.6s<span class="durbar"><i style="width:13%"></i></span></td><td>Kyrie at a kids' event, Celtics warmups</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:26.4</td><td class="dur">5.1s<span class="durbar"><i style="width:43%"></i></span></td><td>Tournament + game footage, fast internal cuts</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cuts</td></tr>
+    <tr><td class="tc">0:31.5</td><td class="dur">2.0s<span class="durbar"><i style="width:17%"></i></span></td><td>Event crowd — Marlene in frame</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr class="actrow"><td colspan="6">Act 4 — Never announced <span class="range">0:33.5–0:47.3</span><span class="vo">"…the world [saw] almost nothing. They never announced the engagement in twenty-nineteen — a photographer simply [caught the ring] on her [hand]. Radio silence from both. Not one post."</span></td></tr>
+    <tr><td class="tc">~0:33.5</td><td class="dur">2.5s<span class="durbar"><i style="width:21%"></i></span></td><td>Couch vlog two-shot</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">0:36.0</td><td class="dur">1.5s<span class="durbar"><i style="width:13%"></i></span></td><td>Green-tee interview</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">~0:37.5</td><td class="dur">2.8s<span class="durbar"><i style="width:23%"></i></span></td><td>Night paparazzi shot, holding hands, red sneakers</td><td><span class="chip both">BOTH</span></td><td>photo + zoom</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">0:40.3</td><td class="dur">2.9s<span class="durbar"><i style="width:24%"></i></span></td><td>Engagement-ring macro in a halftone card frame</td><td><span class="chip her">HER</span></td><td>photo + zoom</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:43.2</td><td class="dur">2.7s<span class="durbar"><i style="width:23%"></i></span></td><td>Glam close-up — "radio silence from both"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:45.9</td><td class="dur">1.4s<span class="durbar"><i style="width:12%"></i></span></td><td>Green tee — "not one post"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr class="actrow"><td colspan="6">Act 5 — First birth, her way <span class="range">0:47.3–1:01</span><span class="vo">"Then she found [out] she was pregnant [on] her own birthday. They told no [one]… he was born [on her] own channel — a natural water [birth] at home, Kyrie [right] beside her."</span></td></tr>
+    <tr><td class="tc">0:47.3</td><td class="dur">3.2s<span class="durbar"><i style="width:27%"></i></span></td><td>Sit-down interview</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~0:50.5</td><td class="dur">3.0s<span class="durbar"><i style="width:25%"></i></span></td><td>Family gathering in whites — Kyrie, Marlene, kids</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">0:53.5</td><td class="dur">3.6s<span class="durbar"><i style="width:30%"></i></span></td><td>Sit-down interview</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:57.1</td><td class="dur">3.9s<span class="durbar"><i style="width:33%"></i></span></td><td>Couch vlog two-shot</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr class="actrow"><td colspan="6">Act 6 — His own words <span class="range">1:01–1:34</span><span class="vo">"…the unsolicited opinions were a little [too much]. Their second son's [birth] was announced by Kyrie's head coach — he missed practice. Two weeks later [he] told the story himself: he had delivered [him with his] own hands. 'I was the doula, I was the mid-husband.' Then five words [that] say everything: my wife is a warrior. Notice that word — wife… no [wedding] date on record, no announcement. [On the Finals floor he] started saying 'my wife' — and that was the whole announcement."</span></td></tr>
+    <tr><td class="tc">1:01.0</td><td class="dur">3.8s<span class="durbar"><i style="width:32%"></i></span></td><td>Green-tee interview</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~1:04.8</td><td class="dur">5.3s<span class="durbar"><i style="width:44%"></i></span></td><td>Mavs press conference, white jersey</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">1:10.1</td><td class="dur">11.4s<span class="durbar"><i style="width:95%"></i></span></td><td>Sit-down interview, dark jacket — the "doula / mid-husband" run, longest hold in the video</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~1:21.5</td><td class="dur">2.8s<span class="durbar"><i style="width:23%"></i></span></td><td>Bucket-hat interview — "my wife is a warrior"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">1:24.3</td><td class="dur">2.9s<span class="durbar"><i style="width:24%"></i></span></td><td>Glam close-up — "notice that word wife"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:27.2</td><td class="dur">1.9s<span class="durbar"><i style="width:16%"></i></span></td><td>Couch vlog — "no announcement"</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:29.1</td><td class="dur">2.4s<span class="durbar"><i style="width:20%"></i></span></td><td>Finals floor, trophy, flashbulbs popping</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:31.5</td><td class="dur">2.6s<span class="durbar"><i style="width:22%"></i></span></td><td>Finals-tee walk-off interview — "the whole announcement"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">flash-dissolve</td></tr>
+    <tr class="actrow"><td colspan="6">Act 7 — Why he protects it <span class="range">1:34–1:53.4</span><span class="vo">"To understand why, go back… his mother… his oldest daughter carries her name. He walked [the] NBA Finals [holding his] daughter's hand… 'never content… you protect…' almost five years before their first [public appearance]."</span></td></tr>
+    <tr><td class="tc">1:34.1</td><td class="dur">5.2s<span class="durbar"><i style="width:43%"></i></span></td><td>Kyrie driving, documentary footage</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:39.3</td><td class="dur">2.2s<span class="durbar"><i style="width:18%"></i></span></td><td>Daughter close-up, home video</td><td><span class="chip">KID</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~1:41.5</td><td class="dur">3.6s<span class="durbar"><i style="width:30%"></i></span></td><td>Finals hallway walk, all white, daughter's hand</td><td><span class="chip him">HIM+KID</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">1:45.1</td><td class="dur">3.1s<span class="durbar"><i style="width:26%"></i></span></td><td>Mavs tunnel, toddler in arms, flashes</td><td><span class="chip him">HIM+KID</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~1:48.2</td><td class="dur">5.2s<span class="durbar"><i style="width:43%"></i></span></td><td>Bucket-hat interview — "you protect"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">dissolve</td></tr>
+    <tr class="actrow"><td colspan="6">Act 8 — The one public moment <span class="range">1:53.4–2:02.7</span><span class="vo">"[The 2023 red] carpet… and when someone [asked] which celebrity [he'd] take a hall pass with — he didn't blink: 'oh nah — my wife Marlene.'"</span></td></tr>
+    <tr><td class="tc">1:53.4</td><td class="dur">1.5s<span class="durbar"><i style="width:13%"></i></span></td><td>Marlene, pink dress, studio</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:54.9</td><td class="dur">2.7s<span class="durbar"><i style="width:23%"></i></span></td><td>Red-carpet couple shot</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:57.6</td><td class="dur">1.9s<span class="durbar"><i style="width:16%"></i></span></td><td>ESPN Finals interview — the hall-pass question</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~1:59.5</td><td class="dur">3.2s<span class="durbar"><i style="width:27%"></i></span></td><td>Red carpet — "oh nah, my wife Marlene"</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr class="actrow"><td colspan="6">Act 9 — The test <span class="range">2:02.7–2:15.2</span><span class="vo">"Then came the test. March of twenty twenty-five: a torn ACL, his left knee. He made both [free] throws before they helped him off. Nineteen months without basketball."</span></td></tr>
+    <tr><td class="tc">2:02.7</td><td class="dur">2.3s<span class="durbar"><i style="width:19%"></i></span></td><td>Couch vlog — "then came the test"</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~2:05.0</td><td class="dur">1.2s<span class="durbar"><i style="width:10%"></i></span></td><td>Game wide shot</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">2:06.2</td><td class="dur">6.3s<span class="durbar"><i style="width:53%"></i></span></td><td>Injury sequence + pinned news headline "Mavericks' Kyrie Irving has torn ACL" (internal dissolve between angles)</td><td><span class="chip him">HIM</span> <span class="chip card">CARD</span></td><td>video + card</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">2:12.5</td><td class="dur">2.7s<span class="durbar"><i style="width:23%"></i></span></td><td>Kyrie in black at an event — "nineteen months"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr class="actrow"><td colspan="6">Act 10 — Payoff + callback <span class="range">2:15.2–2:44</span><span class="vo">"Dallas re-signed him anyway, mid-rehab… and [at] home: a third child, late [2025] — the same way, always: by her, own channel, own time. This fall he [is] expected back on an NBA floor… and the woman [who] started from ground [zero] has been [there] for almost eight years… right beside [him]. A love [they] never felt [the need] to announce."</span></td></tr>
+    <tr><td class="tc">2:15.2</td><td class="dur">4.3s<span class="durbar"><i style="width:36%"></i></span></td><td>Mavs presser — "re-signed him anyway"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~2:19.5</td><td class="dur">3.5s<span class="durbar"><i style="width:29%"></i></span></td><td>Family whites gathering</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">~2:23.0</td><td class="dur">2.6s<span class="durbar"><i style="width:22%"></i></span></td><td>Pregnant Marlene walking, third child</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">2:25.6</td><td class="dur">3.2s<span class="durbar"><i style="width:27%"></i></span></td><td>Sit-down + pinned YouTube-video card ("I Gave Birth Naturally…")</td><td><span class="chip her">HER</span> <span class="chip card">CARD</span></td><td>video + card</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">2:28.8</td><td class="dur">2.9s<span class="durbar"><i style="width:24%"></i></span></td><td>Couch vlog → green tee — "own channel, own time"</td><td><span class="chip both">BOTH</span>→<span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut, ~soft</td></tr>
+    <tr><td class="tc">2:31.7</td><td class="dur">1.4s<span class="durbar"><i style="width:12%"></i></span></td><td>Ball workout — "this fall he"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">2:33.1</td><td class="dur">2.2s<span class="durbar"><i style="width:18%"></i></span></td><td>Finals-shirt interview — "expected back"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">2:35.3</td><td class="dur">6.2s<span class="durbar"><i style="width:52%"></i></span></td><td>Closing montage, ~1s per shot: her outdoors → green tee → gym lift with daughter → trophy floor → balloon-party hug</td><td><span class="chip both">MIX</span></td><td>video</td><td class="tr-in">cut + dissolve chain</td></tr>
+    <tr><td class="tc">2:41.5</td><td class="dur">2.5s<span class="durbar"><i style="width:21%"></i></span></td><td>Couch vlog, final line — hook inverted</td><td><span class="chip both">BOTH</span></td><td>video</td><td class="tr-in">cut</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Tatum / Ella v3 — full shot map</h2>
+  <p class="sub">~34 shots · average ~2.6s · longest hold 5.3s. Same construction: hard-cut body, dissolve-chain close, receipts pinned as cards while the VO keeps moving. The screenshot + red circle is this video's signature receipt and it bookends the edit.</p>
+  <div class="tablebox"><table class="tatumtable">
+    <tr><th>In</th><th>Dur</th><th>What's on screen</th><th>Who</th><th>Motion</th><th>Trans. in</th></tr>
+    <tr class="actrow"><td colspan="6">Act 1 — The hook + the receipt <span class="range">0:00–0:06.7</span><span class="vo">"She never announced [she] was dating Jayson Tatum — she left the eyes emoji under his [post] and let the world work it out."</span></td></tr>
+    <tr><td class="tc">0:00.0</td><td class="dur">2.6s<span class="durbar"><i style="width:22%"></i></span></td><td>Ella red-carpet close-up, smiling</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cold open</td></tr>
+    <tr><td class="tc">0:02.6</td><td class="dur">4.1s<span class="durbar"><i style="width:34%"></i></span></td><td>GRWM vlog + pinned IG screenshot: jaytatum0 "All Star year 🤞", ellamai 👀 <b>circled in red</b>, FEB 2019 chip</td><td><span class="chip her">HER</span> <span class="chip card">CARD</span></td><td>video + card</td><td class="tr-in">cut</td></tr>
+    <tr class="actrow"><td colspan="6">Act 2 — Who she is <span class="range">0:06.7–0:20.7</span><span class="vo">"Her name is Ella Mai Howell — born in London, high school in Queens. In 2018 a song of hers called Boo'd Up is everywhere… the next [year she] wins a Grammy for it. Days later — that comment."</span></td></tr>
+    <tr><td class="tc">0:06.7</td><td class="dur">2.3s<span class="durbar"><i style="width:19%"></i></span></td><td>Event interview, silver dress + ELLA MAI name card</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:09.0</td><td class="dur">4.0s<span class="durbar"><i style="width:33%"></i></span></td><td>GRWM, lip liner</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:13.0</td><td class="dur">2.5s<span class="durbar"><i style="width:21%"></i></span></td><td>Breakfast Club radio appearance</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~0:15.5</td><td class="dur">2.8s<span class="durbar"><i style="width:23%"></i></span></td><td>Grammys backstage interview, navy gown (source chyron visible)</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">0:18.3</td><td class="dur">2.4s<span class="durbar"><i style="width:20%"></i></span></td><td>GRWM — "days later, that comment"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr class="actrow"><td colspan="6">Act 3 — The silence <span class="range">0:20.7–0:31.8</span><span class="vo">"Then… nothing. No posts. No confirmations. He has never discussed her in public. June 2024: Boston wins the title."</span></td></tr>
+    <tr><td class="tc">~0:20.7</td><td class="dur">3.4s<span class="durbar"><i style="width:28%"></i></span></td><td>Tatum sit-down interview, pink hoodie</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">0:24.1</td><td class="dur">3.6s<span class="durbar"><i style="width:30%"></i></span></td><td>Celtics presser, black</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~0:27.7</td><td class="dur">4.1s<span class="durbar"><i style="width:34%"></i></span></td><td>Champion-hat interview + pinned stat bar "Playoff career: 2,711 points (5th most…)"</td><td><span class="chip him">HIM</span> <span class="chip card">CARD</span></td><td>video + card</td><td class="tr-in">~soft</td></tr>
+    <tr class="actrow"><td colspan="6">Act 4 — The tells <span class="range">0:31.8–0:53.5</span><span class="vo">"She celebrates [in his] jersey [but] does not [confirm]… the bump — that is how the world learns. August, Paris: he wins gold and a photo… his grandmother, his older son Deuce, and Ella… [the] newborn… had met. They [haven't confirmed the] name either — it just [showed up] on his sneakers."</span></td></tr>
+    <tr><td class="tc">0:31.8</td><td class="dur">2.2s<span class="durbar"><i style="width:18%"></i></span></td><td>Kiss Xtra radio, white shirt</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~0:34.0</td><td class="dur">4.0s<span class="durbar"><i style="width:33%"></i></span></td><td>Kiss Xtra, black leather — "the bump"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">~soft/wipe</td></tr>
+    <tr><td class="tc">0:38.0</td><td class="dur">4.0s<span class="durbar"><i style="width:33%"></i></span></td><td>Paris 2024 medal ceremony (flag → podium, internal dissolve)</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:42.0</td><td class="dur">1.3s<span class="durbar"><i style="width:11%"></i></span></td><td>Brandy Cole, "Jayson's Mom" lower third</td><td><span class="chip">MOM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:43.3</td><td class="dur">2.6s<span class="durbar"><i style="width:22%"></i></span></td><td>Playoffs presser, Deuce grabbing the mic</td><td><span class="chip him">HIM+KID</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:45.9</td><td class="dur">3.0s<span class="durbar"><i style="width:25%"></i></span></td><td>Kiss Xtra — "newborn… had met"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~0:48.9</td><td class="dur">2.1s<span class="durbar"><i style="width:18%"></i></span></td><td>Pink hoodie — "name either"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">0:51.0</td><td class="dur">2.5s<span class="durbar"><i style="width:21%"></i></span></td><td>Jordan 6 close-up, hands rotating the shoe</td><td><span class="chip">OBJ</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr class="actrow"><td colspan="6">Act 5 — The test <span class="range">0:53.5–1:01</span><span class="vo">"May 12, 2025: a ruptured [Achilles]. New York — surgery the next day. 10 months gone."</span></td></tr>
+    <tr><td class="tc">~0:53.5</td><td class="dur">2.4s<span class="durbar"><i style="width:20%"></i></span></td><td>Empty arena tunnel + "May 12, 2025" date card — the one true still hold in either video</td><td><span class="chip">OBJ</span> <span class="chip card">CARD</span></td><td><b>photo hold</b></td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">0:55.9</td><td class="dur">2.1s<span class="durbar"><i style="width:18%"></i></span></td><td>Pink hoodie — "a ruptured…"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:58.0</td><td class="dur">1.4s<span class="durbar"><i style="width:12%"></i></span></td><td>"Surgical Check-in" sign b-roll</td><td><span class="chip">OBJ</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">0:59.4</td><td class="dur">1.6s<span class="durbar"><i style="width:13%"></i></span></td><td>Pink hoodie — "surgery the next day"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr class="actrow"><td colspan="6">Act 6 — Quiet support, comeback <span class="range">1:01–1:22.7</span><span class="vo">"…finally speaks… her words. If you don't [see it, it] it's not there. In March [the scoreboard] tells the story instead. Deuce in [the building] on his father's comeback… telling his brother to come cuddle. He is 28, in Boston… [and has never] announced a thing."</span></td></tr>
+    <tr><td class="tc">~1:01.0</td><td class="dur">2.4s<span class="durbar"><i style="width:20%"></i></span></td><td>Kiss Xtra — "finally"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:03.4</td><td class="dur">1.6s<span class="durbar"><i style="width:13%"></i></span></td><td>E! interview + ELLA MAI card — "finally speaks"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:05.0</td><td class="dur">1.5s<span class="durbar"><i style="width:13%"></i></span></td><td>Kiss Xtra</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~1:06.5</td><td class="dur">4.1s<span class="durbar"><i style="width:34%"></i></span></td><td>Celtics game footage, 87–112 scorebug — "in March"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">~soft</td></tr>
+    <tr><td class="tc">1:10.6</td><td class="dur">2.9s<span class="durbar"><i style="width:24%"></i></span></td><td>Postgame walk-off, towel + pinned chyron "SEASON DEBUT — 298 days since tearing Achilles / TONIGHT: 15 PTS, 12 REB, 7 AST"</td><td><span class="chip him">HIM</span> <span class="chip card">CARD</span></td><td>video + card</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">~1:13.5</td><td class="dur">2.1s<span class="durbar"><i style="width:18%"></i></span></td><td>Sit-down interview — "in passing he… telling his brother"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">dissolve</td></tr>
+    <tr><td class="tc">1:15.6</td><td class="dur">1.8s<span class="durbar"><i style="width:15%"></i></span></td><td>Courtside towel interview, 100–120 FINAL bug — "to come cuddle"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:17.4</td><td class="dur">5.3s<span class="durbar"><i style="width:44%"></i></span></td><td>Grey-hoodie presser — "he is 28… [never] announced a thing"</td><td><span class="chip him">HIM</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr class="actrow"><td colspan="6">Act 7 — Callback close <span class="range">1:22.7–1:28.6</span><span class="vo">"Everything the world [knows]… it found by accident — beginning with the eyes emoji under a photograph."</span></td></tr>
+    <tr><td class="tc">1:22.7</td><td class="dur">1.4s<span class="durbar"><i style="width:12%"></i></span></td><td>Kiss Xtra — "everything the world"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">cut</td></tr>
+    <tr><td class="tc">1:24.1</td><td class="dur">1.6s<span class="durbar"><i style="width:13%"></i></span></td><td>Sneaker room — "found by accident"</td><td><span class="chip">OBJ</span></td><td>video</td><td class="tr-in">dissolve</td></tr>
+    <tr><td class="tc">1:25.7</td><td class="dur">1.6s<span class="durbar"><i style="width:13%"></i></span></td><td>GRWM — "beginning with the eyes"</td><td><span class="chip her">HER</span></td><td>video</td><td class="tr-in">dissolve</td></tr>
+    <tr><td class="tc">1:27.3</td><td class="dur">1.3s<span class="durbar"><i style="width:11%"></i></span></td><td>Red carpet + the IG screenshot card returns, 👀 circled — mirror of the open</td><td><span class="chip her">HER</span> <span class="chip card">CARD</span></td><td>video + card</td><td class="tr-in">cut</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2>Format scorecard</h2>
+  <div class="verdict">
+    <div class="vbox match">
+      <h3>Already matched</h3>
+      <ul>
+        <li><b>The spine.</b> Hook → her résumé first → the silence → milestones-as-tells → injury test with a date/headline card → loyalty payoff → callback close. Beat for beat, in order.</li>
+        <li><b>"Her name is…" said in the first ~7 seconds</b> — both videos.</li>
+        <li><b>Captions:</b> same house style — white bold all-caps, per-word, bottom-center, no color emphasis on this lane.</li>
+        <li><b>Audio:</b> VO narration over the same shared Cedar bed track used across the story lane.</li>
+        <li><b>Cutting grammar:</b> hard-cut body, ~1 shot per 2.5–3.5s, dissolves saved for act seams and a chained-dissolve closing montage that mirrors the opening image.</li>
+        <li><b>Receipts pinned as cards</b> while VO keeps rolling (Kyrie: ACL headline, birth-video card. Tatum: IG screenshot ×2, playoff stat bar, SEASON DEBUT chyron — Tatum actually leans harder here, and it's the v3 signature).</li>
+        <li><b>All-motion rule:</b> both are ~95% real moving footage. No dead static stills — the only photo-derived shots are animated (Kyrie's ring/paparazzi zooms; Tatum's tunnel date-card hold).</li>
+      </ul>
+    </div>
+    <div class="vbox diverge">
+      <h3>Diverges — decide or accept</h3>
+      <ul>
+        <li><b>The hook phrasing.</b> Kyrie opens on the question: "Do you know the story of…? Most fans don't." Tatum v3 opens declarative: "She never announced…" The v4 prepend drafts already exist (the "Do you know who Jayson Tatum goes home to?" option was the working pick) — this is the single highest-leverage change and it's blocked only on the hook line + story-lane VO take.</li>
+        <li><b>Length.</b> 2:44 vs 1:29. Kyrie's extra length is almost all Act 6–7 (his own words + the why) — the part viewers stay for. Tatum has no equivalent confession footage, so matching runtime isn't free; it would need the March-comeback material stretched or the Paris family moment opened up.</li>
+        <li><b>Two-shots: 27% vs 0%.</b> Kyrie lands every emotional peak on couple/family footage (source: Marlene's own 750K-sub vlog). Tatum/Ella have no couple catalog — the only public together-moment is Paris 2024 (family photo beat, currently told but not shown). Candidates if you want even one: the Paris clip, courtside broadcast shots of Ella at Celtics games, the Rubin July-4 photo.</li>
+        <li><b>Pace.</b> v3 averages ~2.6s/shot vs Kyrie's ~3.3s and never holds longer than 5.3s (Kyrie holds 11.4s on the doula story). If v4 adds a confession-style hold, let it breathe like the Kyrie interview does.</li>
+        <li><b>Name cards.</b> Tatum adds ELLA MAI lower-thirds (inherited from E! footage); Kyrie identifies by caption only. Harmless — keep.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="note">Method: shot boundaries from ffmpeg scene detection at 30fps (threshold 0.30, cross-checked at 0.15), freeze detection at −45dB, and a full 1fps frame read of both masters. Kyrie master pulled from <code>vault-pulse-dashboard @ agent/kyrie-love-story-yt-release</code>; Tatum v3 from the 08-24 build session (same file as Desktop\sports\tatum story v3.mp4). Seams marked <code>~</code> are placed to ±0.5s.</p>
+</section>
+</div>

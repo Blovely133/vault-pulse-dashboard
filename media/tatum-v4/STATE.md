@@ -146,3 +146,4 @@ branch still holds v1); card enable-windows in this doc. VO regen: workflow patt
 - `tvoff-mustard-scream.mp3` — tight sting, 2:03.5–2:10.5.
 - `mustard-portrait-2019.jpg` — Commons `File:DJ_Mustard_2019_by_Glenn_Francis_(cropped).jpg`
   (2019 iHeartRadio Awards; CC — credit Glenn Francis / PacificProDigital if shown on screen).
+- `format-reference.html` — the Kyrie-vs-Tatum beat-map / format doc (same content as the artifact link above; open locally in any browser).
