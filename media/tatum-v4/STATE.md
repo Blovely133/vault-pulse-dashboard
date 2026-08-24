@@ -1,13 +1,44 @@
 # Tatum/Ella Mai Story Video — Session State (2026-08-24)
 
 **Session:** overnight session from the Saved Games PC (Claude, cwd ~/.claude), Aug 24 ~05:00–11:00 UTC.
-**Deliverable: `media/tatum-story-v4_master_1080x1920.mp4` on this branch — the FINAL master, ready to upload.**
-Local copies: Desktop `sports\tatum story v4 FINAL (hook + receipts).mp4` (Saved Games PC) and the review
-player at `localhost:8324` (scratchpad server, dies with the session).
+
+## ⚠️ OWNER QC VERDICT (2026-08-24 ~11:15Z): v4 = USABLE FOUNDATION, **NOT releasable**
+
+`media/tatum-story-v4_master_1080x1920.mp4` on this branch demonstrates the approved concept
+(owner hook + receipts + sneaker fix) but FAILED owner QC on three counts. **Do not upload it.**
+Desktop copy renamed accordingly (`tatum story v4 DRAFT - foundation only, do not upload.mp4`).
+
+1. **VOICE MISMATCH.** The hook VO (take C1, generated this session via the TTS endpoint with the
+   verified recipe: Fixed Games Narrator `o7mizjPovZD29h3qPclF`, `eleven_v3`, stability 0.5) is
+   audibly not the same read as the body VO — detectable on the swap at 0:10. Likely causes: the
+   original lane generated per-line WITH surrounding-context (history shows `dialogue[]`-structured
+   items — probably /v1/text-to-dialogue or with previous/next-text context, like the 059 Bill lane),
+   plus whatever post-chain (loudnorm/EQ) the source pipeline applies. Isolated single-line takes
+   don't blend. **Owner's decision: regenerate the ENTIRE script VO from start to finish at the
+   original generation place (home/main-PC pipeline) so hook + body are one continuous session.**
+2. **CAPTIONS WRONG on the first 10s** — wrong location (I set y≈1250 vs the body's band), wrong
+   pacing (estimated chunk timing), style approximation (sheared Arial Black ≠ the source pipeline's
+   font/render). Captions must come from the source pipeline in the full rebuild.
+3. **OPEN MUST BE MOVING FOOTAGE OF HER** — not still cards. An HD photo of Tatum may be dropped
+   somewhere, but NOT the soft/blurry podium crop used in v4's open (it was upscaled from video and
+   reads blurry). The split-frame card's Tatum panel has the same softness problem.
+
+**What survives into the rebuild (approved):** the owner hook TEXT (verbatim, below), the
+receipts concept + card PNG assets (resolution-independent, in `media/tatum-v4/`), the sneaker
+fix, the verified fact set, and the release checklist. Re-anchor the cards to the WORDS, not to
+absolute times: eyes-card lands on "…eyes emoji under his photo…", circle pop on "emoji";
+Dylan/Deuce card on "…it's just… on his sneakers"; comment-row callback on the closing
+"…eyes emoji under a photograph" through the dead-stop.
+
+**Locked hook text (owner's words, take C1 audio in media/tatum-v4/ as a read reference only):**
+> "Do you know the details of Jayson Tatum and Ella Mai's very private relationship?
+> Most fans don't. But Ella is the mother of Jayson's child — and a Grammy award winning musician."
 
 ---
 
-## What v4 is
+---
+
+## What v4 is (the foundation demo — see verdict above)
 
 `tatum-story-v1` (the 88.6s cut built 08-22, uploaded as draft `AsQmhIepBnI`) + three owner-called edits:
 
