@@ -579,6 +579,10 @@ h2 {
   background: var(--mint);
 }
 
+.legend-instagram {
+  background: var(--blue);
+}
+
 .chart-empty,
 .bar-chart {
   position: relative;
@@ -666,6 +670,10 @@ h2 {
 
 .bar.tiktok {
   background: linear-gradient(to top, rgb(91 231 196 / 30%), var(--mint));
+}
+
+.bar.instagram {
+  background: linear-gradient(to top, rgb(84 167 255 / 30%), var(--blue));
 }
 
 .bar-column > span {

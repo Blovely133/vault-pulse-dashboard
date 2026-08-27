@@ -649,6 +649,7 @@ function buildTrend(snapshots, referenceDate) {
       }),
       youtube: snapshotTotalForDay(snapshots, date, "youtube"),
       tiktok: snapshotTotalForDay(snapshots, date, "tiktok"),
+      instagram: snapshotTotalForDay(snapshots, date, "instagram"),
     });
   }
   return points;
