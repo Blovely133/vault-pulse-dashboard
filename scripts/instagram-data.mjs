@@ -50,7 +50,10 @@ export function normalizeInstagramFeed(channel, payload, capturedAt) {
     connected: true,
     connectionLabel: payload.stale ? "Cached snapshot" : "Connected",
     views: integer(totals.views),
-    audience: null,
+    // Populated once the analytics service reports account.followersCount.
+    // Stays null (not 0) when absent so the dashboard can tell "unknown"
+    // apart from "zero followers".
+    audience: account.followersCount != null ? integer(account.followersCount) : null,
     videos: integer(totals.reels ?? videos.length),
     likes: integer(totals.likes),
     reach: integer(totals.reach),
@@ -118,7 +121,7 @@ export function normalizeInstagramFeed(channel, payload, capturedAt) {
       platform: "instagram",
       capturedAt,
       views: metric.views,
-      audience: null,
+      audience: metric.audience,
       videos: metric.videos,
       likes: metric.likes,
       reach: metric.reach,

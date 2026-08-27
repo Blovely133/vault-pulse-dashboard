@@ -332,6 +332,7 @@ function overviewMarkup(data) {
             <div class="legend" aria-label="Chart legend">
               <span><i class="legend-youtube"></i>YouTube</span>
               <span><i class="legend-tiktok"></i>TikTok</span>
+              <span><i class="legend-instagram"></i>Instagram</span>
             </div>
           </div>
           ${trendMarkup(data)}
@@ -2254,7 +2255,12 @@ function connectionCardMarkup(channel) {
 }
 
 function trendMarkup(data) {
-  if (!data.hasLiveData || !data.trend.some((point) => point.youtube || point.tiktok)) {
+  if (
+    !data.hasLiveData ||
+    !data.trend.some(
+      (point) => point.youtube || point.tiktok || point.instagram,
+    )
+  ) {
     return `
       <div class="chart-empty">
         <div class="chart-gridlines" aria-hidden="true">
@@ -2272,6 +2278,7 @@ function trendMarkup(data) {
     ...data.trend.flatMap((point) => [
       point.youtube ?? 0,
       point.tiktok ?? 0,
+      point.instagram ?? 0,
     ]),
   );
   return `
@@ -2283,6 +2290,7 @@ function trendMarkup(data) {
               <div class="bar-pair">
                 <i class="bar youtube" style="height:${((point.youtube ?? 0) / max) * 100}%"></i>
                 <i class="bar tiktok" style="height:${((point.tiktok ?? 0) / max) * 100}%"></i>
+                <i class="bar instagram" style="height:${((point.instagram ?? 0) / max) * 100}%"></i>
               </div>
               <span>${index % 3 === 0 || index === data.trend.length - 1 ? escapeHtml(point.label) : ""}</span>
             </div>
