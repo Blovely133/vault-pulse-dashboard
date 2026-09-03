@@ -1,0 +1,186 @@
+name: YouTube visibility tool
+
+# Set the privacyStatus of explicitly listed videos (private / unlisted / public)
+# via videos.update. Nothing else is touched: not the file, not the title, not
+# the description, not the category.
+#
+# WHY READ-MODIFY-WRITE. videos.update REPLACES the whole `status` part (see the
+# note at the top of yt-schedule.yml): sending {privacyStatus} alone silently
+# resets license / embeddable / publicStatsViewable / madeForKids to defaults.
+# So every status field is read first and written back unchanged.
+#
+# WHY THE GUARDS. Every id is read back first and must belong to `channel`;
+# `confirm` must equal the upper-cased target privacy so a stray dispatch
+# cannot flip visibility by accident. Videos already at the target are skipped.
+# publishAt is carried forward only when the target is private (YouTube rejects
+# publishAt on non-private videos). Fail closed, verify by independent read-back.
+#
+# Companion to yt-upload.yml / yt-schedule.yml / yt-video-desc.yml, same
+# channel->secret map.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Channel ID the videos must belong to
+        required: true
+      ids:
+        description: Comma-separated video IDs (explicit, no wildcards; max 50)
+        required: true
+      privacy:
+        description: Target privacyStatus
+        required: true
+        type: choice
+        options: [private, unlisted, public]
+      confirm:
+        description: Type the target privacy in UPPER CASE (PRIVATE / UNLISTED / PUBLIC) to confirm
+        required: true
+      dry_run:
+        description: "true = read and report only, write nothing"
+        required: false
+        default: "false"
+
+permissions:
+  contents: read
+
+jobs:
+  visibility:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set visibility
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          IDS: ${{ inputs.ids }}
+          PRIVACY: ${{ inputs.privacy }}
+          CONFIRM: ${{ inputs.confirm }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          YT_REFRESH_HISTORYOFHUMANS: ${{ secrets.YT_REFRESH_HISTORYOFHUMANS }}
+          YT_REFRESH_ANIMERECAPS: ${{ secrets.YT_REFRESH_ANIMERECAPS }}
+          YT_REFRESH_COURTSIGNAL: ${{ secrets.YT_REFRESH_COURTSIGNAL }}
+        run: |
+          cat > /tmp/yt-visibility.mjs <<'SCRIPT'
+          const tokenEndpoint = "https://oauth2.googleapis.com/token";
+          const api = "https://www.googleapis.com/youtube/v3";
+
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+            "UC5amukolWTisi6cjGEU68FA": "YT_REFRESH_HISTORYOFHUMANS",
+            "UCdIcgTi2g2H3Z7xtwKhzc0Q": "YT_REFRESH_ANIMERECAPS",
+            "UCya0t0Lg1eDN-oM2eAOcwRw": "YT_REFRESH_COURTSIGNAL",
+          };
+
+          const channel = process.env.CHANNEL;
+          const privacy = (process.env.PRIVACY || "").trim();
+          const confirm = (process.env.CONFIRM || "").trim();
+          const dryRun = String(process.env.DRY_RUN || "false").trim().toLowerCase() === "true";
+          const ids = [...new Set((process.env.IDS || "").split(",").map((s) => s.trim()).filter(Boolean))];
+
+          if (!["private", "unlisted", "public"].includes(privacy)) throw new Error(`YTV_ABORT bad privacy ${privacy}`);
+          if (confirm !== privacy.toUpperCase()) throw new Error(`YTV_ABORT confirm must be ${privacy.toUpperCase()}`);
+          if (!ids.length) throw new Error("YTV_ABORT no ids");
+          if (ids.length > 50) throw new Error("YTV_ABORT more than 50 ids");
+          for (const id of ids) if (!/^[A-Za-z0-9_-]{11}$/.test(id)) throw new Error(`YTV_ABORT malformed id ${id}`);
+
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          const refreshToken = process.env[refreshEnv];
+          if (!refreshToken) throw new Error(`${refreshEnv} is empty`);
+
+          async function accessToken() {
+            const body = new URLSearchParams({
+              client_id: process.env.YT_CLIENT_ID,
+              client_secret: process.env.YT_CLIENT_SECRET,
+              refresh_token: refreshToken,
+              grant_type: "refresh_token",
+            });
+            const res = await fetch(tokenEndpoint, { method: "POST", body });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`token: ${res.status} ${JSON.stringify(json)}`);
+            return json.access_token;
+          }
+
+          const token = await accessToken();
+          const auth = { Authorization: `Bearer ${token}` };
+
+          async function readVideos(list) {
+            const url = new URL(`${api}/videos`);
+            url.searchParams.set("part", "snippet,status");
+            url.searchParams.set("id", list.join(","));
+            url.searchParams.set("maxResults", "50");
+            const res = await fetch(url, { headers: auth });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`videos.list: ${res.status} ${JSON.stringify(json)}`);
+            return new Map((json.items || []).map((v) => [v.id, v]));
+          }
+
+          // --- Guards. All must hold for EVERY id before anything is written. ---
+          const before = await readVideos(ids);
+          const problems = [];
+          for (const id of ids) {
+            const v = before.get(id);
+            if (!v) { problems.push(`${id} not found (or not visible to this token)`); continue; }
+            if (v.snippet.channelId !== channel) problems.push(`${id} belongs to ${v.snippet.channelId}, not ${channel}`);
+            console.log(`YTV_TARGET ${id} [${v.status.privacyStatus}] ${v.snippet.title.slice(0, 60)}`);
+          }
+          if (problems.length) throw new Error("YTV_ABORT " + problems.join("; "));
+          console.log(`YTV_GUARDS_OK ${ids.length} ids all belong to ${channel}; target=${privacy}${dryRun ? " (DRY RUN)" : ""}`);
+
+          const todo = ids.filter((id) => before.get(id).status.privacyStatus !== privacy);
+          const skipped = ids.filter((id) => before.get(id).status.privacyStatus === privacy);
+          for (const id of skipped) console.log(`YTV_SKIP ${id} already ${privacy}`);
+          if (dryRun) { console.log(`YTV_DRY_RUN would change ${todo.length}, skip ${skipped.length}`); process.exit(0); }
+
+          for (const id of todo) {
+            const cur = before.get(id).status;
+            // Carry EVERY status field forward; change only privacyStatus.
+            const status = {
+              privacyStatus: privacy,
+              embeddable: cur.embeddable ?? true,
+              license: cur.license ?? "youtube",
+              publicStatsViewable: cur.publicStatsViewable ?? true,
+              selfDeclaredMadeForKids: cur.selfDeclaredMadeForKids ?? cur.madeForKids ?? false,
+            };
+            if (privacy === "private" && cur.publishAt) status.publishAt = cur.publishAt;
+            const res = await fetch(`${api}/videos?part=status`, {
+              method: "PUT",
+              headers: { ...auth, "Content-Type": "application/json" },
+              body: JSON.stringify({ id, status }),
+            });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`videos.update ${id}: ${res.status} ${JSON.stringify(json)}`);
+            console.log(`YTV_WROTE ${id} -> ${json.status?.privacyStatus}`);
+            await new Promise((r) => setTimeout(r, 400));
+          }
+
+          // --- Independent read-back with lag tolerance. ---
+          let after = await readVideos(ids);
+          for (let i = 1; i <= 6 && todo.some((id) => after.get(id)?.status.privacyStatus !== privacy); i++) {
+            console.log(`YTV_READBACK_LAG attempt ${i} -- waiting 5s`);
+            await new Promise((r) => setTimeout(r, 5000));
+            after = await readVideos(ids);
+          }
+          const bad = [];
+          for (const id of ids) {
+            const a = after.get(id), b = before.get(id);
+            if (!a) { bad.push(`${id} vanished on read-back`); continue; }
+            if (a.status.privacyStatus !== privacy) bad.push(`${id} is ${a.status.privacyStatus}`);
+            if (a.snippet.title !== b.snippet.title) bad.push(`${id} title changed`);
+            if ((a.status.madeForKids ?? null) !== (b.status.madeForKids ?? null)) bad.push(`${id} madeForKids changed`);
+            if ((a.status.license ?? null) !== (b.status.license ?? null)) bad.push(`${id} license changed`);
+            console.log(`YTV_AFTER ${id} [${a.status.privacyStatus}] ${a.snippet.title.slice(0, 60)}`);
+          }
+          if (bad.length) throw new Error("YTV_VERIFY_FAILED " + bad.join("; "));
+          console.log(`YTV_VERIFY_OK changed=${todo.length} skipped=${skipped.length}; titles, madeForKids and license unchanged`);
+          SCRIPT
+          node /tmp/yt-visibility.mjs
