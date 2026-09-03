@@ -1,0 +1,222 @@
+name: YouTube channel brand tool
+
+# Rebrand ONE channel via channels.update: title, full description, keywords,
+# country, and the channel-level "made for kids" audience flag. Any input left
+# empty is carried forward unchanged. Handle (@name), avatar and banner are NOT
+# reachable through the Data API -- those stay Studio-only.
+#
+# WHY READ-MODIFY-WRITE. channels.update replaces the whole brandingSettings
+# part; the current values are fetched first and every field written back, so
+# an empty input never blanks anything. `expect_title` must match the channel's
+# CURRENT title exactly or the job aborts before writing. Fail closed.
+#
+# Companion to yt-channel-desc.yml (append-only description tool), same
+# channel->secret map.
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: Channel ID to rebrand
+        required: true
+      expect_title:
+        description: The channel's CURRENT title, exactly. Aborts on mismatch.
+        required: true
+      title:
+        description: New channel title (empty = keep)
+        required: false
+        default: ""
+      description_b64:
+        description: Base64 UTF-8 of the FULL new description (empty = keep)
+        required: false
+        default: ""
+      keywords:
+        description: New channel keywords, space-separated, quote multi-word ones (empty = keep)
+        required: false
+        default: ""
+      country:
+        description: Two-letter country code (empty = keep)
+        required: false
+        default: ""
+      made_for_kids:
+        description: Channel-level audience flag
+        required: false
+        type: choice
+        default: unchanged
+        options: [unchanged, "false", "true"]
+
+permissions:
+  contents: read
+
+jobs:
+  brand:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update channel branding
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          EXPECT_TITLE: ${{ inputs.expect_title }}
+          NEW_TITLE: ${{ inputs.title }}
+          DESCRIPTION_B64: ${{ inputs.description_b64 }}
+          KEYWORDS: ${{ inputs.keywords }}
+          COUNTRY: ${{ inputs.country }}
+          MADE_FOR_KIDS: ${{ inputs.made_for_kids }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_THEARCHIVELIVES: ${{ secrets.YT_REFRESH_THEARCHIVELIVES }}
+          YT_REFRESH_FIXEDFIGHTS: ${{ secrets.YT_REFRESH_FIXEDFIGHTS }}
+          YT_REFRESH_SYLVASMYSTERIES: ${{ secrets.YT_REFRESH_SYLVASMYSTERIES }}
+          YT_REFRESH_ANIMEVAULT: ${{ secrets.YT_REFRESH_ANIMEVAULT }}
+          YT_REFRESH_AXOLOTLDRAMA: ${{ secrets.YT_REFRESH_AXOLOTLDRAMA }}
+          YT_REFRESH_HISTORYOFHUMANS: ${{ secrets.YT_REFRESH_HISTORYOFHUMANS }}
+          YT_REFRESH_ANIMERECAPS: ${{ secrets.YT_REFRESH_ANIMERECAPS }}
+          YT_REFRESH_COURTSIGNAL: ${{ secrets.YT_REFRESH_COURTSIGNAL }}
+        run: |
+          cat > /tmp/yt-channel-brand.mjs <<'SCRIPT'
+          const tokenEndpoint = "https://oauth2.googleapis.com/token";
+          const api = "https://www.googleapis.com/youtube/v3";
+
+          const refreshEnvForChannel = {
+            UCUzrKvQc2Yud2WGJcFfl00g: "YT_REFRESH_THEARCHIVELIVES",
+            UClVSNWZc1f3sel37mrNOfgA: "YT_REFRESH_FIXEDFIGHTS",
+            "UC8Uj7A6wSYlJ-eekeGc6GJw": "YT_REFRESH_SYLVASMYSTERIES",
+            UCF0g1hEWIJI0XXhmfBkzroQ: "YT_REFRESH_ANIMEVAULT",
+            UCL0PybSo7k08IoLqtn4MIbg: "YT_REFRESH_AXOLOTLDRAMA",
+            "UC5amukolWTisi6cjGEU68FA": "YT_REFRESH_HISTORYOFHUMANS",
+            "UCdIcgTi2g2H3Z7xtwKhzc0Q": "YT_REFRESH_ANIMERECAPS",
+            "UCya0t0Lg1eDN-oM2eAOcwRw": "YT_REFRESH_COURTSIGNAL",
+          };
+
+          const channel = process.env.CHANNEL;
+          const expectTitle = process.env.EXPECT_TITLE;
+          const newTitle = (process.env.NEW_TITLE || "").trim();
+          const descB64 = (process.env.DESCRIPTION_B64 || "").trim();
+          const newDescription = descB64 ? Buffer.from(descB64, "base64").toString("utf8") : null;
+          const newKeywords = (process.env.KEYWORDS || "").trim();
+          const newCountry = (process.env.COUNTRY || "").trim().toUpperCase();
+          const mfk = (process.env.MADE_FOR_KIDS || "unchanged").trim();
+
+          const refreshEnv = refreshEnvForChannel[channel];
+          if (!refreshEnv) throw new Error(`No refresh token mapped for ${channel}`);
+          const refreshToken = process.env[refreshEnv];
+          if (!refreshToken) throw new Error(`${refreshEnv} is empty`);
+
+          async function accessToken() {
+            const body = new URLSearchParams({
+              client_id: process.env.YT_CLIENT_ID,
+              client_secret: process.env.YT_CLIENT_SECRET,
+              refresh_token: refreshToken,
+              grant_type: "refresh_token",
+            });
+            const res = await fetch(tokenEndpoint, { method: "POST", body });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`token: ${res.status} ${JSON.stringify(json)}`);
+            return json.access_token;
+          }
+
+          const token = await accessToken();
+          const auth = { Authorization: `Bearer ${token}` };
+
+          async function readChannel() {
+            const url = new URL(`${api}/channels`);
+            url.searchParams.set("part", "snippet,brandingSettings,status");
+            url.searchParams.set("id", channel);
+            const res = await fetch(url, { headers: auth });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`channels.list: ${res.status} ${JSON.stringify(json)}`);
+            return json.items?.[0];
+          }
+
+          const before = await readChannel();
+          if (!before) throw new Error(`YCB_ABORT channel ${channel} not readable with this token`);
+          const bc = before.brandingSettings?.channel ?? {};
+          const curTitle = bc.title ?? before.snippet?.title ?? "";
+          if (curTitle !== expectTitle) {
+            console.log(`YCB_ABORT title guard failed`);
+            console.log(`  expected: ${JSON.stringify(expectTitle)}`);
+            console.log(`  actual  : ${JSON.stringify(curTitle)}`);
+            throw new Error("YCB_ABORT title mismatch -- refusing to edit");
+          }
+          console.log("YCB_GUARDS_OK channel readable + title matches");
+          console.log("YCB_BEFORE " + JSON.stringify({
+            title: curTitle,
+            customUrl: before.snippet?.customUrl ?? null,
+            keywords: bc.keywords ?? null,
+            country: bc.country ?? null,
+            descriptionLength: (bc.description ?? "").length,
+            madeForKids: before.status?.madeForKids ?? null,
+            selfDeclaredMadeForKids: before.status?.selfDeclaredMadeForKids ?? null,
+          }));
+
+          // Carry EVERY brandingSettings.channel field forward; change only what was given.
+          const outCh = {};
+          for (const k of ["title", "description", "keywords", "trackingAnalyticsAccountId", "unsubscribedTrailer", "country", "defaultLanguage"]) {
+            if (bc[k] !== undefined && bc[k] !== null && bc[k] !== "") outCh[k] = bc[k];
+          }
+          if (newTitle) outCh.title = newTitle;
+          if (newDescription !== null) outCh.description = newDescription;
+          if (newKeywords) outCh.keywords = newKeywords;
+          if (newCountry) outCh.country = newCountry;
+          if (!outCh.title) outCh.title = curTitle;
+
+          const brandChanged = JSON.stringify(outCh) !== JSON.stringify(Object.fromEntries(Object.entries(bc).filter(([k]) => k in outCh)));
+          if (brandChanged) {
+            const res = await fetch(`${api}/channels?part=brandingSettings`, {
+              method: "PUT",
+              headers: { ...auth, "Content-Type": "application/json" },
+              body: JSON.stringify({ id: channel, brandingSettings: { channel: outCh } }),
+            });
+            const json = await res.json();
+            if (!res.ok) throw new Error(`channels.update brandingSettings: ${res.status} ${JSON.stringify(json)}`);
+            console.log("YCB_WROTE brandingSettings");
+          } else {
+            console.log("YCB_NOOP brandingSettings unchanged");
+          }
+
+          if (mfk === "true" || mfk === "false") {
+            const want = mfk === "true";
+            if ((before.status?.selfDeclaredMadeForKids ?? null) === want) {
+              console.log(`YCB_NOOP selfDeclaredMadeForKids already ${want}`);
+            } else {
+              const res = await fetch(`${api}/channels?part=status`, {
+                method: "PUT",
+                headers: { ...auth, "Content-Type": "application/json" },
+                body: JSON.stringify({ id: channel, status: { selfDeclaredMadeForKids: want } }),
+              });
+              const json = await res.json();
+              if (!res.ok) throw new Error(`channels.update status: ${res.status} ${JSON.stringify(json)}`);
+              console.log(`YCB_WROTE selfDeclaredMadeForKids=${want}`);
+            }
+          }
+
+          // --- Independent read-back with lag tolerance. ---
+          let after = await readChannel();
+          const wantTitle = outCh.title;
+          for (let i = 1; i <= 6 && (after.brandingSettings?.channel?.title ?? "") !== wantTitle; i++) {
+            console.log(`YCB_READBACK_LAG attempt ${i} -- waiting 5s`);
+            await new Promise((r) => setTimeout(r, 5000));
+            after = await readChannel();
+          }
+          const ac = after.brandingSettings?.channel ?? {};
+          console.log("YCB_AFTER " + JSON.stringify({
+            title: ac.title ?? null,
+            customUrl: after.snippet?.customUrl ?? null,
+            keywords: ac.keywords ?? null,
+            country: ac.country ?? null,
+            descriptionLength: (ac.description ?? "").length,
+            madeForKids: after.status?.madeForKids ?? null,
+            selfDeclaredMadeForKids: after.status?.selfDeclaredMadeForKids ?? null,
+          }));
+          const problems = [];
+          if ((ac.title ?? "") !== wantTitle) problems.push("title did not take");
+          if (newDescription !== null && (ac.description ?? "") !== newDescription) problems.push("description did not take");
+          if (newKeywords && (ac.keywords ?? "") !== newKeywords) problems.push("keywords did not take");
+          if (newCountry && (ac.country ?? "") !== newCountry) problems.push("country did not take");
+          if ((mfk === "true" || mfk === "false") && (after.status?.selfDeclaredMadeForKids ?? null) !== (mfk === "true")) problems.push("selfDeclaredMadeForKids did not take");
+          if (problems.length) throw new Error("YCB_VERIFY_FAILED " + problems.join("; "));
+          console.log("YCB_VERIFY_OK");
+          console.log("YCB_DESCRIPTION_BEGIN");
+          console.log(ac.description ?? "");
+          console.log("YCB_DESCRIPTION_END");
+          SCRIPT
+          node /tmp/yt-channel-brand.mjs
