@@ -1,9 +1,17 @@
 name: YouTube channel brand tool
 
-# Rebrand ONE channel via channels.update: title, full description, keywords,
-# country, and the channel-level "made for kids" audience flag. Any input left
-# empty is carried forward unchanged. Handle (@name), avatar and banner are NOT
-# reachable through the Data API -- those stay Studio-only.
+# Rebrand ONE channel via channels.update: full description, keywords, country,
+# and the channel-level "made for kids" audience flag. Any input left empty is
+# carried forward unchanged.
+#
+# WHAT THE API CANNOT DO. Handle (@name), avatar and banner are not reachable
+# through the Data API at all. The channel TITLE is accepted by channels.update
+# and then silently ignored -- the write returns 200 and the value never
+# changes (verified against this network 2026-09-02). So `title` is sent as
+# best-effort and reported as YCB_TITLE_IGNORED rather than failing the job,
+# because the description / keywords / audience writes in the same run DO land.
+# Changing the displayed channel name means doing it by hand in Studio:
+# Studio > Customization > Basic info.
 #
 # WHY READ-MODIFY-WRITE. channels.update replaces the whole brandingSettings
 # part; the current values are fetched first and every field written back, so
@@ -23,7 +31,7 @@ on:
         description: The channel's CURRENT title, exactly. Aborts on mismatch.
         required: true
       title:
-        description: New channel title (empty = keep)
+        description: New channel title (empty = keep). BEST EFFORT -- the API ignores this; see header.
         required: false
         default: ""
       description_b64:
@@ -190,9 +198,13 @@ jobs:
           }
 
           // --- Independent read-back with lag tolerance. ---
-          let after = await readChannel();
           const wantTitle = outCh.title;
-          for (let i = 1; i <= 6 && (after.brandingSettings?.channel?.title ?? "") !== wantTitle; i++) {
+          const wantDesc = newDescription;
+          let after = await readChannel();
+          // Poll on the description, which the API really does write. Polling on
+          // the title would always burn the full retry budget, since the API
+          // silently ignores it.
+          for (let i = 1; i <= 6 && wantDesc !== null && (after.brandingSettings?.channel?.description ?? "") !== wantDesc; i++) {
             console.log(`YCB_READBACK_LAG attempt ${i} -- waiting 5s`);
             await new Promise((r) => setTimeout(r, 5000));
             after = await readChannel();
@@ -208,7 +220,10 @@ jobs:
             selfDeclaredMadeForKids: after.status?.selfDeclaredMadeForKids ?? null,
           }));
           const problems = [];
-          if ((ac.title ?? "") !== wantTitle) problems.push("title did not take");
+          if ((ac.title ?? "") !== wantTitle) {
+            console.log(`YCB_TITLE_IGNORED the API accepted title=${JSON.stringify(wantTitle)} but the channel is still ${JSON.stringify(ac.title ?? "")}.`);
+            console.log("YCB_TITLE_IGNORED This is a Data API limitation, not an error. Change the channel name in YouTube Studio > Customization > Basic info.");
+          }
           if (newDescription !== null && (ac.description ?? "") !== newDescription) problems.push("description did not take");
           if (newKeywords && (ac.keywords ?? "") !== newKeywords) problems.push("keywords did not take");
           if (newCountry && (ac.country ?? "") !== newCountry) problems.push("country did not take");
