@@ -1,17 +1,17 @@
 {
-  "updatedAt": "2026-10-04T23:00:14.404Z",
-  "generatedAt": "2026-10-04T23:00:14.404Z",
+  "updatedAt": "2026-10-04T23:15:12.130Z",
+  "generatedAt": "2026-10-04T23:15:12.130Z",
   "hasLiveData": true,
   "totals": {
-    "views": 15145118,
-    "sevenDayViews": 2020432,
-    "audience": 10641,
-    "engagementRate": 5.885429867340032
+    "views": 15146875,
+    "sevenDayViews": 2018221,
+    "audience": 10642,
+    "engagementRate": 5.882609566133344
   },
   "platformTotals": {
     "youtube": 8735568,
-    "tiktok": 589807,
-    "instagram": 5819743
+    "tiktok": 590828,
+    "instagram": 5820479
   },
   "channels": [
     {
@@ -73,7 +73,7 @@
         "returningViewers": null
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.404Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:14:59.130Z"
     },
     {
       "id": 2,
@@ -124,7 +124,7 @@
         "engagementRate": 1.9654714475431607,
         "viewToReachRatio": 1.249667994687915,
         "profileUrl": "https://www.instagram.com/animehype1338/",
-        "generatedAt": "2026-10-04T23:00:29+00:00"
+        "generatedAt": "2026-10-04T23:15:33+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -167,7 +167,7 @@
         "interactionsPerReel": 1.8048780487804879
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:16:04.404Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:16:05.130Z"
     },
     {
       "id": 3,
@@ -183,8 +183,8 @@
       "accent": "#8b7cff",
       "avatar": "./assets/kids-history-avatar.jpg",
       "youtube": {
-        "connected": true,
-        "connectionLabel": "Connected",
+        "connected": false,
+        "connectionLabel": "Refresh error",
         "views": 810963,
         "audience": 486,
         "videos": 71,
@@ -194,31 +194,31 @@
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 384768,
-        "audience": 525,
+        "views": 385160,
+        "audience": 526,
         "videos": 57,
-        "likes": 22776,
-        "engagementRate": 2.7037071689953427,
+        "likes": 22817,
+        "engagementRate": 2.7069269913802056,
         "source": "direct"
       },
       "instagram": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 471490,
+        "views": 471561,
         "audience": null,
         "videos": 33,
-        "likes": 19906,
-        "reach": 363294,
+        "likes": 19911,
+        "reach": 363507,
         "comments": 102,
-        "saves": 1739,
+        "saves": 1741,
         "shares": 1131,
-        "totalInteractions": 23235,
-        "averageWatchTimeMs": 32713,
-        "totalWatchTimeMs": 15423849780,
-        "engagementRate": 6.395646501180861,
-        "viewToReachRatio": 1.29781939696224,
+        "totalInteractions": 23243,
+        "averageWatchTimeMs": 32712,
+        "totalWatchTimeMs": 15425870977,
+        "engagementRate": 6.39409970096862,
+        "viewToReachRatio": 1.2972542481987968,
         "profileUrl": "https://www.instagram.com/sylvasblessing/",
-        "generatedAt": "2026-10-04T23:00:40+00:00"
+        "generatedAt": "2026-10-04T23:15:49+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -249,19 +249,19 @@
         "returningViewers": null
       },
       "instagramPerformance": {
-        "views": 471490,
-        "reach": 363294,
+        "views": 471561,
+        "reach": 363507,
         "reels": 33,
-        "totalInteractions": 23235,
-        "averageWatchTimeMs": 32713,
-        "viewsPerReachedAccount": 1.29781939696224,
-        "engagementPerThousandReach": 63.95646501180861,
-        "savesPerThousandReach": 4.786756731462672,
-        "sharesPerThousandReach": 3.11318105996796,
-        "interactionsPerReel": 704.0909090909091
+        "totalInteractions": 23243,
+        "averageWatchTimeMs": 32712,
+        "viewsPerReachedAccount": 1.2972542481987968,
+        "engagementPerThousandReach": 63.94099700968619,
+        "savesPerThousandReach": 4.7894538482065,
+        "sharesPerThousandReach": 3.111356865204797,
+        "interactionsPerReel": 704.3333333333334
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T14:17:45.404Z"
+      "tiktokAuthExpiresAt": "2027-07-29T14:17:39.130Z"
     },
     {
       "id": 4,
@@ -281,17 +281,17 @@
         "views": 142085,
         "audience": 101,
         "videos": 37,
-        "likes": 1855,
-        "engagementRate": 1.5247289283870262
+        "likes": 1856,
+        "engagementRate": 1.5253083860672856
       },
       "tiktok": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 200415,
+        "views": 201044,
         "audience": 2718,
         "videos": 27,
-        "likes": 95243,
-        "engagementRate": 4.8135119626774445,
+        "likes": 95272,
+        "engagementRate": 4.8133741867451905,
         "source": "direct"
       },
       "instagram": {
@@ -354,7 +354,7 @@
         "interactionsPerReel": 9.7
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T18:54:59.404Z"
+      "tiktokAuthExpiresAt": "2027-07-29T18:54:51.130Z"
     },
     {
       "id": 5,
@@ -374,8 +374,8 @@
         "views": 6072333,
         "audience": 5780,
         "videos": 76,
-        "likes": 14076,
-        "engagementRate": 2.958366404502489
+        "likes": 14109,
+        "engagementRate": 2.938514685423259
       },
       "tiktok": {
         "connected": true,
@@ -390,21 +390,21 @@
       "instagram": {
         "connected": true,
         "connectionLabel": "Connected",
-        "views": 5340920,
+        "views": 5341585,
         "audience": null,
         "videos": 35,
-        "likes": 295505,
-        "reach": 3616962,
-        "comments": 2782,
-        "saves": 21566,
+        "likes": 295559,
+        "reach": 3617467,
+        "comments": 2783,
+        "saves": 21570,
         "shares": 32020,
-        "totalInteractions": 358733,
+        "totalInteractions": 358792,
         "averageWatchTimeMs": 35007,
-        "totalWatchTimeMs": 186970405018,
-        "engagementRate": 9.918074892686182,
-        "viewToReachRatio": 1.4766314935020053,
+        "totalWatchTimeMs": 186990333099,
+        "engagementRate": 9.91832130051221,
+        "viewToReachRatio": 1.4766091853775032,
         "profileUrl": "https://www.instagram.com/fixedfightsshorts/",
-        "generatedAt": "2026-10-04T23:00:56+00:00"
+        "generatedAt": "2026-10-04T23:16:07+00:00"
       },
       "shortsAnalytics": {
         "choseToViewRate": null,
@@ -435,19 +435,19 @@
         "returningViewers": null
       },
       "instagramPerformance": {
-        "views": 5340920,
-        "reach": 3616962,
+        "views": 5341585,
+        "reach": 3617467,
         "reels": 35,
-        "totalInteractions": 358733,
+        "totalInteractions": 358792,
         "averageWatchTimeMs": 35007,
-        "viewsPerReachedAccount": 1.4766314935020053,
-        "engagementPerThousandReach": 99.18074892686182,
-        "savesPerThousandReach": 5.962462420119426,
-        "sharesPerThousandReach": 8.852733315970696,
-        "interactionsPerReel": 10249.514285714286
+        "viewsPerReachedAccount": 1.4766091853775032,
+        "engagementPerThousandReach": 99.18321300512208,
+        "savesPerThousandReach": 5.962735803809682,
+        "sharesPerThousandReach": 8.851497470467596,
+        "interactionsPerReel": 10251.2
       },
       "tiktokSource": "direct",
-      "tiktokAuthExpiresAt": "2027-07-29T19:15:06.404Z"
+      "tiktokAuthExpiresAt": "2027-07-29T19:14:59.130Z"
     },
     {
       "id": 6,
@@ -653,8 +653,8 @@
         "views": 1601188,
         "audience": 747,
         "videos": 227,
-        "likes": 4489,
-        "engagementRate": 1.7567792767479624
+        "likes": 4491,
+        "engagementRate": 1.7568190534483628
       },
       "tiktok": {
         "connected": false,
@@ -738,12 +738,12 @@
       "title": "Jennifer Lawrence thought everyone at her modeling shoot was terrible at football. Then she realized they were posing—and she was the only one actually playing. #JenniferLawrence #Conan #FunnyMoments #CelebrityStories #TheArchiveLives",
       "url": "https://www.tiktok.com/@thearchivelives/video/7692050985048444190?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-10-04T23:00:00.000Z",
-      "views": 0,
-      "likes": 0,
+      "views": 125,
+      "likes": 14,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 59,
-      "engagementRate": null
+      "engagementRate": 11.200000000000001
     },
     {
       "id": "tiktok:7692374157098618142",
@@ -753,12 +753,12 @@
       "title": "Gabrielle Union thought Dwyane Wade said “I love you” first 😂 Years later, their memories needed a little clarification. #GabrielleUnion #DwyaneWade #CelebrityCouples #LoveStory #LoveIsMessy",
       "url": "https://www.tiktok.com/@loveistomessy/video/7692374157098618142?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-10-04T23:00:00.000Z",
-      "views": 0,
+      "views": 90,
       "likes": 0,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 54,
-      "engagementRate": null
+      "engagementRate": 0
     },
     {
       "id": "youtube:RG23C4UPvGY",
@@ -768,12 +768,12 @@
       "title": "Embiid Didn't Believe This Wilt Stat 😂",
       "url": "https://www.youtube.com/watch?v=RG23C4UPvGY",
       "publishedAt": "2026-10-04T19:18:08Z",
-      "views": 992,
+      "views": 1007,
       "likes": 41,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 43,
-      "engagementRate": 4.133064516129032
+      "engagementRate": 4.07149950347567
     },
     {
       "id": "youtube:R3PZKKqSGC8",
@@ -783,12 +783,12 @@
       "title": "He Won Wimbledon. But His Dance With Steffi Never Happened.",
       "url": "https://www.youtube.com/watch?v=R3PZKKqSGC8",
       "publishedAt": "2026-10-04T19:14:57Z",
-      "views": 540,
+      "views": 584,
       "likes": 18,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 71,
-      "engagementRate": 3.3333333333333335
+      "engagementRate": 3.0821917808219177
     },
     {
       "id": "youtube:iXUIlBV0YUU",
@@ -798,12 +798,12 @@
       "title": "Jeff Teague Couldn’t Escape Derrick Rose’s Highlights 😂",
       "url": "https://www.youtube.com/watch?v=iXUIlBV0YUU",
       "publishedAt": "2026-10-04T19:14:29Z",
-      "views": 1195,
-      "likes": 45,
+      "views": 1207,
+      "likes": 46,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 24,
-      "engagementRate": 3.933054393305439
+      "engagementRate": 3.9768019884009944
     },
     {
       "id": "youtube:KLpmILz_61w",
@@ -813,12 +813,12 @@
       "title": "She Met Federer Before His First ATP Trophy",
       "url": "https://www.youtube.com/watch?v=KLpmILz_61w",
       "publishedAt": "2026-10-04T19:13:52Z",
-      "views": 799,
+      "views": 853,
       "likes": 37,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 64,
-      "engagementRate": 4.630788485607009
+      "engagementRate": 4.337631887456038
     },
     {
       "id": "youtube:NzYhfEfEhqE",
@@ -828,12 +828,12 @@
       "title": "Jokić Had One Answer About That Bank Shot 🃏",
       "url": "https://www.youtube.com/watch?v=NzYhfEfEhqE",
       "publishedAt": "2026-10-04T19:12:44Z",
-      "views": 1052,
+      "views": 1061,
       "likes": 17,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 31,
-      "engagementRate": 1.6159695817490494
+      "engagementRate": 1.6022620169651274
     },
     {
       "id": "youtube:8EJ3q1frOcs",
@@ -843,12 +843,12 @@
       "title": "Why Simone Biles' Husband Was Keeping Score at the Olympics",
       "url": "https://www.youtube.com/watch?v=8EJ3q1frOcs",
       "publishedAt": "2026-10-04T19:12:11Z",
-      "views": 1546,
-      "likes": 79,
+      "views": 1685,
+      "likes": 80,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 62,
-      "engagementRate": 5.17464424320828
+      "engagementRate": 4.807121661721069
     },
     {
       "id": "youtube:oUxh167uAWw",
@@ -858,12 +858,12 @@
       "title": "Klay's 60 Points on 11 Dribbles Still Haunt Paul George",
       "url": "https://www.youtube.com/watch?v=oUxh167uAWw",
       "publishedAt": "2026-10-04T19:11:02Z",
-      "views": 1108,
+      "views": 1110,
       "likes": 36,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 42,
-      "engagementRate": 3.2490974729241873
+      "engagementRate": 3.2432432432432434
     },
     {
       "id": "tiktok:7692049205438893343",
@@ -903,12 +903,12 @@
       "title": "Tichina Arnold Told Her Daughter Why She Had to Learn to Swim",
       "url": "https://www.youtube.com/watch?v=Fm9kwPAhj8A",
       "publishedAt": "2026-10-04T11:24:51Z",
-      "views": 14220,
-      "likes": 442,
+      "views": 15881,
+      "likes": 454,
       "comments": 5,
       "shares": 0,
       "durationSeconds": 32,
-      "engagementRate": 3.143459915611815
+      "engagementRate": 2.8902462061583023
     },
     {
       "id": "youtube:3XZukpDOF3k",
@@ -918,12 +918,12 @@
       "title": "Jamie Foxx Tried a Rolls-Royce School Pickup. His Daughter Said No. 😂",
       "url": "https://www.youtube.com/watch?v=3XZukpDOF3k",
       "publishedAt": "2026-10-04T11:21:23Z",
-      "views": 5724,
+      "views": 6032,
       "likes": 94,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 42,
-      "engagementRate": 1.642208245981831
+      "engagementRate": 1.5583554376657824
     },
     {
       "id": "youtube:ygQUXgOcYoI",
@@ -933,12 +933,12 @@
       "title": "Kevin Hart Needed Rent Money. Mom Said, “Read Your Bible.” 😂",
       "url": "https://www.youtube.com/watch?v=ygQUXgOcYoI",
       "publishedAt": "2026-10-04T11:20:27Z",
-      "views": 6680,
-      "likes": 167,
+      "views": 6961,
+      "likes": 168,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 56,
-      "engagementRate": 2.5149700598802394
+      "engagementRate": 2.4278120959632234
     },
     {
       "id": "youtube:10j2J2qdp_A",
@@ -948,12 +948,12 @@
       "title": "Wanda Sykes Invented Disney Princess Names—Her Daughter Wasn’t Having It 😂",
       "url": "https://www.youtube.com/watch?v=10j2J2qdp_A",
       "publishedAt": "2026-10-04T03:18:46Z",
-      "views": 2611,
+      "views": 2619,
       "likes": 37,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 41,
-      "engagementRate": 1.4170815779394867
+      "engagementRate": 1.4127529591447117
     },
     {
       "id": "youtube:uGxS9BM5U-g",
@@ -963,12 +963,12 @@
       "title": "Snoop Bought His Daughter a Car. Mom Had Other Plans. 😂",
       "url": "https://www.youtube.com/watch?v=uGxS9BM5U-g",
       "publishedAt": "2026-10-04T03:16:22Z",
-      "views": 6300,
-      "likes": 141,
+      "views": 6474,
+      "likes": 143,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 53,
-      "engagementRate": 2.238095238095238
+      "engagementRate": 2.208835341365462
     },
     {
       "id": "youtube:rKOJMVLFwWg",
@@ -978,12 +978,12 @@
       "title": "Eddie Murphy: Who Was Paying for Their Kids’ Wedding?",
       "url": "https://www.youtube.com/watch?v=rKOJMVLFwWg",
       "publishedAt": "2026-10-04T03:14:03Z",
-      "views": 12157,
-      "likes": 291,
+      "views": 12780,
+      "likes": 292,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 29,
-      "engagementRate": 2.4101340791313643
+      "engagementRate": 2.3004694835680755
     },
     {
       "id": "youtube:MTNg0A7erSE",
@@ -993,12 +993,12 @@
       "title": "Russell Westbrook Powers Over Biyombo #Shorts",
       "url": "https://www.youtube.com/watch?v=MTNg0A7erSE",
       "publishedAt": "2026-10-04T03:06:45Z",
-      "views": 4980,
-      "likes": 84,
+      "views": 5015,
+      "likes": 85,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 9,
-      "engagementRate": 1.706827309236948
+      "engagementRate": 1.7148554336989035
     },
     {
       "id": "youtube:Xtn2dZehc4c",
@@ -1053,17 +1053,17 @@
       "title": "Why Curry Expected the Knicks to Draft Him",
       "url": "https://www.instagram.com/reel/DeDaCW4gLOl/",
       "publishedAt": "2026-10-04T01:02:10+0000",
-      "views": 11156,
-      "reach": 7351,
-      "likes": 245,
+      "views": 11190,
+      "reach": 7405,
+      "likes": 246,
       "comments": 0,
       "saves": 14,
       "shares": 5,
-      "totalInteractions": 271,
-      "averageWatchTimeMs": 14350,
-      "totalWatchTimeMs": 104288014,
-      "engagementRate": 3.6865732553394093,
-      "viewToReachRatio": 1.51761665079581
+      "totalInteractions": 272,
+      "averageWatchTimeMs": 14342,
+      "totalWatchTimeMs": 105503310,
+      "engagementRate": 3.673193787981094,
+      "viewToReachRatio": 1.5111411208642809
     },
     {
       "id": "youtube:uav7ZiRkV9Y",
@@ -1073,12 +1073,12 @@
       "title": "Jalen Brunson Plays But They Get Increasingly Insane",
       "url": "https://www.youtube.com/watch?v=uav7ZiRkV9Y",
       "publishedAt": "2026-10-04T01:00:09Z",
-      "views": 37,
+      "views": 38,
       "likes": 3,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 601,
-      "engagementRate": 8.108108108108109
+      "engagementRate": 7.894736842105263
     },
     {
       "id": "youtube:pl1hReqX17s",
@@ -1133,12 +1133,12 @@
       "title": "Sabrina Questioned Idris Elba’s Workout—Then He Roasted Her Pilates Machines 😂",
       "url": "https://www.youtube.com/watch?v=CiVCNndn-hc",
       "publishedAt": "2026-10-03T17:58:06Z",
-      "views": 2216,
+      "views": 2229,
       "likes": 59,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 36,
-      "engagementRate": 2.707581227436823
+      "engagementRate": 2.6917900403768504
     },
     {
       "id": "youtube:ijJmpLlPMJQ",
@@ -1148,12 +1148,12 @@
       "title": "Sheryl Lee Ralph Couldn’t Find Him During the Proposal 😂",
       "url": "https://www.youtube.com/watch?v=ijJmpLlPMJQ",
       "publishedAt": "2026-10-03T17:56:45Z",
-      "views": 13191,
+      "views": 13322,
       "likes": 430,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 46,
-      "engagementRate": 3.267379273747252
+      "engagementRate": 3.235249962468098
     },
     {
       "id": "youtube:SiDpoVE-oxU",
@@ -1163,12 +1163,12 @@
       "title": "LL Cool J Took Grandma’s Car at 12—Then the Neighbors Called 😂",
       "url": "https://www.youtube.com/watch?v=SiDpoVE-oxU",
       "publishedAt": "2026-10-03T17:55:33Z",
-      "views": 55217,
-      "likes": 1553,
+      "views": 55429,
+      "likes": 1556,
       "comments": 21,
       "shares": 0,
       "durationSeconds": 32,
-      "engagementRate": 2.85057138200192
+      "engagementRate": 2.8450810947338034
     },
     {
       "id": "youtube:M0yH5hc08TQ",
@@ -1223,12 +1223,12 @@
       "title": "Tim Duncan Defends His Baggy Jeans 😂",
       "url": "https://www.youtube.com/watch?v=JIP8TrkgKLk",
       "publishedAt": "2026-10-03T15:00:11Z",
-      "views": 21973,
+      "views": 22008,
       "likes": 403,
       "comments": 4,
       "shares": 0,
       "durationSeconds": 29,
-      "engagementRate": 1.8522732444363537
+      "engagementRate": 1.8493275172664487
     },
     {
       "id": "youtube:BkH79L9W5XY",
@@ -1283,12 +1283,12 @@
       "title": "How did Steph Curry and Cameron Brink become family? Their mothers’ college friendship started a bond that grew alongside their basketball journeys. #StephCurry #CameronBrink #NBA #WNBA #LoveIsMessy",
       "url": "https://www.tiktok.com/@loveistomessy/video/7692372173406686494?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-10-03T14:00:00.000Z",
-      "views": 16489,
-      "likes": 537,
+      "views": 16600,
+      "likes": 541,
       "comments": 1,
       "shares": 16,
       "durationSeconds": 60,
-      "engagementRate": 3.3598156346655346
+      "engagementRate": 3.36144578313253
     },
     {
       "id": "youtube:vdErDETrLdQ",
@@ -1298,12 +1298,12 @@
       "title": "Denzel Thought He Was a Superstar… His Mom Put Him to Work 😂",
       "url": "https://www.youtube.com/watch?v=vdErDETrLdQ",
       "publishedAt": "2026-10-03T11:36:29Z",
-      "views": 5985,
+      "views": 5960,
       "likes": 217,
-      "comments": 4,
+      "comments": 5,
       "shares": 0,
       "durationSeconds": 51,
-      "engagementRate": 3.692564745196324
+      "engagementRate": 3.724832214765101
     },
     {
       "id": "youtube:1bmJoNRiTSo",
@@ -1313,12 +1313,12 @@
       "title": "Mandela Gave Pauletta All the Credit—Denzel Had a Reply 😂",
       "url": "https://www.youtube.com/watch?v=1bmJoNRiTSo",
       "publishedAt": "2026-10-03T11:35:42Z",
-      "views": 5070,
+      "views": 5094,
       "likes": 183,
       "comments": 3,
       "shares": 0,
       "durationSeconds": 54,
-      "engagementRate": 3.6686390532544375
+      "engagementRate": 3.651354534746761
     },
     {
       "id": "youtube:MlASeHnmWmc",
@@ -1328,12 +1328,12 @@
       "title": "Denzel Looked Beside Him… and There Was Pauletta 😂",
       "url": "https://www.youtube.com/watch?v=MlASeHnmWmc",
       "publishedAt": "2026-10-03T11:34:41Z",
-      "views": 4449,
+      "views": 4496,
       "likes": 153,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 52,
-      "engagementRate": 3.483928972802877
+      "engagementRate": 3.447508896797153
     },
     {
       "id": "instagram:18117199681998093",
@@ -1344,16 +1344,16 @@
       "url": "https://www.instagram.com/reel/DeA6byqicjd/",
       "publishedAt": "2026-10-03T01:47:32+0000",
       "views": 435,
-      "reach": 371,
+      "reach": 372,
       "likes": 5,
       "comments": 0,
       "saves": 0,
       "shares": 0,
       "totalInteractions": 6,
-      "averageWatchTimeMs": 17552,
-      "totalWatchTimeMs": 6512023,
-      "engagementRate": 1.6172506738544474,
-      "viewToReachRatio": 1.1725067385444743
+      "averageWatchTimeMs": 17577,
+      "totalWatchTimeMs": 6538765,
+      "engagementRate": 1.6129032258064515,
+      "viewToReachRatio": 1.1693548387096775
     },
     {
       "id": "instagram:18103134296376126",
@@ -1363,17 +1363,17 @@
       "title": "Russell & Nina’s First Date Had a Plot Twist 😂",
       "url": "https://www.instagram.com/reel/DeA1T0ojMEC/",
       "publishedAt": "2026-10-03T01:02:49+0000",
-      "views": 26859,
-      "reach": 18004,
-      "likes": 895,
+      "views": 26862,
+      "reach": 18010,
+      "likes": 896,
       "comments": 19,
       "saves": 50,
       "shares": 54,
-      "totalInteractions": 1034,
-      "averageWatchTimeMs": 23381,
-      "totalWatchTimeMs": 415674333,
-      "engagementRate": 5.7431681848478116,
-      "viewToReachRatio": 1.4918351477449456
+      "totalInteractions": 1035,
+      "averageWatchTimeMs": 23380,
+      "totalWatchTimeMs": 415800122,
+      "engagementRate": 5.746807329261521,
+      "viewToReachRatio": 1.491504719600222
     },
     {
       "id": "youtube:OkhHmafDlQg",
@@ -1383,12 +1383,12 @@
       "title": "Why Did Celtics Coach Evan Turner Cheer for Luka?",
       "url": "https://www.youtube.com/watch?v=OkhHmafDlQg",
       "publishedAt": "2026-10-03T01:00:37Z",
-      "views": 3837,
+      "views": 3831,
       "likes": 49,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 22,
-      "engagementRate": 1.3031013812874641
+      "engagementRate": 1.3051422605063951
     },
     {
       "id": "youtube:t6t-yjvDJNU",
@@ -1428,12 +1428,12 @@
       "title": "Why Was Jokic Dunking So Much?",
       "url": "https://www.youtube.com/watch?v=Hs3xsKAe_g8",
       "publishedAt": "2026-10-03T01:00:12Z",
-      "views": 6454,
+      "views": 6452,
       "likes": 73,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 13,
-      "engagementRate": 1.1310814998450573
+      "engagementRate": 1.1314321140731556
     },
     {
       "id": "youtube:5wrGUQHecUE",
@@ -1503,12 +1503,12 @@
       "title": "Michelle Obama’s Dinner Argument Ended With a Ring 😂",
       "url": "https://www.youtube.com/watch?v=Jc7IO2DfiAI",
       "publishedAt": "2026-10-02T15:57:02Z",
-      "views": 41409,
-      "likes": 1149,
+      "views": 41441,
+      "likes": 1150,
       "comments": 22,
       "shares": 0,
       "durationSeconds": 59,
-      "engagementRate": 2.8278876572725737
+      "engagementRate": 2.8281170821167443
     },
     {
       "id": "youtube:Ooyb_9IxIYY",
@@ -1533,12 +1533,12 @@
       "title": "Ice Cube Hid a Second Surprise in Kimberly’s Birthday BMW 💍",
       "url": "https://www.youtube.com/watch?v=5BZIEd9EQCw",
       "publishedAt": "2026-10-02T15:53:26Z",
-      "views": 1511,
+      "views": 1493,
       "likes": 59,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 58,
-      "engagementRate": 3.9708802117802784
+      "engagementRate": 4.018754186202277
     },
     {
       "id": "youtube:u4n9Le457Fg",
@@ -1623,12 +1623,12 @@
       "title": "Jalen Johnson Goes Right Over Chet #Shorts",
       "url": "https://www.youtube.com/watch?v=QaOOHhe9-Dk",
       "publishedAt": "2026-10-02T15:00:27Z",
-      "views": 2880,
+      "views": 2877,
       "likes": 36,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 9,
-      "engagementRate": 1.25
+      "engagementRate": 1.251303441084463
     },
     {
       "id": "youtube:aiwEsC5WV6c",
@@ -1638,12 +1638,12 @@
       "title": "NBA All-Time Blocks Leaders (1973–2026) | Hakeem’s Untouchable Record?",
       "url": "https://www.youtube.com/watch?v=aiwEsC5WV6c",
       "publishedAt": "2026-10-02T15:00:17Z",
-      "views": 505,
+      "views": 502,
       "likes": 1,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 484,
-      "engagementRate": 0.19801980198019803
+      "engagementRate": 0.199203187250996
     },
     {
       "id": "youtube:3YT32SglB78",
@@ -1653,12 +1653,12 @@
       "title": "Ja Morant Flies In for the Putback 😳 #Shorts",
       "url": "https://www.youtube.com/watch?v=3YT32SglB78",
       "publishedAt": "2026-10-02T15:00:04Z",
-      "views": 13688,
+      "views": 13689,
       "likes": 170,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 9,
-      "engagementRate": 1.2565751022793687
+      "engagementRate": 1.2564833077653592
     },
     {
       "id": "tiktok:7692042557798239519",
@@ -1668,12 +1668,12 @@
       "title": "John Cleese had a lot to say about Taylor Swift's cat Olivia. Then Graham Norton showed everyone John's cat—and the conversation took a turn. #TaylorSwift #JohnCleese #GrahamNorton #FunnyMoments #TheArchiveLives",
       "url": "https://www.tiktok.com/@thearchivelives/video/7692042557798239519?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-10-02T14:00:00.000Z",
-      "views": 4752,
+      "views": 4755,
       "likes": 35,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 57,
-      "engagementRate": 0.7786195286195287
+      "engagementRate": 0.7781282860147214
     },
     {
       "id": "tiktok:7689989678228917534",
@@ -1698,12 +1698,12 @@
       "title": "Viola Davis Waited a Month to Call Him 😂",
       "url": "https://www.youtube.com/watch?v=XHq0PNSKuM8",
       "publishedAt": "2026-10-02T13:00:05Z",
-      "views": 26162,
-      "likes": 836,
+      "views": 26331,
+      "likes": 841,
       "comments": 22,
       "shares": 0,
       "durationSeconds": 45,
-      "engagementRate": 3.2795657824325355
+      "engagementRate": 3.277505601762182
     },
     {
       "id": "instagram:18039590975838030",
@@ -1753,12 +1753,12 @@
       "title": "SGA Fouls But They Get Increasingly “Brutal”",
       "url": "https://www.youtube.com/watch?v=CTkMtsJKbyg",
       "publishedAt": "2026-10-02T01:00:23Z",
-      "views": 434,
+      "views": 423,
       "likes": 4,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 680,
-      "engagementRate": 1.3824884792626728
+      "engagementRate": 1.4184397163120568
     },
     {
       "id": "youtube:3GnpSK4durw",
@@ -1843,12 +1843,12 @@
       "title": "Gabrielle Union Thought Dwyane Said “I Love You” First 😂",
       "url": "https://www.youtube.com/watch?v=u48YaiO2Fuw",
       "publishedAt": "2026-10-01T22:17:39Z",
-      "views": 29166,
+      "views": 29191,
       "likes": 476,
       "comments": 4,
       "shares": 0,
       "durationSeconds": 55,
-      "engagementRate": 1.6457519029006378
+      "engagementRate": 1.6443424343119455
     },
     {
       "id": "youtube:GaSyi5zPPFk",
@@ -1858,12 +1858,12 @@
       "title": "Boris Kodjoe’s Midnight Surprise Left Nicole Speechless 😂",
       "url": "https://www.youtube.com/watch?v=GaSyi5zPPFk",
       "publishedAt": "2026-10-01T22:17:00Z",
-      "views": 9655,
+      "views": 9687,
       "likes": 367,
       "comments": 4,
       "shares": 0,
       "durationSeconds": 46,
-      "engagementRate": 3.8425686172967377
+      "engagementRate": 3.829875090327243
     },
     {
       "id": "youtube:MoqaRLIqxUo",
@@ -1888,12 +1888,12 @@
       "title": "LeBron Goes Baseline for the Reverse 😳 #Shorts",
       "url": "https://www.youtube.com/watch?v=kT_lDQJfHsE",
       "publishedAt": "2026-10-01T22:06:32Z",
-      "views": 3033,
+      "views": 3050,
       "likes": 34,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 9,
-      "engagementRate": 1.1210023079459281
+      "engagementRate": 1.1147540983606559
     },
     {
       "id": "youtube:oRYlTtqGE68",
@@ -1918,12 +1918,12 @@
       "title": "Aaron Gordon Spins Into a Poster 😳 #Shorts",
       "url": "https://www.youtube.com/watch?v=Oslmrep35RI",
       "publishedAt": "2026-10-01T22:04:59Z",
-      "views": 3089,
+      "views": 3082,
       "likes": 44,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 9,
-      "engagementRate": 1.424409193913888
+      "engagementRate": 1.427644386761843
     },
     {
       "id": "youtube:6RWMnRKAmvQ",
@@ -1948,12 +1948,12 @@
       "title": "Ja Morant Goes Right Over Aaron Gordon 😳 #Shorts",
       "url": "https://www.youtube.com/watch?v=dXDjzMcH3Ac",
       "publishedAt": "2026-10-01T22:01:01Z",
-      "views": 6514,
+      "views": 6515,
       "likes": 67,
       "comments": 0,
       "shares": 0,
       "durationSeconds": 9,
-      "engagementRate": 1.028553883942278
+      "engagementRate": 1.0283960092095166
     },
     {
       "id": "tiktok:7689931303872892191",
@@ -2033,17 +2033,17 @@
       "title": "Jalen’s Wife Thought He Played JV 😂",
       "url": "https://www.instagram.com/reel/Dd7rsQUEr-0/",
       "publishedAt": "2026-10-01T01:02:31+0000",
-      "views": 162970,
-      "reach": 97710,
-      "likes": 2245,
+      "views": 163085,
+      "reach": 97895,
+      "likes": 2248,
       "comments": 15,
-      "saves": 284,
+      "saves": 285,
       "shares": 176,
-      "totalInteractions": 2753,
-      "averageWatchTimeMs": 34907,
-      "totalWatchTimeMs": 3353787358,
-      "engagementRate": 2.817521236311534,
-      "viewToReachRatio": 1.6678947907071948
+      "totalInteractions": 2757,
+      "averageWatchTimeMs": 34908,
+      "totalWatchTimeMs": 3356601254,
+      "engagementRate": 2.816282751928086,
+      "viewToReachRatio": 1.6659175647377291
     },
     {
       "id": "tiktok:7681908261888609550",
@@ -2213,12 +2213,12 @@
       "title": "Jennifer Lawrence told her church she had a big part on Monk—before finding out she'd be inside a mascot costume. Her Conan retelling makes it even better. #JenniferLawrence #Monk #Conan #CelebrityStories #TheArchiveLives",
       "url": "https://www.tiktok.com/@thearchivelives/video/7689928944115551518?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-29T14:00:00.000Z",
-      "views": 62096,
+      "views": 62107,
       "likes": 869,
       "comments": 5,
       "shares": 104,
       "durationSeconds": 50,
-      "engagementRate": 1.5749806750837414
+      "engagementRate": 1.5747017244432993
     },
     {
       "id": "tiktok:7689985206559821087",
@@ -2318,12 +2318,12 @@
       "title": "Jennifer Lawrence tells Leonardo DiCaprio how accidentally taking Ambien became part of her story about a Catching Fire dance scene with Philip Seymour Hoffman. #JenniferLawrence #HungerGames #CatchingFire #BehindTheScenes #TheArchiveLives",
       "url": "https://www.tiktok.com/@thearchivelives/video/7689928191686806815?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-28T23:00:00.000Z",
-      "views": 11170,
-      "likes": 141,
+      "views": 11181,
+      "likes": 142,
       "comments": 1,
       "shares": 9,
       "durationSeconds": 42,
-      "engagementRate": 1.35183527305282
+      "engagementRate": 1.3594490653787676
     },
     {
       "id": "tiktok:7689984633378819359",
@@ -2333,12 +2333,12 @@
       "title": "Samuel L. Jackson and LaTanya Richardson Jackson look back on 1990 and why she stayed. #SamuelLJackson #LaTanyaRichardsonJackson #Marriage #CoupleStories #LoveIsMessy",
       "url": "https://www.tiktok.com/@loveistomessy/video/7689984633378819359?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-28T23:00:00.000Z",
-      "views": 7923,
+      "views": 7932,
       "likes": 431,
       "comments": 10,
-      "shares": 53,
+      "shares": 54,
       "durationSeconds": 58,
-      "engagementRate": 6.235011990407674
+      "engagementRate": 6.24054462934947
     },
     {
       "id": "tiktok:7689984070142512414",
@@ -2348,12 +2348,12 @@
       "title": "Who paid for the cab on Denzel and Pauletta’s first date? Pauletta says she covered the whole fare 😂 #DenzelWashington #PaulettaWashington #FirstDate #CoupleStories #LoveIsMessy",
       "url": "https://www.tiktok.com/@loveistomessy/video/7689984070142512414?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-28T14:00:00.000Z",
-      "views": 158370,
-      "likes": 7613,
+      "views": 158781,
+      "likes": 7637,
       "comments": 62,
       "shares": 417,
       "durationSeconds": 45,
-      "engagementRate": 5.109553577066364
+      "engagementRate": 5.111442804869601
     },
     {
       "id": "tiktok:7689927005357346079",
@@ -2363,12 +2363,12 @@
       "title": "Dolly Parton took Carl Dean to an awards dinner once. On the way home, he made his feelings about future appearances very clear. #DollyParton #CarlDean #CelebrityStories #CountryMusic #TheArchiveLives",
       "url": "https://www.tiktok.com/@thearchivelives/video/7689927005357346079?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-28T14:00:00.000Z",
-      "views": 98026,
-      "likes": 2215,
+      "views": 98057,
+      "likes": 2216,
       "comments": 17,
       "shares": 25,
       "durationSeconds": 42,
-      "engagementRate": 2.3024503703099177
+      "engagementRate": 2.3027422825499455
     },
     {
       "id": "instagram:17932212504144990",
@@ -2448,12 +2448,12 @@
       "title": "Cheeto dust and a white American Hustle costume were a terrible combination. Jennifer Lawrence's reaction to getting a replacement made the story even funnier. #JenniferLawrence #AmericanHustle #BehindTheScenes #MovieStories #TheArchiveLives",
       "url": "https://www.tiktok.com/@thearchivelives/video/7689926239913610527?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-27T23:00:00.000Z",
-      "views": 87771,
+      "views": 87827,
       "likes": 1849,
       "comments": 3,
       "shares": 14,
       "durationSeconds": 39,
-      "engagementRate": 2.1259869432956218
+      "engagementRate": 2.1246313775945893
     },
     {
       "id": "tiktok:7689924991286021406",
@@ -2463,12 +2463,12 @@
       "title": "Jennifer Lawrence meant “greatest of all time.” Meryl Streep heard something very different on the set of Don't Look Up. #JenniferLawrence #MerylStreep #DontLookUp #CelebrityStories #TheArchiveLives",
       "url": "https://www.tiktok.com/@thearchivelives/video/7689924991286021406?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-27T14:00:00.000Z",
-      "views": 102217,
-      "likes": 4614,
+      "views": 102363,
+      "likes": 4621,
       "comments": 9,
       "shares": 120,
       "durationSeconds": 39,
-      "engagementRate": 4.640128354383322
+      "engagementRate": 4.640348563445777
     },
     {
       "id": "tiktok:7689980239706967326",
@@ -2478,12 +2478,12 @@
       "title": "Jalen and Ali Brunson remember their first introduction a little differently 😂 She thought he played JV. #JalenBrunson #AliBrunson #NBA #CoupleStories #LoveIsMessy",
       "url": "https://www.tiktok.com/@loveistomessy/video/7689980239706967326?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-27T14:00:00.000Z",
-      "views": 8800,
+      "views": 8806,
       "likes": 119,
       "comments": 2,
       "shares": 4,
       "durationSeconds": 38,
-      "engagementRate": 1.4204545454545454
+      "engagementRate": 1.4194867136043607
     },
     {
       "id": "instagram:18140531827657118",
@@ -2568,12 +2568,12 @@
       "title": "Jennifer Lawrence danced over to say hello to Harrison Ford and J.J. Abrams… then realized they had no idea who she was. #JenniferLawrence #HarrisonFord #JJAbrams #CelebrityStories #TheArchiveLives",
       "url": "https://www.tiktok.com/@thearchivelives/video/7689924260529229086?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-26T23:00:00.000Z",
-      "views": 6757,
+      "views": 6763,
       "likes": 74,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 36,
-      "engagementRate": 1.1099600414385082
+      "engagementRate": 1.1089753068165016
     },
     {
       "id": "tiktok:7689923188830014750",
@@ -2598,12 +2598,12 @@
       "title": "Can Bronny call LeBron “Dad” on the court? 😂🏀 LeBron has a rule for work—and a few other names Bronny can use. #BronnyJames #LeBronJames #NBA #Lakers #CourtSignal",
       "url": "https://www.tiktok.com/@loveistomessy/video/7689764128948342046?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-26T08:53:24.000Z",
-      "views": 912,
+      "views": 913,
       "likes": 24,
       "comments": 2,
       "shares": 0,
       "durationSeconds": 24,
-      "engagementRate": 2.850877192982456
+      "engagementRate": 2.8477546549835706
     },
     {
       "id": "tiktok:7689763447248031006",
@@ -2678,12 +2678,12 @@
       "title": "Why did Serena Williams try to send her future husband away #nba #couple #lovestory❤️ #relationships #relationshipgoals #serenawilliams",
       "url": "https://www.tiktok.com/@loveistomessy/video/7687655341533809950?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-25T16:45:00.000Z",
-      "views": 2499,
-      "likes": 155,
+      "views": 2500,
+      "likes": 156,
       "comments": 8,
       "shares": 18,
       "durationSeconds": 178,
-      "engagementRate": 7.242897158863546
+      "engagementRate": 7.28
     },
     {
       "id": "tiktok:7689438259377605919",
@@ -2828,12 +2828,12 @@
       "title": "Jennifer Lawrence's Oscar Night Meltdown 😂#nba #couple #lovestory❤️ #relationships #relationshipgoals #jenniferlawrence",
       "url": "https://www.tiktok.com/@thearchivelives/video/7687656587325984031?utm_campaign=tt4d_open_api&utm_source=sbawuf7z4xsf4ic0jc",
       "publishedAt": "2026-09-24T16:50:00.000Z",
-      "views": 6038,
+      "views": 6041,
       "likes": 100,
       "comments": 1,
       "shares": 0,
       "durationSeconds": 29,
-      "engagementRate": 1.6727393176548526
+      "engagementRate": 1.671908624399934
     },
     {
       "id": "tiktok:7689117489371893023",
@@ -3063,17 +3063,17 @@
       "title": "Why did Serena Williams try to send her future husband away?",
       "url": "https://www.instagram.com/reel/DdkhzgDAQF3/",
       "publishedAt": "2026-09-22T01:14:14+0000",
-      "views": 107214,
-      "reach": 81219,
-      "likes": 3095,
+      "views": 107233,
+      "reach": 81239,
+      "likes": 3096,
       "comments": 30,
       "saves": 183,
       "shares": 284,
-      "totalInteractions": 3661,
-      "averageWatchTimeMs": 83529,
-      "totalWatchTimeMs": 6731885683,
-      "engagementRate": 4.5075659636292,
-      "viewToReachRatio": 1.3200605769585934
+      "totalInteractions": 3662,
+      "averageWatchTimeMs": 83527,
+      "totalWatchTimeMs": 6733571937,
+      "engagementRate": 4.507687194574035,
+      "viewToReachRatio": 1.3199694727901623
     },
     {
       "id": "tiktok:7681906857199340813",
@@ -3178,17 +3178,17 @@
       "title": "Samuel L. Jackson’s Wife Remembers the Proposal Differently 😂",
       "url": "https://www.instagram.com/reel/DdfXCOEDHt7/",
       "publishedAt": "2026-09-20T01:03:15+0000",
-      "views": 3856850,
-      "reach": 2545953,
-      "likes": 238282,
-      "comments": 1855,
-      "saves": 17102,
+      "views": 3857240,
+      "reach": 2546191,
+      "likes": 238326,
+      "comments": 1856,
+      "saves": 17104,
       "shares": 21779,
-      "totalInteractions": 284473,
+      "totalInteractions": 284520,
       "averageWatchTimeMs": 42813,
-      "totalWatchTimeMs": 107412763881,
-      "engagementRate": 11.173536982025983,
-      "viewToReachRatio": 1.5148944226385954
+      "totalWatchTimeMs": 107421223102,
+      "engagementRate": 11.174338453006865,
+      "viewToReachRatio": 1.514905990948833
     },
     {
       "id": "instagram:18128525993505646",
@@ -3238,17 +3238,17 @@
       "title": "Ayesha Curry Gave Steph Candy… Then Walked Away",
       "url": "https://www.instagram.com/reel/DdcybVRAc0H/",
       "publishedAt": "2026-09-19T01:05:15+0000",
-      "views": 25733,
+      "views": 25734,
       "reach": 16915,
       "likes": 802,
       "comments": 6,
       "saves": 33,
       "shares": 54,
       "totalInteractions": 909,
-      "averageWatchTimeMs": 54315,
-      "totalWatchTimeMs": 911794393,
+      "averageWatchTimeMs": 54314,
+      "totalWatchTimeMs": 911879120,
       "engagementRate": 5.373928465858705,
-      "viewToReachRatio": 1.5213124445758204
+      "viewToReachRatio": 1.5213715637008571
     },
     {
       "id": "instagram:18139055527612344",
@@ -3278,17 +3278,17 @@
       "title": "The Last Titanic Survivor Couldn't Remember It",
       "url": "https://www.instagram.com/reel/DdXtwBwFem2/",
       "publishedAt": "2026-09-17T01:48:10+0000",
-      "views": 120400,
-      "reach": 95471,
-      "likes": 4903,
+      "views": 120434,
+      "reach": 95683,
+      "likes": 4906,
       "comments": 21,
-      "saves": 654,
+      "saves": 656,
       "shares": 479,
-      "totalInteractions": 6193,
-      "averageWatchTimeMs": 20352,
-      "totalWatchTimeMs": 1966020191,
-      "engagementRate": 6.486786563459061,
-      "viewToReachRatio": 1.2611159409663668
+      "totalInteractions": 6199,
+      "averageWatchTimeMs": 20350,
+      "totalWatchTimeMs": 1966733307,
+      "engagementRate": 6.478684823845406,
+      "viewToReachRatio": 1.2586770899741855
     },
     {
       "id": "instagram:18115432304078947",
@@ -3318,17 +3318,17 @@
       "title": "Jalen Brunson’s Wife Wore Her 2015 Prom Dress at Their Wedding",
       "url": "https://www.instagram.com/reel/DdXpgXMDqlL/",
       "publishedAt": "2026-09-17T01:11:21+0000",
-      "views": 255841,
+      "views": 255881,
       "reach": 186346,
-      "likes": 10909,
+      "likes": 10911,
       "comments": 162,
-      "saves": 588,
+      "saves": 589,
       "shares": 1235,
-      "totalInteractions": 13082,
-      "averageWatchTimeMs": 78846,
-      "totalWatchTimeMs": 15020191751,
-      "engagementRate": 7.020274113745398,
-      "viewToReachRatio": 1.372935292413038
+      "totalInteractions": 13085,
+      "averageWatchTimeMs": 78851,
+      "totalWatchTimeMs": 15023530737,
+      "engagementRate": 7.021884022195271,
+      "viewToReachRatio": 1.373149946873021
     },
     {
       "id": "instagram:18115964719999751",
@@ -3338,17 +3338,17 @@
       "title": "He Was Born in 1810. There Is Film of Him.",
       "url": "https://www.instagram.com/reel/DdVIx-yiR7j/",
       "publishedAt": "2026-09-16T01:46:19+0000",
-      "views": 10370,
+      "views": 10371,
       "reach": 7882,
       "likes": 222,
       "comments": 2,
       "saves": 44,
       "shares": 18,
       "totalInteractions": 288,
-      "averageWatchTimeMs": 10986,
-      "totalWatchTimeMs": 87811103,
+      "averageWatchTimeMs": 10984,
+      "totalWatchTimeMs": 87812473,
       "engagementRate": 3.653894950520173,
-      "viewToReachRatio": 1.3156559248921593
+      "viewToReachRatio": 1.315782796244608
     },
     {
       "id": "instagram:18115806763979702",
@@ -3419,7 +3419,7 @@
       "url": "https://www.instagram.com/reel/DdSfk-3nVG4/",
       "publishedAt": "2026-09-15T01:08:06+0000",
       "views": 37434,
-      "reach": 25250,
+      "reach": 25251,
       "likes": 1528,
       "comments": 27,
       "saves": 51,
@@ -3427,8 +3427,8 @@
       "totalInteractions": 1707,
       "averageWatchTimeMs": 62592,
       "totalWatchTimeMs": 1572392901,
-      "engagementRate": 6.760396039603961,
-      "viewToReachRatio": 1.4825346534653465
+      "engagementRate": 6.76012831175003,
+      "viewToReachRatio": 1.4824759415468693
     },
     {
       "id": "instagram:18105345758266193",
@@ -3438,17 +3438,17 @@
       "title": "Taylor Swift & Travis Kelce: Their Love Story in Their Own Words",
       "url": "https://www.instagram.com/reel/DdP_4WFgPjS/",
       "publishedAt": "2026-09-14T01:52:42+0000",
-      "views": 280004,
+      "views": 280040,
       "reach": 216191,
-      "likes": 12839,
+      "likes": 12841,
       "comments": 67,
       "saves": 892,
       "shares": 479,
-      "totalInteractions": 14441,
-      "averageWatchTimeMs": 54479,
-      "totalWatchTimeMs": 11930389426,
-      "engagementRate": 6.679741524855336,
-      "viewToReachRatio": 1.2951695491486694
+      "totalInteractions": 14443,
+      "averageWatchTimeMs": 54478,
+      "totalWatchTimeMs": 11931669395,
+      "engagementRate": 6.6806666327460436,
+      "viewToReachRatio": 1.295336068568997
     },
     {
       "id": "instagram:18113544338095842",
@@ -3558,17 +3558,17 @@
       "title": "Do You Know the Story of Dave Chappelle’s Wife?",
       "url": "https://www.instagram.com/reel/DdIMsidjww1/",
       "publishedAt": "2026-09-11T01:11:20+0000",
-      "views": 599599,
+      "views": 599652,
       "reach": 455428,
-      "likes": 29611,
+      "likes": 29613,
       "comments": 356,
       "saves": 2128,
       "shares": 4617,
-      "totalInteractions": 37546,
-      "averageWatchTimeMs": 90408,
-      "totalWatchTimeMs": 41276765759,
-      "engagementRate": 8.244113229753111,
-      "viewToReachRatio": 1.316561564067207
+      "totalInteractions": 37548,
+      "averageWatchTimeMs": 90405,
+      "totalWatchTimeMs": 41278750215,
+      "engagementRate": 8.244552377104613,
+      "viewToReachRatio": 1.3166779381153553
     },
     {
       "id": "instagram:18391538827200525",
@@ -3732,180 +3732,6 @@
     }
   ],
   "snapshots": [
-    {
-      "channelId": 1,
-      "platform": "youtube",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 43299,
-      "audience": 134,
-      "videos": 31,
-      "likes": 1007,
-      "engagementRate": 2.997759763504931
-    },
-    {
-      "channelId": 1,
-      "platform": "tiktok",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 5701,
-      "audience": 14,
-      "videos": 17,
-      "likes": 318,
-      "engagementRate": 6.823364322048764
-    },
-    {
-      "channelId": 2,
-      "platform": "youtube",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 15997,
-      "audience": 41,
-      "videos": 0,
-      "likes": 0,
-      "engagementRate": 0
-    },
-    {
-      "channelId": 2,
-      "platform": "tiktok",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 464,
-      "audience": 9,
-      "videos": 28,
-      "likes": 100,
-      "engagementRate": 21.982758620689655
-    },
-    {
-      "channelId": 2,
-      "platform": "instagram",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 1610,
-      "audience": null,
-      "videos": 16,
-      "likes": 21,
-      "reach": 1398,
-      "engagementRate": 1.9313304721030045
-    },
-    {
-      "channelId": 3,
-      "platform": "youtube",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 136249,
-      "audience": 184,
-      "videos": 18,
-      "likes": 3008,
-      "engagementRate": 2.31267752423871
-    },
-    {
-      "channelId": 3,
-      "platform": "tiktok",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 37295,
-      "audience": 433,
-      "videos": 22,
-      "likes": 4779,
-      "engagementRate": 4.518031907762435
-    },
-    {
-      "channelId": 3,
-      "platform": "instagram",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 13244,
-      "audience": null,
-      "videos": 14,
-      "likes": 340,
-      "reach": 10750,
-      "engagementRate": 3.8976744186046512
-    },
-    {
-      "channelId": 4,
-      "platform": "youtube",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 62898,
-      "audience": 65,
-      "videos": 22,
-      "likes": 912,
-      "engagementRate": 1.6264428121720882
-    },
-    {
-      "channelId": 4,
-      "platform": "tiktok",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 17333,
-      "audience": 32,
-      "videos": 16,
-      "likes": 355,
-      "engagementRate": 2.503894305659724
-    },
-    {
-      "channelId": 4,
-      "platform": "instagram",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 2623,
-      "audience": null,
-      "videos": 10,
-      "likes": 64,
-      "reach": 1993,
-      "engagementRate": 4.917210235825388
-    },
-    {
-      "channelId": 5,
-      "platform": "youtube",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 588644,
-      "audience": 1590,
-      "videos": 15,
-      "likes": 33390,
-      "engagementRate": 5.868912279748031
-    },
-    {
-      "channelId": 5,
-      "platform": "tiktok",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 247,
-      "audience": 7,
-      "videos": 2,
-      "likes": 18,
-      "engagementRate": 8.906882591093117
-    },
-    {
-      "channelId": 5,
-      "platform": "instagram",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 94734,
-      "audience": null,
-      "videos": 15,
-      "likes": 2401,
-      "reach": 67290,
-      "engagementRate": 7.92242532322782
-    },
-    {
-      "channelId": 6,
-      "platform": "youtube",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 6703,
-      "audience": 49,
-      "videos": 19,
-      "likes": 496,
-      "engagementRate": 8.623004624794868
-    },
-    {
-      "channelId": 7,
-      "platform": "youtube",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 1024,
-      "audience": 5,
-      "videos": 5,
-      "likes": 24,
-      "engagementRate": 2.5390625
-    },
-    {
-      "channelId": 8,
-      "platform": "youtube",
-      "capturedAt": "2026-09-03T23:00:17.340Z",
-      "views": 21962,
-      "audience": 33,
-      "videos": 14,
-      "likes": 536,
-      "engagementRate": 2.7911847737000275
-    },
     {
       "channelId": 1,
       "platform": "youtube",
@@ -521139,6 +520965,159 @@
       "videos": 227,
       "likes": 4489,
       "engagementRate": 1.7567792767479624
+    },
+    {
+      "channelId": 1,
+      "platform": "youtube",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 52427,
+      "audience": 143,
+      "videos": 48,
+      "likes": 474,
+      "engagementRate": 2.132306667160256
+    },
+    {
+      "channelId": 1,
+      "platform": "tiktok",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 3907,
+      "audience": 15,
+      "videos": 48,
+      "likes": 383,
+      "engagementRate": 0.9214230867673407
+    },
+    {
+      "channelId": 2,
+      "platform": "youtube",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 40421,
+      "audience": 47,
+      "videos": 27,
+      "likes": 585,
+      "engagementRate": 1.526434279211301
+    },
+    {
+      "channelId": 2,
+      "platform": "tiktok",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 468,
+      "audience": 9,
+      "videos": 28,
+      "likes": 99,
+      "engagementRate": 21.794871794871796
+    },
+    {
+      "channelId": 2,
+      "platform": "instagram",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 4705,
+      "audience": null,
+      "videos": 41,
+      "likes": 64,
+      "reach": 3765,
+      "engagementRate": 1.9654714475431607
+    },
+    {
+      "channelId": 3,
+      "platform": "tiktok",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 385160,
+      "audience": 526,
+      "videos": 57,
+      "likes": 22817,
+      "engagementRate": 2.7069269913802056
+    },
+    {
+      "channelId": 3,
+      "platform": "instagram",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 471561,
+      "audience": null,
+      "videos": 33,
+      "likes": 19911,
+      "reach": 363507,
+      "engagementRate": 6.39409970096862
+    },
+    {
+      "channelId": 4,
+      "platform": "youtube",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 142085,
+      "audience": 101,
+      "videos": 37,
+      "likes": 1856,
+      "engagementRate": 1.5253083860672856
+    },
+    {
+      "channelId": 4,
+      "platform": "tiktok",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 201044,
+      "audience": 2718,
+      "videos": 27,
+      "likes": 95272,
+      "engagementRate": 4.8133741867451905
+    },
+    {
+      "channelId": 5,
+      "platform": "youtube",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 6072333,
+      "audience": 5780,
+      "videos": 76,
+      "likes": 14109,
+      "engagementRate": 2.938514685423259
+    },
+    {
+      "channelId": 5,
+      "platform": "tiktok",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 249,
+      "audience": 7,
+      "videos": 2,
+      "likes": 18,
+      "engagementRate": 8.835341365461847
+    },
+    {
+      "channelId": 5,
+      "platform": "instagram",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 5341585,
+      "audience": null,
+      "videos": 35,
+      "likes": 295559,
+      "reach": 3617467,
+      "engagementRate": 9.91832130051221
+    },
+    {
+      "channelId": 6,
+      "platform": "youtube",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 15114,
+      "audience": 58,
+      "videos": 30,
+      "likes": 748,
+      "engagementRate": 5.5114463411406645
+    },
+    {
+      "channelId": 7,
+      "platform": "youtube",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 1037,
+      "audience": 5,
+      "videos": 5,
+      "likes": 24,
+      "engagementRate": 2.507232401157184
+    },
+    {
+      "channelId": 8,
+      "platform": "youtube",
+      "capturedAt": "2026-10-04T23:15:12.130Z",
+      "views": 1601188,
+      "audience": 747,
+      "videos": 227,
+      "likes": 4491,
+      "engagementRate": 1.7568190534483628
     }
   ],
   "trend": [
@@ -521237,8 +521216,8 @@
       "date": "2026-10-04",
       "label": "Oct 4",
       "youtube": 8735568,
-      "tiktok": 589807,
-      "instagram": 5817115
+      "tiktok": 590828,
+      "instagram": 5817851
     }
   ],
   "connections": {
@@ -521254,7 +521233,7 @@
       "court-signal": null
     },
     "instagramFeed": true,
-    "connectedSources": 16,
+    "connectedSources": 15,
     "totalSources": 17
   },
   "refresh": {
@@ -521266,7 +521245,6 @@
       "Anime Countdown Vault · YouTube Analytics",
       "Anime Countdown Vault · TikTok (direct)",
       "Anime Countdown Vault Â· Instagram",
-      "Kids History · YouTube",
       "Kids History · YouTube Analytics",
       "Kids History · TikTok (direct)",
       "Kids History Â· Instagram",
@@ -521291,12 +521269,13 @@
     ],
     "warnings": [],
     "errors": [
+      "Kids History · YouTube: Internal error encountered.",
       "Sylva's Mysteries Â· Instagram: 503 Service Unavailable"
     ]
   },
   "instagram": {
     "version": 1,
-    "generatedAt": "2026-10-04T23:00:40+00:00",
+    "generatedAt": "2026-10-04T23:15:49+00:00",
     "source": "Instagram Graph API",
     "stale": false,
     "account": {
@@ -521308,18 +521287,18 @@
       "connected": true
     },
     "totals": {
-      "views": 471490,
-      "reach": 363294,
-      "likes": 19906,
+      "views": 471561,
+      "reach": 363507,
+      "likes": 19911,
       "comments": 102,
-      "saves": 1739,
+      "saves": 1741,
       "shares": 1131,
-      "totalInteractions": 23235,
-      "totalWatchTimeMs": 15423849780,
+      "totalInteractions": 23243,
+      "totalWatchTimeMs": 15425870977,
       "reels": 33,
-      "averageWatchTimeMs": 32713,
-      "engagementRate": 6.395646501180861,
-      "viewToReachRatio": 1.29781939696224
+      "averageWatchTimeMs": 32712,
+      "engagementRate": 6.39409970096862,
+      "viewToReachRatio": 1.2972542481987968
     },
     "reels": [
       {
@@ -521328,16 +521307,16 @@
         "url": "https://www.instagram.com/reel/DeA6byqicjd/",
         "publishedAt": "2026-10-03T01:47:32+0000",
         "views": 435,
-        "reach": 371,
+        "reach": 372,
         "likes": 5,
         "comments": 0,
         "saves": 0,
         "shares": 0,
         "totalInteractions": 6,
-        "averageWatchTimeMs": 17552,
-        "totalWatchTimeMs": 6512023,
-        "engagementRate": 1.6172506738544474,
-        "viewToReachRatio": 1.1725067385444743
+        "averageWatchTimeMs": 17577,
+        "totalWatchTimeMs": 6538765,
+        "engagementRate": 1.6129032258064515,
+        "viewToReachRatio": 1.1693548387096775
       },
       {
         "id": "17908739031559043",
@@ -521497,34 +521476,34 @@
         "title": "The Last Titanic Survivor Couldn't Remember It",
         "url": "https://www.instagram.com/reel/DdXtwBwFem2/",
         "publishedAt": "2026-09-17T01:48:10+0000",
-        "views": 120400,
-        "reach": 95471,
-        "likes": 4903,
+        "views": 120434,
+        "reach": 95683,
+        "likes": 4906,
         "comments": 21,
-        "saves": 654,
+        "saves": 656,
         "shares": 479,
-        "totalInteractions": 6193,
-        "averageWatchTimeMs": 20352,
-        "totalWatchTimeMs": 1966020191,
-        "engagementRate": 6.486786563459061,
-        "viewToReachRatio": 1.2611159409663668
+        "totalInteractions": 6199,
+        "averageWatchTimeMs": 20350,
+        "totalWatchTimeMs": 1966733307,
+        "engagementRate": 6.478684823845406,
+        "viewToReachRatio": 1.2586770899741855
       },
       {
         "id": "18115964719999751",
         "title": "He Was Born in 1810. There Is Film of Him.",
         "url": "https://www.instagram.com/reel/DdVIx-yiR7j/",
         "publishedAt": "2026-09-16T01:46:19+0000",
-        "views": 10370,
+        "views": 10371,
         "reach": 7882,
         "likes": 222,
         "comments": 2,
         "saves": 44,
         "shares": 18,
         "totalInteractions": 288,
-        "averageWatchTimeMs": 10986,
-        "totalWatchTimeMs": 87811103,
+        "averageWatchTimeMs": 10984,
+        "totalWatchTimeMs": 87812473,
         "engagementRate": 3.653894950520173,
-        "viewToReachRatio": 1.3156559248921593
+        "viewToReachRatio": 1.315782796244608
       },
       {
         "id": "17978964018065352",
@@ -521548,17 +521527,17 @@
         "title": "Taylor Swift & Travis Kelce: Their Love Story in Their Own Words",
         "url": "https://www.instagram.com/reel/DdP_4WFgPjS/",
         "publishedAt": "2026-09-14T01:52:42+0000",
-        "views": 280004,
+        "views": 280040,
         "reach": 216191,
-        "likes": 12839,
+        "likes": 12841,
         "comments": 67,
         "saves": 892,
         "shares": 479,
-        "totalInteractions": 14441,
-        "averageWatchTimeMs": 54479,
-        "totalWatchTimeMs": 11930389426,
-        "engagementRate": 6.679741524855336,
-        "viewToReachRatio": 1.2951695491486694
+        "totalInteractions": 14443,
+        "averageWatchTimeMs": 54478,
+        "totalWatchTimeMs": 11931669395,
+        "engagementRate": 6.6806666327460436,
+        "viewToReachRatio": 1.295336068568997
       },
       {
         "id": "18129122392779866",
@@ -521891,7 +521870,7 @@
   "instagramFeeds": [
     {
       "version": 1,
-      "generatedAt": "2026-10-04T23:00:29+00:00",
+      "generatedAt": "2026-10-04T23:15:33+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -522621,7 +522600,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-10-04T23:00:40+00:00",
+      "generatedAt": "2026-10-04T23:15:49+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -522633,18 +522612,18 @@
         "connected": true
       },
       "totals": {
-        "views": 471490,
-        "reach": 363294,
-        "likes": 19906,
+        "views": 471561,
+        "reach": 363507,
+        "likes": 19911,
         "comments": 102,
-        "saves": 1739,
+        "saves": 1741,
         "shares": 1131,
-        "totalInteractions": 23235,
-        "totalWatchTimeMs": 15423849780,
+        "totalInteractions": 23243,
+        "totalWatchTimeMs": 15425870977,
         "reels": 33,
-        "averageWatchTimeMs": 32713,
-        "engagementRate": 6.395646501180861,
-        "viewToReachRatio": 1.29781939696224
+        "averageWatchTimeMs": 32712,
+        "engagementRate": 6.39409970096862,
+        "viewToReachRatio": 1.2972542481987968
       },
       "reels": [
         {
@@ -522653,16 +522632,16 @@
           "url": "https://www.instagram.com/reel/DeA6byqicjd/",
           "publishedAt": "2026-10-03T01:47:32+0000",
           "views": 435,
-          "reach": 371,
+          "reach": 372,
           "likes": 5,
           "comments": 0,
           "saves": 0,
           "shares": 0,
           "totalInteractions": 6,
-          "averageWatchTimeMs": 17552,
-          "totalWatchTimeMs": 6512023,
-          "engagementRate": 1.6172506738544474,
-          "viewToReachRatio": 1.1725067385444743
+          "averageWatchTimeMs": 17577,
+          "totalWatchTimeMs": 6538765,
+          "engagementRate": 1.6129032258064515,
+          "viewToReachRatio": 1.1693548387096775
         },
         {
           "id": "17908739031559043",
@@ -522822,34 +522801,34 @@
           "title": "The Last Titanic Survivor Couldn't Remember It",
           "url": "https://www.instagram.com/reel/DdXtwBwFem2/",
           "publishedAt": "2026-09-17T01:48:10+0000",
-          "views": 120400,
-          "reach": 95471,
-          "likes": 4903,
+          "views": 120434,
+          "reach": 95683,
+          "likes": 4906,
           "comments": 21,
-          "saves": 654,
+          "saves": 656,
           "shares": 479,
-          "totalInteractions": 6193,
-          "averageWatchTimeMs": 20352,
-          "totalWatchTimeMs": 1966020191,
-          "engagementRate": 6.486786563459061,
-          "viewToReachRatio": 1.2611159409663668
+          "totalInteractions": 6199,
+          "averageWatchTimeMs": 20350,
+          "totalWatchTimeMs": 1966733307,
+          "engagementRate": 6.478684823845406,
+          "viewToReachRatio": 1.2586770899741855
         },
         {
           "id": "18115964719999751",
           "title": "He Was Born in 1810. There Is Film of Him.",
           "url": "https://www.instagram.com/reel/DdVIx-yiR7j/",
           "publishedAt": "2026-09-16T01:46:19+0000",
-          "views": 10370,
+          "views": 10371,
           "reach": 7882,
           "likes": 222,
           "comments": 2,
           "saves": 44,
           "shares": 18,
           "totalInteractions": 288,
-          "averageWatchTimeMs": 10986,
-          "totalWatchTimeMs": 87811103,
+          "averageWatchTimeMs": 10984,
+          "totalWatchTimeMs": 87812473,
           "engagementRate": 3.653894950520173,
-          "viewToReachRatio": 1.3156559248921593
+          "viewToReachRatio": 1.315782796244608
         },
         {
           "id": "17978964018065352",
@@ -522873,17 +522852,17 @@
           "title": "Taylor Swift & Travis Kelce: Their Love Story in Their Own Words",
           "url": "https://www.instagram.com/reel/DdP_4WFgPjS/",
           "publishedAt": "2026-09-14T01:52:42+0000",
-          "views": 280004,
+          "views": 280040,
           "reach": 216191,
-          "likes": 12839,
+          "likes": 12841,
           "comments": 67,
           "saves": 892,
           "shares": 479,
-          "totalInteractions": 14441,
-          "averageWatchTimeMs": 54479,
-          "totalWatchTimeMs": 11930389426,
-          "engagementRate": 6.679741524855336,
-          "viewToReachRatio": 1.2951695491486694
+          "totalInteractions": 14443,
+          "averageWatchTimeMs": 54478,
+          "totalWatchTimeMs": 11931669395,
+          "engagementRate": 6.6806666327460436,
+          "viewToReachRatio": 1.295336068568997
         },
         {
           "id": "18129122392779866",
@@ -523419,7 +523398,7 @@
     },
     {
       "version": 1,
-      "generatedAt": "2026-10-04T23:00:56+00:00",
+      "generatedAt": "2026-10-04T23:16:07+00:00",
       "source": "Instagram Graph API",
       "stale": false,
       "account": {
@@ -523431,18 +523410,18 @@
         "connected": true
       },
       "totals": {
-        "views": 5340920,
-        "reach": 3616962,
-        "likes": 295505,
-        "comments": 2782,
-        "saves": 21566,
+        "views": 5341585,
+        "reach": 3617467,
+        "likes": 295559,
+        "comments": 2783,
+        "saves": 21570,
         "shares": 32020,
-        "totalInteractions": 358733,
-        "totalWatchTimeMs": 186970405018,
+        "totalInteractions": 358792,
+        "totalWatchTimeMs": 186990333099,
         "reels": 35,
         "averageWatchTimeMs": 35007,
-        "engagementRate": 9.918074892686182,
-        "viewToReachRatio": 1.4766314935020053
+        "engagementRate": 9.91832130051221,
+        "viewToReachRatio": 1.4766091853775032
       },
       "reels": [
         {
@@ -523450,34 +523429,34 @@
           "title": "Why Curry Expected the Knicks to Draft Him",
           "url": "https://www.instagram.com/reel/DeDaCW4gLOl/",
           "publishedAt": "2026-10-04T01:02:10+0000",
-          "views": 11156,
-          "reach": 7351,
-          "likes": 245,
+          "views": 11190,
+          "reach": 7405,
+          "likes": 246,
           "comments": 0,
           "saves": 14,
           "shares": 5,
-          "totalInteractions": 271,
-          "averageWatchTimeMs": 14350,
-          "totalWatchTimeMs": 104288014,
-          "engagementRate": 3.6865732553394093,
-          "viewToReachRatio": 1.51761665079581
+          "totalInteractions": 272,
+          "averageWatchTimeMs": 14342,
+          "totalWatchTimeMs": 105503310,
+          "engagementRate": 3.673193787981094,
+          "viewToReachRatio": 1.5111411208642809
         },
         {
           "id": "18103134296376126",
           "title": "Russell & Nina’s First Date Had a Plot Twist 😂",
           "url": "https://www.instagram.com/reel/DeA1T0ojMEC/",
           "publishedAt": "2026-10-03T01:02:49+0000",
-          "views": 26859,
-          "reach": 18004,
-          "likes": 895,
+          "views": 26862,
+          "reach": 18010,
+          "likes": 896,
           "comments": 19,
           "saves": 50,
           "shares": 54,
-          "totalInteractions": 1034,
-          "averageWatchTimeMs": 23381,
-          "totalWatchTimeMs": 415674333,
-          "engagementRate": 5.7431681848478116,
-          "viewToReachRatio": 1.4918351477449456
+          "totalInteractions": 1035,
+          "averageWatchTimeMs": 23380,
+          "totalWatchTimeMs": 415800122,
+          "engagementRate": 5.746807329261521,
+          "viewToReachRatio": 1.491504719600222
         },
         {
           "id": "17998256571035637",
@@ -523501,17 +523480,17 @@
           "title": "Jalen’s Wife Thought He Played JV 😂",
           "url": "https://www.instagram.com/reel/Dd7rsQUEr-0/",
           "publishedAt": "2026-10-01T01:02:31+0000",
-          "views": 162970,
-          "reach": 97710,
-          "likes": 2245,
+          "views": 163085,
+          "reach": 97895,
+          "likes": 2248,
           "comments": 15,
-          "saves": 284,
+          "saves": 285,
           "shares": 176,
-          "totalInteractions": 2753,
-          "averageWatchTimeMs": 34907,
-          "totalWatchTimeMs": 3353787358,
-          "engagementRate": 2.817521236311534,
-          "viewToReachRatio": 1.6678947907071948
+          "totalInteractions": 2757,
+          "averageWatchTimeMs": 34908,
+          "totalWatchTimeMs": 3356601254,
+          "engagementRate": 2.816282751928086,
+          "viewToReachRatio": 1.6659175647377291
         },
         {
           "id": "18125435740852818",
@@ -523603,17 +523582,17 @@
           "title": "Why did Serena Williams try to send her future husband away?",
           "url": "https://www.instagram.com/reel/DdkhzgDAQF3/",
           "publishedAt": "2026-09-22T01:14:14+0000",
-          "views": 107214,
-          "reach": 81219,
-          "likes": 3095,
+          "views": 107233,
+          "reach": 81239,
+          "likes": 3096,
           "comments": 30,
           "saves": 183,
           "shares": 284,
-          "totalInteractions": 3661,
-          "averageWatchTimeMs": 83529,
-          "totalWatchTimeMs": 6731885683,
-          "engagementRate": 4.5075659636292,
-          "viewToReachRatio": 1.3200605769585934
+          "totalInteractions": 3662,
+          "averageWatchTimeMs": 83527,
+          "totalWatchTimeMs": 6733571937,
+          "engagementRate": 4.507687194574035,
+          "viewToReachRatio": 1.3199694727901623
         },
         {
           "id": "18122559872511258",
@@ -523637,51 +523616,51 @@
           "title": "Samuel L. Jackson’s Wife Remembers the Proposal Differently 😂",
           "url": "https://www.instagram.com/reel/DdfXCOEDHt7/",
           "publishedAt": "2026-09-20T01:03:15+0000",
-          "views": 3856850,
-          "reach": 2545953,
-          "likes": 238282,
-          "comments": 1855,
-          "saves": 17102,
+          "views": 3857240,
+          "reach": 2546191,
+          "likes": 238326,
+          "comments": 1856,
+          "saves": 17104,
           "shares": 21779,
-          "totalInteractions": 284473,
+          "totalInteractions": 284520,
           "averageWatchTimeMs": 42813,
-          "totalWatchTimeMs": 107412763881,
-          "engagementRate": 11.173536982025983,
-          "viewToReachRatio": 1.5148944226385954
+          "totalWatchTimeMs": 107421223102,
+          "engagementRate": 11.174338453006865,
+          "viewToReachRatio": 1.514905990948833
         },
         {
           "id": "17982970866087799",
           "title": "Ayesha Curry Gave Steph Candy… Then Walked Away",
           "url": "https://www.instagram.com/reel/DdcybVRAc0H/",
           "publishedAt": "2026-09-19T01:05:15+0000",
-          "views": 25733,
+          "views": 25734,
           "reach": 16915,
           "likes": 802,
           "comments": 6,
           "saves": 33,
           "shares": 54,
           "totalInteractions": 909,
-          "averageWatchTimeMs": 54315,
-          "totalWatchTimeMs": 911794393,
+          "averageWatchTimeMs": 54314,
+          "totalWatchTimeMs": 911879120,
           "engagementRate": 5.373928465858705,
-          "viewToReachRatio": 1.5213124445758204
+          "viewToReachRatio": 1.5213715637008571
         },
         {
           "id": "18189299083409766",
           "title": "Jalen Brunson’s Wife Wore Her 2015 Prom Dress at Their Wedding",
           "url": "https://www.instagram.com/reel/DdXpgXMDqlL/",
           "publishedAt": "2026-09-17T01:11:21+0000",
-          "views": 255841,
+          "views": 255881,
           "reach": 186346,
-          "likes": 10909,
+          "likes": 10911,
           "comments": 162,
-          "saves": 588,
+          "saves": 589,
           "shares": 1235,
-          "totalInteractions": 13082,
-          "averageWatchTimeMs": 78846,
-          "totalWatchTimeMs": 15020191751,
-          "engagementRate": 7.020274113745398,
-          "viewToReachRatio": 1.372935292413038
+          "totalInteractions": 13085,
+          "averageWatchTimeMs": 78851,
+          "totalWatchTimeMs": 15023530737,
+          "engagementRate": 7.021884022195271,
+          "viewToReachRatio": 1.373149946873021
         },
         {
           "id": "17956813560211303",
@@ -523689,7 +523668,7 @@
           "url": "https://www.instagram.com/reel/DdSfk-3nVG4/",
           "publishedAt": "2026-09-15T01:08:06+0000",
           "views": 37434,
-          "reach": 25250,
+          "reach": 25251,
           "likes": 1528,
           "comments": 27,
           "saves": 51,
@@ -523697,8 +523676,8 @@
           "totalInteractions": 1707,
           "averageWatchTimeMs": 62592,
           "totalWatchTimeMs": 1572392901,
-          "engagementRate": 6.760396039603961,
-          "viewToReachRatio": 1.4825346534653465
+          "engagementRate": 6.76012831175003,
+          "viewToReachRatio": 1.4824759415468693
         },
         {
           "id": "17951483313038474",
@@ -523722,17 +523701,17 @@
           "title": "Do You Know the Story of Dave Chappelle’s Wife?",
           "url": "https://www.instagram.com/reel/DdIMsidjww1/",
           "publishedAt": "2026-09-11T01:11:20+0000",
-          "views": 599599,
+          "views": 599652,
           "reach": 455428,
-          "likes": 29611,
+          "likes": 29613,
           "comments": 356,
           "saves": 2128,
           "shares": 4617,
-          "totalInteractions": 37546,
-          "averageWatchTimeMs": 90408,
-          "totalWatchTimeMs": 41276765759,
-          "engagementRate": 8.244113229753111,
-          "viewToReachRatio": 1.316561564067207
+          "totalInteractions": 37548,
+          "averageWatchTimeMs": 90405,
+          "totalWatchTimeMs": 41278750215,
+          "engagementRate": 8.244552377104613,
+          "viewToReachRatio": 1.3166779381153553
         },
         {
           "id": "18216670381353377",
@@ -523807,24 +523786,24 @@
           "title": "A Las Vegas jury convicted Duane “Keffe D” Davis of first-degree murder in the 1996 killing of Tu...",
           "url": "https://www.instagram.com/reel/DcxAwr2j_ex/",
           "publishedAt": "2026-09-02T01:03:34+0000",
-          "views": 2241,
-          "reach": 1752,
+          "views": 2242,
+          "reach": 1753,
           "likes": 57,
           "comments": 0,
           "saves": 8,
           "shares": 10,
           "totalInteractions": 79,
-          "averageWatchTimeMs": 31651,
-          "totalWatchTimeMs": 54344793,
-          "engagementRate": 4.509132420091324,
-          "viewToReachRatio": 1.279109589041096
+          "averageWatchTimeMs": 31633,
+          "totalWatchTimeMs": 54345651,
+          "engagementRate": 4.50656018254421,
+          "viewToReachRatio": 1.2789503707929264
         },
         {
           "id": "18617150881036072",
           "title": "Jayson Tatum and Ella Mai never announced any of it.",
           "url": "https://www.instagram.com/reel/DcuBk7FjtDs/",
           "publishedAt": "2026-08-31T21:13:17+0000",
-          "views": 187611,
+          "views": 187620,
           "reach": 130109,
           "likes": 6102,
           "comments": 80,
@@ -523832,9 +523811,9 @@
           "shares": 1251,
           "totalInteractions": 8340,
           "averageWatchTimeMs": 61296,
-          "totalWatchTimeMs": 8267959671,
+          "totalWatchTimeMs": 8268177559,
           "engagementRate": 6.410010068481043,
-          "viewToReachRatio": 1.4419525167359675
+          "viewToReachRatio": 1.4420216895064908
         },
         {
           "id": "18103129496340327",
@@ -523967,8 +523946,8 @@
           "saves": 215,
           "shares": 2037,
           "totalInteractions": 3433,
-          "averageWatchTimeMs": 45031,
-          "totalWatchTimeMs": 905620668,
+          "averageWatchTimeMs": 45028,
+          "totalWatchTimeMs": 905621378,
           "engagementRate": 16.812772417846123,
           "viewToReachRatio": 1.2961457466085509
         },
